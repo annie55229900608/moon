@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DCT 魅力定位測驗 Pro</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<style>
+/* 核心樣式簡化與優化 */
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:#fdf5fa;color:#2d1228;font-family:'Noto Sans TC',sans-serif;min-height:100vh;padding-bottom:50px;}
+.page{display:none;}
+.page.on{display:flex;flex-direction:column;animation:up .4s ease both;}
+@keyframes up{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+.inner{max-width:580px;width:100%;margin:0 auto;padding:32px 20px;}
+
+/* 標題感 */
+h1{font-size:2.4rem;font-weight:900;line-height:1.2;margin-bottom:12px;text-align:center;}
+h1 em{color:#e0389a;font-style:normal;}
+.intro-desc{font-size:14px;color:#a06080;text-align:center;margin-bottom:30px;line-height:1.8;}
+
+/* 卡片與按鈕 */
+.card{background:#fff;border:1.5px solid #f0d0e8;border-radius:20px;padding:24px;margin-bottom:16px;box-shadow:0 4px 12px rgba(224,56,154,0.05);}
+.btn{background:#e0389a;color:#fff;font-weight:900;font-size:16px;padding:16px 40px;border-radius:999px;border:none;cursor:pointer;width:100%;transition:0.2s;}
+.btn:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(224,56,154,0.3);}
+.opt{display:block;width:100%;background:#fdf5fa;border:1.5px solid #f0d0e8;border-radius:12px;padding:16px;margin-bottom:10px;text-align:left;cursor:pointer;transition:0.2s;}
+.opt.sel{border-color:#e0389a;background:rgba(224,56,154,0.08);}
+
+/* 結果頁專屬樣式 */
+.formula-row{display:flex;justify-content:center;align-items:center;gap:8px;flex-wrap:wrap;margin:20px 0;}
+.fb{background:#fff;border:1.5px solid #f0d0e8;border-radius:12px;padding:10px;text-align:center;flex:1;min-width:100px;}
+.fb .fl{font-size:10px;color:#c090b0;text-transform:uppercase;}
+.fb .fv{font-size:14px;font-weight:900;color:#e0389a;margin-top:4px;}
+.fx{font-size:18px;color:#e8c0d8;font-weight:bold;}
+
+.res-hero{background:linear-gradient(135deg,#fff0f8,#fce4f4);border-radius:24px;padding:30px 20px;text-align:center;margin-bottom:20px;}
+.res-name{font-size:26px;font-weight:900;color:#e0389a;margin:10px 0;}
+
+.hook-box{background:rgba(224,56,154,0.05);border-radius:14px;padding:16px;margin-top:15px;text-align:left;}
+.hook-label{font-size:12px;font-weight:bold;color:#e0389a;margin-bottom:10px;display:flex;align-items:center;gap:6px;}
+.hook-text{font-size:13px;line-height:1.6;color:#2d1228;}
+.hook-text em{color:#e0389a;font-style:normal;font-weight:bold;}
+
+.past-analysis{border-left:4px solid #e0389a;padding-left:15px;margin-top:15px;}
+.zodiac-badge{display:inline-block;background:#fff3cd;color:#a07020;padding:4px 12px;border-radius:999px;font-size:12px;font-weight:bold;margin-top:10px;}
+
+/* 星座選擇網格 */
+.zodiac-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:15px;}
+.z-btn{background:#fff;border:1.5px solid #f0d0e8;border-radius:10px;padding:10px 5px;text-align:center;cursor:pointer;font-size:12px;}
+.z-btn.on{border-color:#e0389a;background:rgba(224,56,154,0.1);color:#e0389a;}
+
+/* 進度條 */
+.prog-bar{height:6px;background:#f0d0e8;border-radius:3px;margin-bottom:20px;overflow:hidden;}
+.prog-fill{height:100%;background:#e0389a;width:0%;transition:0.3s;}
+</style>
+</head>
+<body>
+
+<div id="p-intro" class="page on">
+  <div class="inner">
+    <h1>DCT <em>魅力</em><br>定位測驗</h1>
+    <p class="intro-desc">找出最適合你的 Reels 方向<br>結合 MBTI、發片經驗與星座特質</p>
+    
+    <div class="card">
+      <p style="font-size:13px; font-weight:bold; color:#e0389a; text-align:center;">✦ 選填：你的星座（增加主題共鳴）</p>
+      <div class="zodiac-grid" id="zodiacGrid"></div>
+    </div>
+    
+    <button class="btn" onclick="startQuiz()">開始測驗 →</button>
+  </div>
+</div>
+
+<div id="p-quiz" class="page">
+  <div class="inner">
+    <div class="prog-bar"><div class="prog-fill" id="progFill"></div></div>
+    <div id="qCard"></div>
+  </div>
+</div>
+
+<div id="p-past" class="page">
+  <div class="inner">
+    <h1>發過的主題？</h1>
+    <p class="intro-desc">點選 1-2 個你過去漲粉或反應最好的主題</p>
+    <div id="pastPool" style="display:flex; flex-wrap:wrap; gap:10px; justify-content:center; margin-bottom:20px;"></div>
+    
+    <div id="pastDetail" class="card" style="display:none;">
+      <p style="font-size:13px; font-weight:bold; margin-bottom:10px;">📈 當時的反應是？</p>
+      <div style="display:flex; gap:10px;">
+        <button class="opt" style="margin-bottom:0;" onclick="setPastMeta('漲粉很多')">漲粉很多</button>
+        <button class="opt" style="margin-bottom:0;" onclick="setPastMeta('互動率高')">互動率高</button>
+      </div>
+    </div>
+    
+    <button class="btn" onclick="showResult()">綜合分析結果 →</button>
+  </div>
+</div>
+
+<div id="p-result" class="page">
+  <div class="inner" id="resultContent"></div>
+</div>
+
+<script>
+// --- 資料定義 ---
+const ZODIACS = [
+  {k:'aries',name:'牡羊',icon:'♈',hook:'「我決定了，現在就去做」'},
+  {k:'taurus',name:'金牛',icon:'♉',hook:'「這個我研究了很久，值得跟你說」'},
+  {k:'gemini',name:'雙子',icon:'♊',hook:'「等等，這個你一定沒想到」'},
+  {k:'cancer',name:'巨蟹',icon:'♋',hook:'「你有沒有也這樣過？」'},
+  {k:'leo',name:'獅子',icon:'♌',hook:'「我來教你我怎麼做到的」'},
+  {k:'virgo',name:'處女',icon:'♍',hook:'「大多數人都做錯了這件事」'},
+  {k:'libra',name:'天秤',icon:'♎',hook:'「讓我給你看這個好看的」'},
+  {k:'scorpio',name:'天蠍',icon:'♏',hook:'「說一個沒人敢說的事」'},
+  {k:'sagittarius',name:'射手',icon:'♐',hook:'「我突然決定去了一個地方」'},
+  {k:'capricorn',name:'魔羯',icon:'♑',hook:'「第X天，我終於做到了」'},
+  {k:'aquarius',name:'水瓶',icon:'♒',hook:'「你覺得是A，其實是B」'},
+  {k:'pisces',name:'雙魚',icon:'♓',hook:'「那天發生了一件事，讓我記到現在」'}
+];
+
+const Qs = [
+  {q:'面對鏡頭，你比較像哪種？',opts:[{t:'即興自然，邊做邊說',k:'E'},{t:'想好腳本，安靜拍攝',k:'I'}]},
+  {q:'你分享影片的重點是？',opts:[{t:'邏輯重點、實用乾貨',k:'T'},{t:'氛圍感、情緒共鳴',k:'F'}]},
+  {q:'你希望觀眾看完覺得？',opts:[{t:'學到東西了',k:'expert'},{t:'心情被療癒了',k:'empath'},{t:'這人好有趣',k:'humor'}]},
+  {q:'你最嚮往哪種生活呈現？',opts:[{t:'精緻質感、美學',k:'beauty'},{t:'真實職場、職業日常',k:'career'},{t:'旅遊美食、開箱',k:'travel'}]}
+];
+
+const PAST_OPTS = [
+  {k:'beauty',n:'美妝穿搭',emoji:'💄'},
+  {k:'career',n:'職業故事',emoji:'🏥'},
+  {k:'travel',n:'旅遊開箱',emoji:'✈️'},
+  {k:'vlog',n:'日常生活',emoji:'📹'}
+];
+
+const CHARM = {
+  humor:{n:'搞笑觀察家',e:'😂',d:'你天生有梗，觀眾喜歡你的反差感與幽默。'},
+  expert:{n:'知識型達人',e:'🧠',d:'你的專業感與邏輯是核心魅力，讓人非常信任。'},
+  empath:{n:'療癒系朋友',e:'💛',d:'你的溫柔與共情力能說出觀眾心底的話。'}
+};
+
+// --- 邏輯控制 ---
+let cur=0, ans=[], selectedZodiac=null, selectedPast=null, pastMeta=null;
+
+function initZodiac(){
+  const g=document.getElementById('zodiacGrid');
+  g.innerHTML=ZODIACS.map(z=>`<div class="z-btn ${selectedZodiac===z.k?'on':''}" onclick="selectedZodiac='${z.k}';initZodiac();">${z.icon}<br>${z.name}</div>`).join('');
+}
+
+function startQuiz(){ cur=0; ans=[]; show('p-quiz'); renderQ(); }
+
+function renderQ(){
+  const q=Qs[cur];
+  document.getElementById('progFill').style.width=((cur+1)/Qs.length*100)+'%';
+  document.getElementById('qCard').innerHTML=`
+    <div class="card">
+      <p style="font-size:12px; color:#c090b0; margin-bottom:10px;">Question ${cur+1}</p>
+      <h2 style="margin-bottom:20px;">${q.q}</h2>
+      ${q.opts.map((o,i)=>`<button class="opt" onclick="pick(${i})">${o.t}</button>`).join('')}
+    </div>`;
+}
+
+function pick(i){
+  ans.push(Qs[cur].opts[i].k);
+  if(cur<Qs.length-1){ cur++; renderQ(); }
+  else { showPast(); }
+}
+
+function showPast(){
+  show('p-past');
+  const p=document.getElementById('pastPool');
+  p.innerHTML=PAST_OPTS.map(o=>`<button class="opt" style="width:auto; display:inline-block;" onclick="selectPast('${o.k}')">${o.emoji} ${o.n}</button>`).join('');
+}
+
+function selectPast(k){
+  selectedPast=k;
+  document.getElementById('pastDetail').style.display='block';
+}
+
+function setPastMeta(m){ pastMeta=m; }
+
+function showResult(){
+  show('p-result');
+  const res = document.getElementById('resultContent');
+  const charmType = ans[2]; // 魅力題
+  const style = ans[0]+ans[1]; // MBTI 簡化
+  const mainDir = ans[3];
+  const zod = ZODIACS.find(z=>z.k===selectedZodiac);
+  
+  res.innerHTML = `
+    <div class="res-hero">
+      <div class="res-label">綜合分析定位</div>
+      <div class="formula-row">
+        <div class="fb"><div class="fl">魅力</div><div class="fv">${CHARM[charmType].n}</div></div>
+        <div class="fx">×</div>
+        <div class="fb"><div class="fl">風格</div><div class="fv">${style}型</div></div>
+        <div class="fx">×</div>
+        <div class="fb"><div class="fl">主題</div><div class="fv">${mainDir}</div></div>
+      </div>
+      <h2 class="res-name">${CHARM[charmType].n} × ${mainDir}</h2>
+      <p class="intro-desc">${CHARM[charmType].d}</p>
+    </div>
+
+    <div class="card">
+      <h3 style="color:#e0389a; margin-bottom:15px;">📱 最適合你的內容方向</h3>
+      <p style="font-size:14px; line-height:1.8;">
+        你的 MBTI 傾向於 <strong>${style}</strong>。這代表你${ans[0]==='E'?'適合在鏡頭前直接對話互動':'適合口白配畫面或文字型Reels'}。
+        建議以「${mainDir}」為主線，結合你的「${CHARM[charmType].n}」特質。
+      </p>
+      <div class="hook-box">
+        <p class="hook-label">💡 專屬你的具體 Reels 策略</p>
+        <div class="hook-text">
+          1. <strong>黃金開頭：</strong>${zod ? `運用星座共鳴說：「<em>${zod.hook}</em>」` : '直接拋出一個懸念或共鳴問題。'}<br>
+          2. <strong>內容深度：</strong>每支影片只講一個重點，${ans[1]==='T'?'著重在邏輯與解決方案':'著重在情感連結與氛圍感'}。
+        </div>
+      </div>
+    </div>
+
+    ${selectedPast ? `
+    <div class="card">
+      <h3 style="color:#e0389a; margin-bottom:15px;">🔥 歷史主題深度分析</h3>
+      <div class="past-analysis">
+        <p style="font-size:14px;">你在「${selectedPast}」曾獲得 <strong>${pastMeta || '不錯'}</strong> 的反應。</p>
+        <p style="font-size:13px; color:#a06080; margin-top:8px;">
+          策略建議：不要轉換跑道，而是「進化」。將原本的主題加入更多 ${ans[0]==='E'?'互動環節':'腳本結構'}。
+          既然觀眾已經對這個主題有反應，下一步要強化的是你的<strong>個人標籤</strong>。
+        </p>
+      </div>
+    </div>` : ''}
+
+    <div class="card">
+      <h3 style="color:#e0389a; margin-bottom:10px;">✦ 拍攝風格總結</h3>
+      <p style="font-size:13px; color:#2d1228;">
+        作為 <strong>ENFJ</strong> (魅力導向) 的延伸，你在社群上適合扮演一個「帶路人」。<br>
+        ${selectedZodiac ? `<span class="zodiac-badge">${zod.icon} ${zod.name}座共鳴：利用你的直覺強化開頭</span>` : ''}
+      </p>
+    </div>
+
+    <button class="btn" onclick="location.reload()" style="background:#fff; color:#e0389a; border:1.5px solid #e0389a;">↺ 重新測試</button>
+  `;
+}
+
+function show(id){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('on'));
+  document.getElementById(id).classList.add('on');
+  window.scrollTo(0,0);
+}
+
+// 初始化
+initZodiac();
+</script>
+</body>
+</html>
