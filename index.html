@@ -12,17 +12,24 @@ body{background:#fdf5fa;color:#2d1228;font-family:'Noto Sans TC',sans-serif;min-
 .page{display:none;}
 .page.on{display:flex;flex-direction:column;min-height:100vh;animation:up .4s ease both;}
 @keyframes up{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
-.inner{max-width:580px;width:100%;margin:0 auto;padding:32px 20px 72px;flex:1;}
-#p-intro .inner{display:flex;flex-direction:column;align-items:center;text-align:center;padding-top:56px;}
+.inner{max-width:580px;width:100%;margin:0 auto;padding:32px 20px 80px;flex:1;}
+#p-intro .inner{display:flex;flex-direction:column;align-items:center;text-align:center;padding-top:40px;}
 .logo-star{font-size:42px;color:#e0389a;margin-bottom:18px;display:inline-block;animation:spin 10s linear infinite;}
 @keyframes spin{to{transform:rotate(360deg)}}
 .badge{display:inline-flex;align-items:center;gap:6px;border:1.5px solid #e0389a;color:#e0389a;font-size:12px;padding:5px 16px;border-radius:999px;margin-bottom:22px;}
 h1{font-size:clamp(1.9rem,5.5vw,2.9rem);font-weight:900;line-height:1.15;margin-bottom:8px;}
 h1 em{color:#e0389a;font-style:normal;}
 .intro-sub{font-size:14px;color:#e0389a;font-weight:700;margin-bottom:10px;}
-.intro-desc{font-size:13px;color:#a06080;line-height:1.8;margin-bottom:24px;max-width:400px;}
-.types-preview{display:flex;flex-wrap:wrap;justify-content:center;gap:7px;margin-bottom:24px;max-width:440px;}
-.type-chip{display:flex;align-items:center;gap:5px;background:#fff;border:1.5px solid #f0d0e8;border-radius:999px;padding:5px 13px;font-size:12px;color:#2d1228;}
+.intro-desc{font-size:13px;color:#a06080;line-height:1.8;margin-bottom:16px;max-width:400px;}
+
+.mindset-card{background:linear-gradient(135deg,rgba(255,228,244,.85),rgba(255,244,252,.9));border:1.5px solid #f0c0de;border-radius:18px;padding:18px 20px;margin-bottom:22px;max-width:440px;text-align:left;}
+.mindset-title{font-size:13px;font-weight:900;color:#e0389a;margin-bottom:10px;display:flex;align-items:center;gap:6px;}
+.mindset-row{display:flex;gap:9px;align-items:flex-start;margin-bottom:7px;}
+.mindset-row:last-child{margin-bottom:0;}
+.mindset-icon{font-size:14px;flex-shrink:0;margin-top:1px;}
+.mindset-text{font-size:12px;color:#a06080;line-height:1.65;}
+.mindset-text em{color:#e0389a;font-style:normal;font-weight:700;}
+
 .steps-row{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;width:100%;max-width:440px;margin-bottom:28px;text-align:left;}
 .step-box{background:#fff;border:1.5px solid #f0d0e8;border-radius:12px;padding:12px 13px;}
 .step-n{font-size:10px;color:#c090b0;letter-spacing:.1em;text-transform:uppercase;margin-bottom:3px;}
@@ -42,11 +49,18 @@ h1 em{color:#e0389a;font-style:normal;}
 .prog-txt{font-size:12px;color:#c090b0;white-space:nowrap;}
 .q-card{background:#fff;border:1.5px solid #f0d0e8;border-radius:20px;padding:26px 22px;animation:up .35s ease both;}
 .q-tag{display:inline-block;background:rgba(224,56,154,.08);border:1px solid rgba(224,56,154,.22);color:#e0389a;font-size:11px;padding:4px 13px;border-radius:999px;margin-bottom:13px;}
-.q-text{font-size:17px;font-weight:700;line-height:1.5;margin-bottom:18px;}
+.q-text{font-size:17px;font-weight:700;line-height:1.5;margin-bottom:6px;}
+.q-hint{font-size:12px;color:#c090b0;margin-bottom:14px;}
 .opts{display:flex;flex-direction:column;gap:8px;}
 .opt{display:flex;align-items:flex-start;gap:11px;background:#fdf5fa;border:1.5px solid #f0d0e8;border-radius:12px;padding:13px 14px;cursor:pointer;transition:all .18s;text-align:left;width:100%;}
 .opt:hover{border-color:#e0389a;background:rgba(224,56,154,.04);transform:translateX(3px);}
 .opt.sel{border-color:#e0389a;background:rgba(224,56,154,.08);}
+/* 複選題 */
+.opts-multi{display:flex;flex-wrap:wrap;gap:8px;}
+.opt-chip{display:inline-flex;align-items:center;gap:6px;background:#fdf5fa;border:1.5px solid #f0d0e8;border-radius:999px;padding:9px 16px;cursor:pointer;transition:all .18s;font-size:13px;color:#2d1228;user-select:none;}
+.opt-chip:hover{border-color:#e0389a;background:rgba(224,56,154,.05);}
+.opt-chip.sel{border-color:#e0389a;background:rgba(224,56,154,.1);color:#e0389a;font-weight:700;}
+.multi-note{font-size:11px;color:#c090b0;margin-top:10px;}
 .opt-dot{width:20px;height:20px;border-radius:50%;border:1.5px solid #e8c0d8;flex-shrink:0;margin-top:2px;display:flex;align-items:center;justify-content:center;transition:all .15s;}
 .opt.sel .opt-dot{background:#e0389a;border-color:#e0389a;}
 .opt-dot::after{content:'';width:7px;height:7px;border-radius:50%;background:#fff;opacity:0;transition:opacity .15s;}
@@ -60,8 +74,6 @@ h1 em{color:#e0389a;font-style:normal;}
 .past-title{font-size:22px;font-weight:900;margin-bottom:6px;}
 .past-title em{color:#e0389a;font-style:normal;}
 .past-sub{font-size:13px;color:#a06080;line-height:1.7;margin-bottom:20px;}
-.past-skip{font-size:12px;color:#c090b0;margin-top:14px;cursor:pointer;text-decoration:underline;display:inline-block;}
-.past-skip:hover{color:#e0389a;}
 .pool-label{font-size:11px;color:#c090b0;letter-spacing:.1em;text-transform:uppercase;margin-bottom:10px;display:flex;justify-content:space-between;align-items:center;}
 .pool-count{font-size:12px;color:#e0389a;font-weight:700;}
 .topic-pool{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px;padding:12px;background:#fff;border:1.5px dashed #f0d0e8;border-radius:14px;}
@@ -98,7 +110,7 @@ h1 em{color:#e0389a;font-style:normal;}
 .past-note textarea:focus{border-color:#e0389a;}
 .past-note textarea::placeholder{color:#c090b0;}
 
-/* RESULT */
+/* ── RESULT ── */
 .result-hero{background:linear-gradient(135deg,#fff0f8,#fce4f4);border:1.5px solid #f0d0e8;border-radius:24px;padding:34px 26px;text-align:center;margin-bottom:14px;}
 .res-star{font-size:48px;display:block;margin-bottom:10px;animation:pop .5s ease both;}
 @keyframes pop{0%{transform:scale(.5);opacity:0}70%{transform:scale(1.1)}100%{transform:scale(1);opacity:1}}
@@ -110,33 +122,65 @@ h1 em{color:#e0389a;font-style:normal;}
 .fx{font-size:18px;color:#e8c0d8;}
 .res-name{font-size:24px;font-weight:900;color:#e0389a;margin-bottom:6px;}
 .res-desc{font-size:13px;color:#a06080;line-height:1.8;max-width:440px;margin:0 auto;}
+.res-disclaimer{font-size:11px;color:#b080a0;line-height:1.7;margin-top:14px;padding:10px 14px;background:rgba(255,255,255,.7);border-radius:10px;border:1px solid #f0d0e8;}
+.res-disclaimer em{color:#e0389a;font-style:normal;}
 
 .big-card{background:#fff;border:1.5px solid #f0d0e8;border-radius:20px;padding:22px;margin-bottom:14px;}
-.sec-title{font-size:12px;font-weight:900;color:#e0389a;letter-spacing:.08em;text-transform:uppercase;margin-bottom:14px;display:flex;align-items:center;gap:6px;}
+.sec-title{font-size:12px;font-weight:900;color:#e0389a;letter-spacing:.08em;text-transform:uppercase;margin-bottom:16px;display:flex;align-items:center;gap:6px;}
 .sec-divider{height:1px;background:#f5e0f0;margin:20px 0;}
 
-.topic-pair{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px;}
-.tc{background:#fdf5fa;border:1.5px solid #f0d0e8;border-radius:14px;padding:14px;}
-.tc.main{border-color:#e0389a;background:rgba(224,56,154,.05);}
-.tc-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;}
-.tc-left{display:flex;align-items:center;gap:7px;}
-.tc-emoji{font-size:18px;}
-.tc-name{font-size:12px;font-weight:700;}
-.tc-tag{font-size:9px;padding:2px 8px;border-radius:999px;}
-.tg-main{background:#e0389a;color:#fff;}
-.tg-sub{background:#f0d0e8;color:#a06080;}
-.tg-past{background:#ff9ec8;color:#fff;}
-.tc-bar{height:4px;background:#f0d0e8;border-radius:4px;overflow:hidden;margin-bottom:9px;}
-.tc-fill{height:100%;background:#e0389a;border-radius:4px;transition:width 1s ease;width:0;}
-.tc-list{font-size:11px;color:#a06080;line-height:1.7;}
+/* ── Reels 建議主卡 ── */
+.reels-main-card{background:linear-gradient(135deg,rgba(255,228,244,.5),rgba(252,236,250,.5));border:1.5px solid rgba(224,56,154,.25);border-radius:20px;overflow:hidden;margin-bottom:8px;}
+.reels-header{background:linear-gradient(90deg,#e0389a,#f060b0);padding:14px 18px;display:flex;align-items:center;gap:10px;}
+.reels-header-emoji{font-size:22px;}
+.reels-header-text{flex:1;}
+.reels-header-name{font-size:15px;font-weight:900;color:#fff;}
+.reels-header-sub{font-size:11px;color:rgba(255,255,255,.8);margin-top:2px;}
+.reels-header-badge{font-size:10px;padding:3px 9px;border-radius:999px;background:rgba(255,255,255,.25);color:#fff;font-weight:700;}
+.reels-body{padding:16px 18px;display:flex;flex-direction:column;gap:14px;}
 
-.hook-box{background:linear-gradient(135deg,rgba(224,56,154,.07),rgba(255,126,200,.04));border:1.5px solid rgba(224,56,154,.2);border-radius:14px;padding:15px;margin-top:12px;}
-.hook-label{font-size:11px;color:#e0389a;font-weight:900;letter-spacing:.08em;text-transform:uppercase;margin-bottom:10px;}
-.hook-row{display:flex;gap:10px;align-items:flex-start;margin-bottom:7px;}
-.hook-n{width:20px;height:20px;border-radius:50%;background:#e0389a;color:#fff;font-size:10px;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;}
+.reels-section{background:#fff;border:1px solid #f0d0e8;border-radius:12px;overflow:hidden;}
+.reels-sec-head{display:flex;align-items:center;gap:8px;padding:10px 14px;background:#fdf5fa;border-bottom:1px solid #f5e0f0;}
+.reels-sec-icon{font-size:14px;}
+.reels-sec-label{font-size:11px;font-weight:900;color:#e0389a;letter-spacing:.06em;text-transform:uppercase;}
+.reels-sec-body{padding:12px 14px;}
+
+.topic-tags{display:flex;flex-wrap:wrap;gap:6px;}
+.topic-tag{font-size:12px;padding:4px 12px;border-radius:999px;background:rgba(224,56,154,.07);border:1px solid rgba(224,56,154,.18);color:#e0389a;}
+.topic-list{display:flex;flex-direction:column;gap:5px;}
+.topic-list-item{display:flex;gap:8px;align-items:flex-start;}
+.tli-dot{width:5px;height:5px;border-radius:50%;background:#e0389a;flex-shrink:0;margin-top:6px;}
+.tli-text{font-size:12px;color:#2d1228;line-height:1.6;}
+
+.hook-formula{background:linear-gradient(135deg,rgba(224,56,154,.07),rgba(255,126,200,.04));border:1px solid rgba(224,56,154,.2);border-radius:10px;padding:12px 14px;}
+.hook-line{display:flex;gap:9px;align-items:flex-start;margin-bottom:8px;}
+.hook-line:last-child{margin-bottom:0;}
+.hook-n{width:18px;height:18px;border-radius:50%;background:#e0389a;color:#fff;font-size:9px;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;}
 .hook-t{font-size:12px;color:#2d1228;line-height:1.65;}
 .hook-t em{color:#e0389a;font-style:normal;font-weight:700;}
+.hook-quote{font-size:13px;font-weight:700;color:#e0389a;background:#fff;border:1.5px solid rgba(224,56,154,.2);border-radius:8px;padding:8px 12px;margin-top:6px;line-height:1.55;}
 
+.caution-list{display:flex;flex-direction:column;gap:6px;}
+.caution-item{display:flex;gap:8px;align-items:flex-start;}
+.caution-icon{font-size:12px;flex-shrink:0;margin-top:2px;}
+.caution-text{font-size:12px;color:#a06080;line-height:1.6;}
+.caution-text em{color:#e0389a;font-style:normal;font-weight:700;}
+
+/* ── 限動建議卡 ── */
+.story-card{background:linear-gradient(135deg,rgba(255,200,230,.3),rgba(255,240,250,.5));border:1.5px solid rgba(224,56,154,.2);border-radius:20px;overflow:hidden;margin-bottom:8px;}
+.story-header{background:linear-gradient(90deg,#c0288a,#e0389a);padding:14px 18px;display:flex;align-items:center;gap:10px;}
+.story-header-icon{font-size:20px;}
+.story-header-name{font-size:14px;font-weight:900;color:#fff;}
+.story-header-sub{font-size:11px;color:rgba(255,255,255,.8);margin-top:1px;}
+.story-body{padding:16px 18px;display:flex;flex-direction:column;gap:10px;}
+.story-item{display:flex;gap:10px;align-items:flex-start;background:#fff;border:1px solid #f0d0e8;border-radius:12px;padding:12px 14px;}
+.story-emoji{font-size:18px;flex-shrink:0;}
+.story-content{flex:1;}
+.story-name{font-size:13px;font-weight:700;color:#2d1228;margin-bottom:3px;}
+.story-desc{font-size:12px;color:#a06080;line-height:1.6;}
+.story-desc em{color:#e0389a;font-style:normal;font-weight:700;}
+
+/* ── 過去主題分析 ── */
 .past-item{display:flex;gap:10px;align-items:flex-start;padding:12px;background:rgba(224,56,154,.04);border:1px solid rgba(224,56,154,.12);border-radius:12px;margin-bottom:8px;}
 .pi-icon{font-size:18px;flex-shrink:0;}
 .pi-badge{font-size:9px;padding:2px 7px;border-radius:999px;margin-right:4px;}
@@ -146,26 +190,7 @@ h1 em{color:#e0389a;font-style:normal;}
 .pi-grow{font-size:10px;padding:2px 8px;border-radius:999px;background:#ffeef6;color:#e0389a;border:1px solid rgba(224,56,154,.2);margin-left:4px;vertical-align:middle;}
 .pi-desc{font-size:12px;color:#a06080;line-height:1.65;margin-top:5px;}
 
-.strategy-item{display:flex;gap:11px;padding:12px;background:#fdf5fa;border-radius:12px;margin-bottom:8px;}
-.si-icon{font-size:18px;flex-shrink:0;}
-.si-title{font-size:13px;font-weight:700;color:#2d1228;margin-bottom:3px;}
-.si-badge{font-size:9px;padding:2px 7px;border-radius:999px;margin-left:5px;vertical-align:middle;}
-.sb-hot{background:#e0389a;color:#fff;}
-.sb-next{background:#ff9ec8;color:#fff;}
-.si-desc{font-size:12px;color:#a06080;line-height:1.65;}
-.si-hook{font-size:11px;color:#e0389a;margin-top:6px;padding:7px 10px;background:rgba(224,56,154,.06);border-radius:8px;line-height:1.5;}
-
-.rule15{background:linear-gradient(135deg,rgba(224,56,154,.06),rgba(255,126,200,.04));border:1.5px solid rgba(224,56,154,.2);border-radius:14px;padding:16px;margin-top:12px;}
-.r15-head{font-size:12px;font-weight:900;color:#e0389a;margin-bottom:10px;}
-.r15-track{display:flex;gap:3px;flex-wrap:wrap;margin-bottom:12px;}
-.r15-dot{width:22px;height:22px;border-radius:50%;background:#f0d0e8;display:flex;align-items:center;justify-content:center;font-size:9px;color:#c090b0;font-weight:700;}
-.r15-dot.filled{background:#e0389a;color:#fff;}
-.r15-dot.pivot{background:#2d1228;color:#fff;}
-.r15-step{display:flex;gap:8px;align-items:flex-start;margin-bottom:7px;}
-.r15-icon{font-size:13px;flex-shrink:0;margin-top:2px;}
-.r15-text{font-size:12px;color:#a06080;line-height:1.65;}
-.r15-text em{color:#e0389a;font-style:normal;font-weight:700;}
-
+/* ── MBTI ── */
 .mbti-item{border:1.5px solid #f0d0e8;border-radius:14px;overflow:hidden;margin-bottom:10px;}
 .mbti-head{display:flex;align-items:center;gap:10px;padding:12px 14px;background:#fdf5fa;}
 .mbti-letter{font-size:22px;font-weight:900;color:#e0389a;width:28px;flex-shrink:0;}
@@ -176,6 +201,19 @@ h1 em{color:#e0389a;font-style:normal;}
 .mbti-tips-row{display:flex;flex-wrap:wrap;gap:5px;margin-top:8px;}
 .mbti-tip-chip{font-size:11px;padding:3px 10px;border-radius:999px;background:rgba(224,56,154,.07);border:1px solid rgba(224,56,154,.18);color:#e0389a;}
 
+/* ── 15則 ── */
+.rule15{background:linear-gradient(135deg,rgba(224,56,154,.05),rgba(255,126,200,.03));border:1.5px solid rgba(224,56,154,.18);border-radius:14px;padding:16px;}
+.r15-head{font-size:12px;font-weight:900;color:#e0389a;margin-bottom:10px;}
+.r15-track{display:flex;gap:3px;flex-wrap:wrap;margin-bottom:12px;}
+.r15-dot{width:22px;height:22px;border-radius:50%;background:#f0d0e8;display:flex;align-items:center;justify-content:center;font-size:9px;color:#c090b0;font-weight:700;}
+.r15-dot.filled{background:#e0389a;color:#fff;}
+.r15-dot.pivot{background:#2d1228;color:#fff;}
+.r15-step{display:flex;gap:8px;align-items:flex-start;margin-bottom:7px;}
+.r15-icon{font-size:13px;flex-shrink:0;margin-top:2px;}
+.r15-text{font-size:12px;color:#a06080;line-height:1.65;}
+.r15-text em{color:#e0389a;font-style:normal;font-weight:700;}
+
+/* ── Summary ── */
 .summary{background:linear-gradient(150deg,#2d1228,#551040);border-radius:20px;padding:26px 22px;margin-bottom:14px;color:#fff;}
 .sum-label{font-size:10px;color:#e8a0cc;letter-spacing:.15em;text-transform:uppercase;margin-bottom:6px;}
 .sum-h{font-size:17px;font-weight:900;color:#fff;margin-bottom:18px;line-height:1.35;}
@@ -194,14 +232,27 @@ h1 em{color:#e0389a;font-style:normal;}
 .sw-day{font-size:10px;font-weight:900;color:#ff9ece;min-width:50px;padding-top:2px;flex-shrink:0;}
 .sw-task{font-size:12px;color:#fff;line-height:1.6;}
 
+/* 初心卡 */
+.heart-card{background:linear-gradient(135deg,rgba(255,228,244,.6),rgba(252,228,244,.8));border:1.5px solid rgba(224,56,154,.2);border-radius:20px;padding:22px;margin-bottom:14px;}
+.heart-title{font-size:13px;font-weight:900;color:#e0389a;margin-bottom:12px;display:flex;align-items:center;gap:6px;}
+.heart-row{display:flex;gap:9px;align-items:flex-start;margin-bottom:8px;}
+.heart-row:last-child{margin-bottom:0;}
+.heart-icon{font-size:16px;flex-shrink:0;margin-top:1px;}
+.heart-text{font-size:12px;color:#a06080;line-height:1.7;}
+.heart-text em{color:#e0389a;font-style:normal;font-weight:700;}
+.heart-text strong{color:#2d1228;}
+
 .tags{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:14px;}
 .tag{background:rgba(224,56,154,.08);border:1px solid rgba(224,56,154,.2);color:#e0389a;font-size:12px;padding:5px 13px;border-radius:999px;}
 .btn-retry{display:block;width:100%;background:#fff;border:1.5px solid #f0d0e8;color:#c090b0;font-family:'Noto Sans TC',sans-serif;font-size:14px;padding:14px;border-radius:12px;cursor:pointer;transition:all .2s;}
 .btn-retry:hover{border-color:#e0389a;color:#e0389a;}
 
+.music-btn{position:fixed;bottom:22px;right:22px;width:44px;height:44px;border-radius:50%;background:#e0389a;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:18px;box-shadow:0 4px 16px rgba(224,56,154,.4);z-index:999;transition:transform .2s;}
+.music-btn:hover{transform:scale(1.1);}
+.music-btn.paused{background:#fff;border:2px solid #e0389a;}
+
 @media(max-width:480px){
   .steps-row{grid-template-columns:1fr 1fr;}
-  .topic-pair{grid-template-columns:1fr;}
   .formula-row{gap:4px;}
   .fb{min-width:60px;padding:8px 10px;}
 }
@@ -209,34 +260,43 @@ h1 em{color:#e0389a;font-style:normal;}
 </head>
 <body>
 
+<audio id="bgMusic" loop>
+  <source src="https://cdn.pixabay.com/download/audio/2022/03/10/audio_9e5b03c0d2.mp3" type="audio/mpeg">
+</audio>
+<button class="music-btn" id="musicBtn" onclick="toggleMusic()" title="背景音樂">🎵</button>
+
+<!-- ─── INTRO ─── -->
 <div id="p-intro" class="page on">
   <div class="inner">
     <span class="logo-star">✦</span>
     <div class="badge">✨ 個人品牌 × 社群定位</div>
     <h1>DCT <em>魅力</em><br>定位測驗</h1>
-    <p class="intro-sub">找出你最適合發的 Reels 類型</p>
-    <p class="intro-desc">只需 <strong>15 題</strong>，根據你的個性與魅力，找出最自然、最適合你的內容方向，並附上讓人停滑的開頭三秒公式。</p>
-    <div class="types-preview">
-      <div class="type-chip">💄 美妝</div><div class="type-chip">📹 Vlog</div>
-      <div class="type-chip">🕺 跳操</div><div class="type-chip">📦 開箱</div>
-      <div class="type-chip">✨ 創意</div><div class="type-chip">🍳 食譜</div>
-      <div class="type-chip">✈️ 旅遊</div><div class="type-chip">💑 情侶</div>
-      <div class="type-chip">⭐ 星座共鳴</div><div class="type-chip">🏥 職業故事</div>
+    <p class="intro-sub">找出你最自然、最適合你的內容方向</p>
+    <p class="intro-desc">只需 <strong>18 題</strong>，根據你的個性與魅力，找出最適合你的 Reels 與限動方向，並附上讓人停滑的開頭三秒公式。</p>
+
+    <div class="mindset-card">
+      <div class="mindset-title">🌿 在開始之前，想先跟你說</div>
+      <div class="mindset-row"><div class="mindset-icon">💛</div><div class="mindset-text">這個測驗只是<em>方向參考</em>。每個人都是不同且有多樣性的，無法輕易被定義，也不要被定義。</div></div>
+      <div class="mindset-row"><div class="mindset-icon">🎬</div><div class="mindset-text">分享的目的是為了<em>影響更多人</em>。就算觀看率低，也是有人在看——不要有太多得失心。</div></div>
+      <div class="mindset-row"><div class="mindset-icon">🌱</div><div class="mindset-text">記錄和分享本來就是為了<em>成長與累積</em>。每一部影片都在練習，能被看到是好事。</div></div>
+      <div class="mindset-row"><div class="mindset-icon">✨</div><div class="mindset-text">去<em>愛上剪輯跟分享的意義</em>，在過程中不斷肯定自己。</div></div>
     </div>
+
     <div class="steps-row">
       <div class="step-box"><div class="step-n">Part 1</div><div class="step-t">🎬 拍攝風格</div><div class="step-d">你怎麼出現在鏡頭前</div></div>
       <div class="step-box"><div class="step-n">Part 2</div><div class="step-t">⚡ 魅力天賦</div><div class="step-d">你影響別人的方式</div></div>
-      <div class="step-box"><div class="step-n">Part 3</div><div class="step-t">🌸 內容偏好</div><div class="step-d">你最自然的主題方向</div></div>
+      <div class="step-box"><div class="step-n">Part 3</div><div class="step-t">🌸 內容偏好</div><div class="step-d">Reels ＆ 限動方向</div></div>
     </div>
     <button class="btn" onclick="startQuiz()">開始測驗 →</button>
   </div>
 </div>
 
+<!-- ─── QUIZ ─── -->
 <div id="p-quiz" class="page">
   <div class="inner">
     <div class="prog-wrap">
       <div class="prog-bar"><div class="prog-fill" id="progFill" style="width:0%"></div></div>
-      <div class="prog-txt" id="progTxt">1 / 15</div>
+      <div class="prog-txt" id="progTxt">1 / 18</div>
     </div>
     <div id="qCard"></div>
     <div class="nav-row">
@@ -246,11 +306,12 @@ h1 em{color:#e0389a;font-style:normal;}
   </div>
 </div>
 
+<!-- ─── PAST ─── -->
 <div id="p-past" class="page">
   <div class="inner">
     <div style="margin-bottom:6px;font-size:11px;color:#c090b0;letter-spacing:.1em;text-transform:uppercase;">加分題</div>
     <div class="past-title">過去發過的主題<br><em>哪個讓你漲粉最多？</em></div>
-    <p class="past-sub">勾選你<strong style="color:#e0389a">發過的主題（最多3個）</strong>，並告訴我粉絲的反應。<br>這些會讓你的結果更精準，建議也更貼近你的實際狀況。<br><span style="color:#c090b0">沒有發過的可以直接略過。</span></p>
+    <p class="past-sub">勾選你<strong style="color:#e0389a">發過的主題（最多3個）</strong>，並告訴我粉絲的反應。沒有發過的可以直接略過。</p>
     <div class="pool-label">
       <span>✦ 點選你發過的主題（最多3個）</span>
       <span class="pool-count" id="poolCount">0 / 3</span>
@@ -270,83 +331,126 @@ h1 em{color:#e0389a;font-style:normal;}
       <button class="btn" onclick="showResult()" style="padding:14px 36px;font-size:14px">查看我的結果 ✦</button>
     </div>
     <div style="text-align:center;margin-top:14px">
-      <span class="past-skip" onclick="showResult()">略過，直接看結果 →</span>
+      <span style="font-size:12px;color:#c090b0;cursor:pointer;text-decoration:underline;" onclick="showResult()">略過，直接看結果 →</span>
     </div>
   </div>
 </div>
 
+<!-- ─── RESULT ─── -->
 <div id="p-result" class="page">
   <div class="inner" id="resultContent"></div>
 </div>
 
 <script>
+// ── Q 定義 ──
+// Q0–4: 拍攝風格 (單選)
+// Q5–9: 魅力天賦 (單選)
+// Q10–14: 內容偏好/Reels (單選)
+// Q15: 限動複選 (multi)
+// Q16: 生活角色 (單選)
+// Q17: 化妝習慣 (單選)
+
 const Qs=[
-  {s:'🎬 拍攝風格 1/5',q:'面對鏡頭，你比較像哪種？',opts:[
+  {s:'🎬 拍攝風格 1/5',q:'面對鏡頭，你比較像哪種？',type:'single',opts:[
     {t:'即興自然，直接說，情緒帶動強',hint:'E 外向型',k:'E'},
     {t:'想好了再說，喜歡事先準備腳本',hint:'I 內向型',k:'I'}]},
-  {s:'🎬 拍攝風格 2/5',q:'你最容易在社群發的是？',opts:[
+  {s:'🎬 拍攝風格 2/5',q:'你最容易在社群發的是？',type:'single',opts:[
     {t:'當下即時：隨手限動、生活即拍即發',hint:'即興發文',k:'E'},
     {t:'事先準備：剪好的影片、寫好的文字',hint:'規劃發文',k:'I'}]},
-  {s:'🎬 拍攝風格 3/5',q:'你喜歡的影片感覺？',opts:[
+  {s:'🎬 拍攝風格 3/5',q:'你喜歡的影片感覺？',type:'single',opts:[
     {t:'有步驟、有重點、看完能直接用',hint:'實用資訊型',k:'S'},
     {t:'有故事、有情緒、看完有感覺',hint:'氛圍感染型',k:'N'}]},
-  {s:'🎬 拍攝風格 4/5',q:'你分享一件事時更傾向？',opts:[
+  {s:'🎬 拍攝風格 4/5',q:'你分享一件事時更傾向？',type:'single',opts:[
     {t:'講邏輯、擺數據、直接說重點',hint:'理性型',k:'T'},
     {t:'說感受、重共鳴、跟對方有連結',hint:'感性型',k:'F'}]},
-  {s:'🎬 拍攝風格 5/5',q:'對於發文計畫，你是？',opts:[
+  {s:'🎬 拍攝風格 5/5',q:'對於發文計畫，你是？',type:'single',opts:[
     {t:'喜歡有主題、有系列、照計畫走',hint:'規劃型',k:'J'},
     {t:'靈感來了就發，不想被格式綁住',hint:'彈性型',k:'P'}]},
-  {s:'⚡ 魅力天賦 1/5',q:'朋友最常說你是哪種人？',opts:[
+
+  {s:'⚡ 魅力天賦 1/5',q:'朋友最常說你是哪種人？',type:'single',opts:[
     {t:'有梗又好笑，跟你在一起超快樂',hint:'幽默感染型',k:'humor'},
     {t:'很懂某個東西，問你最準',hint:'知識專業型',k:'expert'},
     {t:'跟你說話感覺被理解、很療癒',hint:'溫柔共情型',k:'empath'},
     {t:'很有活力，讓人想跟著你衝',hint:'能量帶動型',k:'energy'}]},
-  {s:'⚡ 魅力天賦 2/5',q:'你希望觀眾看完你的 Reels 覺得？',opts:[
+  {s:'⚡ 魅力天賦 2/5',q:'你希望觀眾看完你的 Reels 覺得？',type:'single',opts:[
     {t:'哈哈哈笑死，心情超好',hint:'😂',k:'humor'},
     {t:'學到東西了！馬上去試',hint:'🧠',k:'expert'},
     {t:'好有共鳴，被理解了',hint:'💛',k:'empath'},
     {t:'熱血！好想衝去做',hint:'⚡',k:'energy'}]},
-  {s:'⚡ 魅力天賦 3/5',q:'你說話的風格最接近？',opts:[
-    {t:'幽默觀察，什麼都能講得很好笑',hint:'',k:'humor'},
-    {t:'邏輯清楚，重點清晰讓人有收穫',hint:'',k:'expert'},
-    {t:'溫柔療癒，說話讓人很安心',hint:'',k:'empath'},
-    {t:'熱情感染，帶動整個氣氛',hint:'',k:'energy'}]},
-  {s:'⚡ 魅力天賦 4/5',q:'你最不想拍的影片是？',opts:[
-    {t:'沒有笑點、一本正經的內容',hint:'',k:'humor'},
-    {t:'沒有實質資訊、純粹閒聊',hint:'',k:'expert'},
-    {t:'太高調炫耀、讓人覺得很假',hint:'',k:'empath'},
-    {t:'一直待在家裡拍同個地方',hint:'',k:'energy'}]},
-  {s:'⚡ 魅力天賦 5/5',q:'帳號爆紅，你第一個想到的是？',opts:[
-    {t:'這麼多人覺得我好笑！太爽了',hint:'',k:'humor'},
-    {t:'代表我的資訊真的有幫到人',hint:'',k:'expert'},
-    {t:'原來這麼多人有一樣的感受',hint:'',k:'empath'},
-    {t:'終於可以接業配去更多地方！',hint:'',k:'energy'}]},
-  {s:'🌸 內容偏好 1/5',q:'你日常最樂在其中的事？',opts:[
+  {s:'⚡ 魅力天賦 3/5',q:'你說話的風格最接近？',type:'single',opts:[
+    {t:'幽默觀察，什麼都能講得很好笑',k:'humor'},
+    {t:'邏輯清楚，重點清晰讓人有收穫',k:'expert'},
+    {t:'溫柔療癒，說話讓人很安心',k:'empath'},
+    {t:'熱情感染，帶動整個氣氛',k:'energy'}]},
+  {s:'⚡ 魅力天賦 4/5',q:'你最不想拍的影片是？',type:'single',opts:[
+    {t:'沒有笑點、一本正經的內容',k:'humor'},
+    {t:'沒有實質資訊、純粹閒聊',k:'expert'},
+    {t:'太高調炫耀、讓人覺得很假',k:'empath'},
+    {t:'一直待在家裡拍同個地方',k:'energy'}]},
+  {s:'⚡ 魅力天賦 5/5',q:'帳號爆紅，你第一個想到的是？',type:'single',opts:[
+    {t:'這麼多人覺得我好笑！太爽了',k:'humor'},
+    {t:'代表我的資訊真的有幫到人',k:'expert'},
+    {t:'原來這麼多人有一樣的感受',k:'empath'},
+    {t:'終於可以接業配去更多地方！',k:'energy'}]},
+
+  {s:'🌸 Reels 內容偏好 1/5',q:'你日常最樂在其中的事？',type:'single',opts:[
     {t:'研究保養彩妝、喜歡打扮自己',hint:'→ 美妝 / 穿搭',k:'beauty'},
     {t:'做菜、研究食譜、嘗試新料理',hint:'→ 食譜 / 美食',k:'food'},
     {t:'運動、健身、跳舞或跟操',hint:'→ 跳操 / 健身',k:'fitness'},
     {t:'逛街挖好物、喜歡開箱新東西',hint:'→ 開箱 / 選物',k:'unbox'}]},
-  {s:'🌸 內容偏好 2/5',q:'你最常和別人一起做的事？',opts:[
+  {s:'🌸 Reels 內容偏好 2/5',q:'你最常和別人一起做的事？',type:'single',opts:[
     {t:'一起旅遊、探店、打卡新地方',hint:'→ 旅遊 / 探店',k:'travel'},
     {t:'一起拍搞笑影片或記錄日常',hint:'→ 情侶 / Vlog',k:'couple'},
     {t:'聊工作、分享職業有趣的事',hint:'→ 職業故事',k:'career'},
     {t:'一起做創意或 DIY 的東西',hint:'→ 創意內容',k:'creative'}]},
-  {s:'🌸 內容偏好 3/5',q:'馬上要拍一支 Reels，你第一個想到？',opts:[
+  {s:'🌸 Reels 內容偏好 3/5',q:'馬上要拍一支 Reels，你第一個想到？',type:'single',opts:[
     {t:'我今天的妝容 / 穿搭',hint:'💄',k:'beauty'},
     {t:'我最近去了哪裡 / 吃了什麼',hint:'✈️',k:'travel'},
     {t:'我工作上遇到的有趣事',hint:'🏥',k:'career'},
     {t:'我和另一半 / 朋友的日常互動',hint:'💑',k:'couple'}]},
-  {s:'🌸 內容偏好 4/5',q:'哪種留言讓你最開心？',opts:[
+  {s:'🌸 Reels 內容偏好 4/5',q:'哪種留言讓你最開心？',type:'single',opts:[
     {t:'「這個食譜我照做了！超好吃！」',hint:'🍳',k:'food'},
     {t:'「請問這是哪裡買的？哪家餐廳？」',hint:'📦',k:'unbox'},
     {t:'「你們好可愛！在哪認識的？」',hint:'💑',k:'couple'},
     {t:'「這個操我也要學！求教學！」',hint:'🕺',k:'fitness'}]},
-  {s:'🌸 內容偏好 5/5',q:'你最嚮往哪種創作者？',opts:[
+  {s:'🌸 Reels 內容偏好 5/5',q:'你最嚮往哪種創作者？',type:'single',opts:[
     {t:'生活美學，每支都很有質感',hint:'→ Vlog / 創意',k:'creative'},
     {t:'職業日常，讓人看見不同行業的真實',hint:'→ 職業故事',k:'career'},
     {t:'美食旅遊，帶人去看更大的世界',hint:'→ 旅遊 / 美食',k:'travel'},
-    {t:'情感共鳴，說出很多人說不出的話',hint:'→ Vlog / 情侶',k:'couple'}]}
+    {t:'情感共鳴，說出很多人說不出的話',hint:'→ Vlog / 情侶',k:'couple'}]},
+
+  // Q15 — 限動複選（2~3個）
+  {s:'📱 限動偏好',q:'你最自然會在限動分享什麼？',qhint:'可以選 2～3 個',type:'multi',max:3,min:2,opts:[
+    {t:'💑 情侶 / 另一半互動',k:'s_couple'},
+    {t:'🍜 美食探店 / 旅遊打卡',k:'s_food'},
+    {t:'🌙 下班後 / 日常生活碎片',k:'s_daily'},
+    {t:'💄 穿搭 / 今日妝容',k:'s_beauty'},
+    {t:'🐾 寵物日常',k:'s_pet'},
+    {t:'👶 育兒 / 親子互動',k:'s_parent'},
+    {t:'💪 運動 / 健身打卡',k:'s_fitness'},
+    {t:'😂 搞笑 / 梗圖分享',k:'s_humor'},
+    {t:'☕ 居家氛圍 / 日常美學',k:'s_vibe'},
+    {t:'🎯 挑戰 / 趨勢跟風',k:'s_trend'}]},
+
+  // Q16 — 限動出境人物複選
+  {s:'📱 限動出境 1/1',q:'你的限動裡，通常會有哪些人出境？',qhint:'可以複選，選出全部符合的',type:'multi',max:6,min:1,opts:[
+    {t:'🙋 只有我自己',k:'p_self'},
+    {t:'💑 另一半 / 伴侶',k:'p_partner'},
+    {t:'👯 閨蜜 / 好友',k:'p_friend'},
+    {t:'👨‍👩‍👧 家人（爸媽、兄弟姊妹）',k:'p_family'},
+    {t:'👶 小孩（自己的孩子）',k:'p_kid'},
+    {t:'🐾 寵物',k:'p_pet'},
+    {t:'👔 同事 / 工作夥伴',k:'p_coworker'},
+    {t:'❌ 我不想讓別人入鏡',k:'p_none'}]},
+
+  // Q17 — 化妝習慣
+  {s:'🌟 加碼',q:'你平常有化妝的習慣嗎？',type:'single',opts:[
+    {t:'有，幾乎每天化',hint:'→ 美妝內容很自然',k:'makeup_yes'},
+    {t:'偶爾，看場合',hint:'→ 妝前妝後對比有潛力',k:'makeup_sometimes'},
+    {t:'很少或幾乎不化',hint:'→ 素顏日常也是特色',k:'makeup_no'}]}
 ];
+
+const TOTAL_Q=Qs.length; // 17
 
 const PAST_OPTIONS=[
   {k:'beauty',emoji:'💄',name:'美妝 / 穿搭'},{k:'food',emoji:'🍳',name:'食譜 / 美食'},
@@ -355,107 +459,210 @@ const PAST_OPTIONS=[
   {k:'career',emoji:'🏥',name:'職業故事'},{k:'creative',emoji:'✨',name:'創意 / DIY'},
   {k:'zodiac',emoji:'⭐',name:'星座共鳴'},{k:'vlog',emoji:'📹',name:'日常 Vlog'},
   {k:'challenge',emoji:'🎯',name:'挑戰 / 趨勢'},{k:'humor',emoji:'😂',name:'搞笑 / 梗片'},
-  {k:'knowledge',emoji:'📚',name:'知識 / 教學'}
+  {k:'knowledge',emoji:'📚',name:'知識 / 教學'},{k:'pet',emoji:'🐾',name:'寵物日常'},
+  {k:'parent',emoji:'👶',name:'育兒 / 親子'}
 ];
 
 const GROWTH_OPTS=['漲粉很多','流量不錯','普普通通','沒什麼反應'];
 const ENGAGE_OPTS=['大量留言互動','很多分享轉發','收藏數很高','沒什麼互動'];
 
 const CT={
-  beauty:{emoji:'💄',name:'美妝 / 穿搭',ideas:['GRWM 跟著我化妝','穿搭挑戰系列','試色 & 底妝心得','IG妝 vs 現實對比'],
+  beauty:{emoji:'💄',name:'美妝 / 穿搭',
+    topics:['GRWM 跟著我化妝','穿搭挑戰系列','試色 & 底妝心得','IG妝 vs 現實對比','平價 vs 貴婦同款','素顏 vs 妝後心境'],
     hooks:{humor:'「我化了一個讓我自己都嚇到的妝，結果...」',expert:'「90%的人護膚順序都錯了，正確是這樣」',empath:'「從不敢素顏出門，到現在...這中間發生了什麼」',energy:'「5分鐘挑戰！從素顏到出門，跟著我一起！」'},
-    cap:'你的美感就是品牌，每支影片都在建立你的審美標籤。',extend:['推出「跟著我做這個妝」固定系列','做「平價 vs 貴婦同款」實用比較','試試「素顏 vs 妝後心境分享」增加情感深度']},
-  food:{emoji:'🍳',name:'食譜 / 美食',ideas:['5分鐘快手料理','重現媽媽的味道','一個人的美食日記','踩雷 & 推薦餐廳評比'],
+    cautions:['不要每支都是純介紹商品，加入你的感受或故事','開頭避免說「今天來介紹」，直接切畫面','系列化讓觀眾養成每週等你的習慣'],
+    extend:['推出「跟著我做這個妝」固定系列','做「平價 vs 貴婦同款」','試試「素顏 vs 妝後心境分享」']},
+  food:{emoji:'🍳',name:'食譜 / 美食',
+    topics:['5分鐘快手料理','重現媽媽的味道','一個人的美食日記','踩雷 & 推薦餐廳','週一到週五快手料理','帶著觀眾買菜'],
     hooks:{humor:'「我以為我會做這道菜，結果廚房差點消失」',expert:'「這個動作讓你的炒飯從普通變神級，差在這裡」',empath:'「那道菜是奶奶教我的，我終於做出來了」',energy:'「30分鐘挑戰！今天買什麼做什麼，跟著我！」'},
-    cap:'從廚房到螢幕，把做飯這件日常事變成讓人想追的系列。',extend:['包裝成「週一到週五快手料理」固定系列','加入「為什麼要這樣做」的原理讓內容更深','試試「帶著觀眾買菜」的互動型']},
-  fitness:{emoji:'🕺',name:'跳操 / 健身',ideas:['跟著我做！今日訓練','新手必學3個動作','跳這首歌挑戰','30天健身打卡'],
+    cautions:['步驟要清楚，太快觀眾看不懂就跳走','食材特寫畫面讓人更有食慾','加入「為什麼這樣做」比只說步驟更吸引人'],
+    extend:['包裝成固定料理系列','加入食材說明讓內容更深','試試「帶著觀眾買菜」的互動型']},
+  fitness:{emoji:'🕺',name:'跳操 / 健身',
+    topics:['跟著我做！今日訓練','新手必學3個動作','跳這首歌挑戰','30天健身打卡','真實身體變化記錄','健身前後心態分享'],
     hooks:{humor:'「我第一次去健身房的真實樣子，謝謝你們笑完還給我愛心」',expert:'「這個動作做錯了80%的人都在練，但你練的是...」',empath:'「從不愛運動，到現在每天期待，我中間發生了什麼」',energy:'「跟著我！10分鐘燃脂，現在就開始！3...2...1！」'},
-    cap:'你的活力感比任何教練課程都吸引人，記錄你的過程就是內容。',extend:['做「30天挑戰」讓觀眾跟著打卡','分享真實身體和心態變化，比教學更吸引人','結合你的個性說故事，差異化帳號']},
-  unbox:{emoji:'📦',name:'開箱 / 好物',ideas:['月度好物分享','值得或踩雷評測','限量商品搶先開','平價 vs 貴婦同款比較'],
+    cautions:['動作示範要側面或正面交替讓人看清楚','不要只秀成果，過程和掙扎才讓人共鳴','新手友好的說明比高難度炫技更容易留人'],
+    extend:['做「30天挑戰」讓觀眾跟著打卡','分享真實身體和心態變化','結合個性說故事差異化帳號']},
+  unbox:{emoji:'📦',name:'開箱 / 好物',
+    topics:['月度好物分享','值得或踩雷評測','限量商品搶先開','平價 vs 貴婦同款比較','這個東西我後悔買了','下單前你要先知道這件事'],
     hooks:{humor:'「我亂買的東西到了，開箱看看我又做了什麼衝動消費」',expert:'「買之前一定要看這個，我省下你踩雷的錢」',empath:'「第一次買給自己的無謂奢侈，我哭了」',energy:'「到貨了！馬上開！這個我等超久的！」'},
-    cap:'你的品味就是你的選物標準，觀眾買的是你的眼光。',extend:['推出「月度好物」固定企劃培養期待感','加入「值得 vs 踩雷」鮮明比較','結合生活情境說「為什麼適合你」']},
-  travel:{emoji:'✈️',name:'旅遊 / 探店',ideas:['跟我去一日遊','必吃隱藏版美食','旅行準備清單','城市攻略懶人包'],
+    cautions:['要說「值不值得買」才有觀點，純展示沒吸引力','開頭直接秀最精彩的畫面不要廢話','加入你自己的使用感受比廠商說法有說服力'],
+    extend:['推出「月度好物」固定企劃','加入「值得 vs 踩雷」鮮明比較','結合生活情境說「為什麼適合你」']},
+  travel:{emoji:'✈️',name:'旅遊 / 探店',
+    topics:['跟我去一日遊','必吃隱藏版美食','旅行準備清單','城市攻略懶人包','第一次一個人旅行','衝動訂機票的真實結果'],
     hooks:{humor:'「我以為我計畫得很好，結果第一天就...」',expert:'「去這個城市之前，這5件事你一定要知道」',empath:'「第一次一個人旅行，出發前我哭了，回來後我...」',energy:'「我昨晚衝動訂了機票，現在在機場！去哪？」'},
-    cap:'你去過的地方、吃過的東西，都是別人渴望的生活體驗。',extend:['做成「城市攻略系列」有系統好搜尋','加入旅行心境不只是景點打卡','Vlog式紀錄讓觀眾感覺跟你一起去']},
-  couple:{emoji:'💑',name:'情侶 / 日常',ideas:['情侶日常片段','「我和另一半的差異」系列','約會去哪裡挑戰','記錄在一起的紀念日'],
+    cautions:['不要只有景點畫面，加入你的感受才有記憶點','開頭要有衝擊性畫面，不要從搭飛機慢慢說','說實話比完美的旅遊廣告更有說服力'],
+    extend:['做成「城市攻略系列」有系統好搜尋','加入旅行心境不只是景點打卡','Vlog式紀錄讓觀眾感覺跟你一起去']},
+  couple:{emoji:'💑',name:'情侶 / 日常',
+    topics:['情侶日常片段','「我和另一半的差異」系列','約會去哪裡挑戰','紀念日記錄','情侶吵架後如何和好','我問另一半的奇怪問題'],
     hooks:{humor:'「我問男友你覺得我漂亮嗎，他說...」',expert:'「讓感情長久的3個小習慣，我們用了X年」',empath:'「在一起X年，我最想對你說的是...」',energy:'「帶男友做他從沒做過的事，結果...」'},
-    cap:'真實感就是你最強的武器，不需要完美，需要讓人感覺真實。',extend:['固定做「情侶挑戰」或「我們的第一次」系列','加入感情觀點不只甜也說真實相處之道','讓另一半參與選題互動感更強']},
-  career:{emoji:'🏥',name:'職業故事',ideas:['職業日常跟著我','那些只有我們行業才懂的事','客人/學生說的讓我傻眼','下班後我都在幹嘛'],
-    hooks:{humor:'「今天急診室來了一個讓我說不出話的病人，他說...」',expert:'「護理師教你看懂這個，很多人看了一輩子都不懂」',empath:'「那個病人出院前說的那句話，我記到現在」',energy:'「夜班下班5點，我的一天現在才要開始」'},
-    cap:'你的職業就是獨一無二的素材，外行人大開眼界，同行超有共鳴。',extend:['深耕「只有我們行業才懂的事」系列','拍「一天跟著我」讓外行人震驚','試試Q&A格式「問護理師/老師」']},
-  creative:{emoji:'✨',name:'創意 / DIY',ideas:['廢物大改造','租屋族質感佈置','創意轉場挑戰','手作禮物教學'],
+    cautions:['要有真實感，太刻意的甜反而讓人出戲','讓另一半自然反應，不要強迫他表演','加入相處的小衝突讓觀眾更有共鳴'],
+    extend:['固定做「情侶挑戰」系列','加入感情觀點不只甜也說真實相處之道','讓另一半參與選題互動感更強']},
+  career:{emoji:'🏥',name:'職業故事',
+    topics:['職業日常跟著我','只有我們行業才懂的事','客人/學生說的讓我傻眼','下班後我都在幹嘛','這份工作改變了我哪件事','觀眾以為我的工作是...實際上是...'],
+    hooks:{humor:'「今天遇到一個讓我說不出話的情況，他說...」',expert:'「很多人看了一輩子都不懂的事，我來說清楚」',empath:'「那個人離開前說的那句話，我記到現在」',energy:'「夜班下班5點，我的一天現在才要開始」'},
+    cautions:['不要透露不能說的資訊，注意隱私與職業倫理','說故事要有開頭結局，不要只抱怨','外行人看懂的語言比專業術語更有流量'],
+    extend:['深耕「只有我們行業才懂的事」系列','拍「一天跟著我」讓外行人震驚','試試Q&A格式']},
+  creative:{emoji:'✨',name:'創意 / DIY',
+    topics:['廢物大改造','租屋族質感佈置','創意轉場挑戰','手作禮物教學','100元讓空間質感升級','改造前後對比'],
     hooks:{humor:'「我以為我很有創意，結果成品出來...」',expert:'「用100元讓房間質感提升3倍，這樣做」',empath:'「我親手做了一個送給她的禮物，做的過程我哭了」',energy:'「今天挑戰60分鐘改造房間！現在開始！」'},
-    cap:'用獨特視角把普通日常變成讓人驚喜的內容，你的創意就是品牌。',extend:['固定做「改造系列」建立期待感','加入失敗過程讓觀眾更有共鳴','試試「跟觀眾互動選題」參與式內容']},
-  zodiac:{emoji:'⭐',name:'星座共鳴',ideas:['各星座的真實樣子（哪個星座最...）','星座梗：「雙子座日常 vs 其他人」','「你是哪個星座？留言告訴我」互動型','星座 × 生活：「金牛座的購物清單長這樣」'],
-    hooks:{humor:'「讓不同星座的朋友做同一件事，結果差這麼多...」',expert:'「真正了解這個星座的人才懂的事，外面說的都是假的」',empath:'「看到這個你一定覺得被說中了——你是幾月生的？」',energy:'「星座測試！評論你的星座，我告訴你你的個性！」'},
-    cap:'星座內容天生自帶互動性，觀眾會自動標記朋友轉發，是衝曝光最快的主題之一。',extend:['做「哪個星座最XXX」讓觀眾互相標記朋友','固定每週一個星座輪流介紹','結合主題做「X座的美妝/旅遊/職場方式」']},
-  vlog:{emoji:'📹',name:'日常 Vlog',ideas:['一天跟著我（Day in my life）','週末我都在幹嘛','整理房間 + 生活碎片','一個人的日常也很有趣'],
+    cautions:['改造前的「慘」要拍清楚，對比才有衝擊感','步驟不要太多，濃縮在最關鍵的幾個','失敗的過程也要拍，真實感比完美示範更吸引人'],
+    extend:['固定做「改造系列」建立期待感','加入失敗過程讓觀眾更有共鳴','試試「跟觀眾互動選題」參與式內容']},
+  vlog:{emoji:'📹',name:'日常 Vlog',
+    topics:['一天跟著我（Day in my life）','週末我都在幹嘛','整理房間 + 生活碎片','一個人的日常也很有趣','我怎麼安排一天不焦慮','真實的我，沒有濾鏡的一天'],
     hooks:{humor:'「我的「超級充實的一天」計畫 vs 真實發生的事」',expert:'「我怎麼安排一天讓自己不焦慮，時間表在這」',empath:'「一個人在家的真實一天，沒有濾鏡那種」',energy:'「6點起床挑戰Day 1！跟著我一起！」'},
-    cap:'真實的日常就是你最好的舞台，讓觀眾在你的生活裡找到共鳴。',extend:['固定做「週末我的一天」或「月底Vlog」系列','加入更多說話橋段讓觀眾更認識你','試試主題型Vlog，比如「一週不點外賣」']}
+    cautions:['要有一個主軸，不然觀眾不知道為什麼要看','加入你的旁白或字幕讓觀眾認識你的個性','不要只有畫面，你的聲音和觀點才是核心'],
+    extend:['固定做「週末我的一天」系列','加入更多說話橋段讓觀眾更認識你','試試主題型Vlog，比如「一週不點外賣」']},
+  pet:{emoji:'🐾',name:'寵物日常',
+    topics:['毛孩的一天','寵物搞笑時刻合輯','主人 vs 貓狗視角','養了牠才知道的事','牠生病那天，我學到了什麼','跟牠說悄悄話'],
+    hooks:{humor:'「我家貓覺得全世界都欠牠，包括我」',expert:'「養貓前沒人告訴我的3件事」',empath:'「那天牠生病，我才知道牠多重要」',energy:'「用1分鐘看看我們家的一天！」'},
+    cautions:['不要只有可愛畫面，加入主人的感受更有深度','寵物的個性和名字要讓觀眾認識，才會想追','高頻率的短片比精心剪輯的長片效果更好'],
+    extend:['做「貓狗日記」系列讓觀眾認識你的毛孩','加入主人視角說心裡話','挑戰型：「和貓相處一整天挑戰」']},
+  parent:{emoji:'👶',name:'育兒 / 親子',
+    topics:['親子日常記錄','爸媽不說的育兒真相','小孩搞笑語錄','陪伴孩子成長的時刻','我做錯過的育兒方式','帶娃出門的真實狀況'],
+    hooks:{humor:'「我說我是老大，孩子說她才是」',expert:'「讓小孩吃飯不哭鬧，我用這個方法」',empath:'「第一次聽到孩子說「我愛你媽媽」，我哭了」',energy:'「一天跟著孩子跑，我快跑不動了！」'},
+    cautions:['注意孩子的隱私，不要過度曝光臉部或日常','說真實困境比分享完美親子時光更有共鳴','不要說教，分享自己的故事讓人共感就夠了'],
+    extend:['記錄孩子成長的里程碑','分享「帶小孩出門」的攻略','做「孩子說話語錄」讓人又笑又暖']},
+  zodiac:{emoji:'⭐',name:'星座共鳴',
+    topics:['哪個星座最…（讓觀眾標記朋友）','你的星座日常 vs 其他人','「你是幾月生的？留言告訴我」互動型','X座的購物清單 / 旅遊方式 / 談戀愛方式','星座 × 你的主題：X座的美妝 / 職場 / 飲食習慣','當X座遇到Y座，真實發生過的事'],
+    hooks:{humor:'「讓不同星座的人做同一件事，差距有多大...」',expert:'「真正了解這個星座才懂的事，外面說的都是假的」',empath:'「看到這個你一定覺得被說中了——你是幾月生的？」',energy:'「星座大挑戰！快留言你的星座，我告訴你！」'},
+    cautions:['星座內容最強的功能是「讓觀眾標記朋友」，開頭要有帶入感','不要只寫特質，加入你自己的生活經驗更有說服力','穿插在主帳號裡，不要把帳號完全變成星座帳號'],
+    extend:['做「哪個星座最XXX」讓觀眾互相標記朋友','結合你的主題做「X座的美妝 / 旅遊 / 職場方式」','每5支穿插1支，功能是衝曝光讓新觀眾認識你']}
 };
 
 const CHARM={
-  humor:{emoji:'😂',name:'搞笑觀察家',desc:'你對生活有超敏銳的觀察力，什麼事情都能說得很好笑。讓人笑就是你天生的魅力，不需要刻意努力。',best:['couple','vlog','creative','fitness','zodiac'],tip:'加入幽默觀察角度，任何主題都能讓人又笑又想分享'},
-  expert:{emoji:'🧠',name:'知識型達人',desc:'你擁有深度知識，而且能把複雜的事說得清楚易懂。讓人真正學到東西——這是你最強的魅力。',best:['career','unbox','beauty','food','zodiac'],tip:'用專業眼光點評和分析，比單純介紹更有說服力'},
-  empath:{emoji:'💛',name:'療癒系朋友',desc:'你有種神奇力量：讓人覺得被理解、不孤單。你的真實感和同理心，是任何技術都取代不了的魅力。',best:['couple','vlog','career','food','zodiac'],tip:'從感受出發，讓觀眾在你的內容裡找到自己的影子'},
-  energy:{emoji:'⚡',name:'活力冒險王',desc:'你的熱情和能量會透過螢幕感染每一個人，讓他們看完就想衝去做同樣的事。你代表令人嚮往的生活。',best:['fitness','travel','couple','unbox','zodiac'],tip:'用活力帶動觀眾，記錄你衝動去做的每一件事'}
+  humor:{emoji:'😂',name:'搞笑觀察家',desc:'你對生活有超敏銳的觀察力，什麼事情都能說得很好笑。讓人笑就是你天生的魅力，不需要刻意努力。',best:['couple','vlog','creative','fitness','pet'],tip:'加入幽默觀察角度，任何主題都能讓人又笑又想分享'},
+  expert:{emoji:'🧠',name:'知識型達人',desc:'你擁有深度知識，而且能把複雜的事說得清楚易懂。讓人真正學到東西——這是你最強的魅力。',best:['career','unbox','beauty','food','fitness'],tip:'用專業眼光點評和分析，比單純介紹更有說服力'},
+  empath:{emoji:'💛',name:'療癒系朋友',desc:'你有種神奇力量：讓人覺得被理解、不孤單。你的真實感和同理心，是任何技術都取代不了的魅力。',best:['couple','vlog','career','food','parent'],tip:'從感受出發，讓觀眾在你的內容裡找到自己的影子'},
+  energy:{emoji:'⚡',name:'活力冒險王',desc:'你的熱情和能量會透過螢幕感染每一個人，讓他們看完就想衝去做同樣的事。你代表令人嚮往的生活。',best:['fitness','travel','couple','unbox','creative'],tip:'用活力帶動觀眾，記錄你衝動去做的每一件事'}
 };
 
 const MBTI_DETAIL={
   E:{label:'即興上鏡型',sub:'直接說，不需要腳本',
-    how:'你最強的狀態是「邊做邊說」——化妝、煮菜、走路都可以對鏡頭直播式講話。不要事先背稿，那樣反而失去你的自然感。情緒先到，邏輯後到，感覺對了再開錄。',
+    how:'你最強的狀態是「邊做邊說」——化妝、煮菜、走路都可以對鏡頭直播式講話。不要事先背稿，那樣反而失去你的自然感。情緒先到，邏輯後到。',
     tips:['直接說「我今天想跟你分享...」就是最好的開頭','錯了不要停，繼續說，觀眾喜歡看到真實反應','邊做某件事邊說話，比單純對鏡頭更自然'],
     formats:['GRWM（邊做邊聊）','隨手記錄當下','限動問答直播式']},
   I:{label:'腳本規劃型',sub:'先準備好，用剪輯說話',
-    how:'你不需要每次都直接面對鏡頭。先把想說的3個重點寫下來，錄音配畫面，或用字幕帶著觀眾走。精心規劃的內容是你的強項——不要強迫自己即興，那不是你的節奏。',
+    how:'先把想說的3個重點寫下來，錄音配畫面，或用字幕帶著觀眾走。精心規劃的內容是你的強項——不要強迫自己即興，那不是你的節奏。',
     tips:['先寫3個要點，每次只錄一段，不要一次說完','用字幕型 Reels 降低出鏡壓力','聲音先錄好，再剪進去配畫面'],
     formats:['字幕型文字 Reels','口白配畫面','before/after 對比式']},
   S:{label:'步驟清晰型',sub:'讓人看完馬上知道怎麼做',
-    how:'你的影片要讓人看完覺得「我知道接下來要做什麼了」。清楚的步驟、明確的結果，是你最能建立信任感的方式。開頭直接說結論，中間清楚切割每個步驟，結尾給行動建議。',
+    how:'你的影片要讓人看完覺得「我知道接下來要做什麼了」。開頭直接說結論，中間清楚切割每個步驟，結尾給行動建議。',
     tips:['開頭直接說：「今天教你X個步驟做到Y」','每個步驟之間用字幕標示切割，不要跳太快','結尾給一個明確的下一步，不要虛收尾'],
     formats:['教學型（步驟1/2/3）','before/after對比','懶人包清單式']},
   N:{label:'氛圍感染型',sub:'用情緒讓人停滑',
-    how:'你不需要說步驟，你需要讓人「感覺到」什麼。影片的畫面、音樂、說話語氣，都在傳遞情緒。讓觀眾跟著你的情緒走，就是你最強的鉤子。說話不用快，留白反而更有力量。',
+    how:'你不需要說步驟，你需要讓人「感覺到」什麼。影片的畫面、音樂、說話語氣，都在傳遞情緒。說話不用快，留白反而更有力量。',
     tips:['開頭畫面要先衝擊感官——顏色、音樂、鏡頭切換','故事型開頭：「那天發生了一件事...」','不要硬塞重點，氛圍到了，觀眾自然想留下來'],
     formats:['故事型敘事','vibe氛圍Reels','情感共鳴分享']},
   T:{label:'理性分析型',sub:'有邏輯有根據，讓人覺得可信',
-    how:'你說話最有力量的時候是「有根據、有比較、有結論」。觀眾覺得你說的東西可信，是你最大的資產。不要為了軟化語氣而失去鮮明立場，你的確定感就是你的魅力。',
+    how:'你說話最有力量的時候是「有根據、有比較、有結論」。不要為了軟化語氣而失去鮮明立場，你的確定感就是你的魅力。',
     tips:['開頭用數字：「我試了5種方法，最後發現...」','中間呈現比較和邏輯，讓人覺得「有道理」','結尾給明確結論，不要含糊帶過'],
     formats:['比較型（A vs B）','迷思破解型','數據說明型']},
   F:{label:'感性共鳴型',sub:'說出別人說不出口的話',
-    how:'你說話的方式讓人覺得「有人懂我了」。最強的內容是說出別人心裡有但說不出口的感受。不要擔心太感性——那正是你的魅力。多用「我也曾經...」讓觀眾找到自己的影子。',
+    how:'你說話的方式讓人覺得「有人懂我了」。最強的內容是說出別人心裡有但說不出口的感受。多用「我也曾經...」讓觀眾找到自己的影子。',
     tips:['開頭說「你有沒有也這樣？」的共鳴問句','用「我也曾經...」讓觀眾找到自己的影子','結尾可以是一句溫柔的話，讓人想截圖或分享'],
     formats:['情感共鳴分享','陪伴感日常','說出心裡話型']},
   J:{label:'系列規劃型',sub:'固定主題，讓觀眾養成追你的習慣',
-    how:'你適合「固定系列」的方式經營帳號。固定每週幾支、固定主題格式，讓觀眾知道追你能得到什麼。縮圖和開場保持固定風格，一致性是你建立忠實粉絲的最強武器。',
+    how:'你適合「固定系列」的方式經營帳號。固定每週幾支、固定主題格式，讓觀眾知道追你能得到什麼。一致性是你建立忠實粉絲的最強武器。',
     tips:['為你的主系列命名，比如「週一美妝日」','縮圖和開場保持固定風格讓人一眼認出','用系列感給觀眾有期待感和等待的理由'],
     formats:['固定主題系列（每週X）','連續故事型','挑戰打卡系列']},
   P:{label:'靈感彈性型',sub:'跟著感覺走，趨勢反應快',
-    how:'你在靈感來的時候會爆發最好的內容，不要用固定計畫把自己綁死。趨勢音頻、突然想到的點子、當下的感受，這些都是你最自然的素材。設一個底線，其他隨心。',
+    how:'你在靈感來的時候會爆發最好的內容，不要用固定計畫把自己綁死。趨勢音頻、突然想到的點子、當下的感受，都是你最自然的素材。',
     tips:['設「底線」：每週至少2支，其他隨心發','跟風趨勢動作要快，三天內發出最有效','把靈感用手機記下來，不然靈感會消失'],
     formats:['趨勢跟風型','即興記錄型','靈感爆發日']}
 };
 
-let cur=0, ans=new Array(Qs.length).fill(null);
+// 限動素材資料
+const STORY_DATA={
+  s_couple:{emoji:'💑',name:'情侶 / 另一半互動',desc:'問答限動、「我和另一半的差異」、紀念日倒數，讓觀眾參與你們的日常，天生高互動。',tip:'開放式問題讓粉絲投票或留言，互動率最高。'},
+  s_food:{emoji:'🍜',name:'美食探店 / 旅遊打卡',desc:'今天吃了什麼、去了哪裡、推薦還是踩雷，用<em>限動問答</em>讓粉絲問你下一個去哪。',tip:'加入地標標籤讓在地粉絲更容易找到你。'},
+  s_daily:{emoji:'🌙',name:'下班後 / 日常生活',desc:'今晚在幹嘛、心情如何、窩在家的樣子——<em>真實感</em>是限動最強的魅力，不需要精心佈置。',tip:'下班後的疲憊或放鬆感，比完美的畫面更讓人有共鳴。'},
+  s_beauty:{emoji:'💄',name:'穿搭 / 今日妝容',desc:'今天的穿搭、試新色、妝前妝後，讓觀眾習慣每天來看你的<em>日常美感輸出</em>。',tip:'加投票「這個妝適合我嗎？」增加互動。'},
+  s_pet:{emoji:'🐾',name:'寵物日常',desc:'毛孩的搞笑表情、可愛睡姿、或破壞現場，<em>超高轉發率</em>，讓新觀眾第一眼就被迷住。',tip:'讓寵物成為帳號的吉祥物，粉絲會每天來報到看牠。'},
+  s_parent:{emoji:'👶',name:'育兒 / 親子互動',desc:'孩子說的天然神回覆、帶娃出門的真實狀況、親子小時光——<em>有孩子的粉絲</em>秒秒共鳴。',tip:'孩子的自然反應比刻意安排的更可愛，隨手拍就行。'},
+  s_fitness:{emoji:'💪',name:'運動 / 健身打卡',desc:'今天練了什麼、健身前後狀態、運動完的感受——讓觀眾跟著你一起<em>建立習慣</em>。',tip:'加「一起來！」邀請語讓粉絲互相打卡督促。'},
+  s_humor:{emoji:'😂',name:'搞笑 / 梗圖分享',desc:'今天遇到的怪事、好笑的截圖或日常窘境，讓觀眾覺得<em>追你的限動是一種快樂</em>。',tip:'好笑的限動轉發率高，能帶動新的陌生觀眾認識你。'},
+  s_vibe:{emoji:'☕',name:'居家氛圍 / 日常美學',desc:'早晨咖啡、今天的桌面、窗邊的光線——不需要出門，<em>生活美感</em>就是你的內容。',tip:'固定的居家美學風格讓帳號整體感更強，容易被收藏。'},
+  s_trend:{emoji:'🎯',name:'挑戰 / 趨勢跟風',desc:'熱門音頻、跟風挑戰、限動快問快答——<em>趨勢流量</em>帶你接觸還不認識你的觀眾。',tip:'三天內跟風效果最好，動作快才抓得到流量高峰。'}
+};
+
+let cur=0;
+let ans=new Array(TOTAL_Q).fill(null); // single: index; multi: []
+let multiSel={}; // k -> Set
 let rankedTopics=[], topicMeta={}, dragSrcIdx=null;
+let musicPlaying=false;
+
+function toggleMusic(){
+  const a=document.getElementById('bgMusic'),b=document.getElementById('musicBtn');
+  if(musicPlaying){a.pause();musicPlaying=false;b.textContent='🎵';b.classList.add('paused');}
+  else{a.play().catch(()=>{});musicPlaying=true;b.textContent='🔇';b.classList.remove('paused');}
+}
+window.addEventListener('load',()=>setTimeout(()=>{
+  const a=document.getElementById('bgMusic');a.volume=0.3;
+  a.play().then(()=>{musicPlaying=true;document.getElementById('musicBtn').textContent='🔇';}).catch(()=>{});
+},600));
 
 function show(id){document.querySelectorAll('.page').forEach(p=>p.classList.remove('on'));document.getElementById(id).classList.add('on');window.scrollTo({top:0,behavior:'smooth'});}
-function startQuiz(){cur=0;ans=new Array(Qs.length).fill(null);rankedTopics=[];topicMeta={};show('p-quiz');render();}
-function goBackToQuiz(){show('p-quiz');cur=Qs.length-1;render();}
+function startQuiz(){cur=0;ans=new Array(TOTAL_Q).fill(null);multiSel={};rankedTopics=[];topicMeta={};show('p-quiz');render();}
+function goBackToQuiz(){show('p-quiz');cur=TOTAL_Q-1;render();}
+
+function isAnswered(i){
+  const q=Qs[i];
+  if(q.type==='multi'){const s=multiSel[i];return s&&s.size>=(q.min||1);}
+  return ans[i]!==null;
+}
 
 function render(){
   const q=Qs[cur];
-  document.getElementById('progFill').style.width=((cur+1)/Qs.length*100)+'%';
-  document.getElementById('progTxt').textContent=`${cur+1} / ${Qs.length}`;
+  document.getElementById('progFill').style.width=((cur+1)/TOTAL_Q*100)+'%';
+  document.getElementById('progTxt').textContent=`${cur+1} / ${TOTAL_Q}`;
   document.getElementById('btnPrev').disabled=cur===0;
   const nb=document.getElementById('btnNext');
-  nb.textContent=cur===Qs.length-1?'下一步 →':'下一題 →';
-  nb.className='btn-next'+(ans[cur]!==null?' on':'');
-  document.getElementById('qCard').innerHTML=`<div class="q-card"><div class="q-tag">${q.s}</div><div class="q-text">${q.q}</div><div class="opts">${q.opts.map((o,i)=>`<button class="opt${ans[cur]===i?' sel':''}" onclick="pick(${i})"><div class="opt-dot"></div><div class="opt-body"><div class="opt-text">${o.t}</div>${o.hint?`<div class="opt-hint">${o.hint}</div>`:''}</div></button>`).join('')}</div></div>`;
+  nb.textContent=cur===TOTAL_Q-1?'下一步 →':'下一題 →';
+  nb.className='btn-next'+(isAnswered(cur)?' on':'');
+
+  let optsHTML='';
+  if(q.type==='multi'){
+    const sel=multiSel[cur]||new Set();
+    const full=sel.size>=(q.max||3);
+    optsHTML=`<div class="opts-multi">${q.opts.map(o=>`
+      <div class="opt-chip${sel.has(o.k)?' sel':''}" onclick="pickMulti(${cur},'${o.k}')">${o.t}</div>`).join('')}</div>
+      <div class="multi-note">已選 ${sel.size} / ${q.max} 個${q.min?`，至少選 ${q.min} 個`:''}${full?'（已達上限）':''}</div>`;
+  } else {
+    optsHTML=`<div class="opts">${q.opts.map((o,i)=>`
+      <button class="opt${ans[cur]===i?' sel':''}" onclick="pick(${i})">
+        <div class="opt-dot"></div>
+        <div class="opt-body">
+          <div class="opt-text">${o.t}</div>
+          ${o.hint?`<div class="opt-hint">${o.hint}</div>`:''}
+        </div>
+      </button>`).join('')}</div>`;
+  }
+  document.getElementById('qCard').innerHTML=`
+    <div class="q-card">
+      <div class="q-tag">${q.s}</div>
+      <div class="q-text">${q.q}</div>
+      ${q.qhint?`<div class="q-hint">${q.qhint}</div>`:''}
+      ${optsHTML}
+    </div>`;
 }
 
-function pick(i){ans[cur]=i;document.getElementById('btnNext').className='btn-next on';document.querySelectorAll('.opt').forEach((el,idx)=>el.className='opt'+(idx===i?' sel':''));}
-function next(){if(ans[cur]===null)return;if(cur<Qs.length-1){cur++;render();}else{showPastPage();}}
+function pick(i){
+  ans[cur]=i;
+  document.getElementById('btnNext').className='btn-next on';
+  document.querySelectorAll('.opt').forEach((el,idx)=>el.className='opt'+(idx===i?' sel':''));
+}
+
+function pickMulti(qIdx, k){
+  if(!multiSel[qIdx])multiSel[qIdx]=new Set();
+  const s=multiSel[qIdx];const q=Qs[qIdx];const max=q.max||3;const min=q.min||1;
+  if(s.has(k)){s.delete(k);}
+  else if(s.size<max){s.add(k);}
+  ans[qIdx]=[...s];
+  document.getElementById('btnNext').className='btn-next'+(s.size>=min?' on':'');
+  render();
+}
+
+function next(){if(!isAnswered(cur))return;if(cur<TOTAL_Q-1){cur++;render();}else{showPastPage();}}
 function prev(){if(cur>0){cur--;render();}}
 function showPastPage(){renderPool();renderRankList();show('p-past');}
 
@@ -475,19 +682,16 @@ function addToRank(k){
   renderPool();renderRankList();
   document.getElementById('rankSection').style.display='block';
 }
-
 function removeFromRank(k){
   rankedTopics=rankedTopics.filter(x=>x!==k);delete topicMeta[k];
   if(rankedTopics.length===0)document.getElementById('rankSection').style.display='none';
   renderPool();renderRankList();
 }
-
 function setMeta(k,type,val){
   if(!topicMeta[k])topicMeta[k]={growth:null,engage:null};
   topicMeta[k][type]=val;
   document.querySelectorAll(`.sub-opt[data-k="${k}"][data-type="${type}"]`).forEach(el=>{el.classList.toggle('on',el.dataset.val===val);});
 }
-
 function renderRankList(){
   const list=document.getElementById('rankList');
   if(rankedTopics.length===0){list.innerHTML='<div class="rank-empty-msg">← 從上方點選主題加入這裡</div>';return;}
@@ -510,14 +714,9 @@ function renderRankList(){
     </div>`;
   }).join('');
 }
-
 function dS(e,i){dragSrcIdx=i;e.dataTransfer.effectAllowed='move';}
 function dO(e,i){e.preventDefault();}
-function dD(e,i){
-  e.preventDefault();if(dragSrcIdx===null||dragSrcIdx===i)return;
-  const m=rankedTopics.splice(dragSrcIdx,1)[0];const mm=topicMeta[m];
-  rankedTopics.splice(i,0,m);topicMeta[m]=mm;dragSrcIdx=null;renderRankList();
-}
+function dD(e,i){e.preventDefault();if(dragSrcIdx===null||dragSrcIdx===i)return;const m=rankedTopics.splice(dragSrcIdx,1)[0];const mm=topicMeta[m];rankedTopics.splice(i,0,m);topicMeta[m]=mm;dragSrcIdx=null;renderRankList();}
 function dE(){dragSrcIdx=null;}
 
 function calcResult(){
@@ -527,39 +726,70 @@ function calcResult(){
   const c={humor:0,expert:0,empath:0,energy:0};
   for(let i=5;i<=9;i++){if(ans[i]!==null)c[Qs[i].opts[ans[i]].k]++;}
   const topCharm=Object.entries(c).sort((a,b)=>b[1]-a[1])[0][0];
-  const ct={beauty:0,food:0,fitness:0,unbox:0,travel:0,couple:0,career:0,creative:0,zodiac:0,vlog:0};
+  const ct={beauty:0,food:0,fitness:0,unbox:0,travel:0,couple:0,career:0,creative:0,vlog:0,pet:0,parent:0};
   for(let i=10;i<=14;i++){if(ans[i]!==null){const k=Qs[i].opts[ans[i]].k;if(ct[k]!==undefined)ct[k]++;}}
+  // 限動複選 Q15 影響主線
+  const storyKeys=Array.isArray(ans[15])?ans[15]:[];
+  if(storyKeys.includes('s_couple'))ct.couple+=0.5;
+  if(storyKeys.includes('s_food'))ct.food+=0.5;
+  if(storyKeys.includes('s_fitness'))ct.fitness+=0.5;
+  if(storyKeys.includes('s_beauty'))ct.beauty+=0.5;
+  if(storyKeys.includes('s_pet'))ct.pet+=0.5;
+  if(storyKeys.includes('s_parent'))ct.parent+=0.5;
+  // 限動出境人物複選 Q16
+  const personKeys=Array.isArray(ans[16])?ans[16]:[];
+  if(personKeys.includes('p_partner'))ct.couple+=1.5;
+  if(personKeys.includes('p_pet'))ct.pet+=2;
+  if(personKeys.includes('p_kid'))ct.parent+=2;
+  if(personKeys.includes('p_coworker'))ct.career+=0.5;
+  // 化妝習慣 Q17
+  const makeupAns=ans[17]!==null?Qs[17].opts[ans[17]].k:null;
+  if(makeupAns==='makeup_yes')ct.beauty+=1.5;
+  else if(makeupAns==='makeup_sometimes')ct.beauty+=0.7;
+  // charm best
   CHARM[topCharm].best.forEach((k,idx)=>{if(ct[k]!==undefined)ct[k]+=(3-idx)*0.5;});
+  // past data
   rankedTopics.forEach((k,i)=>{
     const s=i===0?3:i===1?2:1.5;if(ct[k]!==undefined)ct[k]+=s;
     if(topicMeta[k]?.growth==='漲粉很多'&&ct[k]!==undefined)ct[k]+=1.5;
     if(topicMeta[k]?.growth==='流量不錯'&&ct[k]!==undefined)ct[k]+=0.8;
   });
   const sorted=Object.entries(ct).sort((a,b)=>b[1]-a[1]);
-  return{dims,mbtiType:dims.join(''),topCharm,top1:sorted[0][0],top2:sorted[1][0]};
+  return{dims,mbtiType:dims.join(''),topCharm,top1:sorted[0][0],top2:sorted[1][0],makeupAns,storyKeys,personKeys};
+}
+
+function pastAnalysis(k){
+  const meta=topicMeta[k]||{};const pastCT=CT[k];
+  const pName=PAST_OPTIONS.find(p=>p.k===k)?.name||k;
+  const charm=window._charm;
+  if(!pastCT)return'繼續深耕這個方向，加入你的'+charm.name+'角度。';
+  const isGood=meta.growth==='漲粉很多'||meta.growth==='流量不錯';
+  const isBad=meta.growth==='沒什麼反應'||meta.growth==='普普通通';
+  const hasEngage=meta.engage==='大量留言互動'||meta.engage==='很多分享轉發';
+  if(isGood&&hasEngage)return`互動和成長率都好！現在要做的是系列化它——${pastCT.extend[0]}，讓觀眾養成每週等你的習慣。`;
+  if(isGood)return`「${pName}」在幫你漲粉，但互動還有空間。試試影片結尾加一個問題讓粉絲留言。`;
+  if(isBad)return`流量普通，問題通常不是主題是「角度」——把你的${charm.name}特質加進去，換切入點效果會不一樣。`;
+  return`繼續深耕「${pName}」，加入「${charm.name}」角度讓內容更有個人標籤。${pastCT.extend[0]}。`;
 }
 
 function showResult(){
   const r=calcResult();
+  window._charm=CHARM[r.topCharm];
   const charm=CHARM[r.topCharm];
   const ct1=CT[r.top1]||CT.vlog;
-  const ct2=CT[r.top2]||CT.creative;
+  const ct2=CT[r.top2]||CT.vlog;
   const pastArr=rankedTopics.slice();
   const hasPast=pastArr.length>0;
   const pastNote=document.getElementById('pastNote')?.value?.trim()||'';
+  const storyKeys=r.storyKeys||[];
+  const personKeys=r.personKeys||[];
 
-  function pastAnalysis(k){
-    const meta=topicMeta[k]||{};const pastCT=CT[k];
-    const pName=PAST_OPTIONS.find(p=>p.k===k)?.name||k;
-    if(!pastCT)return'繼續深耕這個方向，並加入你的'+charm.name+'角度。';
-    const isGood=meta.growth==='漲粉很多'||meta.growth==='流量不錯';
-    const isBad=meta.growth==='沒什麼反應'||meta.growth==='普普通通';
-    const hasEngage=meta.engage==='大量留言互動'||meta.engage==='很多分享轉發';
-    if(isGood&&hasEngage)return`互動和成長率都好！現在要做的是系列化它——${pastCT.extend[0]}。讓觀眾養成每週等你的習慣。`;
-    if(isGood)return`「${pName}」在幫你漲粉，但互動還有空間。試試在影片結尾加一個問題讓粉絲留言，或做「挑戰粉絲一起參與」的互動型。`;
-    if(isBad)return`流量普通，但問題通常不是主題是「角度」。把你的${charm.name}特質加進去——${pastCT.extend[0]}，換切入點，效果會不一樣。`;
-    return`繼續深耕「${pName}」，加入「${charm.name}」角度讓內容更有個人標籤。${pastCT.extend[0]}。`;
-  }
+  // 限動建議：根據複選結果
+  const storyItems=storyKeys.map(k=>STORY_DATA[k]).filter(Boolean);
+
+  // 出境人物標籤
+  const PERSON_LABELS={p_self:'只有自己',p_partner:'另一半',p_friend:'閨蜜/好友',p_family:'家人',p_kid:'小孩',p_pet:'寵物',p_coworker:'同事',p_none:'不讓別人入鏡'};
+  const personLabels=personKeys.map(k=>PERSON_LABELS[k]).filter(Boolean);
 
   const mbtiDetail=r.dims.map(d=>{
     const md=MBTI_DETAIL[d];
@@ -577,25 +807,9 @@ function showResult(){
     </div>`;
   }).join('');
 
-  const strategyItems=[];
-  if(hasPast){
-    const topPast=pastArr[0];
-    const pOpt=PAST_OPTIONS.find(p=>p.k===topPast);
-    strategyItems.push({icon:pOpt?.emoji||'🔥',title:`${pOpt?.name} × 接著發`,badge:'hot',
-      desc:pastAnalysis(topPast),hook:CT[topPast]?.hooks[r.topCharm]||''});
-  }
-  strategyItems.push({icon:ct1.emoji,title:`${ct1.name} — 值得試試`,badge:'next',
-    desc:`可以先試試：${ct1.ideas.slice(0,2).join('、')}`,hook:ct1.hooks[r.topCharm]||''});
-
-  const dots=Array.from({length:15},(_,i)=>{
-    const cls=i===14?'r15-dot pivot':i<3?'r15-dot filled':'r15-dot';
-    return`<div class="${cls}">${i===14?'↻':i+1}</div>`;
-  }).join('');
-
   const pastHTML=hasPast?pastArr.map((k,ri)=>{
     const pOpt=PAST_OPTIONS.find(p=>p.k===k);
     const meta=topicMeta[k]||{};
-    const hasGood=meta.growth==='漲粉很多'||meta.growth==='流量不錯';
     return`<div class="past-item">
       <div class="pi-icon">${pOpt?.emoji||''}</div>
       <div style="flex:1">
@@ -605,7 +819,11 @@ function showResult(){
     </div>`;
   }).join(''):'';
 
-  const styleDesc=r.dims[0]==='E'?'即興上鏡型，直接說話就是你的優勢':'腳本規劃型，精心準備讓你更有說服力';
+  const dots=Array.from({length:15},(_,i)=>{
+    const cls=i===14?'r15-dot pivot':i<3?'r15-dot filled':'r15-dot';
+    return`<div class="${cls}">${i===14?'↻':i+1}</div>`;
+  }).join('');
+
   const freqDesc=r.dims[3]==='J'?'固定每週3支，系列化讓觀眾養成追你的習慣':'設「底線每週2支」，靈感多就多發，不強迫格式';
   const pastSummary=hasPast?`你在「${PAST_OPTIONS.find(p=>p.k===pastArr[0])?.name||''}」已有數據，優先延伸它，同時開啟「${ct1.name}」做比對。`:`從「${ct1.name}」開始，先發15則觀察數據，才知道你的觀眾是誰。`;
   const nextAction=hasPast&&(topicMeta[pastArr[0]]?.growth==='漲粉很多'||topicMeta[pastArr[0]]?.growth==='流量不錯')
@@ -620,10 +838,19 @@ function showResult(){
     {d:'第15則',t:'做一次數據回顧：繼續深耕還是轉換？再跑一輪15則。'}
   ].filter(Boolean);
 
-  const tags=['#'+charm.name,'#'+ct1.name.replace(/\//g,'').replace(/ /g,''),'#Reels','#'+r.mbtiType,'#個人品牌'];
-  if(rankedTopics.includes('zodiac'))tags.push('#星座共鳴');
+  const tags=['#'+charm.name,'#'+ct1.name.replace(/\//g,'').replace(/ /g,''),'#Reels','#MBTI'+r.mbtiType,'#個人品牌'];
+
+  // 開頭三秒解析
+  const whyHook={
+    humor:'出乎意料感讓人笑著繼續看，笑聲是最強的完播驅動力。',
+    expert:'直接點出痛點或知識缺口，讓人覺得「我需要看完」。',
+    empath:'說出觀眾心裡有但說不出口的話，讓人覺得「就是這樣！」',
+    energy:'製造緊迫感和行動慾望，讓人想跟著你一起衝。'
+  };
 
   document.getElementById('resultContent').innerHTML=`
+
+    <!-- HERO -->
     <div class="result-hero">
       <span class="res-star">${charm.emoji}</span>
       <div class="res-label">你的魅力定位公式</div>
@@ -636,72 +863,209 @@ function showResult(){
       </div>
       <div class="res-name">${charm.name} × ${ct1.name}</div>
       <p class="res-desc">${charm.desc}</p>
+      <div class="res-disclaimer">💡 這個結果只是<em>參考方向</em>，不是唯一答案。你是多樣且獨特的，<em>不要讓任何測驗定義你是誰</em>。</div>
     </div>
 
-    <!-- 主卡：主題 + 開頭公式 + 過去主題 + 策略 + 15則 -->
+    <!-- ① Reels 主題建議 -->
+    <div style="font-size:11px;color:#c090b0;letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px;padding-left:2px;">① Reels 主題建議</div>
+
+    <!-- 主要方向 -->
+    <div class="reels-main-card">
+      <div class="reels-header">
+        <div class="reels-header-emoji">${ct1.emoji}</div>
+        <div class="reels-header-text">
+          <div class="reels-header-name">${ct1.name}</div>
+          <div class="reels-header-sub">${charm.name} × ${r.dims[0]==='E'?'即興上鏡型':'腳本規劃型'}</div>
+        </div>
+        <div class="reels-header-badge">主要方向</div>
+      </div>
+      <div class="reels-body">
+
+        <!-- 拍攝選題 -->
+        <div class="reels-section">
+          <div class="reels-sec-head"><div class="reels-sec-icon">🎬</div><div class="reels-sec-label">拍攝選題參考</div></div>
+          <div class="reels-sec-body">
+            <div class="topic-list">
+              ${ct1.topics.map(t=>`<div class="topic-list-item"><div class="tli-dot"></div><div class="tli-text">${t}</div></div>`).join('')}
+            </div>
+          </div>
+        </div>
+
+        <!-- 開頭三秒 -->
+        <div class="reels-section">
+          <div class="reels-sec-head"><div class="reels-sec-icon">⚡</div><div class="reels-sec-label">開頭三秒公式 — ${charm.name}版</div></div>
+          <div class="reels-sec-body">
+            <div class="hook-formula">
+              <div class="hook-line"><div class="hook-n">1</div><div class="hook-t"><em>直接說：</em><div class="hook-quote">「${ct1.hooks[r.topCharm]}」</div></div></div>
+              <div class="hook-line"><div class="hook-n">2</div><div class="hook-t"><em>為什麼有效：</em>${whyHook[r.topCharm]}</div></div>
+              <div class="hook-line"><div class="hook-n">3</div><div class="hook-t"><em>原則：</em>前3秒<em>不要自我介紹</em>、不說「大家好」，直接切入衝突感或懸念，觀眾才不會滑走。</div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 注意事項 -->
+        <div class="reels-section">
+          <div class="reels-sec-head"><div class="reels-sec-icon">⚠️</div><div class="reels-sec-label">拍攝注意事項</div></div>
+          <div class="reels-sec-body">
+            <div class="caution-list">
+              ${ct1.cautions.map(c=>`<div class="caution-item"><div class="caution-icon">→</div><div class="caution-text">${c}</div></div>`).join('')}
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- 副線方向 -->
+    <div class="reels-main-card" style="margin-top:0;">
+      <div class="reels-header" style="background:linear-gradient(90deg,#c060a0,#d858a8);">
+        <div class="reels-header-emoji">${ct2.emoji}</div>
+        <div class="reels-header-text">
+          <div class="reels-header-name">${ct2.name}</div>
+          <div class="reels-header-sub">可以搭配主線穿插發</div>
+        </div>
+        <div class="reels-header-badge">副線方向</div>
+      </div>
+      <div class="reels-body">
+        <div class="reels-section">
+          <div class="reels-sec-head"><div class="reels-sec-icon">🎬</div><div class="reels-sec-label">可以試試的題目</div></div>
+          <div class="reels-sec-body">
+            <div class="topic-list">
+              ${ct2.topics.slice(0,4).map(t=>`<div class="topic-list-item"><div class="tli-dot"></div><div class="tli-text">${t}</div></div>`).join('')}
+            </div>
+          </div>
+        </div>
+        <div class="reels-section">
+          <div class="reels-sec-head"><div class="reels-sec-icon">⚡</div><div class="reels-sec-label">開頭三秒</div></div>
+          <div class="reels-sec-body">
+            <div class="hook-quote" style="font-size:13px;font-weight:700;color:#e0389a;background:#fdf5fa;border:1.5px solid rgba(224,56,154,.2);border-radius:8px;padding:10px 12px;">「${ct2.hooks[r.topCharm]}」</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ⭐ 星座穿插建議 -->
+    <div style="background:linear-gradient(135deg,rgba(255,228,244,.6),rgba(255,244,210,.4));border:1.5px solid rgba(224,56,154,.2);border-radius:16px;padding:16px 18px;margin-bottom:8px;">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
+        <span style="font-size:18px;">⭐</span>
+        <div style="font-size:12px;font-weight:900;color:#e0389a;letter-spacing:.05em;">星座共鳴 — 值得嘗試的穿插方向</div>
+      </div>
+      <div style="font-size:12px;color:#a06080;line-height:1.75;margin-bottom:10px;">
+        星座內容天生自帶「標記朋友」的衝動，不用把帳號變成星座帳號——<strong style="color:#2d1228">每5支穿插1支</strong>就夠，功能是衝曝光、吸引新觀眾，讓他們認識你之後再被主線內容留住。
+      </div>
+      <div style="font-size:11px;font-weight:900;color:#e0389a;margin-bottom:6px;">可以試試的選題：</div>
+      <div style="display:flex;flex-direction:column;gap:4px;margin-bottom:10px;">
+        ${CT.zodiac.topics.slice(0,4).map(t=>`<div style="display:flex;gap:8px;align-items:flex-start;"><div style="width:5px;height:5px;border-radius:50%;background:#e0389a;flex-shrink:0;margin-top:6px;"></div><div style="font-size:12px;color:#2d1228;line-height:1.6;">${t}</div></div>`).join('')}
+      </div>
+      <div style="background:rgba(255,255,255,.7);border:1px solid rgba(224,56,154,.15);border-radius:10px;padding:9px 12px;">
+        <div style="font-size:10px;color:#c090b0;font-weight:700;margin-bottom:3px;">⚡ 你的開頭三秒（${charm.name}版）</div>
+        <div style="font-size:12px;font-weight:700;color:#e0389a;">「${CT.zodiac.hooks[r.topCharm]}」</div>
+      </div>
+    </div>
+
+    ${hasPast?`
+    <!-- 過去主題分析 -->
+    <div class="big-card" style="margin-top:6px;">
+      <div class="sec-title">🔥 你發過的主題 × 分析建議</div>
+      ${pastHTML}
+      ${pastNote?`<div style="background:#fdf5fa;border:1px solid #f0d0e8;border-radius:10px;padding:12px 14px;margin-top:4px"><div style="font-size:11px;color:#c090b0;margin-bottom:4px">你的補充說明</div><div style="font-size:12px;color:#a06080;line-height:1.7">${pastNote}</div><div style="font-size:11px;color:#e0389a;margin-top:6px">→ 建議：結合「${charm.name}」特質換個角度，讓同樣的主題更有記憶點。</div></div>`:''}
+    </div>`:''}
+
+    <!-- ② 限動建議 -->
+    <div style="font-size:11px;color:#c090b0;letter-spacing:.1em;text-transform:uppercase;margin:20px 0 8px;padding-left:2px;">② 限動建議</div>
+
+    <div class="story-card">
+      <div class="story-header">
+        <div class="story-header-icon">📱</div>
+        <div>
+          <div class="story-header-name">你的限動方向 — 根據你的選擇</div>
+          <div class="story-header-sub">限動是讓觀眾「每天來找你」的工具，Reels 是讓陌生人認識你的入口</div>
+        </div>
+      </div>
+      <div class="story-body">
+        ${storyItems.length>0?storyItems.map(s=>`
+          <div class="story-item">
+            <div class="story-emoji">${s.emoji}</div>
+            <div class="story-content">
+              <div class="story-name">${s.name}</div>
+              <div class="story-desc">${s.desc}</div>
+              <div style="font-size:11px;color:#e0389a;margin-top:5px;font-weight:700">💡 ${s.tip}</div>
+            </div>
+          </div>`).join('')
+        :`<div style="padding:14px;text-align:center;font-size:13px;color:#c090b0">回去選填限動題目，這裡會出現你的專屬建議 🌸</div>`}
+
+        ${personLabels.length>0?`
+        <div style="background:#fff;border:1px solid #f0d0e8;border-radius:12px;padding:12px 14px;">
+          <div style="font-size:11px;font-weight:900;color:#e0389a;margin-bottom:8px;">🎭 你的限動出境人物</div>
+          <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px;">
+            ${personLabels.map(l=>`<span style="font-size:12px;padding:4px 12px;border-radius:999px;background:rgba(224,56,154,.08);border:1px solid rgba(224,56,154,.2);color:#e0389a;">${l}</span>`).join('')}
+          </div>
+          ${personKeys.includes('p_none')?`<div style="font-size:12px;color:#a06080;line-height:1.7;">你選擇不讓別人入鏡——<strong style="color:#2d1228">完全沒問題</strong>。用你的聲音、文字、物品特寫一樣可以做出有溫度的限動，不需要露臉才有魅力。</div>`:`<div style="font-size:12px;color:#a06080;line-height:1.7;">${
+            personKeys.includes('p_partner')&&personKeys.includes('p_pet')&&personKeys.includes('p_kid')?'你的限動有豐富的主角陣容！輪流讓不同人出鏡，讓粉絲慢慢認識你的整個生活圈，每一個人都可以是固定的吸引點。':
+            personKeys.includes('p_partner')&&personKeys.includes('p_pet')?'另一半加寵物的組合超有魅力！情侶互動＋毛孩日常，流量天花板的搭配，觀眾會一直回來看你們。':
+            personKeys.includes('p_partner')&&personKeys.includes('p_kid')?'情侶加親子的組合讓帳號有很強的家庭溫度，分享夫妻相處和育兒日常都是高黏著度的內容方向。':
+            personKeys.includes('p_pet')&&personKeys.includes('p_kid')?'寵物加小孩的組合是限動裡的天然流量！可愛指數爆表，觀眾捨不得不看。':
+            personKeys.includes('p_partner')?'讓另一半自然出現在你的限動裡——不用每天都甜，真實的相處比精心安排的甜蜜更吸引人。':
+            personKeys.includes('p_pet')?'寵物是你帳號裡最自然的明星，讓牠每天出現在限動裡，粉絲會養成每天來看牠的習慣。':
+            personKeys.includes('p_kid')?'孩子的自然反應和天真表情是限動裡最真實的素材，記錄日常就夠了，不需要刻意安排。':
+            personKeys.includes('p_friend')?'朋友入鏡讓限動更有生活感，一起出去玩、一起吃飯，真實的友誼互動讓觀眾覺得你的生活很有溫度。':
+            personKeys.includes('p_family')?'家人入鏡增加帳號的真實溫度，長輩的反應或家庭互動常常是出乎意料的高互動素材。':
+            personKeys.includes('p_coworker')?'同事入鏡讓你的職業故事更立體，不只是你自己說，同事的反應和互動讓觀眾更身歷其境。':
+            '讓這些人自然出現在你的限動裡，真實的互動比刻意安排更有魅力。'
+          }</div>`}
+        </div>`:''}
+
+        <div style="background:rgba(224,56,154,.06);border:1px solid rgba(224,56,154,.15);border-radius:12px;padding:12px 14px;margin-top:4px;">
+          <div style="font-size:11px;font-weight:900;color:#e0389a;margin-bottom:8px;">📌 限動策略建議</div>
+          <div style="font-size:12px;color:#a06080;line-height:1.85;">
+            限動是讓舊粉絲<strong style="color:#2d1228">每天來找你</strong>的工具，不是讓新人認識你的地方。<br><br>
+            <strong style="color:#2d1228">📊 目標：每天 10 則以上</strong><br>
+            IG 演算法會優先推送「限動活躍度高」的帳號，每天 10 則是讓你出現在粉絲首位的基本門檻。不需要每則都很精彩，真實日常就是內容。<br><br>
+            <strong style="color:#2d1228">怎麼湊到 10 則？</strong><br>
+            • 早上起床：今天的心情/天氣/早餐（1–2則）<br>
+            • 白天日常：出門在外/工作/吃什麼（2–3則）<br>
+            • 發 Reels 當天：幕後花絮或「我今天發了什麼」（1–2則）<br>
+            • 晚上：今天發生的事/心得/睡前碎片（2–3則）<br>
+            • 互動貼圖：投票、問答、滑桿，讓粉絲有事做（1–2則）<br><br>
+            <strong style="color:#2d1228">真實感 &gt; 精緻感</strong>——限動不需要剪輯，隨手拍比精心安排更讓人覺得親近。
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MBTI 拍攝風格 -->
     <div class="big-card">
-      <div class="sec-title">📱 最適合你的內容方向</div>
-      <div class="topic-pair">
-        <div class="tc main">
-          <div class="tc-head"><div class="tc-left"><div class="tc-emoji">${ct1.emoji}</div><div class="tc-name">${ct1.name}</div></div><span class="tc-tag tg-main">最適合</span></div>
-          <div class="tc-bar"><div class="tc-fill" data-w="95"></div></div>
-          <div class="tc-list">${ct1.ideas.map(i=>'• '+i).join('<br>')}</div>
-        </div>
-        <div class="tc">
-          <div class="tc-head"><div class="tc-left"><div class="tc-emoji">${ct2.emoji}</div><div class="tc-name">${ct2.name}</div></div><span class="tc-tag ${rankedTopics.includes(r.top2)?'tg-past':'tg-sub'}">${rankedTopics.includes(r.top2)?'你發過':'副線'}</span></div>
-          <div class="tc-bar"><div class="tc-fill" data-w="${rankedTopics.includes(r.top2)?82:60}"></div></div>
-          <div class="tc-list">${ct2.ideas.slice(0,3).map(i=>'• '+i).join('<br>')}</div>
-        </div>
-      </div>
-      <div class="hook-box">
-        <div class="hook-label">⚡ 你的開頭三秒公式 — ${ct1.name} × ${charm.name}</div>
-        <div class="hook-row"><div class="hook-n">1</div><div class="hook-t"><em>開口說：</em>「${ct1.hooks[r.topCharm]}」</div></div>
-        <div class="hook-row"><div class="hook-n">2</div><div class="hook-t"><em>為什麼有效：</em>${r.topCharm==='humor'?'出乎意料感，讓人笑著繼續看':r.topCharm==='expert'?'直接點出痛點，讓人想學':r.topCharm==='empath'?'說出觀眾心裡的話，讓人覺得「就是這樣！」':'製造緊迫感，讓人想跟著你衝'}</div></div>
-        <div class="hook-row"><div class="hook-n">3</div><div class="hook-t"><em>原則：</em>前3秒不要自我介紹、不說「大家好」，直接切入衝突感或懸念，觀眾才不會滑走。</div></div>
-      </div>
+      <div class="sec-title">✦ 你的拍攝風格 — MBTI ${r.mbtiType} 詳解</div>
+      <div style="font-size:12px;color:#a06080;line-height:1.75;margin-bottom:16px;">你的組合是 <strong style="color:#e0389a">${r.dims.map(d=>MBTI_DETAIL[d].label).join(' + ')}</strong>，以下是你最自然的具體拍法。</div>
+      ${mbtiDetail}
+    </div>
 
-      ${hasPast?`<div class="sec-divider"></div><div class="sec-title">🔥 你發過的主題 × 分析</div>${pastHTML}${pastNote?`<div style="background:#fdf5fa;border:1px solid #f0d0e8;border-radius:10px;padding:12px 14px;margin-top:4px"><div style="font-size:11px;color:#c090b0;margin-bottom:4px">你的補充說明</div><div style="font-size:12px;color:#a06080;line-height:1.7">${pastNote}</div><div style="font-size:11px;color:#e0389a;margin-top:6px">→ 建議：結合「${charm.name}」特質換個角度，讓同樣的主題更有記憶點。</div></div>`:''}`:''}
-
-      <div class="sec-divider"></div>
-      <div class="sec-title">💡 發文策略</div>
-      ${strategyItems.map(s=>`<div class="strategy-item"><div class="si-icon">${s.icon}</div><div style="flex:1"><div class="si-title">${s.title}<span class="si-badge ${s.badge==='hot'?'sb-hot':'sb-next'}">${s.badge==='hot'?'接著發':'試試看'}</span></div><div class="si-desc">${s.desc}</div>${s.hook?`<div class="si-hook">⚡ 開頭三秒：「${s.hook}」</div>`:''}</div></div>`).join('')}
-      <div class="rule15">
-        <div class="r15-head">📊 15則法則 — 先發再說，數據說話</div>
+    <!-- 15則法則 -->
+    <div class="big-card">
+      <div class="sec-title">📊 15則法則 — 先發再說</div>
+      <div class="rule15" style="border:none;padding:0;background:transparent;">
         <div class="r15-track">${dots}</div>
         <div class="r15-step"><div class="r15-icon">1️⃣</div><div class="r15-text"><em>選定一個主題</em>，專注發15則，不要這支美妝下支又旅遊——演算法需要時間學習你的帳號定位。</div></div>
         <div class="r15-step"><div class="r15-icon">📈</div><div class="r15-text">發到第10則後，比較<em>完播率、分享數、收藏數</em>，哪支最高就往那個方向繼續做。</div></div>
         <div class="r15-step"><div class="r15-icon">🔄</div><div class="r15-text">發完15則做一次<em>總回顧</em>：有起色→繼續深耕；沒有→換角度或換主題，再跑一輪。</div></div>
-        <div class="r15-step"><div class="r15-icon">⭐</div><div class="r15-text"><em>星座共鳴內容</em>可以每5支穿插一支——天生高互動、高分享，適合用來衝曝光、吸引新觀眾。</div></div>
       </div>
     </div>
 
-    <!-- MBTI 拍攝詳解 -->
-    <div class="big-card">
-      <div class="sec-title">✦ 你的拍攝風格 — MBTI ${r.mbtiType} 詳解</div>
-      <div style="font-size:12px;color:#a06080;line-height:1.75;margin-bottom:16px">
-        你的組合是 <strong style="color:#e0389a">${r.dims.map(d=>MBTI_DETAIL[d].label).join(' + ')}</strong>。<br>每個維度都影響你怎麼出現在鏡頭前、怎麼說話最自然——以下是具體拍法。
-      </div>
-      ${mbtiDetail}
-    </div>
-
-    <!-- 綜合總結 -->
+    <!-- 總結 -->
     <div class="summary">
       <div class="sum-label">✦ 綜合總結</div>
-      <div class="sum-h">你是 <em>${charm.name}</em> × ${ct1.name}的創作者</div>
+      <div class="sum-h">你是 <em>${charm.name}</em> × ${ct1.name} 的創作者</div>
       <div class="sum-dna">
         <div class="sum-chip"><span>${charm.emoji}</span>${charm.name}</div>
         <div class="sum-chip"><span>${ct1.emoji}</span>${ct1.name}</div>
         <div class="sum-chip"><span>🧬</span>MBTI ${r.mbtiType}</div>
-        <div class="sum-chip"><span>${ct2.emoji}</span>${ct2.name} 副線</div>
         ${hasPast?'<div class="sum-chip"><span>📊</span>有過往數據</div>':''}
       </div>
       <div class="sum-body">
         <div class="sum-row"><div class="sum-icon">💎</div>
-          <div class="sum-text"><strong>核心優勢：</strong>你是<em>${styleDesc}</em>，加上天生的${charm.name}特質，你最能做的是讓觀眾看完<em>有感覺又想行動</em>。這兩件事同時做到的創作者，是稀缺的。</div></div>
+          <div class="sum-text"><strong>核心優勢：</strong>你是<em>${r.dims[0]==='E'?'即興上鏡型，直接說話就是你的優勢':'腳本規劃型，精心準備讓你更有說服力'}</em>，加上天生的${charm.name}特質，你最能做的是讓觀眾看完<em>有感覺又想行動</em>。</div></div>
         <div class="sum-row"><div class="sum-icon">🗺️</div>
           <div class="sum-text"><strong>定位策略：</strong>${pastSummary}${freqDesc}。帳號的前20支是建立「觀眾對你的印象」的黃金期，主題和格式越一致越好。</div></div>
-        <div class="sum-row"><div class="sum-icon">⭐</div>
-          <div class="sum-text"><strong>星座內容的位置：</strong>不用把帳號變成星座帳號——每5支穿插一支就夠。它的功能是<em>衝曝光、引互動</em>，讓新觀眾認識你後，再被你的主題內容留住。</div></div>
         <div class="sum-row"><div class="sum-icon">🎯</div>
           <div class="sum-text"><strong>現在最該做的事：</strong>${nextAction}</div></div>
       </div>
@@ -711,11 +1075,20 @@ function showResult(){
       </div>
     </div>
 
+    <!-- 初心卡 -->
+    <div class="heart-card">
+      <div class="heart-title">🌿 最後，最重要的一件事</div>
+      <div class="heart-row"><div class="heart-icon">💛</div><div class="heart-text">這個測驗只是方向，<em>不要讓它定義你</em>。你是多樣且獨特的，任何一個主題標籤都只是起點。</div></div>
+      <div class="heart-row"><div class="heart-icon">🎬</div><div class="heart-text">分享的目的是為了<em>影響更多人</em>。就算觀看率低，也是有人在看。<strong>不要有太多得失心</strong>，發影片的初心才是讓你走長遠的原因。</div></div>
+      <div class="heart-row"><div class="heart-icon">🌱</div><div class="heart-text">記錄和分享本來就是為了<em>成長和累積</em>。每一部影片都是練習，能被看到是好事，被看到多少都是在累積。</div></div>
+      <div class="heart-row"><div class="heart-icon">✨</div><div class="heart-text">去<em>愛上剪輯跟分享的過程</em>，在每一次按下發佈的當下，<strong>肯定自己又往前了一步</strong>。</div></div>
+    </div>
+
     <div class="tags">${tags.map(t=>`<span class="tag">${t}</span>`).join('')}</div>
-    <button class="btn-retry" onclick="startQuiz()">↺ 重新測驗</button>`;
+    <button class="btn-retry" onclick="startQuiz()">↺ 重新測驗</button>
+  `;
 
   show('p-result');
-  setTimeout(()=>{document.querySelectorAll('[data-w]').forEach(el=>el.style.width=el.dataset.w+'%');},300);
 }
 </script>
 </body>
