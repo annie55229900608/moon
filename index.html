@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="zh-TW">
 <head>
 <meta charset="UTF-8">
@@ -13,8 +14,8 @@ body{background:#fdf5fa;color:#2d1228;font-family:'Noto Sans TC',sans-serif;min-
 /* ══ WELCOME SCREEN ══ */
 #welcome-screen{position:fixed;inset:0;z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;overflow:hidden;transition:opacity .7s ease;}
 .wlc-bg{position:absolute;inset:0;background:linear-gradient(170deg,#ffe4f4 0%,#ffd0ee 25%,#ffb8e8 55%,#ffa0e0 100%);}
-.wlc-bg::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 50% at 50% 30%,rgba(255,255,255,.55) 0%,transparent 65%);}
-.wlc-bg::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 50% 60% at 80% 80%,rgba(255,130,200,.25) 0%,transparent 60%);}
+.wlc-bg::before{content:’’;position:absolute;inset:0;background:radial-gradient(ellipse 70% 50% at 50% 30%,rgba(255,255,255,.55) 0%,transparent 65%);}
+.wlc-bg::after{content:’’;position:absolute;inset:0;background:radial-gradient(ellipse 50% 60% at 80% 80%,rgba(255,130,200,.25) 0%,transparent 60%);}
 
 /* Floating blobs */
 .wlc-blob{position:absolute;border-radius:50%;pointer-events:none;filter:blur(50px);}
@@ -27,27 +28,27 @@ body{background:#fdf5fa;color:#2d1228;font-family:'Noto Sans TC',sans-serif;min-
 
 /* Sparkles */
 .wlc-sparkles{position:absolute;inset:0;pointer-events:none;}
-.wlc-sp{position:absolute;color:#e0389a;font-size:var(--sz,14px);opacity:0;animation:wlspkl var(--d,3s) ease-in-out infinite var(--dl,0s);}
+.wlc-sp{position:absolute;color:#e0389a;font-size:var(–sz,14px);opacity:0;animation:wlspkl var(–d,3s) ease-in-out infinite var(–dl,0s);}
 @keyframes wlspkl{0%,100%{opacity:0;transform:scale(.5) rotate(0deg)}30%,70%{opacity:.55;transform:scale(1) rotate(15deg)}50%{opacity:.8;transform:scale(1.2) rotate(-10deg)}}
-.wlc-sp:nth-child(1){top:12%;left:10%;--sz:18px;--d:3.5s;--dl:0s;}
-.wlc-sp:nth-child(2){top:20%;right:12%;--sz:12px;--d:4s;--dl:.7s;}
-.wlc-sp:nth-child(3){top:65%;left:8%;--sz:14px;--d:3s;--dl:1.2s;}
-.wlc-sp:nth-child(4){top:75%;right:10%;--sz:20px;--d:4.5s;--dl:.3s;}
-.wlc-sp:nth-child(5){top:40%;left:5%;--sz:10px;--d:3.2s;--dl:1.8s;}
-.wlc-sp:nth-child(6){top:30%;right:6%;--sz:16px;--d:5s;--dl:.5s;}
-.wlc-sp:nth-child(7){bottom:20%;left:20%;--sz:12px;--d:3.8s;--dl:2s;}
-.wlc-sp:nth-child(8){top:55%;right:20%;--sz:10px;--d:4.2s;--dl:1s;}
+.wlc-sp:nth-child(1){top:12%;left:10%;–sz:18px;–d:3.5s;–dl:0s;}
+.wlc-sp:nth-child(2){top:20%;right:12%;–sz:12px;–d:4s;–dl:.7s;}
+.wlc-sp:nth-child(3){top:65%;left:8%;–sz:14px;–d:3s;–dl:1.2s;}
+.wlc-sp:nth-child(4){top:75%;right:10%;–sz:20px;–d:4.5s;–dl:.3s;}
+.wlc-sp:nth-child(5){top:40%;left:5%;–sz:10px;–d:3.2s;–dl:1.8s;}
+.wlc-sp:nth-child(6){top:30%;right:6%;–sz:16px;–d:5s;–dl:.5s;}
+.wlc-sp:nth-child(7){bottom:20%;left:20%;–sz:12px;–d:3.8s;–dl:2s;}
+.wlc-sp:nth-child(8){top:55%;right:20%;–sz:10px;–d:4.2s;–dl:1s;}
 
 /* Petals falling */
 .wlc-petals{position:absolute;inset:0;pointer-events:none;overflow:hidden;}
-.wlc-pt{position:absolute;top:-30px;color:#f060a8;font-size:var(--sz,12px);opacity:0;animation:wlpt var(--d,9s) linear infinite var(--dl,0s);}
-@keyframes wlpt{0%{opacity:0;transform:translateY(0) rotate(0deg) translateX(0)}5%{opacity:.4}85%{opacity:.2}100%{opacity:0;transform:translateY(110vh) rotate(540deg) translateX(var(--dx,20px))}}
-.wlc-pt:nth-child(1){left:8%;--sz:16px;--d:8s;--dl:0s;--dx:30px;}
-.wlc-pt:nth-child(2){left:22%;--sz:12px;--d:11s;--dl:1.5s;--dx:-20px;}
-.wlc-pt:nth-child(3){left:40%;--sz:18px;--d:9s;--dl:3s;--dx:25px;}
-.wlc-pt:nth-child(4){left:60%;--sz:10px;--d:10s;--dl:.8s;--dx:-30px;}
-.wlc-pt:nth-child(5){left:78%;--sz:14px;--d:8.5s;--dl:2.2s;--dx:15px;}
-.wlc-pt:nth-child(6){left:90%;--sz:12px;--d:12s;--dl:4s;--dx:-25px;}
+.wlc-pt{position:absolute;top:-30px;color:#f060a8;font-size:var(–sz,12px);opacity:0;animation:wlpt var(–d,9s) linear infinite var(–dl,0s);}
+@keyframes wlpt{0%{opacity:0;transform:translateY(0) rotate(0deg) translateX(0)}5%{opacity:.4}85%{opacity:.2}100%{opacity:0;transform:translateY(110vh) rotate(540deg) translateX(var(–dx,20px))}}
+.wlc-pt:nth-child(1){left:8%;–sz:16px;–d:8s;–dl:0s;–dx:30px;}
+.wlc-pt:nth-child(2){left:22%;–sz:12px;–d:11s;–dl:1.5s;–dx:-20px;}
+.wlc-pt:nth-child(3){left:40%;–sz:18px;–d:9s;–dl:3s;–dx:25px;}
+.wlc-pt:nth-child(4){left:60%;–sz:10px;–d:10s;–dl:.8s;–dx:-30px;}
+.wlc-pt:nth-child(5){left:78%;–sz:14px;–d:8.5s;–dl:2.2s;–dx:15px;}
+.wlc-pt:nth-child(6){left:90%;–sz:12px;–d:12s;–dl:4s;–dx:-25px;}
 
 /* Content */
 .wlc-content{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;width:100%;max-width:380px;padding:0 24px;}
@@ -90,9 +91,9 @@ body{background:#fdf5fa;color:#2d1228;font-family:'Noto Sans TC',sans-serif;min-
 .nm-icon{font-size:44px;margin-bottom:12px;}
 .nm-title{font-size:18px;font-weight:900;color:#e0389a;margin-bottom:6px;}
 .nm-sub{font-size:13px;color:#a06080;line-height:1.7;margin-bottom:20px;}
-#nm-input{width:100%;background:#fdf5fa;border:1.5px solid #f0d0e8;border-radius:12px;padding:12px 16px;font-family:'Noto Sans TC',sans-serif;font-size:15px;color:#2d1228;outline:none;text-align:center;margin-bottom:14px;transition:border-color .2s;}
+#nm-input{width:100%;background:#fdf5fa;border:1.5px solid #f0d0e8;border-radius:12px;padding:12px 16px;font-family:‘Noto Sans TC’,sans-serif;font-size:15px;color:#2d1228;outline:none;text-align:center;margin-bottom:14px;transition:border-color .2s;}
 #nm-input:focus{border-color:#e0389a;box-shadow:0 0 0 3px rgba(224,56,154,.15);}
-.nm-btn{width:100%;background:#e0389a;color:#fff;font-family:'Noto Sans TC',sans-serif;font-weight:900;font-size:14px;padding:13px;border-radius:999px;border:none;cursor:pointer;box-shadow:0 4px 14px rgba(224,56,154,.3);transition:all .2s;}
+.nm-btn{width:100%;background:#e0389a;color:#fff;font-family:‘Noto Sans TC’,sans-serif;font-weight:900;font-size:14px;padding:13px;border-radius:999px;border:none;cursor:pointer;box-shadow:0 4px 14px rgba(224,56,154,.3);transition:all .2s;}
 .nm-btn:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(224,56,154,.4);}
 
 /* Gender split */
@@ -100,9 +101,9 @@ body{background:#fdf5fa;color:#2d1228;font-family:'Noto Sans TC',sans-serif;min-
 .gender-side{display:flex;flex-direction:column;align-items:center;gap:3px;flex:0 0 80px;}
 .gender-icon{font-size:22px;}
 .gender-label{font-size:11px;font-weight:700;color:#a06080;}
-.gender-input{width:64px;background:#fdf5fa;border:1.5px solid #f0d0e8;border-radius:10px;padding:6px 8px;font-size:16px;font-weight:900;color:#e0389a;text-align:center;outline:none;font-family:'DM Mono',monospace;}
+.gender-input{width:64px;background:#fdf5fa;border:1.5px solid #f0d0e8;border-radius:10px;padding:6px 8px;font-size:16px;font-weight:900;color:#e0389a;text-align:center;outline:none;font-family:‘DM Mono’,monospace;}
 .gender-input:focus{border-color:#e0389a;}
-.gender-val-big{font-size:16px;font-weight:900;color:#6b9ab8;font-family:'DM Mono',monospace;}
+.gender-val-big{font-size:16px;font-weight:900;color:#6b9ab8;font-family:‘DM Mono’,monospace;}
 .gender-unit{font-size:12px;color:#c090b0;}
 .gender-status{font-size:10px;font-weight:700;text-align:center;}
 .gender-divider{flex:1;display:flex;flex-direction:column;gap:4px;}
@@ -112,7 +113,7 @@ body{background:#fdf5fa;color:#2d1228;font-family:'Noto Sans TC',sans-serif;min-
 /* Metric cards */
 .ta-metric-card{background:#fdf5fa;border:1px solid #f0d0e8;border-radius:10px;padding:10px 12px;}
 .ta-mc-label{font-size:10px;color:#c090b0;margin-bottom:4px;}
-.ta-mc-val{font-size:18px;font-weight:900;font-family:'DM Mono',monospace;}
+.ta-mc-val{font-size:18px;font-weight:900;font-family:‘DM Mono’,monospace;}
 .ta-mc-val.good{color:#7ab840;}
 .ta-mc-val.mid{color:#e0a020;}
 .ta-mc-val.bad{color:#e0389a;}
@@ -165,7 +166,7 @@ body{background:#fdf5fa;color:#2d1228;font-family:'Noto Sans TC',sans-serif;min-
 .cg-formula-card{background:#fdf5fa;border:1.5px solid #f0d0e8;border-radius:12px;padding:12px;}
 .cg-formula-title{font-size:13px;font-weight:900;color:#e0389a;margin-bottom:8px;}
 .cg-formula-item{font-size:11px;color:#a06080;margin-bottom:4px;display:flex;gap:5px;}
-.cg-formula-item::before{content:'·';color:#e0389a;flex-shrink:0;}
+.cg-formula-item::before{content:’·’;color:#e0389a;flex-shrink:0;}
 
 /* 4-step 高潮 */
 .cg-step-row{display:flex;gap:8px;margin-top:10px;overflow-x:auto;padding-bottom:4px;}
@@ -205,7 +206,7 @@ body{background:#fdf5fa;color:#2d1228;font-family:'Noto Sans TC',sans-serif;min-
 .cg-cta-3 .cg-cta-title{color:#2980b9;}
 .cg-cta-4 .cg-cta-title{color:#d68910;}
 .cg-cta-item{font-size:10px;color:#a06080;margin-bottom:2px;padding-left:8px;position:relative;}
-.cg-cta-item::before{content:'→';position:absolute;left:0;color:#c090b0;}
+.cg-cta-item::before{content:‘→’;position:absolute;left:0;color:#c090b0;}
 
 /* Persona guide */
 .cg-persona{background:#fdf5fa;border:1px solid #f0d0e8;border-radius:11px;margin-bottom:8px;overflow:hidden;}
@@ -247,7 +248,7 @@ body{background:#fdf5fa;color:#2d1228;font-family:'Noto Sans TC',sans-serif;min-
 /* ══ TAB BAR ══ */
 #tab-bar{position:fixed;bottom:0;left:0;right:0;z-index:500;background:rgba(255,245,252,.92);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-top:1px solid rgba(224,56,154,.15);display:none;height:62px;padding:0 16px;}
 #tab-bar.visible{display:flex;align-items:center;justify-content:center;gap:0;}
-.tab-item{flex:1;max-width:180px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;padding:8px 12px;border:none;background:transparent;cursor:pointer;transition:all .2s;border-radius:12px;font-family:'Noto Sans TC',sans-serif;}
+.tab-item{flex:1;max-width:180px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;padding:8px 12px;border:none;background:transparent;cursor:pointer;transition:all .2s;border-radius:12px;font-family:‘Noto Sans TC’,sans-serif;}
 .tab-icon{font-size:20px;line-height:1;transition:transform .2s;}
 .tab-label{font-size:11px;font-weight:700;color:#c090b0;transition:color .2s;letter-spacing:.04em;}
 .tab-item.active .tab-label{color:#e0389a;}
@@ -265,8 +266,8 @@ body{background:#fdf5fa;color:#2d1228;font-family:'Noto Sans TC',sans-serif;min-
 .ta-field{margin-bottom:14px;}
 .ta-field:last-child{margin-bottom:0;}
 .ta-label{display:flex;justify-content:space-between;align-items:center;font-size:12px;font-weight:700;color:#2d1228;margin-bottom:7px;}
-.ta-val{font-size:12px;font-weight:900;color:#e0389a;font-family:'DM Mono',monospace;}
-.ta-slider{width:100%;height:4px;-webkit-appearance:none;appearance:none;background:linear-gradient(90deg,#e0389a var(--pct,50%),#f0d0e8 var(--pct,50%));border-radius:99px;outline:none;cursor:pointer;}
+.ta-val{font-size:12px;font-weight:900;color:#e0389a;font-family:‘DM Mono’,monospace;}
+.ta-slider{width:100%;height:4px;-webkit-appearance:none;appearance:none;background:linear-gradient(90deg,#e0389a var(–pct,50%),#f0d0e8 var(–pct,50%));border-radius:99px;outline:none;cursor:pointer;}
 .ta-slider::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;border-radius:50%;background:#e0389a;box-shadow:0 2px 8px rgba(224,56,154,.4);cursor:pointer;}
 .ta-slider::-moz-range-thumb{width:18px;height:18px;border-radius:50%;background:#e0389a;border:none;cursor:pointer;}
 .age-row{display:flex;align-items:center;gap:10px;margin-bottom:10px;}
@@ -274,19 +275,19 @@ body{background:#fdf5fa;color:#2d1228;font-family:'Noto Sans TC',sans-serif;min-
 .age-label{font-size:11px;font-weight:700;color:#a06080;width:50px;flex-shrink:0;}
 .age-bar-wrap{flex:1;height:8px;background:#f5e0f0;border-radius:99px;overflow:hidden;cursor:pointer;}
 .age-bar-fill{height:100%;background:linear-gradient(90deg,#f090c0,#e0389a);border-radius:99px;transition:width .2s;}
-.age-pct{font-size:11px;font-weight:900;color:#e0389a;width:34px;text-align:right;font-family:'DM Mono',monospace;flex-shrink:0;}
-.age-input{width:48px;background:#fdf5fa;border:1.5px solid #f0d0e8;border-radius:7px;padding:4px 6px;font-size:12px;font-family:'DM Mono',monospace;color:#2d1228;text-align:center;outline:none;}
+.age-pct{font-size:11px;font-weight:900;color:#e0389a;width:34px;text-align:right;font-family:‘DM Mono’,monospace;flex-shrink:0;}
+.age-input{width:48px;background:#fdf5fa;border:1.5px solid #f0d0e8;border-radius:7px;padding:4px 6px;font-size:12px;font-family:‘DM Mono’,monospace;color:#2d1228;text-align:center;outline:none;}
 .age-input:focus{border-color:#e0389a;}
 .ta-total{display:flex;justify-content:space-between;align-items:center;background:#fdf5fa;border:1px solid #f0d0e8;border-radius:8px;padding:7px 12px;margin-top:4px;}
 .ta-total-label{font-size:11px;color:#a06080;}
-.ta-total-val{font-size:13px;font-weight:900;font-family:'DM Mono',monospace;}
+.ta-total-val{font-size:13px;font-weight:900;font-family:‘DM Mono’,monospace;}
 .ta-total-val.ok{color:#7ab840;}
 .ta-total-val.warn{color:#e0389a;}
 .ta-chip-group{display:flex;flex-wrap:wrap;gap:7px;}
-.ta-chip{padding:7px 14px;border-radius:999px;border:1.5px solid #f0d0e8;background:#fdf5fa;font-size:12px;cursor:pointer;transition:all .15s;color:#2d1228;font-family:'Noto Sans TC',sans-serif;}
+.ta-chip{padding:7px 14px;border-radius:999px;border:1.5px solid #f0d0e8;background:#fdf5fa;font-size:12px;cursor:pointer;transition:all .15s;color:#2d1228;font-family:‘Noto Sans TC’,sans-serif;}
 .ta-chip:hover{border-color:#e0389a;}
 .ta-chip.on{background:#e0389a;border-color:#e0389a;color:#fff;font-weight:700;}
-.ta-analyze-btn{width:100%;background:#e0389a;color:#fff;font-family:'Noto Sans TC',sans-serif;font-weight:900;font-size:14px;padding:14px;border-radius:999px;border:none;cursor:pointer;box-shadow:0 4px 18px rgba(224,56,154,.3);transition:all .2s;margin-top:4px;}
+.ta-analyze-btn{width:100%;background:#e0389a;color:#fff;font-family:‘Noto Sans TC’,sans-serif;font-weight:900;font-size:14px;padding:14px;border-radius:999px;border:none;cursor:pointer;box-shadow:0 4px 18px rgba(224,56,154,.3);transition:all .2s;margin-top:4px;}
 .ta-analyze-btn:hover{transform:translateY(-1px);box-shadow:0 6px 24px rgba(224,56,154,.4);}
 .ta-analyze-btn:disabled{opacity:.5;cursor:default;transform:none;}
 /* Result */
@@ -343,9 +344,9 @@ body{background:#fdf5fa;color:#2d1228;font-family:'Noto Sans TC',sans-serif;min-
 .scf-lbl{font-size:9px;color:#c090b0;}
 .scf-val{font-size:11px;font-weight:700;color:#e0389a;margin-top:1px;}
 .saved-card-btns{display:flex;gap:8px;flex-wrap:wrap;}
-.sc-btn-view{flex:1;background:#e0389a;color:#fff;font-family:'Noto Sans TC',sans-serif;font-weight:700;font-size:13px;padding:10px 16px;border-radius:999px;border:none;cursor:pointer;transition:all .2s;text-align:center;}
+.sc-btn-view{flex:1;background:#e0389a;color:#fff;font-family:‘Noto Sans TC’,sans-serif;font-weight:700;font-size:13px;padding:10px 16px;border-radius:999px;border:none;cursor:pointer;transition:all .2s;text-align:center;}
 .sc-btn-view:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(224,56,154,.35);}
-.sc-btn-restart{background:transparent;color:#c090b0;font-family:'Noto Sans TC',sans-serif;font-size:12px;padding:10px 16px;border-radius:999px;border:1.5px solid #f0d0e8;cursor:pointer;transition:all .2s;}
+.sc-btn-restart{background:transparent;color:#c090b0;font-family:‘Noto Sans TC’,sans-serif;font-size:12px;padding:10px 16px;border-radius:999px;border:1.5px solid #f0d0e8;cursor:pointer;transition:all .2s;}
 .sc-btn-restart:hover{border-color:#e0389a;color:#e0389a;}
 
 /* ══ ORIGINAL STYLES ══ */
@@ -373,12 +374,12 @@ h1 em{color:#e0389a;font-style:normal;}
 .feat-icon{font-size:18px;margin-bottom:4px;}
 .feat-title{font-size:12px;font-weight:900;color:#e0389a;margin-bottom:2px;}
 .feat-desc{font-size:11px;color:#a06080;line-height:1.45;}
-.btn{background:#e0389a;color:#fff;font-family:'Noto Sans TC',sans-serif;font-weight:900;font-size:14px;padding:14px 42px;border-radius:999px;border:none;cursor:pointer;box-shadow:0 4px 18px rgba(224,56,154,.3);transition:transform .2s,box-shadow .2s;}
+.btn{background:#e0389a;color:#fff;font-family:‘Noto Sans TC’,sans-serif;font-weight:900;font-size:14px;padding:14px 42px;border-radius:999px;border:none;cursor:pointer;box-shadow:0 4px 18px rgba(224,56,154,.3);transition:transform .2s,box-shadow .2s;}
 .btn:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(224,56,154,.45);}
-.btn-ghost{background:transparent;border:1.5px solid #e8c0d8;color:#c090b0;font-family:'Noto Sans TC',sans-serif;font-size:12px;padding:9px 20px;border-radius:999px;cursor:pointer;transition:all .2s;}
+.btn-ghost{background:transparent;border:1.5px solid #e8c0d8;color:#c090b0;font-family:‘Noto Sans TC’,sans-serif;font-size:12px;padding:9px 20px;border-radius:999px;cursor:pointer;transition:all .2s;}
 .btn-ghost:hover{border-color:#e0389a;color:#e0389a;}
 .btn-ghost:disabled{opacity:.3;cursor:default;pointer-events:none;}
-.btn-next{background:#e0389a;color:#fff;font-family:'Noto Sans TC',sans-serif;font-weight:700;font-size:13px;padding:11px 26px;border-radius:999px;border:none;cursor:pointer;transition:all .2s;opacity:.3;pointer-events:none;}
+.btn-next{background:#e0389a;color:#fff;font-family:‘Noto Sans TC’,sans-serif;font-weight:700;font-size:13px;padding:11px 26px;border-radius:999px;border:none;cursor:pointer;transition:all .2s;opacity:.3;pointer-events:none;}
 .btn-next.on{opacity:1;pointer-events:all;}
 .btn-next.on:hover{transform:translateY(-1px);box-shadow:0 5px 18px rgba(224,56,154,.4);}
 .prog-wrap{display:flex;align-items:center;gap:10px;margin-bottom:20px;}
@@ -400,7 +401,7 @@ h1 em{color:#e0389a;font-style:normal;}
 .multi-note{font-size:10px;color:#c090b0;margin-top:8px;}
 .opt-dot{width:18px;height:18px;border-radius:50%;border:1.5px solid #e8c0d8;flex-shrink:0;margin-top:2px;display:flex;align-items:center;justify-content:center;transition:all .15s;}
 .opt.sel .opt-dot{background:#e0389a;border-color:#e0389a;}
-.opt-dot::after{content:'';width:6px;height:6px;border-radius:50%;background:#fff;opacity:0;transition:opacity .15s;}
+.opt-dot::after{content:’’;width:6px;height:6px;border-radius:50%;background:#fff;opacity:0;transition:opacity .15s;}
 .opt.sel .opt-dot::after{opacity:1;}
 .opt-body{flex:1;}
 .opt-text{font-size:12px;line-height:1.55;color:#2d1228;}
@@ -443,7 +444,7 @@ h1 em{color:#e0389a;font-style:normal;}
 .sub-opt.on{background:#e0389a;border-color:#e0389a;color:#fff;font-weight:700;}
 .past-note{background:#fff;border:1.5px solid #f0d0e8;border-radius:14px;padding:16px;margin-bottom:16px;}
 .past-note label{display:block;font-size:12px;font-weight:700;color:#2d1228;margin-bottom:8px;}
-.past-note textarea{width:100%;border:1.5px solid #f0d0e8;border-radius:9px;padding:10px 12px;font-family:'Noto Sans TC',sans-serif;font-size:12px;color:#2d1228;resize:none;outline:none;line-height:1.6;background:#fdf5fa;}
+.past-note textarea{width:100%;border:1.5px solid #f0d0e8;border-radius:9px;padding:10px 12px;font-family:‘Noto Sans TC’,sans-serif;font-size:12px;color:#2d1228;resize:none;outline:none;line-height:1.6;background:#fdf5fa;}
 .past-note textarea:focus{border-color:#e0389a;}
 .past-note textarea::placeholder{color:#c090b0;}
 .result-page-nav{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;padding:10px 14px;background:#fff;border:1.5px solid #f0d0e8;border-radius:12px;}
@@ -629,14 +630,16 @@ h1 em{color:#e0389a;font-style:normal;}
 .ai-note-loading{font-size:11px;color:#c090b0;font-style:italic;}
 .tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px;}
 .tag{background:rgba(224,56,154,.08);border:1px solid rgba(224,56,154,.2);color:#e0389a;font-size:11px;padding:4px 11px;border-radius:999px;}
-.btn-retry{display:block;width:100%;background:#fff;border:1.5px solid #f0d0e8;color:#c090b0;font-family:'Noto Sans TC',sans-serif;font-size:13px;padding:12px;border-radius:11px;cursor:pointer;transition:all .2s;margin-top:10px;}
+.btn-retry{display:block;width:100%;background:#fff;border:1.5px solid #f0d0e8;color:#c090b0;font-family:‘Noto Sans TC’,sans-serif;font-size:13px;padding:12px;border-radius:11px;cursor:pointer;transition:all .2s;margin-top:10px;}
 .btn-retry:hover{border-color:#e0389a;color:#e0389a;}
 @media(max-width:480px){.formula-row{gap:3px;}.fb{min-width:58px;padding:7px 9px;}.name-ex-row{grid-template-columns:1fr;}}
 </style>
+
 </head>
 <body>
 
 <!-- ══ WELCOME SCREEN ══ -->
+
 <div id="welcome-screen">
   <div class="wlc-bg"></div>
   <div class="wlc-blob wlc-blob-1"></div>
@@ -672,6 +675,7 @@ h1 em{color:#e0389a;font-style:normal;}
 </div>
 
 <!-- ══ NAME MODAL ══ -->
+
 <div id="name-modal">
   <div class="name-modal-box">
     <div class="nm-icon">✨</div>
@@ -683,6 +687,7 @@ h1 em{color:#e0389a;font-style:normal;}
 </div>
 
 <!-- INTRO -->
+
 <div id="p-intro" class="page on">
   <div class="inner">
     <span class="logo-star">✦</span>
@@ -710,6 +715,7 @@ h1 em{color:#e0389a;font-style:normal;}
 </div>
 
 <!-- QUIZ -->
+
 <div id="p-quiz" class="page">
   <div class="inner">
     <div class="prog-wrap">
@@ -725,6 +731,7 @@ h1 em{color:#e0389a;font-style:normal;}
 </div>
 
 <!-- PAST -->
+
 <div id="p-past" class="page">
   <div class="inner">
     <div style="margin-bottom:5px;font-size:10px;color:#c090b0;letter-spacing:.1em;text-transform:uppercase;">加分題</div>
@@ -752,6 +759,7 @@ h1 em{color:#e0389a;font-style:normal;}
 </div>
 
 <!-- RESULT PAGE A -->
+
 <div id="p-result-a" class="page">
   <div class="inner">
     <div class="result-page-nav">
@@ -765,6 +773,7 @@ h1 em{color:#e0389a;font-style:normal;}
 </div>
 
 <!-- RESULT PAGE B -->
+
 <div id="p-result-b" class="page">
   <div class="inner">
     <div class="result-page-nav">
@@ -778,6 +787,7 @@ h1 em{color:#e0389a;font-style:normal;}
 </div>
 
 <!-- RESULT PAGE C -->
+
 <div id="p-result-c" class="page">
   <div class="inner">
     <div class="result-page-nav">
@@ -791,6 +801,7 @@ h1 em{color:#e0389a;font-style:normal;}
 </div>
 
 <!-- RESULT PAGE D -->
+
 <div id="p-result-d" class="page">
   <div class="inner">
     <div class="result-page-nav">
@@ -804,6 +815,7 @@ h1 em{color:#e0389a;font-style:normal;}
 </div>
 
 <!-- ══ CONTENT GUIDE PAGE ══ -->
+
 <div id="p-guide" class="page">
   <div class="inner">
     <div style="padding:20px 0 14px">
@@ -815,6 +827,7 @@ h1 em{color:#e0389a;font-style:normal;}
 </div>
 
 <!-- ══ AUDIENCE ANALYSIS PAGE ══ -->
+
 <div id="p-audience" class="page">
   <div class="inner">
     <div style="padding:20px 0 14px">
@@ -822,115 +835,119 @@ h1 em{color:#e0389a;font-style:normal;}
       <div style="font-size:12px;color:#a06080;line-height:1.6;">把你的 IG 洞察數據填進來，分析你的粉絲是不是你的目標客群，找出為什麼有粉絲卻沒辦法變現。</div>
     </div>
 
-    <!-- Age -->
-    <div class="ta-section">
-      <div class="ta-section-title">📊 年齡分佈（來自 IG 洞察）</div>
-      <div id="age-rows">
-        <div class="age-row"><span class="age-label">13–17</span><div class="age-bar-wrap"><div class="age-bar-fill" id="bar-a13" style="width:0%"></div></div><input class="age-input" id="age-13" type="number" min="0" max="100" value="0" oninput="syncAge()"></div>
-        <div class="age-row"><span class="age-label">18–24</span><div class="age-bar-wrap"><div class="age-bar-fill" id="bar-a18" style="width:0%"></div></div><input class="age-input" id="age-18" type="number" min="0" max="100" value="0" oninput="syncAge()"></div>
-        <div class="age-row"><span class="age-label">25–34</span><div class="age-bar-wrap"><div class="age-bar-fill" id="bar-a25" style="width:50%"></div></div><input class="age-input" id="age-25" type="number" min="0" max="100" value="50" oninput="syncAge()"></div>
-        <div class="age-row"><span class="age-label">35–44</span><div class="age-bar-wrap"><div class="age-bar-fill" id="bar-a35" style="width:30%"></div></div><input class="age-input" id="age-35" type="number" min="0" max="100" value="30" oninput="syncAge()"></div>
-        <div class="age-row"><span class="age-label">45–54</span><div class="age-bar-wrap"><div class="age-bar-fill" id="bar-a45" style="width:15%"></div></div><input class="age-input" id="age-45" type="number" min="0" max="100" value="15" oninput="syncAge()"></div>
-        <div class="age-row"><span class="age-label">55+</span><div class="age-bar-wrap"><div class="age-bar-fill" id="bar-a55" style="width:5%"></div></div><input class="age-input" id="age-55" type="number" min="0" max="100" value="5" oninput="syncAge()"></div>
-      </div>
-      <div class="ta-total"><span class="ta-total-label">合計</span><span class="ta-total-val ok" id="age-total">100%</span></div>
-    </div>
+```
+<!-- Age -->
+<div class="ta-section">
+  <div class="ta-section-title">📊 年齡分佈（來自 IG 洞察）</div>
+  <div id="age-rows">
+    <div class="age-row"><span class="age-label">13–17</span><div class="age-bar-wrap"><div class="age-bar-fill" id="bar-a13" style="width:0%"></div></div><input class="age-input" id="age-13" type="number" min="0" max="100" value="0" oninput="syncAge()"></div>
+    <div class="age-row"><span class="age-label">18–24</span><div class="age-bar-wrap"><div class="age-bar-fill" id="bar-a18" style="width:0%"></div></div><input class="age-input" id="age-18" type="number" min="0" max="100" value="0" oninput="syncAge()"></div>
+    <div class="age-row"><span class="age-label">25–34</span><div class="age-bar-wrap"><div class="age-bar-fill" id="bar-a25" style="width:50%"></div></div><input class="age-input" id="age-25" type="number" min="0" max="100" value="50" oninput="syncAge()"></div>
+    <div class="age-row"><span class="age-label">35–44</span><div class="age-bar-wrap"><div class="age-bar-fill" id="bar-a35" style="width:30%"></div></div><input class="age-input" id="age-35" type="number" min="0" max="100" value="30" oninput="syncAge()"></div>
+    <div class="age-row"><span class="age-label">45–54</span><div class="age-bar-wrap"><div class="age-bar-fill" id="bar-a45" style="width:15%"></div></div><input class="age-input" id="age-45" type="number" min="0" max="100" value="15" oninput="syncAge()"></div>
+    <div class="age-row"><span class="age-label">55+</span><div class="age-bar-wrap"><div class="age-bar-fill" id="bar-a55" style="width:5%"></div></div><input class="age-input" id="age-55" type="number" min="0" max="100" value="5" oninput="syncAge()"></div>
+  </div>
+  <div class="ta-total"><span class="ta-total-label">合計</span><span class="ta-total-val ok" id="age-total">100%</span></div>
+</div>
 
-    <!-- Gender side by side -->
-    <div class="ta-section">
-      <div class="ta-section-title">⚧ 性別比例</div>
-      <div style="font-size:11px;color:#a06080;margin-bottom:12px;">目標：<strong style="color:#e0389a">女性 80% 以上</strong> 才是最佳變現受眾</div>
-      <div class="gender-split-wrap">
-        <div class="gender-side gender-female">
-          <div class="gender-icon">👩</div>
-          <div class="gender-label">女性</div>
-          <input class="gender-input" id="female-pct" type="number" min="0" max="100" value="70" oninput="syncGenderSplit()">
-          <div class="gender-unit">%</div>
-          <div class="gender-status" id="female-status">⚠️ 未達標</div>
-        </div>
-        <div class="gender-divider">
-          <div class="gender-bar-wrap">
-            <div class="gender-bar-f" id="gender-bar-f" style="width:70%"></div>
-            <div class="gender-bar-m" id="gender-bar-m" style="width:30%"></div>
-          </div>
-          <div style="font-size:10px;color:#c090b0;margin-top:4px;text-align:center;">拖拉或直接輸入數字</div>
-        </div>
-        <div class="gender-side gender-male">
-          <div class="gender-icon">👨</div>
-          <div class="gender-label">男性</div>
-          <div class="gender-val-big" id="male-pct-display">30%</div>
-          <div class="gender-unit" style="opacity:0">%</div>
-          <div class="gender-status" id="male-status" style="color:#6b9ab8;">自動計算</div>
-        </div>
-      </div>
+<!-- Gender side by side -->
+<div class="ta-section">
+  <div class="ta-section-title">⚧ 性別比例</div>
+  <div style="font-size:11px;color:#a06080;margin-bottom:12px;">目標：<strong style="color:#e0389a">女性 80% 以上</strong> 才是最佳變現受眾</div>
+  <div class="gender-split-wrap">
+    <div class="gender-side gender-female">
+      <div class="gender-icon">👩</div>
+      <div class="gender-label">女性</div>
+      <input class="gender-input" id="female-pct" type="number" min="0" max="100" value="70" oninput="syncGenderSplit()">
+      <div class="gender-unit">%</div>
+      <div class="gender-status" id="female-status">⚠️ 未達標</div>
     </div>
+    <div class="gender-divider">
+      <div class="gender-bar-wrap">
+        <div class="gender-bar-f" id="gender-bar-f" style="width:70%"></div>
+        <div class="gender-bar-m" id="gender-bar-m" style="width:30%"></div>
+      </div>
+      <div style="font-size:10px;color:#c090b0;margin-top:4px;text-align:center;">拖拉或直接輸入數字</div>
+    </div>
+    <div class="gender-side gender-male">
+      <div class="gender-icon">👨</div>
+      <div class="gender-label">男性</div>
+      <div class="gender-val-big" id="male-pct-display">30%</div>
+      <div class="gender-unit" style="opacity:0">%</div>
+      <div class="gender-status" id="male-status" style="color:#6b9ab8;">自動計算</div>
+    </div>
+  </div>
+</div>
 
-    <!-- Metrics -->
-    <div class="ta-section">
-      <div class="ta-section-title">📊 帳號數據（來自 IG 洞察）</div>
-      <div style="font-size:11px;color:#a06080;margin-bottom:12px;">目標受眾年齡：<strong style="color:#e0389a">25–40 歲</strong> 為核心變現區間</div>
-      <div class="ta-field">
-        <div class="ta-label"><span>目前粉絲數</span></div>
-        <input type="number" id="metric-followers" class="age-input" style="width:100%;max-width:160px;" placeholder="例：5000" min="0" oninput="syncMetrics()">
-      </div>
-      <div class="ta-field" style="margin-top:10px;">
-        <div class="ta-label"><span>限動平均觀看人數</span><span style="font-size:10px;color:#c090b0;">(近7天平均)</span></div>
-        <input type="number" id="metric-story" class="age-input" style="width:100%;max-width:160px;" placeholder="例：300" min="0" oninput="syncMetrics()">
-      </div>
-      <div class="ta-field" style="margin-top:10px;">
-        <div class="ta-label"><span>平均 Reels 瀏覽數</span><span style="font-size:10px;color:#c090b0;">(近3支平均)</span></div>
-        <input type="number" id="metric-reels" class="age-input" style="width:100%;max-width:160px;" placeholder="例：2000" min="0" oninput="syncMetrics()">
-      </div>
-      <div id="metrics-preview" style="margin-top:14px;display:none;">
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
-          <div class="ta-metric-card" id="mc-story"></div>
-          <div class="ta-metric-card" id="mc-reels"></div>
-        </div>
-      </div>
+<!-- Metrics -->
+<div class="ta-section">
+  <div class="ta-section-title">📊 帳號數據（來自 IG 洞察）</div>
+  <div style="font-size:11px;color:#a06080;margin-bottom:12px;">目標受眾年齡：<strong style="color:#e0389a">25–40 歲</strong> 為核心變現區間</div>
+  <div class="ta-field">
+    <div class="ta-label"><span>目前粉絲數</span></div>
+    <input type="number" id="metric-followers" class="age-input" style="width:100%;max-width:160px;" placeholder="例：5000" min="0" oninput="syncMetrics()">
+  </div>
+  <div class="ta-field" style="margin-top:10px;">
+    <div class="ta-label"><span>限動平均觀看人數</span><span style="font-size:10px;color:#c090b0;">(近7天平均)</span></div>
+    <input type="number" id="metric-story" class="age-input" style="width:100%;max-width:160px;" placeholder="例：300" min="0" oninput="syncMetrics()">
+  </div>
+  <div class="ta-field" style="margin-top:10px;">
+    <div class="ta-label"><span>平均 Reels 瀏覽數</span><span style="font-size:10px;color:#c090b0;">(近3支平均)</span></div>
+    <input type="number" id="metric-reels" class="age-input" style="width:100%;max-width:160px;" placeholder="例：2000" min="0" oninput="syncMetrics()">
+  </div>
+  <div id="metrics-preview" style="margin-top:14px;display:none;">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+      <div class="ta-metric-card" id="mc-story"></div>
+      <div class="ta-metric-card" id="mc-reels"></div>
     </div>
-    <div class="ta-section">
-      <div class="ta-section-title">📈 最近 3 個月狀況</div>
-      <div class="ta-field">
-        <div class="ta-label" style="margin-bottom:9px;">粉絲成長速度</div>
-        <div class="ta-chip-group" id="growth-chips">
-          <div class="ta-chip on" onclick="pickChip('growth',this,'負成長')">負成長</div>
-          <div class="ta-chip" onclick="pickChip('growth',this,'緩慢成長')">緩慢成長</div>
-          <div class="ta-chip" onclick="pickChip('growth',this,'穩定成長')">穩定成長</div>
-          <div class="ta-chip" onclick="pickChip('growth',this,'快速成長')">快速成長</div>
-        </div>
-      </div>
-      <div class="ta-field" style="margin-top:14px;">
-        <div class="ta-label" style="margin-bottom:9px;">變現狀況</div>
-        <div class="ta-chip-group" id="money-chips">
-          <div class="ta-chip on" onclick="pickChip('money',this,'完全沒有')">完全沒有</div>
-          <div class="ta-chip" onclick="pickChip('money',this,'偶爾有')">偶爾有</div>
-          <div class="ta-chip" onclick="pickChip('money',this,'穩定收入')">穩定收入</div>
-          <div class="ta-chip" onclick="pickChip('money',this,'高變現')">高變現</div>
-        </div>
-      </div>
-      <div class="ta-field" style="margin-top:14px;">
-        <div class="ta-label" style="margin-bottom:9px;">主要發文方向（可多選）</div>
-        <div class="ta-chip-group" id="content-chips">
-          <div class="ta-chip" onclick="toggleChip(this,'變美/美妝')">💄 變美/美妝</div>
-          <div class="ta-chip" onclick="toggleChip(this,'健身/跳操')">💪 健身/跳操</div>
-          <div class="ta-chip" onclick="toggleChip(this,'穿搭')">👗 穿搭</div>
-          <div class="ta-chip" onclick="toggleChip(this,'搞笑/口播')">😂 搞笑/口播</div>
-          <div class="ta-chip" onclick="toggleChip(this,'情侶日常')">💑 情侶日常</div>
-          <div class="ta-chip" onclick="toggleChip(this,'食譜/美食')">🍳 食譜</div>
-          <div class="ta-chip" onclick="toggleChip(this,'心靈成長')">🌿 心靈成長</div>
-          <div class="ta-chip" onclick="toggleChip(this,'好物開箱')">📦 好物開箱</div>
-          <div class="ta-chip" onclick="toggleChip(this,'Vlog')">📹 Vlog</div>
-          <div class="ta-chip" onclick="toggleChip(this,'星座')">⭐ 星座</div>
-        </div>
-      </div>
+  </div>
+</div>
+<div class="ta-section">
+  <div class="ta-section-title">📈 最近 3 個月狀況</div>
+  <div class="ta-field">
+    <div class="ta-label" style="margin-bottom:9px;">粉絲成長速度</div>
+    <div class="ta-chip-group" id="growth-chips">
+      <div class="ta-chip on" onclick="pickChip('growth',this,'負成長')">負成長</div>
+      <div class="ta-chip" onclick="pickChip('growth',this,'緩慢成長')">緩慢成長</div>
+      <div class="ta-chip" onclick="pickChip('growth',this,'穩定成長')">穩定成長</div>
+      <div class="ta-chip" onclick="pickChip('growth',this,'快速成長')">快速成長</div>
     </div>
+  </div>
+  <div class="ta-field" style="margin-top:14px;">
+    <div class="ta-label" style="margin-bottom:9px;">變現狀況</div>
+    <div class="ta-chip-group" id="money-chips">
+      <div class="ta-chip on" onclick="pickChip('money',this,'完全沒有')">完全沒有</div>
+      <div class="ta-chip" onclick="pickChip('money',this,'偶爾有')">偶爾有</div>
+      <div class="ta-chip" onclick="pickChip('money',this,'穩定收入')">穩定收入</div>
+      <div class="ta-chip" onclick="pickChip('money',this,'高變現')">高變現</div>
+    </div>
+  </div>
+  <div class="ta-field" style="margin-top:14px;">
+    <div class="ta-label" style="margin-bottom:9px;">主要發文方向（可多選）</div>
+    <div class="ta-chip-group" id="content-chips">
+      <div class="ta-chip" onclick="toggleChip(this,'變美/美妝')">💄 變美/美妝</div>
+      <div class="ta-chip" onclick="toggleChip(this,'健身/跳操')">💪 健身/跳操</div>
+      <div class="ta-chip" onclick="toggleChip(this,'穿搭')">👗 穿搭</div>
+      <div class="ta-chip" onclick="toggleChip(this,'搞笑/口播')">😂 搞笑/口播</div>
+      <div class="ta-chip" onclick="toggleChip(this,'情侶日常')">💑 情侶日常</div>
+      <div class="ta-chip" onclick="toggleChip(this,'食譜/美食')">🍳 食譜</div>
+      <div class="ta-chip" onclick="toggleChip(this,'心靈成長')">🌿 心靈成長</div>
+      <div class="ta-chip" onclick="toggleChip(this,'好物開箱')">📦 好物開箱</div>
+      <div class="ta-chip" onclick="toggleChip(this,'Vlog')">📹 Vlog</div>
+      <div class="ta-chip" onclick="toggleChip(this,'星座')">⭐ 星座</div>
+    </div>
+  </div>
+</div>
 
-    <button class="ta-analyze-btn" id="ta-btn" onclick="runAudienceAnalysis()">✦ 分析我的受眾</button>
-    <div id="ta-result-wrap" style="margin-top:16px;"></div>
+<button class="ta-analyze-btn" id="ta-btn" onclick="runAudienceAnalysis()">✦ 分析我的受眾</button>
+<div id="ta-result-wrap" style="margin-top:16px;"></div>
+```
+
   </div>
 </div>
 
 <!-- ══ VIDEO REFERENCE PAGE ══ -->
+
 <div id="p-videos" class="page">
   <div class="inner">
     <div class="vid-header">
@@ -942,6 +959,7 @@ h1 em{color:#e0389a;font-style:normal;}
 </div>
 
 <!-- ══ MY POSITIONING EMPTY PAGE ══ -->
+
 <div id="p-mypos-empty" class="page">
   <div class="inner">
     <div class="my-pos-empty">
@@ -954,6 +972,7 @@ h1 em{color:#e0389a;font-style:normal;}
 </div>
 
 <!-- ══ SELF EVAL PAGE ══ -->
+
 <div id="p-selfeval" class="page">
   <div class="inner">
     <div style="padding:20px 0 14px">
@@ -961,47 +980,51 @@ h1 em{color:#e0389a;font-style:normal;}
       <div style="font-size:12px;color:#a06080;line-height:1.6;">每支影片發布前對照一遍，填完後 AI 幫你分析哪裡要調整。</div>
     </div>
 
-    <!-- Date field -->
-    <div class="ta-section">
-      <div class="ta-section-title">📅 發布頻率</div>
-      <div class="ta-field">
-        <div class="ta-label" style="margin-bottom:8px;">上一則 Reels 發布日期</div>
-        <input type="date" id="se-last-date" style="background:#fdf5fa;border:1.5px solid #f0d0e8;border-radius:10px;padding:8px 12px;font-family:'Noto Sans TC',sans-serif;font-size:14px;color:#2d1228;outline:none;width:100%;max-width:200px;" oninput="checkDateFreq()">
-        <div id="se-date-status" style="margin-top:8px;font-size:12px;color:#a06080;display:none;"></div>
-      </div>
-    </div>
+```
+<!-- Date field -->
+<div class="ta-section">
+  <div class="ta-section-title">📅 發布頻率</div>
+  <div class="ta-field">
+    <div class="ta-label" style="margin-bottom:8px;">上一則 Reels 發布日期</div>
+    <input type="date" id="se-last-date" style="background:#fdf5fa;border:1.5px solid #f0d0e8;border-radius:10px;padding:8px 12px;font-family:'Noto Sans TC',sans-serif;font-size:14px;color:#2d1228;outline:none;width:100%;max-width:200px;" oninput="checkDateFreq()">
+    <div id="se-date-status" style="margin-top:8px;font-size:12px;color:#a06080;display:none;"></div>
+  </div>
+</div>
 
-    <!-- Checklist -->
-    <div class="ta-section">
-      <div class="ta-section-title">✅ 影片品質自評</div>
-      <div id="se-checklist">
-        <div class="cg-eval-item" id="se-0" onclick="toggleSE(0)"><div class="cg-eval-check" id="se-chk-0">✓</div><div class="cg-eval-text"><div class="cg-eval-label">影片 60 秒以內</div><div class="cg-eval-hint">超過60秒完播率會大幅下降，建議精剪至60秒內</div></div></div>
-        <div class="cg-eval-item" id="se-1" onclick="toggleSE(1)"><div class="cg-eval-check" id="se-chk-1">✓</div><div class="cg-eval-text"><div class="cg-eval-label">你自己入鏡超過 30 秒</div><div class="cg-eval-hint">讓觀眾看到你的臉和表情，建立信任感，才能從陌生人變鐵粉</div></div></div>
-        <div class="cg-eval-item" id="se-2" onclick="toggleSE(2)"><div class="cg-eval-check" id="se-chk-2">✓</div><div class="cg-eval-text"><div class="cg-eval-label">轉換至少三種角度拍攝</div><div class="cg-eval-hint">單一角度容易讓人視覺疲勞，多角度切換讓節奏更快、更好看</div></div></div>
-        <div class="cg-eval-item" id="se-3" onclick="toggleSE(3)"><div class="cg-eval-check" id="se-chk-3">✓</div><div class="cg-eval-text"><div class="cg-eval-label">錄音有情緒、語氣有變化</div><div class="cg-eval-hint">平淡的語氣讓人分心，情緒起伏是讓觀眾看完的關鍵</div></div></div>
-        <div class="cg-eval-item" id="se-4" onclick="toggleSE(4)"><div class="cg-eval-check" id="se-chk-4">✓</div><div class="cg-eval-text"><div class="cg-eval-label">有使用花字、特效或動畫（至少一種）</div><div class="cg-eval-hint">視覺層次豐富讓影片更有設計感，吸引觀眾注意力停留更久</div></div></div>
-        <div class="cg-eval-item" id="se-5" onclick="toggleSE(5)"><div class="cg-eval-check" id="se-chk-5">✓</div><div class="cg-eval-text"><div class="cg-eval-label">開頭前三秒有明確鉤子</div><div class="cg-eval-hint">數字法、問題式、相差法、借勢法、驚訝式擇一</div></div></div>
-        <div class="cg-eval-item" id="se-6" onclick="toggleSE(6)"><div class="cg-eval-check" id="se-chk-6">✓</div><div class="cg-eval-text"><div class="cg-eval-label">有共鳴點及故事</div><div class="cg-eval-hint">讓觀眾覺得「這說的就是我」，才會停下來留言互動</div></div></div>
-        <div class="cg-eval-item" id="se-7" onclick="toggleSE(7)"><div class="cg-eval-check" id="se-chk-7">✓</div><div class="cg-eval-text"><div class="cg-eval-label">結尾有明確呼籲（收藏、追蹤、留言、分享）</div><div class="cg-eval-hint">沒有 CTA 就是在放棄演算法推送的機會</div></div></div>
-      </div>
+<!-- Checklist -->
+<div class="ta-section">
+  <div class="ta-section-title">✅ 影片品質自評</div>
+  <div id="se-checklist">
+    <div class="cg-eval-item" id="se-0" onclick="toggleSE(0)"><div class="cg-eval-check" id="se-chk-0">✓</div><div class="cg-eval-text"><div class="cg-eval-label">影片 60 秒以內</div><div class="cg-eval-hint">超過60秒完播率會大幅下降，建議精剪至60秒內</div></div></div>
+    <div class="cg-eval-item" id="se-1" onclick="toggleSE(1)"><div class="cg-eval-check" id="se-chk-1">✓</div><div class="cg-eval-text"><div class="cg-eval-label">你自己入鏡超過 30 秒</div><div class="cg-eval-hint">讓觀眾看到你的臉和表情，建立信任感，才能從陌生人變鐵粉</div></div></div>
+    <div class="cg-eval-item" id="se-2" onclick="toggleSE(2)"><div class="cg-eval-check" id="se-chk-2">✓</div><div class="cg-eval-text"><div class="cg-eval-label">轉換至少三種角度拍攝</div><div class="cg-eval-hint">單一角度容易讓人視覺疲勞，多角度切換讓節奏更快、更好看</div></div></div>
+    <div class="cg-eval-item" id="se-3" onclick="toggleSE(3)"><div class="cg-eval-check" id="se-chk-3">✓</div><div class="cg-eval-text"><div class="cg-eval-label">錄音有情緒、語氣有變化</div><div class="cg-eval-hint">平淡的語氣讓人分心，情緒起伏是讓觀眾看完的關鍵</div></div></div>
+    <div class="cg-eval-item" id="se-4" onclick="toggleSE(4)"><div class="cg-eval-check" id="se-chk-4">✓</div><div class="cg-eval-text"><div class="cg-eval-label">有使用花字、特效或動畫（至少一種）</div><div class="cg-eval-hint">視覺層次豐富讓影片更有設計感，吸引觀眾注意力停留更久</div></div></div>
+    <div class="cg-eval-item" id="se-5" onclick="toggleSE(5)"><div class="cg-eval-check" id="se-chk-5">✓</div><div class="cg-eval-text"><div class="cg-eval-label">開頭前三秒有明確鉤子</div><div class="cg-eval-hint">數字法、問題式、相差法、借勢法、驚訝式擇一</div></div></div>
+    <div class="cg-eval-item" id="se-6" onclick="toggleSE(6)"><div class="cg-eval-check" id="se-chk-6">✓</div><div class="cg-eval-text"><div class="cg-eval-label">有共鳴點及故事</div><div class="cg-eval-hint">讓觀眾覺得「這說的就是我」，才會停下來留言互動</div></div></div>
+    <div class="cg-eval-item" id="se-7" onclick="toggleSE(7)"><div class="cg-eval-check" id="se-chk-7">✓</div><div class="cg-eval-text"><div class="cg-eval-label">結尾有明確呼籲（收藏、追蹤、留言、分享）</div><div class="cg-eval-hint">沒有 CTA 就是在放棄演算法推送的機會</div></div></div>
+  </div>
 
-      <div class="cg-eval-score" style="margin-top:12px;">
-        <div class="cg-eval-score-num" id="se-score">0 / 8</div>
-        <div class="cg-eval-score-label" id="se-score-label">勾選上方項目開始評分</div>
-      </div>
-    </div>
+  <div class="cg-eval-score" style="margin-top:12px;">
+    <div class="cg-eval-score-num" id="se-score">0 / 8</div>
+    <div class="cg-eval-score-label" id="se-score-label">勾選上方項目開始評分</div>
+  </div>
+</div>
 
-    <!-- AI analysis -->
-    <div class="ta-section" id="se-ai-section" style="display:none;">
-      <div class="ta-section-title">✦ AI 分析調整建議</div>
-      <div class="ta-ai-body" id="se-ai-body"><span class="ta-ai-loading">分析中…</span></div>
-    </div>
+<!-- AI analysis -->
+<div class="ta-section" id="se-ai-section" style="display:none;">
+  <div class="ta-section-title">✦ AI 分析調整建議</div>
+  <div class="ta-ai-body" id="se-ai-body"><span class="ta-ai-loading">分析中…</span></div>
+</div>
 
-    <button class="ta-analyze-btn" id="se-btn" onclick="runSelfEvalAnalysis()">✦ 分析我的影片，給出調整建議</button>
+<button class="ta-analyze-btn" id="se-btn" onclick="runSelfEvalAnalysis()">✦ 分析我的影片，給出調整建議</button>
+```
+
   </div>
 </div>
 
 <!-- ══ TAB BAR ══ -->
+
 <div id="tab-bar">
   <button class="tab-item active" id="tab-quiz-btn" onclick="switchMainTab('quiz')">
     <span class="tab-icon">📝</span>
@@ -1953,32 +1976,68 @@ async function runAudienceAnalysis() {
 
   const storyRate = followers > 0 ? Math.round(story/followers*100) : 0;
   const reelsRate = followers > 0 ? Math.round(reels/followers*100) : 0;
+  const malePct = 100 - femalePct;
+  const prime = ages[2] + ages[3]; // 25–44
+  const young = ages[0] + ages[1]; // 13–24
+  const older = ages[4] + ages[5]; // 45+
 
-  const prime = ages[2] + ages[3];
-  const young = ages[0] + ages[1];
   const scoreClass = score >= 70 ? 'high' : score >= 45 ? 'mid' : 'low';
   const scoreEmoji = score >= 70 ? '✅' : score >= 45 ? '⚠️' : '❌';
   const scoreTitle = score >= 70 ? 'TA 高度吻合' : score >= 45 ? 'TA 部分吻合' : 'TA 嚴重偏差';
   const scoreDesc = score >= 70
-    ? '你的粉絲年齡與性別和目標客群高度吻合，變現條件良好。'
+    ? '你的粉絲年齡與性別和目標客群高度吻合！變現條件良好，如果還沒有穩定收入，問題在於內容信任感和 CTA 引導，而不是受眾。'
     : score >= 45
-    ? '你的受眾部分吻合目標客群，但有年齡或性別偏差，轉換率會打折。'
-    : '你目前吸引的受眾和能變現的目標客群有明顯落差——這就是「有粉絲沒收入」的根本原因。';
+    ? '受眾有部分吻合，但存在明顯的年齡或性別偏差，這會直接讓轉換率打折。需要在保住現有流量的同時，逐步調整內容方向。'
+    : '你目前吸引的受眾和能變現的目標客群有明顯落差——這就是「有粉絲沒收入」的根本原因，需要系統性調整。';
 
   const maxAge = Math.max(...ages, 1);
-  const ageVizBars = ages.map((v, i) => {
-    const h = Math.round(v / maxAge * 46);
+  const ageVizBars = ages.map((v,i) => {
+    const h = Math.round(v/maxAge*46);
     const isPrime = i===2||i===3, isOk = i===1||i===4;
     return `<div class="ta-age-bar ${isPrime?'ideal':isOk?'ok':'off'}" style="height:${Math.max(3,h)}px" title="${AGE_LABELS[i]}: ${v}%"></div>`;
   }).join('');
 
-  const mismatchLines = [];
-  if (young > 40) mismatchLines.push(`<strong>年輕受眾過多（${young}%）：</strong>18歲以下或剛成年觀眾消費力弱，對 DCT 類產品購買動機低，互動率高但轉換率幾乎為零。`);
-  if (femalePct < 80) mismatchLines.push(`<strong>女性比例未達 80%（目前 ${femalePct}%）：</strong>美妝、保養、健康相關產品的主力消費者是女性，男性觀眾欣賞你但幾乎不會購買。`);
-  if (prime < 30) mismatchLines.push(`<strong>核心消費年齡（25–40 歲）只有 ${prime}%：</strong>這個年齡層有消費力、有購買決策權，是最容易變現的族群。`);
-  if (storyRate > 0 && storyRate < 15) mismatchLines.push(`<strong>限動留人率偏低（${storyRate}%）：</strong>現有粉絲對你的日常連結感不夠強，他們追蹤了但沒有習慣性打開你的限動。每天至少10則限動是提升這個數字的關鍵。`);
-  if (reelsRate > 0 && reelsRate < 100) mismatchLines.push(`<strong>Reels 推流比偏低（${reelsRate}%）：</strong>你的影片幾乎只在現有粉絲中流通，沒有被演算法推給陌生人。問題通常在開頭鉤子不夠強，或選題方向太窄。`);
-  if (growthState === '快速成長' && moneyState === '完全沒有') mismatchLines.push('<strong>快速成長但零變現：</strong>這幾乎確定是因為內容吸引的是「娛樂受眾」而不是「消費受眾」。');
+  // ── 全面自動診斷 ──
+  const diags = [];
+
+  // 年齡問題
+  if (ages[0] > 10) diags.push(`<strong>🔴 13–17 歲佔 ${ages[0]}%（警告）：</strong>高中生族群幾乎沒有消費能力，且對 DCT 產品沒有任何購買動機。這個族群的存在會讓你的轉換率被嚴重稀釋。通常是因為搞笑、流行梗、或學生相關內容帶來的流量。`);
+  if (young > 50) diags.push(`<strong>🔴 24 歲以下超過一半（${young}%）：</strong>超過半數粉絲是學生或剛出社會，這是最難變現的受眾結構。你的內容在觸及年輕人，但DCT的核心客群是有穩定收入的25–40歲女性。`);
+  else if (young > 35) diags.push(`<strong>🟠 年輕受眾偏多（18–24 佔 ${ages[1]}%）：</strong>年輕受眾互動率高但消費意願低。這個族群會讓你的帳號看起來很活躍，但轉換率遠低於25歲以上的族群。`);
+
+  if (prime < 20) diags.push(`<strong>🔴 核心變現年齡（25–44 歲）嚴重不足（只有 ${prime}%）：</strong>這個年齡層有穩定收入、有購買決策權、對健康和生活品質有高度需求，是 DCT 客群的黃金區間。目前比例過低代表你的內容方向和這群人的需求完全對不上。`);
+  else if (prime < 40) diags.push(`<strong>🟠 核心 TA（25–44 歲）比例待提升（目前 ${prime}%，目標 60%+）：</strong>你已經有部分對的受眾，但還不夠集中。每支影片都要問自己：「35歲的媽媽或上班族看到這支會有共鳴嗎？」這個問題的答案決定你的選題方向。`);
+  else if (prime >= 60) diags.push(`<strong>✅ 核心 TA 比例優秀（${prime}%）：</strong>25–44 歲是你的主要受眾，這個受眾結構非常健康！變現潛力高，只需要繼續深化信任感和增加 CTA 引導。`);
+
+  if (older > 25) diags.push(`<strong>🟡 45 歲以上佔 ${older}%：</strong>這個族群有消費力，但需要不同的溝通方式——更重視安全感、信任感、和具體效果。如果你有這個受眾，可以嘗試「分享使用心得」和「前後對比」類型的內容來強化信任。`);
+
+  // 性別問題
+  if (femalePct < 60) diags.push(`<strong>🔴 女性比例嚴重不足（${femalePct}%，目標 80%+）：</strong>男性受眾欣賞你但幾乎不會購買美妝保養健康類產品，${malePct}% 的男性粉絲對 DCT 的轉換貢獻趨近於零。這通常是因為搞笑梗、運動、或偏中性的話題吸引了男性流量。`);
+  else if (femalePct < 70) diags.push(`<strong>🟠 女性比例不足（${femalePct}%）：</strong>還有 ${80-femalePct}% 的提升空間。建議在內容中加入更多女性視角的痛點——保養、情感、工作與生活平衡、育兒等話題，自然吸引目標女性受眾。`);
+  else if (femalePct < 80) diags.push(`<strong>🟡 女性比例接近目標（${femalePct}%，還差 ${80-femalePct}%）：</strong>已經接近 80% 的目標，再調整一下內容選題方向就能達標。目前可以嘗試增加「女性共鳴型」話題：情感、美妝、職場心聲、育兒困境等。`);
+  else diags.push(`<strong>✅ 女性比例達標（${femalePct}%）：</strong>性別結構非常健康！女性主導的受眾對 DCT 類產品的轉換率是男性的 5–8 倍，這是你的變現基礎。`);
+
+  // 數據指標
+  if (followers > 0) {
+    if (storyRate < 10) diags.push(`<strong>🔴 限動留人率極低（${storyRate}%，目標 30%+）：</strong>每天看你限動的人只有 ${storyRate}% 的粉絲，代表他們追蹤你後就「消失」了。可能原因：限動發太少（需每天 10 則以上）、內容和限動不一致、或粉絲來自病毒性內容但對你日常不感興趣。`);
+    else if (storyRate < 20) diags.push(`<strong>🟠 限動留人率偏低（${storyRate}%）：</strong>有一定的核心粉絲在看你限動，但比例還不夠高。每天固定 10 則以上的限動、加入互動貼圖（投票、問答）、讓粉絲習慣每天來看你，是提升這個數字最有效的方法。`);
+    else if (storyRate < 30) diags.push(`<strong>🟡 限動留人率尚可（${storyRate}%）：</strong>代表有一群忠實粉絲在追蹤你日常，再提升一些就能達到理想的 30%。試試在限動加更多「回應性內容」——回覆粉絲留言、分享粉絲互動，讓他們感覺被看見。`);
+    else diags.push(`<strong>✅ 限動留人率優秀（${storyRate}%）：</strong>超過 30% 的粉絲每天都在看你的限動，這是非常健康的社群黏著度！這群人是最容易轉換成客戶的鐵粉，要好好珍惜和經營。`);
+
+    if (reelsRate < 50) diags.push(`<strong>🔴 Reels 推流比極低（${reelsRate}%，目標 300%+）：</strong>你的影片觀看幾乎只來自現有粉絲，完全沒有被演算法推給陌生人。最常見原因：開頭鉤子不夠強（前3秒沒有抓住陌生人）、選題太小眾、或帳號定位不夠清晰讓演算法不知道推給誰。`);
+    else if (reelsRate < 150) diags.push(`<strong>🟠 Reels 推流比偏低（${reelsRate}%）：</strong>有少部分影片被推出去，但量還不夠。演算法需要看到一致的主題方向才會大量推送，試試連續 15 支影片保持同一定位，讓系統學會你是誰。`);
+    else if (reelsRate < 300) diags.push(`<strong>🟡 Reels 推流比普通（${reelsRate}%）：</strong>已經有部分流量來自非粉絲，但還有很大提升空間。找出你歷史上完播率最高的那支影片，分析它的開頭方式和選題，複製那個邏輯。`);
+    else diags.push(`<strong>✅ Reels 推流比強（${reelsRate}%）：</strong>演算法正在幫你推送給陌生人，這是帳號成長最重要的引擎。繼續保持這個勢頭，同時確保被推到的陌生人是你的目標受眾（25–40歲女性）。`);
+
+    const conversionRisk = followers > 0 && storyRate < 15 && reelsRate > 200;
+    if (conversionRisk) diags.push(`<strong>🟠 高流量低黏著度警告：</strong>Reels 在吸引新人但粉絲留存率低。這代表你的影片讓陌生人感興趣，但追蹤後發現限動沒有值得天天看的理由。解法：Reels 主題和限動日常要有連貫性，讓新粉絲追蹤後馬上在限動看到「跟Reels一樣有趣」的你。`);
+  }
+
+  // 成長 vs 變現
+  if (growthState === '快速成長' && moneyState === '完全沒有') diags.push(`<strong>🔴 快速成長但零變現（最典型的 TA 錯位症狀）：</strong>粉絲在漲但沒有轉換，這幾乎確定是因為你在吸引「娛樂受眾」而不是「消費受眾」。看你最近漲最多的那支影片主題，問自己：看這支影片的人，有沒有可能是 DCT 的潛在客戶？如果不是，你的病毒性內容反而在稀釋你的受眾。`);
+  if (growthState === '負成長' && moneyState === '完全沒有') diags.push(`<strong>🔴 粉絲流失且零變現（雙重警報）：</strong>帳號失去成長動力，同時也沒有變現。這通常是內容方向出了問題——可能是發文太不規律、選題方向亂、或開頭不夠吸引人讓完播率很低。需要回到基礎：先從「每週4支固定主題」開始建立節奏。`);
+  if (growthState === '緩慢成長' && moneyState === '完全沒有') diags.push(`<strong>🟠 成長緩慢且無變現：</strong>帳號還活著但沒有突破。通常代表選題沒有找到「爆點」，或受眾沒有精準到能變現的族群。建議：把受眾年齡和性別調整好之後，做 15 支不同方向的測試，看哪個方向完播率最高。`);
+  if ((growthState === '穩定成長' || growthState === '快速成長') && (moneyState === '穩定收入' || moneyState === '高變現')) diags.push(`<strong>✅ 成長和變現雙雙達標：</strong>你的帳號狀態非常健康！現在最重要的是「不要讓它停下來」——保持發文頻率，繼續深化與受眾的信任關係，同時可以考慮增加 CTA 的明確性（從「分享給需要的朋友」升級到「私訊我了解更多」）。`);
 
   const wrap = document.getElementById('ta-result-wrap');
   wrap.innerHTML = `<div class="ta-result">
@@ -1997,37 +2056,47 @@ async function runAudienceAnalysis() {
         <div class="ta-metric-card"><div class="ta-mc-label">Reels 推流比</div><div class="ta-mc-val ${reelsRate>=300?'good':reelsRate>=100?'mid':'bad'}">${reelsRate}%</div><div class="ta-mc-desc">目標 300%+ ／ 推給非粉絲的比例</div></div>
       </div>`:''}
     </div>
-    ${mismatchLines.length ? `<div class="ta-insight-block"><div class="ta-insight-hd"><span class="ta-insight-icon">🔍</span><span class="ta-insight-name">診斷：問題出在哪？</span></div><div class="ta-insight-body">${mismatchLines.map(l=>`<div style="margin-bottom:8px;padding-left:10px;border-left:2px solid #f090c0;">${l}</div>`).join('')}</div></div>` : ''}
-    <div class="ta-ai-block"><div class="ta-ai-label">✦ AI 定位調整建議</div><div class="ta-ai-body" id="ta-ai-body"><span class="ta-ai-loading">正在生成你的專屬調整策略…</span></div></div>
+    <div class="ta-insight-block">
+      <div class="ta-insight-hd"><span class="ta-insight-icon">🔍</span><span class="ta-insight-name">完整診斷報告（${diags.length} 項）</span></div>
+      <div class="ta-insight-body">${diags.map(l=>`<div style="margin-bottom:10px;padding:8px 10px 8px 12px;border-left:3px solid #f090c0;background:rgba(224,56,154,.03);border-radius:0 8px 8px 0;font-size:11px;line-height:1.7;">${l}</div>`).join('')}</div>
+    </div>
+    <div class="ta-ai-block"><div class="ta-ai-label">✦ AI 深度分析與行動策略</div><div class="ta-ai-body" id="ta-ai-body"><span class="ta-ai-loading">正在生成你的專屬調整策略…</span></div></div>
     <button class="ta-analyze-btn" style="margin-top:4px;background:#fff;color:#e0389a;border:1.5px solid #f0d0e8;box-shadow:none;" onclick="document.getElementById('ta-result-wrap').innerHTML='';document.getElementById('ta-btn').disabled=false;document.getElementById('ta-btn').textContent='✦ 分析我的受眾';window.scrollTo({top:0,behavior:'smooth'})">← 重新填寫</button>
   </div>`;
 
   btn.textContent = '✦ 分析我的受眾'; btn.disabled = false;
-  wrap.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  wrap.scrollIntoView({ behavior:'smooth', block:'start' });
 
-  const prompt = `你是台灣 IG 社群變現顧問，專精 DCT 美妝健康品牌。根據以下受眾數據給出深度分析和具體定位調整策略。
+  const diagSummary = diags.map(d => d.replace(/<[^>]*>/g,'')).join('\n');
+  const prompt = `你是台灣 IG 社群變現顧問，專精 DCT 美妝健康品牌的社群策略。
 
-目標標準：女性 80%+、25–40 歲為核心、限動留人率 30%+、Reels 推流比 300%+
+━━ 帳號完整數據 ━━
+粉絲數：${followers||'未填'} ／ 成長狀況：${growthState} ／ 變現狀況：${moneyState}
+年齡分佈：13–17: ${ages[0]}% ／ 18–24: ${ages[1]}% ／ 25–34: ${ages[2]}% ／ 35–44: ${ages[3]}% ／ 45–54: ${ages[4]}% ／ 55+: ${ages[5]}%
+女性比例：${femalePct}%（目標80%+） ／ 核心TA(25–44歲)：${prime}%（目標60%+）
+限動留人率：${storyRate||'未填'}%（目標30%+） ／ Reels推流比：${reelsRate||'未填'}%（目標300%+）
+主要內容方向：${contents}
+TA吻合度：${score}/100
 
-━━ 用戶數據 ━━
-年齡：13–17: ${ages[0]}% / 18–24: ${ages[1]}% / 25–34: ${ages[2]}% / 35–44: ${ages[3]}% / 45–54: ${ages[4]}% / 55+: ${ages[5]}%
-女性比例：${femalePct}%（目標 80%+）
-粉絲數：${followers||'未填'}
-限動留人率：${storyRate||0}%（目標 30%+）
-Reels 推流比：${reelsRate||0}%（目標 300%+）
-粉絲成長：${growthState} / 變現狀況：${moneyState}
-主要內容：${contents}
-TA 吻合度：${score}/100
+━━ 系統已診斷出的問題 ━━
+${diagSummary}
 
-━━ 請提供三段 ━━
-第一段：最核心的問題（不要重複數字，說「這代表什麼」）
-第二段：3個明天就能執行的內容調整（要非常具體，說清楚發什麼、怎麼說）
-第三段：如何同時提升限動留人率和 Reels 推流比（給具體比例和節奏）
+━━ 請給出五段深度回覆 ━━
 
-繁體中文台灣口語，像朋友在跟你說話。三段空一行，每段100–130字，不用條列式，不要說「建議」「我認為」開場。`;
+第一段【核心問題診斷】：指出她目前最影響變現的1–2個根本原因。不要重複上面的數字，而是用生動的方式說清楚「她在做什麼讓錯誤的人追蹤了她」，以及「對的人為什麼還沒有被吸引進來」。
+
+第二段【內容方向調整】：針對她的現有內容方向（${contents}），具體說明要如何調整選題、角度、說話方式，才能讓 25–40 歲有消費力的女性感到有共鳴。給出 3 個「這週就能拍」的具體題目，每個題目附上開頭第一句話要怎麼說。
+
+第三段【限動策略優化】：她的限動留人率是 ${storyRate||'未填'}%，給出一週7天的限動內容節奏安排，包括早、中、晚各要發什麼類型的限動，以及哪些互動貼圖可以提高黏著度。要非常具體，讓她看完馬上知道今天要發什麼。
+
+第四段【Reels 推流提升】：她的Reels推流比是 ${reelsRate||'未填'}%，分析可能是哪種開頭問題或選題問題在阻礙演算法推送。給出3個「換開頭的方式」——把她現在可能的開頭方式改寫成能讓演算法推給陌生人的版本，要有對比示例。
+
+第五段【4週行動計畫】：給一個具體的4週調整計畫，每週重點是什麼，讓她有清晰的方向感。第4週結束時應該要達到什麼數字目標。
+
+繁體中文台灣口語，像一個認識她很久、很了解她帳號現況的顧問在跟她說話。五段之間空一行，每段100–150字，不要用條列式，不要說「建議」「我認為」「根據資料」「首先」開場。`;
 
   try {
-    const res = await fetch('https://api.anthropic.com/v1/messages', { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:1200,messages:[{role:'user',content:prompt}]}) });
+    const res = await fetch('https://api.anthropic.com/v1/messages', { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:2000,messages:[{role:'user',content:prompt}]}) });
     const data = await res.json();
     const reply = data.content?.map(i=>i.text||'').join('')||'';
     const el = document.getElementById('ta-ai-body');
@@ -2037,67 +2106,6 @@ TA 吻合度：${score}/100
     if(el) el.innerHTML='<p>根據你的數據，建議優先從提升限動頻率和調整 Reels 開頭鉤子開始。</p>';
   }
 }
-
-  // Static diagnosis
-  const prime = ages[2] + ages[3];
-  const young = ages[0] + ages[1];
-  const scoreClass = score >= 70 ? 'high' : score >= 45 ? 'mid' : 'low';
-  const scoreEmoji = score >= 70 ? '✅' : score >= 45 ? '⚠️' : '❌';
-  const scoreTitle = score >= 70 ? 'TA 高度吻合' : score >= 45 ? 'TA 部分吻合' : 'TA 嚴重偏差';
-  const scoreDesc = score >= 70
-    ? '你的粉絲年齡與性別和目標客群高度吻合，變現條件良好。如果還沒變現，問題在內容信任感和 CTA。'
-    : score >= 45
-    ? '你的受眾部分吻合目標客群，但有一些年齡或性別偏差，這會讓轉換率打折。'
-    : '你目前吸引的受眾和能變現的目標客群有明顯落差——這就是「有粉絲沒收入」的根本原因。';
-
-  // Age visualization
-  const maxAge = Math.max(...ages, 1);
-  const ageVizBars = ages.map((v, i) => {
-    const h = Math.round(v / maxAge * 46);
-    const isPrime = i===2||i===3;
-    const isOk = i===1||i===4;
-    const cls = isPrime?'ideal':isOk?'ok':'off';
-    return `<div class="ta-age-bar ${cls}" style="height:${Math.max(3,h)}px" title="${AGE_LABELS[i]}: ${v}%"></div>`;
-  }).join('');
-
-  const mismatchLines = [];
-  if (young > 40) mismatchLines.push(`<strong>年輕受眾過多（${young}%）：</strong>18歲以下或剛成年的觀眾消費力弱、對 DCT 類產品購買動機低，互動率高但轉換率幾乎為零。`);
-  if (femalePct < 60) mismatchLines.push(`<strong>男性比例偏高（${100-femalePct}%）：</strong>美妝、保養、健康相關產品的主力消費者是女性，男性觀眾欣賞你的內容但幾乎不會購買。`);
-  if (prime < 30) mismatchLines.push(`<strong>核心消費年齡（25–44 歲）只有 ${prime}%：</strong>這個年齡層有消費力、有購買決策權，且對生活品質和健康有高度需求，是最容易變現的族群。`);
-  if (growthState === '快速成長' && moneyState === '完全沒有') mismatchLines.push('<strong>快速成長但零變現：</strong>這幾乎確定是因為內容吸引的是「娛樂受眾」而不是「消費受眾」——你的選題方向讓廣泛的人看，但不是那些會掏錢的人。');
-
-  const wrap = document.getElementById('ta-result-wrap');
-  wrap.innerHTML = `<div class="ta-result">
-    <div class="ta-score-card">
-      <div class="ta-score-ring ${scoreClass}">${scoreEmoji}</div>
-      <div class="ta-score-label">TA 吻合度評分</div>
-      <div class="ta-score-title">${score} 分 — ${scoreTitle}</div>
-      <div class="ta-score-desc">${scoreDesc}</div>
-    </div>
-
-    <div class="ta-insight-block">
-      <div class="ta-insight-hd"><span class="ta-insight-icon">📊</span><span class="ta-insight-name">年齡分佈視覺化</span></div>
-      <div style="font-size:10px;color:#c090b0;margin-bottom:6px;">綠色＝核心 TA　橘色＝次要 TA　粉色＝偏離</div>
-      <div class="ta-age-vis">${ageVizBars}</div>
-      <div class="ta-age-legend">${AGE_LABELS.map(l=>`<div class="ta-age-tick">${l}</div>`).join('')}</div>
-    </div>
-
-    ${mismatchLines.length ? `<div class="ta-insight-block">
-      <div class="ta-insight-hd"><span class="ta-insight-icon">🔍</span><span class="ta-insight-name">為什麼有粉絲沒收入？</span></div>
-      <div class="ta-insight-body">${mismatchLines.map(l=>`<div style="margin-bottom:8px;padding-left:10px;border-left:2px solid #f090c0;">${l}</div>`).join('')}</div>
-    </div>` : ''}
-
-    <div class="ta-ai-block">
-      <div class="ta-ai-label">✦ AI 定位調整建議</div>
-      <div class="ta-ai-body" id="ta-ai-body"><span class="ta-ai-loading">正在生成你的專屬調整策略…</span></div>
-    </div>
-
-    <button class="ta-analyze-btn" style="margin-top:4px;background:#fff;color:#e0389a;border:1.5px solid #f0d0e8;box-shadow:none;" onclick="document.getElementById('ta-result-wrap').innerHTML='';document.getElementById('ta-btn').disabled=false;document.getElementById('ta-btn').textContent='✦ 分析我的受眾';window.scrollTo({top:0,behavior:'smooth'})">← 重新填寫</button>
-  </div>`;
-
-  btn.textContent = '✦ 分析我的受眾';
-  btn.disabled = false;
-  wrap.scrollIntoView({ behavior: 'smooth', block: 'start' });
 
 // ══════════════ CONTENT GUIDE ══════════════
 let evalState = {};
@@ -2303,7 +2311,7 @@ async function runSelfEvalAnalysis() {
   btn.disabled = true; btn.textContent = '分析中…';
   const dateVal = document.getElementById('se-last-date').value;
   const days = dateVal ? Math.floor((Date.now()-new Date(dateVal))/86400000) : null;
-  const items = ['影片60秒內','自己入鏡超過30秒','至少三種角度拍攝','錄音有情緒語氣有變化','有使用花字特效動畫','開頭三秒有明確鉤子','有共鳴點及故事','結尾有明確呼籲'];
+  const items = ['影片60秒以內','你自己入鏡超過30秒','至少三種角度拍攝','錄音有情緒語氣有變化','有使用花字特效動畫','開頭三秒有明確鉤子','有共鳴點及故事','結尾有明確呼籲'];
   const passed = items.filter((_,i) => seState[i]);
   const failed = items.filter((_,i) => !seState[i]);
   const total = seState.filter(Boolean).length;
@@ -2312,29 +2320,50 @@ async function runSelfEvalAnalysis() {
   section.style.display = 'block';
   section.scrollIntoView({ behavior:'smooth', block:'start' });
 
-  const prompt = `你是 IG 短影音剪輯教練。一位創作者填完了 Reels 自評表，根據她的勾選結果給出具體調整建議。
+  const freqWarning = days !== null && days > 7 ? `⚠️ 距離上次發布已經 ${days} 天，超過一週未發布。` : days !== null ? `✅ 上次發布 ${days} 天前，頻率正常。` : '未填寫發布日期。';
 
-自評結果（${total}/8 通過）：
-✅ 已做到：${passed.length ? passed.join('、') : '無'}
-❌ 未達到：${failed.length ? failed.join('、') : '無'}
-${days !== null ? `上次發佈距今：${days} 天（${days>7?'⚠️ 超過一週，需要提高頻率':days>3?'接近一週':'頻率正常'}）` : ''}
+  const failedDetail = {
+    '影片60秒以內': '影片超過60秒——完播率會大幅下降，每多10秒就損失約15%的觀眾，建議精剪至45–55秒最佳。',
+    '你自己入鏡超過30秒': '入鏡時間不足30秒——觀眾無法認識你這個人，帳號缺乏人味，信任感難以建立。入鏡=建立連結=讓陌生人變成願意購買的人。',
+    '至少三種角度拍攝': '角度單一——單一鏡頭讓節奏沉悶，觀眾視覺疲勞後很快滑走。三種以上角度（正面、側面、特寫）讓影片節奏明快，完播率提升。',
+    '錄音有情緒語氣有變化': '語氣平板沒有起伏——平淡的聲音是讓觀眾分心最快的原因之一。重要的話要放慢、激動的部分要加速，讓聲音本身也在說故事。',
+    '有使用花字特效動畫': '缺少視覺設計——沒有花字或特效的影片在探索頁視覺競爭力很弱。至少加入關鍵字的字幕、情緒特效、或一個吸睛的轉場。',
+    '開頭三秒有明確鉤子': '開頭三秒沒有鉤子——這是最致命的問題，沒有鉤子的開頭讓90%的陌生人在3秒內滑走。演算法靠完播率決定推不推，開頭決定一切。',
+    '有共鳴點及故事': '缺乏共鳴和故事——影片沒有讓觀眾覺得「這說的就是我」的瞬間。沒有共鳴就沒有留言，沒有留言演算法就不推。',
+    '結尾有明確呼籲': '沒有結尾 CTA——發完影片相當於把觀眾放走不管。每支影片結尾至少要有一個明確的下一步：收藏、追蹤、留言、或分享。'
+  };
 
-請給出三段回覆：
+  const prompt = `你是一個資深的 IG 短影音剪輯教練，正在幫一位創作者分析她的 Reels 自評表結果，給出具體的提升方案。
 
-第一段：直接說她目前最影響影片效果的那1-2個問題是什麼，以及背後原因。
+━━ 自評結果 ━━
+評分：${total}/8 項通過
+發布頻率：${freqWarning}
+✅ 已達到（${passed.length} 項）：${passed.length ? passed.join('、') : '無'}
+❌ 未達到（${failed.length} 項）：${failed.length ? failed.join('、') : '無'}
 
-第二段：針對她「未達到」的每一個項目，給出「如何改」的具體操作——不是重複告訴她要做，而是說「怎麼做」。例如：「自己入鏡不夠→每個段落開頭用2秒對著鏡頭說話再切到其他畫面」。
+━━ 未達到項目的具體問題 ━━
+${failed.map(f => `• ${failedDetail[f] || f}`).join('\n')}
 
-第三段：給她下一支影片的行動清單，3-5個「拍攝前/拍攝中/剪輯時」要做的事，讓她今天就能執行。
+━━ 請提供五段深度回覆 ━━
 
-繁體中文台灣口語，像在旁邊陪她剪片的朋友。三段空一行，每段不超過120字，不用條列式，不要說「建議」開場。`;
+第一段【整體診斷】：直接說這支影片目前最大的問題是什麼，以及這會對演算法推送和觀眾留存造成什麼具體影響。不要客套，說重點。
+
+第二段【最優先要改的1件事】：從所有未達到的項目中，挑出最影響成效的那1件事，深入解釋：為什麼它是最重要的、它現在如何拖累影片表現、以及如何在下一支影片立刻修正。給出具體的操作步驟，不是概念。
+
+第三段【每個未達到項目的改法】：針對每一個打叉的項目（共 ${failed.length} 項），各用2–3句話說明「怎麼改」——不是告訴她要改，而是說「要這樣做」。例如：「入鏡不足→每個段落的第一個畫面用2秒正面對著鏡頭說話，再切去其他角度，整支影片這樣反覆。」
+
+第四段【下一支影片的拍攝清單】：給她一個拍攝前、拍攝中、剪輯時各要做什麼的具體清單，讓她今天就能照著做。要寫得像施工圖紙——具體、有順序、馬上能執行。
+
+第五段【進步追蹤建議】：告訴她做了這些修改後，要觀察哪些數據才能知道有沒有進步（完播率、觸及不重複帳號數、留言數、分享收藏比），各個數字的健康標準是多少，以及下一次自評應該在幾天後做。
+
+繁體中文台灣口語，像站在她旁邊陪她一起改片的教練。五段之間空一行，每段100–150字。不要用條列式，不要說「建議」開場，要直接說「你要怎麼做」。`;
 
   try {
-    const res = await fetch('https://api.anthropic.com/v1/messages', { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:1000,messages:[{role:'user',content:prompt}]}) });
+    const res = await fetch('https://api.anthropic.com/v1/messages', { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:2000,messages:[{role:'user',content:prompt}]}) });
     const data = await res.json();
     const reply = data.content?.map(i=>i.text||'').join('')||'';
     const el = document.getElementById('se-ai-body');
-    if(el) el.innerHTML = reply ? reply.split(/\n\n+/).map(p=>`<p>${p.replace(/\n/g,'<br>')}</p>`).join('') : '<p>根據你的自評結果，建議先從「入鏡時間」和「開頭鉤子」這兩個影響最大的地方開始調整。</p>';
+    if(el) el.innerHTML = reply ? reply.split(/\n\n+/).map(p=>`<p>${p.replace(/\n/g,'<br>')}</p>`).join('') : '<p>根據你的自評結果，先從「開頭鉤子」和「入鏡時間」這兩個影響最大的地方開始調整。</p>';
   } catch(e) {
     const el = document.getElementById('se-ai-body');
     if(el) el.innerHTML = '<p>建議先從未達到的項目中，挑最容易改的一個開始，下一支影片執行看看效果。</p>';
@@ -2378,5 +2407,6 @@ function switchMainTab(tab) {
 // ══════════════ BOOT ══════════════
 runWelcome();
 </script>
+
 </body>
 </html>
