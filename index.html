@@ -119,6 +119,38 @@ body{background:#fdf5fa;color:#2d1228;font-family:'Noto Sans TC',sans-serif;min-
 .ta-mc-val.bad{color:#e0389a;}
 .ta-mc-desc{font-size:10px;color:#a06080;margin-top:3px;line-height:1.4;}
 
+/* Self-eval fix cards */
+.se-fix-card{background:#fff;border:1px solid #f0d0e8;border-radius:12px;padding:14px;margin-bottom:10px;}
+.se-fix-hd{display:flex;align-items:center;gap:8px;margin-bottom:8px;}
+.se-fix-badge{font-size:10px;font-weight:900;padding:2px 9px;border-radius:99px;flex-shrink:0;}
+.se-fix-badge.fail{background:#fce8f0;color:#e0389a;}
+.se-fix-badge.pass{background:#e8f5e0;color:#3a6020;}
+.se-fix-title{font-size:13px;font-weight:700;color:#2d1228;}
+.se-fix-why{font-size:11px;color:#a06080;background:#fdf5fa;border-radius:7px;padding:7px 10px;margin-bottom:6px;line-height:1.6;}
+.se-fix-why strong{color:#e0389a;}
+.se-fix-how{font-size:11px;color:#2d1228;line-height:1.7;}
+.se-fix-how .how-step{display:flex;gap:7px;margin-bottom:5px;}
+.se-fix-how .how-num{width:18px;height:18px;border-radius:50%;background:#e0389a;color:#fff;font-size:9px;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;}
+.se-fix-how .how-text{flex:1;color:#2d1228;}
+/* Advice cards for audience metrics */
+.metric-advice{background:#fff;border:1.5px solid #f0d0e8;border-radius:14px;overflow:hidden;margin-bottom:12px;}
+.metric-advice-hd{padding:10px 14px;display:flex;align-items:center;gap:8px;}
+.metric-advice-hd.red{background:rgba(224,56,154,.08);}
+.metric-advice-hd.orange{background:rgba(224,160,32,.08);}
+.metric-advice-hd.green{background:rgba(122,184,64,.08);}
+.metric-advice-icon{font-size:16px;}
+.metric-advice-title{font-size:12px;font-weight:900;color:#2d1228;}
+.metric-advice-val{font-size:11px;margin-left:auto;font-weight:700;font-family:‘DM Mono’,monospace;}
+.metric-advice-hd.red .metric-advice-val{color:#e0389a;}
+.metric-advice-hd.orange .metric-advice-val{color:#e0a020;}
+.metric-advice-hd.green .metric-advice-val{color:#7ab840;}
+.metric-advice-body{padding:12px 14px;display:flex;flex-direction:column;gap:7px;}
+.ma-row{display:flex;gap:8px;align-items:flex-start;}
+.ma-dot{width:6px;height:6px;border-radius:50%;background:#e0389a;flex-shrink:0;margin-top:5px;}
+.ma-text{font-size:11px;color:#a06080;line-height:1.6;}
+.ma-text strong{color:#2d1228;}
+.ma-text em{color:#e0389a;font-style:normal;font-weight:700;}
+
 /* ══ VIDEO REFERENCE ══ */
 .vid-header{padding:24px 0 16px;text-align:center;}
 .vid-header-title{font-size:20px;font-weight:900;color:#e0389a;margin-bottom:4px;}
@@ -1011,9 +1043,12 @@ h1 em{color:#e0389a;font-style:normal;}
   </div>
 </div>
 
+<!-- Static breakdown (populated by JS) -->
+<div id="se-breakdown-section" style="display:none;"></div>
+
 <!-- AI analysis -->
 <div class="ta-section" id="se-ai-section" style="display:none;">
-  <div class="ta-section-title">✦ AI 分析調整建議</div>
+  <div class="ta-section-title">✦ AI 深度分析</div>
   <div class="ta-ai-body" id="se-ai-body"><span class="ta-ai-loading">分析中…</span></div>
 </div>
 
@@ -2019,18 +2054,18 @@ async function runAudienceAnalysis() {
 
   // 數據指標
   if (followers > 0) {
-    if (storyRate < 10) diags.push(`<strong>🔴 限動留人率極低（${storyRate}%，目標 30%+）：</strong>每天看你限動的人只有 ${storyRate}% 的粉絲，代表他們追蹤你後就「消失」了。可能原因：限動發太少（需每天 10 則以上）、內容和限動不一致、或粉絲來自病毒性內容但對你日常不感興趣。`);
-    else if (storyRate < 20) diags.push(`<strong>🟠 限動留人率偏低（${storyRate}%）：</strong>有一定的核心粉絲在看你限動，但比例還不夠高。每天固定 10 則以上的限動、加入互動貼圖（投票、問答）、讓粉絲習慣每天來看你，是提升這個數字最有效的方法。`);
-    else if (storyRate < 30) diags.push(`<strong>🟡 限動留人率尚可（${storyRate}%）：</strong>代表有一群忠實粉絲在追蹤你日常，再提升一些就能達到理想的 30%。試試在限動加更多「回應性內容」——回覆粉絲留言、分享粉絲互動，讓他們感覺被看見。`);
-    else diags.push(`<strong>✅ 限動留人率優秀（${storyRate}%）：</strong>超過 30% 的粉絲每天都在看你的限動，這是非常健康的社群黏著度！這群人是最容易轉換成客戶的鐵粉，要好好珍惜和經營。`);
+    if (storyRate < 10) diags.push(`<strong>🔴 限動留人率極低（${storyRate}%，目標 30%+）：</strong>每天看你限動的人只有 ${storyRate}% 的粉絲，等同追蹤後就「消失」了。根本原因通常是：限動每天發布不到5則、或限動和Reels內容完全脫節，讓粉絲追蹤後找不到繼續看你的理由。<br><br>📌 <strong>立刻可以做的事：</strong>① 今天起每天至少發10則限動（早起一則、白天碎片三則、發布Reels花絮一則、晚上日常三則、互動貼圖二則）② 每週至少2次用「投票貼圖」問粉絲簡單問題（例：你今天累嗎？疲☑️ vs 還好☑️）③ 每次發Reels後立刻在限動轉發並說「這支我花XX時間做的，你覺得怎麼樣？」——讓Reels觀眾自然流入限動。`);
+    else if (storyRate < 20) diags.push(`<strong>🟠 限動留人率偏低（${storyRate}%，目標 30%+）：</strong>有一群人在看你但黏著度不夠。每天固定10則、加互動貼圖是基本功。<br><br>📌 <strong>提升方法：</strong>① 加入「問答貼圖」讓粉絲傳問題給你，再用限動回答——每次這樣做都能讓互動率顯著提升 ② 試試「連續劇式限動」：一件事分成3天說，讓粉絲每天回來看下集 ③ 偶爾曝光你的「真實一面」（不完美的日常、剛起床的樣子、工作失誤），比精緻內容更讓人有親近感 ④ 在限動說「留言告訴我XX，我下支Reels做這個主題」——讓粉絲感覺有影響力。`);
+    else if (storyRate < 30) diags.push(`<strong>🟡 限動留人率尚可（${storyRate}%）：</strong>有一群忠實粉絲，再努力一點就能突破30%。試試「回覆粉絲留言」系列——截圖粉絲的留言在限動上回覆，讓他們感覺被看見，這種粉絲最容易轉換成客戶。`);
+    else diags.push(`<strong>✅ 限動留人率優秀（${storyRate}%）：</strong>超過30%的粉絲每天主動點開你的限動——這群人是你最珍貴的資產，也是最容易轉換的潛在客戶。繼續保持每天10則以上，加入更多「產品故事」和「使用心得」的限動，自然植入轉換機會。`);
 
-    if (reelsRate < 50) diags.push(`<strong>🔴 Reels 推流比極低（${reelsRate}%，目標 300%+）：</strong>你的影片觀看幾乎只來自現有粉絲，完全沒有被演算法推給陌生人。最常見原因：開頭鉤子不夠強（前3秒沒有抓住陌生人）、選題太小眾、或帳號定位不夠清晰讓演算法不知道推給誰。`);
-    else if (reelsRate < 150) diags.push(`<strong>🟠 Reels 推流比偏低（${reelsRate}%）：</strong>有少部分影片被推出去，但量還不夠。演算法需要看到一致的主題方向才會大量推送，試試連續 15 支影片保持同一定位，讓系統學會你是誰。`);
-    else if (reelsRate < 300) diags.push(`<strong>🟡 Reels 推流比普通（${reelsRate}%）：</strong>已經有部分流量來自非粉絲，但還有很大提升空間。找出你歷史上完播率最高的那支影片，分析它的開頭方式和選題，複製那個邏輯。`);
-    else diags.push(`<strong>✅ Reels 推流比強（${reelsRate}%）：</strong>演算法正在幫你推送給陌生人，這是帳號成長最重要的引擎。繼續保持這個勢頭，同時確保被推到的陌生人是你的目標受眾（25–40歲女性）。`);
+    if (reelsRate < 50) diags.push(`<strong>🔴 Reels 推流比極低（${reelsRate}%，目標 300%+）：</strong>影片幾乎只有現有粉絲在看，演算法完全沒有把你推給陌生人。這通常是3個問題之一：① 開頭鉤子太弱（前3秒沒有讓陌生人有理由停下來）② 帳號定位不清晰（演算法不知道你的內容要推給誰）③ 選題太個人化（只有認識你的人才會感興趣）。<br><br>📌 <strong>立刻可以做的事：</strong>① 把你最近5支影片的開頭第一句話寫下來——如果開頭是「嗨大家好」或「今天要介紹」，立刻換掉，改成數字法/問題法/相差法 ② 連續10支影片只發同一個主題，讓演算法學會你的定位 ③ 用熱門音效（探索頁右上角音符標誌的歌）配你的影片，音效流量是重要的推流助力 ④ 影片前3秒加入文字標題（大字幕），讓滑過的陌生人光看文字就能決定要不要停下來。`);
+    else if (reelsRate < 150) diags.push(`<strong>🟠 Reels 推流比偏低（${reelsRate}%）：</strong>有少量流量推出去但還不夠。演算法在試探你，但還沒確定你值得大量推送。<br><br>📌 <strong>提升方法：</strong>① 找出你歷史上完播率最高的那支影片，把它的開頭邏輯複製到接下來的每支影片 ② 發布後的前30分鐘很關鍵——發完立刻在限動轉貼並問一個問題，提高初始互動率，讓演算法認為這支值得推 ③ 嘗試在影片結尾說「留言XX」或「標記一個朋友」——留言密度直接影響推流量。`);
+    else if (reelsRate < 300) diags.push(`<strong>🟡 Reels 推流比普通（${reelsRate}%）：</strong>已經有部分非粉絲在看你，方向對了。找出完播率最高的那支，分析開頭方式和選題，然後用同樣的邏輯做更多支。`);
+    else diags.push(`<strong>✅ Reels 推流比強（${reelsRate}%）：</strong>演算法正在幫你把影片推給陌生人，帳號成長引擎已經啟動！繼續保持，同時確保被推到的陌生人是目標受眾（25–40歲女性），不然推了很多但留下的不是對的人。`);
 
     const conversionRisk = followers > 0 && storyRate < 15 && reelsRate > 200;
-    if (conversionRisk) diags.push(`<strong>🟠 高流量低黏著度警告：</strong>Reels 在吸引新人但粉絲留存率低。這代表你的影片讓陌生人感興趣，但追蹤後發現限動沒有值得天天看的理由。解法：Reels 主題和限動日常要有連貫性，讓新粉絲追蹤後馬上在限動看到「跟Reels一樣有趣」的你。`);
+    if (conversionRisk) diags.push(`<strong>🟠 高流量低黏著度警告：</strong>Reels 在吸引新人但粉絲留存率低——代表你的影片讓陌生人感興趣，但追蹤後發現限動沒有值得天天看的理由。解法：Reels 主題和限動日常要有連貫性，讓新粉絲追蹤後馬上在限動看到「跟Reels一樣有趣」的你。`);
   }
 
   // 成長 vs 變現
@@ -2054,7 +2089,10 @@ async function runAudienceAnalysis() {
       ${followers>0?`<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px;">
         <div class="ta-metric-card"><div class="ta-mc-label">限動留人率</div><div class="ta-mc-val ${storyRate>=30?'good':storyRate>=15?'mid':'bad'}">${storyRate}%</div><div class="ta-mc-desc">目標 30%+ ／ 每天10則限動提升</div></div>
         <div class="ta-metric-card"><div class="ta-mc-label">Reels 推流比</div><div class="ta-mc-val ${reelsRate>=300?'good':reelsRate>=100?'mid':'bad'}">${reelsRate}%</div><div class="ta-mc-desc">目標 300%+ ／ 推給非粉絲的比例</div></div>
-      </div>`:''}
+      </div>
+      ${storyRate < 30 && storyRate > 0 ? `<div class="metric-advice" style="margin-top:10px;"><div class="metric-advice-hd ${storyRate<15?'red':'orange'}"><span class="metric-advice-icon">📱</span><span class="metric-advice-title">限動留人率不足 — 提升方法</span><span class="metric-advice-val">${storyRate}% → 目標 30%</span></div><div class="metric-advice-body"><div class="ma-row"><div class="ma-dot"></div><div class="ma-text"><strong>每天 10 則以上</strong>：早起一則、白天3–4則日常碎片、晚上回顧一天、睡前分享心情。數量是基本門檻，沒有量就沒有留人率。</div></div><div class="ma-row"><div class="ma-dot"></div><div class="ma-text"><strong>加入互動貼圖</strong>：每天至少1則要有投票或問答貼圖（例如：「今天你吃了什麼？左邊還是右邊？」）讓粉絲習慣點開你的限動就能互動。</div></div><div class="ma-row"><div class="ma-dot"></div><div class="ma-text"><strong>限動 ≠ 廣告</strong>：不要只在限動推廣產品或 Reels 預告。分享你的真實日常——今天遇到的趣事、隨手拍的食物、真實的一天片段，讓人覺得「跟著你生活很有趣」。</div></div><div class="ma-row"><div class="ma-dot"></div><div class="ma-text"><strong>讓粉絲參與</strong>：每週一次「你覺得下支 Reels 要拍哪個主題？」投票，或問「你今天心情怎樣？」回覆你的限動，建立雙向互動習慣。</div></div><div class="ma-row"><div class="ma-dot"></div><div class="ma-text"><strong>幕後花絮</strong>：拍 Reels 的過程、出錯的片段、剪片時的心情——這些「限定」的內容讓粉絲覺得跟著你有參與感，留人率自然提升。</div></div></div></div>` : ''}
+      ${reelsRate < 300 && reelsRate > 0 ? `<div class="metric-advice" style="margin-top:${storyRate<30?'4px':'10px'};"><div class="metric-advice-hd ${reelsRate<100?'red':'orange'}"><span class="metric-advice-icon">🎬</span><span class="metric-advice-title">Reels 推流比不足 — 提升方法</span><span class="metric-advice-val">${reelsRate}% → 目標 300%</span></div><div class="metric-advice-body"><div class="ma-row"><div class="ma-dot"></div><div class="ma-text"><strong>開頭三秒決定一切</strong>：演算法先把影片推給少量陌生人測試，如果前三秒讓他們繼續看（完播率高），才繼續擴大推送。換句話說，你的開頭鉤子就是推流的開關。</div></div><div class="ma-row"><div class="ma-dot"></div><div class="ma-text"><strong>選題要「大眾有共鳴」</strong>：太小眾或太個人的話題讓演算法不知道推給誰。換成「很多人都有過的感受」——例如「上班族的崩潰時刻」比「我今天的工作日記」觸及更廣。</div></div><div class="ma-row"><div class="ma-dot"></div><div class="ma-text"><strong>連續15支同一方向</strong>：演算法需要時間「學習」你是哪類帳號。如果每支主題都不同，它不知道推給誰，推流自然低。連續發同一定位的內容，讓系統認識你。</div></div><div class="ma-row"><div class="ma-dot"></div><div class="ma-text"><strong>分析你歷史最高完播率的那支</strong>：打開 IG 洞察，找完播率最高的影片，看它的開頭方式和選題邏輯，複製那個模式在接下來3支繼續測試。</div></div><div class="ma-row"><div class="ma-dot"></div><div class="ma-text"><strong>影片長度控制在 45–55 秒</strong>：太短（15秒以下）讓演算法覺得資訊量不夠，太長（超過60秒）完播率低，45–55秒是推流效果最好的甜蜜點。</div></div></div></div>` : ''}
+      `:''}
     </div>
     <div class="ta-insight-block">
       <div class="ta-insight-hd"><span class="ta-insight-icon">🔍</span><span class="ta-insight-name">完整診斷報告（${diags.length} 項）</span></div>
@@ -2081,22 +2119,24 @@ TA吻合度：${score}/100
 ━━ 系統已診斷出的問題 ━━
 ${diagSummary}
 
-━━ 請給出五段深度回覆 ━━
+━━ 請完整提供以下六段深度回覆 ━━
 
-第一段【核心問題診斷】：指出她目前最影響變現的1–2個根本原因。不要重複上面的數字，而是用生動的方式說清楚「她在做什麼讓錯誤的人追蹤了她」，以及「對的人為什麼還沒有被吸引進來」。
+第一段【受眾根本問題】：用生動的方式說清楚「她目前在用什麼內容吸引了什麼樣的人」，以及「這些人為什麼不會消費」。不要重複數字，而是描述受眾的生活樣貌和消費心理。告訴她：她帳號現在像一家什麼樣的店、吸引的是什麼樣的客人、為什麼這些客人不會買單。
 
-第二段【內容方向調整】：針對她的現有內容方向（${contents}），具體說明要如何調整選題、角度、說話方式，才能讓 25–40 歲有消費力的女性感到有共鳴。給出 3 個「這週就能拍」的具體題目，每個題目附上開頭第一句話要怎麼說。
+第二段【內容方向精準調整】：針對她的現有內容方向（${contents}），具體說明如何用同樣主題但不同「角度和說話方式」來吸引25–40歲有消費力的女性。給出3個「這週就能拍」的具體題目，每個題目附上開頭第一句話（要用到鉤子技巧：數字法/問題式/相差法/借勢法/驚訝式其中一種），並說明這個題目為什麼能吸引目標TA。
 
-第三段【限動策略優化】：她的限動留人率是 ${storyRate||'未填'}%，給出一週7天的限動內容節奏安排，包括早、中、晚各要發什麼類型的限動，以及哪些互動貼圖可以提高黏著度。要非常具體，讓她看完馬上知道今天要發什麼。
+第三段【限動7天節奏計畫】：她的限動留人率是${storyRate||'未填'}%。詳細說明接下來7天每天限動應該怎麼發——每天早中晚各發什麼主題、哪幾天要用哪種互動貼圖（投票/問答/倒數/滑桿）、如何讓新粉絲每天都有回來的理由。要像幫她排班表一樣具體，看完就知道今天限動要發什麼。
 
-第四段【Reels 推流提升】：她的Reels推流比是 ${reelsRate||'未填'}%，分析可能是哪種開頭問題或選題問題在阻礙演算法推送。給出3個「換開頭的方式」——把她現在可能的開頭方式改寫成能讓演算法推給陌生人的版本，要有對比示例。
+第四段【Reels推流突破示範】：她的Reels推流比是${reelsRate||'未填'}%。先分析最可能卡在哪個環節（開頭/選題/帳號定位/完播率）。再給出3組「開頭對比示範」：爛開頭版 vs 能讓演算法推給陌生人的好版本，要有真實的對比，讓她一眼看出差別。最後再給3個「可以立刻執行的完播率提升技巧」。
 
-第五段【4週行動計畫】：給一個具體的4週調整計畫，每週重點是什麼，讓她有清晰的方向感。第4週結束時應該要達到什麼數字目標。
+第五段【TA漸進調整策略】：在不完全放棄現有流量的前提下，告訴她如何用「混入法」把受眾結構慢慢移向25–40歲女性。給出具體比例（例如每5支影片中幾支維持現有風格、幾支轉換方向）。說明這樣操作後，大約幾週開始會看到受眾結構的改變，以及要觀察哪些數字來確認策略奏效。
 
-繁體中文台灣口語，像一個認識她很久、很了解她帳號現況的顧問在跟她說話。五段之間空一行，每段100–150字，不要用條列式，不要說「建議」「我認為」「根據資料」「首先」開場。`;
+第六段【4週數字目標計畫】：給一個有具體數字目標的4週計畫——每週重點任務是什麼、每週結束時限動留人率/Reels推流比/女性比例各應該達到多少。讓她有清晰的里程碑可以追蹤，並說明如果某週沒達標要怎麼調整。
+
+繁體中文台灣口語，像一個陪她坐在咖啡廳分析帳號的顧問在跟她說話。六段之間空一行，每段120–180字。不要用條列式，不要說「建議」「我認為」「根據資料」「首先」開場，每段直接進入核心內容。`;
 
   try {
-    const res = await fetch('https://api.anthropic.com/v1/messages', { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:2000,messages:[{role:'user',content:prompt}]}) });
+    const res = await fetch('https://api.anthropic.com/v1/messages', { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:3000,messages:[{role:'user',content:prompt}]}) });
     const data = await res.json();
     const reply = data.content?.map(i=>i.text||'').join('')||'';
     const el = document.getElementById('ta-ai-body');
@@ -2311,64 +2351,77 @@ async function runSelfEvalAnalysis() {
   btn.disabled = true; btn.textContent = '分析中…';
   const dateVal = document.getElementById('se-last-date').value;
   const days = dateVal ? Math.floor((Date.now()-new Date(dateVal))/86400000) : null;
-  const items = ['影片60秒以內','你自己入鏡超過30秒','至少三種角度拍攝','錄音有情緒語氣有變化','有使用花字特效動畫','開頭三秒有明確鉤子','有共鳴點及故事','結尾有明確呼籲'];
+
+  const ITEM_DATA = [
+    { label:'影片 60 秒以內', why:'每多10秒完播率下降約15%。演算法用完播率決定推不推，超過60秒的影片幾乎不會被推給陌生人。', how:['開剪前先數一下腳本，超過16句就刪到剩12–14句','每個畫面只留最精華的2–3秒，剪掉停頓和廢話','錄完後用0.9倍速稍微加速語速，節奏感更好又能省時間'] },
+    { label:'你自己入鏡超過 30 秒', why:'入鏡=建立信任。觀眾要先認識「你這個人」才會跟著你購買——看不到臉的帳號很難從陌生人變成鐵粉。', how:['每個段落的第一個畫面對著鏡頭說1–2句話，再切到其他畫面','加入「走路說話」「做事邊說」，比對鏡頭更自然也更有生活感','結尾一定要正面入鏡說最後一句CTA，讓觀眾記住你的臉'] },
+    { label:'轉換至少三種角度拍攝', why:'單一角度讓節奏沉悶，觀眾眼睛疲勞後很快滑走。三種角度切換讓影片有節奏感，完播率可提升20–30%。', how:['至少用：正面（說話）、側面（動作）、特寫（細節）三種','每個鏡頭不超過4秒，快速切換讓節奏明快','沒有腳架也沒關係，靠牆固定或請人幫拿，重點是角度要不同'] },
+    { label:'錄音有情緒、語氣有變化', why:'平淡的語氣是觀眾分心最快的原因。聲音本身在傳遞情緒——沒有起伏讓人昏昏欲睡，有情緒的聲音讓人停下來聽。', how:['重要的關鍵字要放慢、拉長，讓觀眾感受到你在強調','講到自己的感受時聲音要有真實情緒，不要演，就正常說','錄完後聽一遍，如果覺得自己在「唸稿」，重錄一次'] },
+    { label:'有使用花字、特效或動畫（至少一種）', why:'在探索頁觀眾判斷要不要點開只有0.5秒。有視覺設計的影片點擊率比純素影片高出40%以上。', how:['至少加入關鍵字的強調字幕（大字、顏色、位置要顯眼）','情緒高點加一個特效或轉場，讓那個瞬間更有衝擊感','用CapCut的「文字模板」或「特效」功能，不需要設計天分'] },
+    { label:'開頭三秒有明確鉤子', why:'沒有鉤子的開頭讓90%陌生人在3秒內滑走，完播率低演算法就不推，惡性循環——這是最重要的一項。', how:['數字法：「90%的人都不知道這件事…」讓人想知道自己是不是那10%','問題法：「你有沒有也這樣…」讓觀眾馬上對號入座','驚訝法：「我本來以為…結果…」製造反差感讓人想看結果'] },
+    { label:'有共鳴點及故事', why:'沒有共鳴就沒有留言，沒有留言演算法就不繼續推。「這說的就是我」的那個瞬間，是觀眾決定追蹤你的關鍵。', how:['找一個你的目標觀眾「一定有過」的經歷，從那裡開始說','用「你是不是也…」「我以前也…」把自己的故事跟觀眾連結','不需要大事件，生活中的小委屈、小驚喜、小發現都夠了'] },
+    { label:'結尾有明確呼籲（CTA）', why:'沒有CTA等於把觀眾放走不管。加了CTA的影片平均收藏率提升30%、追蹤轉換率提升25%。', how:['收藏型：「收藏起來以免下次找不到」（最好用，讓演算法判斷有價值）','留言型：「你也有過這樣嗎？留言告訴我」（提升互動率讓演算法推）','追蹤型：「追蹤我，下支我會說…」（給觀眾下次回來的理由）'] }
+  ];
+
+  const items = ITEM_DATA.map(d => d.label);
   const passed = items.filter((_,i) => seState[i]);
   const failed = items.filter((_,i) => !seState[i]);
+  const failedData = ITEM_DATA.filter((_,i) => !seState[i]);
   const total = seState.filter(Boolean).length;
+  const freqWarning = days !== null && days > 7 ? `距離上次發布已 ${days} 天，超過一週未發布` : days !== null ? `上次發布 ${days} 天前，頻率正常` : '';
+
+  // ── Static breakdown ──
+  const breakdownEl = document.getElementById('se-breakdown-section');
+  let bhtml = '';
+  if (days !== null && days > 7) {
+    bhtml += `<div class="se-fix-card" style="border-color:rgba(224,56,154,.35);"><div class="se-fix-hd"><span class="se-fix-badge fail">頻率警告</span><span class="se-fix-title">已 ${days} 天未發布，需要今天就發</span></div><div class="se-fix-why"><strong>為什麼要改：</strong>演算法每天觀察你是否活躍。超過7天不發，帳號在演算法眼中「降溫」，之後的影片初始推流量會明顯減少，要花更長時間才能恢復。</div><div class="se-fix-how"><div style="font-size:10px;font-weight:900;color:#e0389a;margin-bottom:5px;">怎麼做：</div><div class="how-step"><div class="how-num">1</div><div class="how-text">今天就發一支——哪怕只是30秒的日常Vlog，讓帳號重新活起來</div></div><div class="how-step"><div class="how-num">2</div><div class="how-text">設定每週固定發文日（例如：週一三五），手機設提醒</div></div><div class="how-step"><div class="how-num">3</div><div class="how-text">每次拍片多拍2–3個備用素材，之後發文就不用臨時想題目</div></div></div></div>`;
+  }
+  if (failedData.length > 0) {
+    bhtml += `<div style="font-size:14px;font-weight:900;color:#e0389a;margin:16px 0 10px;">❌ ${failedData.length} 個未通過項目 — 改善清單</div>`;
+    bhtml += failedData.map(item => `<div class="se-fix-card"><div class="se-fix-hd"><span class="se-fix-badge fail">未通過</span><span class="se-fix-title">${item.label}</span></div><div class="se-fix-why"><strong>為什麼要改：</strong>${item.why}</div><div class="se-fix-how"><div style="font-size:10px;font-weight:900;color:#e0389a;margin-bottom:5px;letter-spacing:.05em;">怎麼做：</div>${item.how.map((s,i)=>`<div class="how-step"><div class="how-num">${i+1}</div><div class="how-text">${s}</div></div>`).join('')}</div></div>`).join('');
+  }
+  if (total === 8) {
+    bhtml = `<div class="se-fix-card" style="border-color:rgba(122,184,64,.3);background:rgba(122,184,64,.03);"><div class="se-fix-hd"><span class="se-fix-badge pass">全部通過</span><span class="se-fix-title">這支影片完全達標！🌸</span></div><div class="se-fix-why"><strong>恭喜：</strong>8項全部通過代表你的影片在技術面已經很完整了。接下來的重點是選題——找到讓25–40歲女性有共鳴的話題，這才是讓流量更上一層樓的關鍵。</div></div>`;
+  }
+  breakdownEl.innerHTML = bhtml;
+  breakdownEl.style.display = 'block';
+  breakdownEl.scrollIntoView({ behavior:'smooth', block:'start' });
 
   const section = document.getElementById('se-ai-section');
   section.style.display = 'block';
-  section.scrollIntoView({ behavior:'smooth', block:'start' });
 
-  const freqWarning = days !== null && days > 7 ? `⚠️ 距離上次發布已經 ${days} 天，超過一週未發布。` : days !== null ? `✅ 上次發布 ${days} 天前，頻率正常。` : '未填寫發布日期。';
+  const prompt = `你是資深IG短影音教練，幫一位創作者做Reels自評分析。
 
-  const failedDetail = {
-    '影片60秒以內': '影片超過60秒——完播率會大幅下降，每多10秒就損失約15%的觀眾，建議精剪至45–55秒最佳。',
-    '你自己入鏡超過30秒': '入鏡時間不足30秒——觀眾無法認識你這個人，帳號缺乏人味，信任感難以建立。入鏡=建立連結=讓陌生人變成願意購買的人。',
-    '至少三種角度拍攝': '角度單一——單一鏡頭讓節奏沉悶，觀眾視覺疲勞後很快滑走。三種以上角度（正面、側面、特寫）讓影片節奏明快，完播率提升。',
-    '錄音有情緒語氣有變化': '語氣平板沒有起伏——平淡的聲音是讓觀眾分心最快的原因之一。重要的話要放慢、激動的部分要加速，讓聲音本身也在說故事。',
-    '有使用花字特效動畫': '缺少視覺設計——沒有花字或特效的影片在探索頁視覺競爭力很弱。至少加入關鍵字的字幕、情緒特效、或一個吸睛的轉場。',
-    '開頭三秒有明確鉤子': '開頭三秒沒有鉤子——這是最致命的問題，沒有鉤子的開頭讓90%的陌生人在3秒內滑走。演算法靠完播率決定推不推，開頭決定一切。',
-    '有共鳴點及故事': '缺乏共鳴和故事——影片沒有讓觀眾覺得「這說的就是我」的瞬間。沒有共鳴就沒有留言，沒有留言演算法就不推。',
-    '結尾有明確呼籲': '沒有結尾 CTA——發完影片相當於把觀眾放走不管。每支影片結尾至少要有一個明確的下一步：收藏、追蹤、留言、或分享。'
-  };
+自評結果：${total}/8 通過
+${freqWarning ? '⚠️ 發布頻率：'+freqWarning : ''}
+已達到：${passed.length ? passed.join('、') : '無'}
+未達到：${failed.length ? failed.join('、') : '全部通過'}
 
-  const prompt = `你是一個資深的 IG 短影音剪輯教練，正在幫一位創作者分析她的 Reels 自評表結果，給出具體的提升方案。
+請給五段深度回覆：
 
-━━ 自評結果 ━━
-評分：${total}/8 項通過
-發布頻率：${freqWarning}
-✅ 已達到（${passed.length} 項）：${passed.length ? passed.join('、') : '無'}
-❌ 未達到（${failed.length} 項）：${failed.length ? failed.join('、') : '無'}
+第一段【整體判斷】：根據通過/未通過的組合，告訴她這支影片最可能遇到的「流量問題症狀」是什麼——完播率低？觸及不夠？留言少？說清楚症狀背後的原因鏈。
 
-━━ 未達到項目的具體問題 ━━
-${failed.map(f => `• ${failedDetail[f] || f}`).join('\n')}
+第二段【最優先修正的1件事】：從未通過項目中挑出對演算法影響最大的那1項，深入說明它如何直接拖累影片成效，以及如何在下一支立刻修正。給具體操作，不是概念。
 
-━━ 請提供五段深度回覆 ━━
+第三段【漸進改善計畫】：一次全改會讓她很有壓力。給她一個「第一週先改哪1–2項、第二週再加哪1–2項」的漸進計畫，讓她無壓力進步。
 
-第一段【整體診斷】：直接說這支影片目前最大的問題是什麼，以及這會對演算法推送和觀眾留存造成什麼具體影響。不要客套，說重點。
+第四段【下次拍片清單】：拍攝前3件事、拍攝中3件事、剪輯時3件事，讓她像對照清單一樣操作，不用靠記憶。
 
-第二段【最優先要改的1件事】：從所有未達到的項目中，挑出最影響成效的那1件事，深入解釋：為什麼它是最重要的、它現在如何拖累影片表現、以及如何在下一支影片立刻修正。給出具體的操作步驟，不是概念。
+第五段【數據目標】：做完調整後要追蹤哪些IG洞察數字（完播率、非粉絲觸及、留言分享比），每個數字達到多少才算成功，讓她下次有目標地自評。
 
-第三段【每個未達到項目的改法】：針對每一個打叉的項目（共 ${failed.length} 項），各用2–3句話說明「怎麼改」——不是告訴她要改，而是說「要這樣做」。例如：「入鏡不足→每個段落的第一個畫面用2秒正面對著鏡頭說話，再切去其他角度，整支影片這樣反覆。」
-
-第四段【下一支影片的拍攝清單】：給她一個拍攝前、拍攝中、剪輯時各要做什麼的具體清單，讓她今天就能照著做。要寫得像施工圖紙——具體、有順序、馬上能執行。
-
-第五段【進步追蹤建議】：告訴她做了這些修改後，要觀察哪些數據才能知道有沒有進步（完播率、觸及不重複帳號數、留言數、分享收藏比），各個數字的健康標準是多少，以及下一次自評應該在幾天後做。
-
-繁體中文台灣口語，像站在她旁邊陪她一起改片的教練。五段之間空一行，每段100–150字。不要用條列式，不要說「建議」開場，要直接說「你要怎麼做」。`;
+繁體中文台灣口語，像站在她旁邊的教練。五段空一行，每段100–150字。不用條列式，開頭直接說重點，不要說「建議」「首先」。`;
 
   try {
     const res = await fetch('https://api.anthropic.com/v1/messages', { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:2000,messages:[{role:'user',content:prompt}]}) });
     const data = await res.json();
     const reply = data.content?.map(i=>i.text||'').join('')||'';
     const el = document.getElementById('se-ai-body');
-    if(el) el.innerHTML = reply ? reply.split(/\n\n+/).map(p=>`<p>${p.replace(/\n/g,'<br>')}</p>`).join('') : '<p>根據你的自評結果，先從「開頭鉤子」和「入鏡時間」這兩個影響最大的地方開始調整。</p>';
+    if(el) el.innerHTML = reply ? reply.split(/\n\n+/).map(p=>`<p>${p.replace(/\n/g,'<br>')}</p>`).join('') : '<p>根據你的自評結果，先從「開頭鉤子」和「入鏡時間」開始調整。</p>';
   } catch(e) {
     const el = document.getElementById('se-ai-body');
-    if(el) el.innerHTML = '<p>建議先從未達到的項目中，挑最容易改的一個開始，下一支影片執行看看效果。</p>';
+    if(el) el.innerHTML = '<p>網路連線問題，請稍後再試。上方的改善清單可以先照著執行。</p>';
   }
-  btn.disabled = false; btn.textContent = '✦ 分析我的影片，給出調整建議';
+  btn.disabled = false; btn.textContent = '✦ 重新分析';
 }
 
 // ══════════════ TAB BAR ══════════════
