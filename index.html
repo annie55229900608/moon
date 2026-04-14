@@ -1089,10 +1089,11 @@ h1 em{color:#e0389a;font-style:normal;}
     <label class="hc-row"><input type="checkbox" class="hc-cb" id="hc-13" onchange="hcToggle(13)"><span>挑戰日更（堅持最少兩個月）</span></label>
   </div>
 
-  <!-- Score + button -->
-  <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;">
-    <div><span style="font-size:22px;font-weight:900;color:#e0389a;" id="hc-score">0</span><span style="font-size:13px;color:#a06080;"> / 14 項已掌握</span></div>
-    <button onclick="runHCAnalysis()" style="background:#e0389a;color:#fff;border:none;border-radius:999px;padding:9px 18px;font-size:12px;font-weight:900;font-family:'Noto Sans TC',sans-serif;cursor:pointer;">✦ 查看建議</button>
+  <!-- Score + buttons -->
+  <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px;flex-wrap:wrap;">
+    <div style="flex:1;"><span style="font-size:22px;font-weight:900;color:#e0389a;" id="hc-score">0</span><span style="font-size:13px;color:#a06080;"> / 14 已掌握</span></div>
+    <button onclick="clearHC()" style="background:#fff;color:#a06080;border:1.5px solid #f0d0e8;border-radius:999px;padding:7px 14px;font-size:11px;font-weight:700;font-family:'Noto Sans TC',sans-serif;cursor:pointer;">🗑 清除全部</button>
+    <button onclick="toggleHCBreakdown()" id="hc-toggle-btn" style="background:#e0389a;color:#fff;border:none;border-radius:999px;padding:9px 16px;font-size:12px;font-weight:900;font-family:'Noto Sans TC',sans-serif;cursor:pointer;">✦ 查看建議</button>
   </div>
   <div id="hc-breakdown" style="display:none;"></div>
 </div>
@@ -1125,10 +1126,13 @@ h1 em{color:#e0389a;font-style:normal;}
   </div>
 </div>
 
-<!-- Static breakdown (populated by JS) -->
+<!-- Static breakdown (collapsible) -->
 <div id="se-breakdown-section" style="display:none;"></div>
 
-<button class="ta-analyze-btn" id="se-btn" onclick="runSelfEvalAnalysis()">✦ 分析我的影片</button>
+<div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:4px;">
+  <button onclick="clearSE()" style="flex:1;background:#fff;color:#a06080;border:1.5px solid #f0d0e8;border-radius:999px;padding:10px;font-size:12px;font-weight:700;font-family:'Noto Sans TC',sans-serif;cursor:pointer;">🗑 清除全部</button>
+  <button class="ta-analyze-btn" id="se-btn" onclick="runSelfEvalAnalysis()" style="flex:2;margin:0;">✦ 分析我的影片</button>
+</div>
 ```
 
   </div>
@@ -2513,6 +2517,37 @@ function toggleEval(i) {
   document.getElementById('eval-score-label').textContent = labels[total];
 }
 
+function clearHC() {
+  hcState = new Array(14).fill(false);
+  for(let i=0;i<14;i++){const cb=document.getElementById('hc-'+i);if(cb)cb.checked=false;}
+  document.getElementById('hc-score').textContent='0';
+  const bd=document.getElementById('hc-breakdown');
+  bd.style.display='none'; bd.innerHTML='';
+  document.getElementById('hc-toggle-btn').textContent='✦ 查看建議';
+}
+function toggleHCBreakdown() {
+  const bd=document.getElementById('hc-breakdown');
+  const btn=document.getElementById('hc-toggle-btn');
+  if(bd.style.display!=='none'){
+    bd.style.display='none';
+    btn.textContent='✦ 查看建議';
+  } else {
+    runHCAnalysis();
+    btn.textContent='▲ 收起建議';
+  }
+}
+function clearSE() {
+  seState = new Array(8).fill(false);
+  for(let i=0;i<8;i++){const el=document.getElementById('se-'+i);if(el)el.classList.remove('checked');}
+  document.getElementById('se-score').textContent='0 / 8';
+  document.getElementById('se-score-label').textContent='勾選上方項目開始評分';
+  const bd=document.getElementById('se-breakdown-section');
+  bd.style.display='none'; bd.innerHTML='';
+  const btn=document.getElementById('se-btn');
+  btn.textContent='✦ 分析我的影片';
+  saveSEState();
+}
+
 // ══════════════ 打造爆款 CHECKLIST ══════════════
 const HC_ITEMS = [
   { label:'抖音 IG 雙平台經營', why:'只做單一平台引流速度只有雙平台的一半。', how:['今天就在抖音開一個同名帳號，把 IG 的 Reels 剪輯版同步上傳','抖音負責讓陌生人認識你，IG 負責讓粉絲信任你、跟你購買','每週至少同步3支影片，不需要另外拍，剪輯成9:16直接用'] },
@@ -2633,7 +2668,20 @@ async function runSelfEvalAnalysis() {
   breakdownEl.innerHTML = bhtml;
   breakdownEl.style.display = 'block';
   breakdownEl.scrollIntoView({ behavior:'smooth', block:'start' });
-  btn.disabled = false; btn.textContent = '✦ 重新分析';
+  btn.disabled = false; btn.textContent = '▲ 收起分析';
+  btn.onclick = function(){ toggleSEBreakdown(); };
+}
+function toggleSEBreakdown(){
+  const bd=document.getElementById('se-breakdown-section');
+  const btn=document.getElementById('se-btn');
+  if(bd.style.display!=='none'){
+    bd.style.display='none';
+    btn.textContent='✦ 重新分析';
+    btn.onclick=function(){ runSelfEvalAnalysis(); };
+  } else {
+    bd.style.display='block';
+    btn.textContent='▲ 收起分析';
+  }
 }
 
 // ══════════════ TAB BAR ══════════════
