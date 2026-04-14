@@ -3,6 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="DCT 魅力寶典">
+<link rel="apple-touch-icon" sizes="180x180" href="LINE_ALBUM_App_logo_260415_1.jpg">
+<link rel="icon" type="image/jpeg" href="LINE_ALBUM_App_logo_260415_1.jpg">
 <title>DCT 魅力定位 × 增粉寶典</title>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
 <style>
@@ -23,7 +28,7 @@ body{background:#fce8f5;color:#2d1228;font-family:'Noto Sans TC',sans-serif;min-
 .settings-sub{font-size:12px;color:#a06080;margin-bottom:20px;}
 
 /* ══ WELCOME SCREEN ══ */
-#welcome-screen{position:fixed;inset:0;z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;overflow:hidden;transition:opacity .7s ease;}
+#welcome-screen{position:fixed;inset:0;z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;overflow:hidden;transition:opacity .3s ease;background:#fce4f5;}
 .wlc-bg{position:absolute;inset:0;background:linear-gradient(160deg,#fce4f5 0%,#f8cff0 30%,#f4b8e8 65%,#f0a8e2 100%);}
 .wlc-bg::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 55% at 45% 25%,rgba(255,255,255,.6) 0%,transparent 65%);}
 .wlc-bg::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 55% 50% at 75% 80%,rgba(224,56,154,.1) 0%,transparent 55%);}
@@ -73,6 +78,7 @@ body{background:#fce8f5;color:#2d1228;font-family:'Noto Sans TC',sans-serif;min-
 
 /* Titles */
 .wlc-eyebrow{font-size:10px;letter-spacing:.3em;color:#c0408a;text-transform:uppercase;margin-bottom:10px;font-weight:600;}
+@keyframes wlFadeIn{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:translateY(0)}}
 .wlc-title{font-size:30px;font-weight:900;color:#8a1055;letter-spacing:2px;margin-bottom:6px;text-align:center;line-height:1.2;text-shadow:0 2px 12px rgba(224,56,154,.2);}
 .wlc-title-em{color:#e0389a;}
 .wlc-sub{font-size:12px;color:#c060a0;letter-spacing:.1em;margin-bottom:20px;text-align:center;}
@@ -703,8 +709,7 @@ h1 em{color:#e0389a;font-style:normal;}
   </div>
   <div class="wlc-content">
     <div class="wlc-logo-wrap">
-      <div class="wlc-halo"></div>
-      <img src="https://annie55229900608.github.io/moon/LINE_ALBUM_App_logo_260415_1.jpg" alt="DCT Logo" style="width:90px;height:90px;border-radius:50%;object-fit:cover;filter:drop-shadow(0 4px 20px rgba(224,56,154,.4));animation:wllogo 4s ease-in-out infinite;">
+      <div class="wlc-logo">🌸</div>
     </div>
     <div class="wlc-eyebrow">婕樂纖 DCT 團隊專用 APP</div>
     <div class="wlc-title">DCT <span class="wlc-title-em">魅力</span>定位寶典</div>
@@ -1317,7 +1322,7 @@ function runWelcome() {
       clearInterval(iv);
       const ws = document.getElementById('welcome-screen');
       ws.style.opacity = '0';
-      setTimeout(() => { ws.style.display = 'none'; checkName(); }, 500);
+      setTimeout(() => { ws.style.display = 'none'; checkName(); }, 350);
     }
   }, step);
 }
