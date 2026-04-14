@@ -2162,9 +2162,76 @@ function renderGuide() {
 
   const sections = [
     {
-      id:'criteria', emoji:'✅', title:'好的短影音符合條件', sub:'8個必備元素',
-      html:`<div class="cg-grid">
-        ${['帳號垂直','高密度有價值的資訊','飽滿的情緒價值','讓人想看到最後','開頭五秒抓眼球','秒數短','有創意','有共鳴讓人想分享'].map(t=>`<div class="cg-item">${t}</div>`).join('')}
+      id:'persona', emoji:'🙋', title:'剛開始可以怎麼做', sub:'依你的身份找切入方向',
+      html:`<div style="margin-top:10px;">
+        <div class="cg-persona"><div class="cg-persona-hd"><span class="cg-persona-name">👶 寶媽</span><div class="cg-persona-tags"><span class="cg-persona-tag">生活</span><span class="cg-persona-tag">夫妻</span><span class="cg-persona-tag">食譜</span></div></div><div class="cg-persona-body"><div class="cg-persona-item">生活：製作輔食、育兒好物、推薦好物、帶娃共鳴、育兒經驗</div><div class="cg-persona-item">夫妻：與另一半互動、老公帶娃</div><div class="cg-persona-item">食譜：家常菜、小孩吃什麼</div></div></div>
+        <div class="cg-persona"><div class="cg-persona-hd"><span class="cg-persona-name">💼 上班族</span><div class="cg-persona-tags"><span class="cg-persona-tag">生活</span><span class="cg-persona-tag">食譜</span><span class="cg-persona-tag">職場</span></div></div><div class="cg-persona-body"><div class="cg-persona-item">生活：租屋族推薦好物、吃什麼、煮什麼、開箱、好物推薦</div><div class="cg-persona-item">食譜：電鍋料理、一個鍋子煮什麼</div><div class="cg-persona-item">職場：職場心酸、推薦好物、職場人生</div></div></div>
+        <div class="cg-persona"><div class="cg-persona-hd"><span class="cg-persona-name">🎓 學生</span><div class="cg-persona-tags"><span class="cg-persona-tag">生活</span><span class="cg-persona-tag">宿舍</span><span class="cg-persona-tag">情侶</span></div></div><div class="cg-persona-body"><div class="cg-persona-item">生活：課業、好物推薦、打工日常、與同學的互動、星座</div><div class="cg-persona-item">宿舍：宿舍生活、好物推薦、宿舍必備、怎麼煮</div><div class="cg-persona-item">情侶：情侶日常、同居摩擦</div></div></div>
+        <div class="cg-persona"><div class="cg-persona-hd"><span class="cg-persona-name">💅 美業</span><div class="cg-persona-tags"><span class="cg-persona-tag">工作</span><span class="cg-persona-tag">技巧</span><span class="cg-persona-tag">迷思</span></div></div><div class="cg-persona-body"><div class="cg-persona-item">工作：痛點共鳴、都市傳說、技巧教學、小知識</div><div class="cg-persona-item">工作日常、與客人聊天話題、挑戰（幫不同客人做出不同風格）</div><div class="cg-persona-item">迷思破解</div></div></div>
+      </div>`
+    },
+    {
+      id:'opening', emoji:'⚡', title:'開頭三秒 — 5種方法', sub:'觀眾決定滑走還是繼續看就在這3秒',
+      html:`<div style="margin-top:10px;">
+        <div class="cg-method"><div class="cg-method-name">📊 數字法</div><div class="cg-method-desc">用數字製造衝擊感</div><div class="cg-method-ex">「80%的人選擇網路事業都選錯了！」「5個必收藏小知識」「90%的人都不知道海底撈這樣點」</div></div>
+        <div class="cg-method"><div class="cg-method-name">❓ 問題式</div><div class="cg-method-desc">用問題讓觀眾停下來思考</div><div class="cg-method-ex">「在家工作真的爽嗎？」「分手後還能做朋友嗎？」</div></div>
+        <div class="cg-method"><div class="cg-method-name">🔄 相差法</div><div class="cg-method-desc">與日常大家認知的有極大反差</div><div class="cg-method-ex">「你會選擇相差15歲的愛情嗎？」</div></div>
+        <div class="cg-method"><div class="cg-method-name">🎯 借勢法</div><div class="cg-method-desc">用大家熟悉的場景當開頭，瞬間有記憶點</div><div class="cg-method-ex">「我在寶雅找到寶，買到超你運氣好」</div></div>
+        <div class="cg-method"><div class="cg-method-name">😮 驚訝式</div><div class="cg-method-desc">日常場景＋出乎意料的轉折</div><div class="cg-method-ex">「沒想到最喜歡吃我們家菇的竟然是我老公，原來這樣敷面膜是錯的」</div></div>
+        <div style="margin-top:14px;"><div style="font-size:11px;font-weight:900;color:#e0389a;margin-bottom:8px;">✍️ 口白 Vlog 14個萬用開頭</div>
+        <div class="cg-opener-grid">${[['1','那天我突然想到要ｘｘｘ'],['2','今天終於來ｘｘｘ'],['3','那天跟ｘｘ一起ｘｘｘ'],['4','你有自己一個人ｘｘｘｘ嗎？'],['5','其實我真的很想帶ｘｘ一起去ＸＸＸ'],['6','如果可以我希望ｘｘｘ'],['7','從來沒看過這麼ｘｘ的ＯＯ'],['8','她說這是ｘｘｘ我說這是ｘｘｘ'],['9','我開始過ｘＸ的生活了'],['10','你也遇過ｘｘ嗎？'],['11','心情很差的時候我都會來ｘｘ'],['12','朋友都已經ｘｘｘ 我卻ｘｘｘ'],['13','直到長大，我才明白ｘｘｘ'],['14','你有沒有想過為什麼ｘＸＸ']].map(([n,t])=>`<div class="cg-opener"><div class="cg-opener-num">${n}</div>${t}</div>`).join('')}</div></div>`
+    },
+    {
+      id:'formula', emoji:'🚀', title:'文案結構 — 高潮迭起', sub:'高→潮→迭→起，每支影片走這個公式',
+      html:`<div style="margin-top:12px;">
+      <div style="font-size:11px;color:#a06080;margin-bottom:12px;">每一支影片都走這個結構，讓觀眾從第一秒停下來，到最後按收藏追蹤。</div>
+      <div class="cg-step-row">
+        <div class="cg-step"><div class="cg-step-hd cg-s1"><div class="cg-step-num">高</div><div class="cg-step-name">高能開場</div><div class="cg-step-time">0–3 秒</div></div><div class="cg-step-body"><div class="cg-step-pts">讓觀眾馬上停下來看<br>想知道後面發生什麼</div></div></div>
+        <div class="cg-step"><div class="cg-step-hd cg-s2"><div class="cg-step-num">潮</div><div class="cg-step-name">痛點湧現</div><div class="cg-step-time">3–15 秒</div></div><div class="cg-step-body"><div class="cg-step-pts">觀眾在意好奇<br>最在意、焦慮、共鳴<br>讓人停下不滑走</div></div></div>
+        <div class="cg-step"><div class="cg-step-hd cg-s3"><div class="cg-step-num">迭</div><div class="cg-step-name">反轉關鍵</div><div class="cg-step-time">15–40 秒</div></div><div class="cg-step-body"><div class="cg-step-pts">沒想到的轉折<br>燒出情緒、驚喜感</div></div></div>
+        <div class="cg-step"><div class="cg-step-hd cg-s4"><div class="cg-step-num">起</div><div class="cg-step-name">行動升起</div><div class="cg-step-time">40–45 秒</div></div><div class="cg-step-body"><div class="cg-step-pts">收尾結論<br>引導留言收藏分享</div></div></div>
+      </div>
+      <div style="margin-top:16px;font-size:11px;font-weight:900;color:#9b59b6;margin-bottom:8px;">潮（痛點湧現）— 各類型例子</div>
+      <div style="font-size:11px;color:#a06080;margin-bottom:8px;">敘述自己的故事（過去→現在）· 點出觀眾焦慮 · 用問句引導共鳴 · 放大情緒有畫面感</div>
+      <div class="cg-pain-cat"><div class="cg-pain-cat-title">💑 情感</div><div class="cg-pain-ex">以前跟男友吵架時動不動就把分手掛在嘴邊，冷戰起來誰也不理誰</div><div class="cg-pain-ex">每次問老公要吃什麼他都說隨便，聽到這兩個字到底有多無奈</div></div>
+      <div class="cg-pain-cat"><div class="cg-pain-cat-title">🌿 生活</div><div class="cg-pain-ex">我相信不是只有我這樣，每天早上起床永遠都在後悔前一天太晚睡</div><div class="cg-pain-ex">每次減肥都覺得少吃就好，但敗在就吃一點點應該不會怎樣</div></div>
+      <div class="cg-pain-cat"><div class="cg-pain-cat-title">🍳 食譜</div><div class="cg-pain-ex">每天下班就累得要死，但外面買一買都超貴，自己煮又花時間</div></div>
+      <div class="cg-pain-cat"><div class="cg-pain-cat-title">📦 開箱</div><div class="cg-pain-ex">大家都說這個超好用，但又很怕自己被騙</div></div>
+      <div class="cg-pain-cat"><div class="cg-pain-cat-title">👶 寶媽</div><div class="cg-pain-ex">如果給我選擇，我一定還去上班，為什麼哄睡小孩比上班還累</div></div>
+      <div style="margin-top:16px;font-size:11px;font-weight:900;color:#e67e22;margin-bottom:8px;">迭（反轉關鍵）— 萬用公式</div>
+      <div class="cg-reversal"><div class="cg-reversal-formula">「其實只要 [簡單行為]，就能 [想要的結果]」</div><div class="cg-reversal-ex">其實只要換個吃飯順序，就能快速有效減肥。</div></div>
+      <div class="cg-reversal"><div class="cg-reversal-formula">「直到我____，才發現____。」</div><div class="cg-reversal-ex">直到我換了新的保養品後，才發現原來我的皮膚可以這麼好。</div></div>
+      <div class="cg-reversal"><div class="cg-reversal-formula">「很多人都不知道______，關鍵在於______」</div><div class="cg-reversal-ex">很多爸媽不知道哄睡小孩的關鍵，只要______。</div></div>
+      <div class="cg-reversal"><div class="cg-reversal-formula">「只要 [幾步驟]，就能 [快速結果]」</div><div class="cg-reversal-ex">只要三步驟，就能快速學會日常妝容。</div></div>
+      <div style="margin-top:16px;font-size:11px;font-weight:900;color:#27ae60;margin-bottom:8px;">起（行動升起）— 結尾引導</div>
+      <div class="cg-cta-grid">
+        <div class="cg-cta cg-cta-1"><div class="cg-cta-title">📌 收藏型</div><div class="cg-cta-item">「收藏起來以免下次找不到」</div></div>
+        <div class="cg-cta cg-cta-2"><div class="cg-cta-title">👆 追蹤型</div><div class="cg-cta-item">「追蹤我，讓你學到更多」</div></div>
+        <div class="cg-cta cg-cta-3"><div class="cg-cta-title">💬 互動型</div><div class="cg-cta-item">「留言___我傳方法給你」</div></div>
+        <div class="cg-cta cg-cta-4"><div class="cg-cta-title">📤 分享型</div><div class="cg-cta-item">「快分享給需要的朋友」</div></div>
+      </div></div>`
+    },
+    {
+      id:'duration', emoji:'⏱', title:'影片秒數', sub:'長度決定完播率，完播率決定推流',
+      html:`<div style="margin-top:12px;">
+        <div style="background:linear-gradient(135deg,rgba(224,56,154,.06),rgba(255,180,220,.08));border:1.5px solid rgba(224,56,154,.2);border-radius:12px;padding:14px 16px;margin-bottom:10px;">
+          <div style="font-size:18px;font-weight:900;color:#e0389a;margin-bottom:6px;">45–55 秒 ✦ 甜蜜點</div>
+          <div style="font-size:12px;color:#a06080;line-height:1.7;">這個長度的完播率最高，演算法最願意推送。太短（15秒以下）資訊量不足，太長（超過60秒）完播率下滑。</div>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px;">
+          <div style="background:#fdf5fa;border:1px solid #f0d0e8;border-radius:10px;padding:10px 12px;text-align:center;"><div style="font-size:13px;font-weight:900;color:#e0389a;">30 秒</div><div style="font-size:10px;color:#a06080;margin-top:3px;">14句話 · 16個畫面<br>150字以內</div></div>
+          <div style="background:#fdf5fa;border:1px solid #f0d0e8;border-radius:10px;padding:10px 12px;text-align:center;"><div style="font-size:13px;font-weight:900;color:#e0389a;">45–55 秒</div><div style="font-size:10px;color:#a06080;margin-top:3px;">20–24句話 · 有人有情緒<br>200字以內</div></div>
+        </div>
+        <div style="background:#fdf5fa;border:1px solid #f0d0e8;border-radius:10px;padding:10px 12px;font-size:11px;color:#a06080;line-height:1.7;"><strong style="color:#2d1228">每個畫面不超過 3–4 秒</strong>，快速切換讓節奏明快。每個段落第一個畫面要有人入鏡（正面/側面/特寫輪替）。</div>
+      </div>`
+    },
+    {
+      id:'rules', emoji:'📋', title:'8個必備 ＋ 8個地雷', sub:'每支發布前對照一次',
+      html:`<div style="margin-top:12px;">
+        <div style="font-size:11px;font-weight:900;color:#7ab840;letter-spacing:.08em;margin-bottom:8px;">✅ 好的短影音必備條件</div>
+        <div class="cg-grid" style="margin-bottom:16px;">${['帳號垂直','高密度有價值的資訊','飽滿的情緒價值','讓人想看到最後','開頭五秒抓眼球','秒數短','有創意','有共鳴讓人想分享'].map(t=>`<div class="cg-item">${t}</div>`).join('')}</div>
+        <div style="font-size:11px;font-weight:900;color:#e0389a;letter-spacing:.08em;margin-bottom:8px;">❌ 常見地雷（不要做這8件事）</div>
+        <div>${['完全照抄 GPT 文案，不夠人性化、太天馬行空','開頭沒重點，無法抓住觀眾注意力','內容空泛、沒重點、太長','沒有情緒與共鳴','開頭直接置入產品，無故事、痛點、太像廣告','缺少結尾與最後總結','缺少自己的故事和入鏡，觀眾無法信任你','文案太簡潔，缺少想像畫面與生動感'].map((t,i)=>`<div class="cg-mistake"><div class="cg-mistake-num">${i+1}</div><div class="cg-mistake-text">${t}</div></div>`).join('')}</div>
       </div>`
     },
     {
@@ -2173,128 +2240,6 @@ function renderGuide() {
         <div class="cg-time-row"><div class="cg-time-type">🧠 知識類型</div><div><div class="cg-time-val">中午 11 ～ 下午 2 點</div><div class="cg-time-detail">上班族午休、學生放學後查資訊的黃金時段</div></div></div>
         <div class="cg-time-row"><div class="cg-time-type">😂 泛娛樂類</div><div><div class="cg-time-val">下午 6 ～ 晚上 9 點</div><div class="cg-time-detail">下班通勤、吃飯配影片的放鬆時段</div></div></div>
         <div class="cg-time-row"><div class="cg-time-type">💛 情感美食</div><div><div class="cg-time-val">晚上 9 ～ 10 點</div><div class="cg-time-detail">洗澡後躺床滑手機的情感共鳴時段</div></div></div>
-      </div>`
-    },
-    {
-      id:'timing2', emoji:'🎬', title:'畫面秒數掌握', sub:'30秒探店 ＆ 40秒食譜公式',
-      html:`<div class="cg-formula-grid" style="margin-top:12px;">
-        <div class="cg-formula-card">
-          <div class="cg-formula-title">30 秒探店公式</div>
-          <div class="cg-formula-item">14 句話</div>
-          <div class="cg-formula-item">16 個畫面</div>
-          <div class="cg-formula-item">每個畫面兩個（有人／無人）</div>
-          <div class="cg-formula-item">150 字以內</div>
-        </div>
-        <div class="cg-formula-card">
-          <div class="cg-formula-title">40 秒食譜公式</div>
-          <div class="cg-formula-item">20 句話</div>
-          <div class="cg-formula-item">22 個畫面</div>
-          <div class="cg-formula-item">特寫、有人、情緒</div>
-          <div class="cg-formula-item">200 字以內</div>
-        </div>
-      </div>`
-    },
-    {
-      id:'formula', emoji:'🚀', title:'高潮迭起，精準變現', sub:'4步驟結構公式',
-      html:`<div style="margin-top:12px;font-size:11px;color:#a06080;margin-bottom:10px;">每一支影片都走這個結構，讓觀眾從第一秒停下來，到最後按收藏追蹤。</div>
-      <div class="cg-step-row">
-        <div class="cg-step"><div class="cg-step-hd cg-s1"><div class="cg-step-num">高</div><div class="cg-step-name">高能開場</div><div class="cg-step-time">0–3 秒</div></div><div class="cg-step-body"><div class="cg-step-pts">讓觀眾馬上停下來看<br>想知道後面發生什麼</div></div></div>
-        <div class="cg-step"><div class="cg-step-hd cg-s2"><div class="cg-step-num">潮</div><div class="cg-step-name">痛點湧現</div><div class="cg-step-time">3–15 秒</div></div><div class="cg-step-body"><div class="cg-step-pts">觀眾在意！好奇<br>最在意、焦慮、共鳴<br>讓人停下不滑走</div></div></div>
-        <div class="cg-step"><div class="cg-step-hd cg-s3"><div class="cg-step-num">迭</div><div class="cg-step-name">反轉關鍵</div><div class="cg-step-time">15–40 秒</div></div><div class="cg-step-body"><div class="cg-step-pts">沒想到、有人跟我說<br>出乎意料的轉折<br>燒出情緒</div></div></div>
-        <div class="cg-step"><div class="cg-step-hd cg-s4"><div class="cg-step-num">起</div><div class="cg-step-name">行動升起</div><div class="cg-step-time">40–45 秒</div></div><div class="cg-step-body"><div class="cg-step-pts">收尾！結論是什麼<br>引導留言／收藏<br>分享／追蹤</div></div></div>
-      </div>`
-    },
-    {
-      id:'opening', emoji:'⚡', title:'高（高能開場）5種方法', sub:'讓觀眾第一秒停下來',
-      html:`<div style="margin-top:10px;">
-        <div class="cg-method"><div class="cg-method-name">📊 數字法</div><div class="cg-method-desc">用數字製造衝擊感</div><div class="cg-method-ex">「80%的人選擇網路事業都選錯了！」「5個必收藏小知識」「90%的人都不知道海底撈這樣點」</div></div>
-        <div class="cg-method"><div class="cg-method-name">❓ 問題式</div><div class="cg-method-desc">用問題讓觀眾停下來思考</div><div class="cg-method-ex">「在家工作真的爽嗎？」「分手後還能做朋友嗎？」</div></div>
-        <div class="cg-method"><div class="cg-method-name">🔄 相差法</div><div class="cg-method-desc">與日常大家認知的有極大反差</div><div class="cg-method-ex">「你會選擇相差15歲的愛情嗎？」</div></div>
-        <div class="cg-method"><div class="cg-method-name">🎯 借勢法</div><div class="cg-method-desc">用大家熟悉的場景當開頭，瞬間有記憶點</div><div class="cg-method-ex">「我在寶雅找到寶，買到超你運氣好」</div></div>
-        <div class="cg-method"><div class="cg-method-name">😮 驚訝式</div><div class="cg-method-desc">日常場景＋出乎意料的轉折</div><div class="cg-method-ex">「沒想到最喜歡吃我們家菇的竟然是我老公，原來這樣敷面膜是錯的」</div></div>
-      </div>`
-    },
-    {
-      id:'painpoint', emoji:'💡', title:'潮（痛點湧現）各類型例子', sub:'勾出觀眾想繼續看的慾望',
-      html:`<div style="margin-top:12px;font-size:11px;color:#a06080;margin-bottom:12px;">4種方式：敘述自己經歷的事（過去→現在）· 點出觀眾的焦慮（你是不是也…）· 用問句引導共鳴 · 放大情緒有畫面感</div>
-      <div class="cg-pain-cat"><div class="cg-pain-cat-title">💑 情感 <span style="font-size:10px;font-weight:400;color:#c090b0;">戳中「在愛情裡大家都遇過的情境」</span></div>
-        <div class="cg-pain-ex">以前跟男友吵架時動不動就把分手掛在嘴邊，冷戰起來誰也不理誰</div>
-        <div class="cg-pain-ex">每次問老公要吃什麼他都說隨便，他們到底不知道聽到這兩個字到底有多無奈</div>
-        <div class="cg-pain-ex">還記得以前隨口的一句話沒想到老公竟然記得 ／ 你們也是這樣嗎？同居磨合最久的竟然是生活習慣</div>
-      </div>
-      <div class="cg-pain-cat"><div class="cg-pain-cat-title">🌿 生活 <span style="font-size:10px;font-weight:400;color:#c090b0;">大家日常都會遇到的煩惱／趣事</span></div>
-        <div class="cg-pain-ex">大家都說自己煮比較便宜，但我發現只有兩個人時真的超級貴</div>
-        <div class="cg-pain-ex">我相信不是只有我這樣，每天早上起床永遠都在後悔前一天太晚睡</div>
-        <div class="cg-pain-ex">每次減肥都覺得少吃就好，但也是每一次都敗在就吃一點點應該不會怎樣</div>
-      </div>
-      <div class="cg-pain-cat"><div class="cg-pain-cat-title">🍳 食譜 <span style="font-size:10px;font-weight:400;color:#c090b0;">戳中時間與便利性、簡單好上手</span></div>
-        <div class="cg-pain-ex">原本不敢吃苦瓜超怕那個味道</div>
-        <div class="cg-pain-ex">每天下班就累得要死，但每次外面買一買都超貴，自己煮又花時間</div>
-        <div class="cg-pain-ex">每次只要看食譜都覺得超級難，還要買一大堆調味料</div>
-      </div>
-      <div class="cg-pain-cat"><div class="cg-pain-cat-title">📦 開箱 <span style="font-size:10px;font-weight:400;color:#c090b0;">害怕踩雷、猶豫的點</span></div>
-        <div class="cg-pain-ex">大家都說這個超好用，但又很怕自己被騙</div>
-        <div class="cg-pain-ex">每次只要來都對他超好奇，不確定好不好用，但又想試試看</div>
-        <div class="cg-pain-ex">711限定XXX，超可愛療癒好物，跟我想像中…</div>
-      </div>
-      <div class="cg-pain-cat"><div class="cg-pain-cat-title">👶 寶媽 <span style="font-size:10px;font-weight:400;color:#c090b0;">家長最懂得心酸／好奇</span></div>
-        <div class="cg-pain-ex">我相信不是只有我這樣，今天看到小孩的行事曆時我的天都塌了，為什麼放假時間會這麼多</div>
-        <div class="cg-pain-ex">如果給我選擇，我一定還去上班，為什麼哄睡小孩比上班還累</div>
-      </div>`
-    },
-    {
-      id:'reversal', emoji:'🔄', title:'迭（反轉關鍵）公式', sub:'讓人燒出情緒想收藏',
-      html:`<div style="margin-top:12px;font-size:11px;color:#a06080;margin-bottom:10px;">方法要簡單、明確、可行，讓觀眾覺得「原來這樣就行！」亮點要有驚喜感，才能勾起想收藏分享追蹤。</div>
-      <div class="cg-reversal"><div class="cg-reversal-formula">「其實只要 [簡單行為]，就能 [想要的結果]」</div><div class="cg-reversal-ex">其實只要換個吃飯順序，就能快速有效減肥。<br>維持愛情長跑關鍵只要____，就能讓感情越來越好</div></div>
-      <div class="cg-reversal"><div class="cg-reversal-formula">「直到我____，才發現____。」</div><div class="cg-reversal-ex">直到我換了新的保養品後，才發現原來我的皮膚可以這麼好。<br>直到我遇上這顆遮瑕後才發現好用的遮瑕是蓋得住黑眼圈的。</div></div>
-      <div class="cg-reversal"><div class="cg-reversal-formula">「很多人都不知道______，關鍵在於 [冷知識/小訣竅]」</div><div class="cg-reversal-ex">很多爸媽不知道哄睡小孩的關鍵，只要______。<br>很多人在買菜時不知道該怎麼挑，關鍵在於______。</div></div>
-      <div class="cg-reversal"><div class="cg-reversal-formula">「只要 [幾步步驟]，就能 [快速結果]」</div><div class="cg-reversal-ex">只要三步驟，就能快速學會日常妝容。<br>只要這兩樣食材，就能輕鬆解決一餐</div></div>`
-    },
-    {
-      id:'cta', emoji:'📣', title:'起（行動升起）結尾引導', sub:'讓觀眾收藏追蹤互動分享',
-      html:`<div class="cg-cta-grid" style="margin-top:10px;">
-        <div class="cg-cta cg-cta-1"><div class="cg-cta-title">📌 收藏型</div><div class="cg-cta-item">「收藏起來以免下次找不到」</div><div class="cg-cta-item">「收藏起來你們一定用得到」</div><div class="cg-cta-item">讓觀眾覺得「下次用得到」</div></div>
-        <div class="cg-cta cg-cta-2"><div class="cg-cta-title">👆 追蹤型</div><div class="cg-cta-item">「如果你喜歡的話記得追蹤我喔」</div><div class="cg-cta-item">「追蹤我，讓你學到更多東西」</div><div class="cg-cta-item">下指令讓觀眾追蹤你</div></div>
-        <div class="cg-cta cg-cta-3"><div class="cg-cta-title">💬 互動型</div><div class="cg-cta-item">「留言___我傳方法給你」</div><div class="cg-cta-item">「你有相同經驗嗎？留言告訴我」</div><div class="cg-cta-item">讓觀眾留言，提高演算法推送</div></div>
-        <div class="cg-cta cg-cta-4"><div class="cg-cta-title">📤 分享型</div><div class="cg-cta-item">「快分享給你需要的朋友」</div><div class="cg-cta-item">「標記你想到的人」</div><div class="cg-cta-item">把影片推廣出去</div></div>
-      </div>`
-    },
-    {
-      id:'openers', emoji:'✍️', title:'口白 Vlog 14個萬用開頭', sub:'利用說故事激起觀眾往下看的好奇心，走emo風格',
-      html:`<div class="cg-opener-grid" style="margin-top:10px;">
-        ${[
-          ['1','那天我突然想到要ｘｘｘ'],['2','今天終於來ｘｘｘ'],
-          ['3','那天跟ｘｘ一起ｘｘｘ'],['4','你有自己一個人ｘｘｘｘ嗎？'],
-          ['5','其實我真的很想帶ｘｘ一起去ＸＸＸ'],['6','如果可以我希望ｘｘｘ'],
-          ['7','從來沒看過這麼ｘｘ的ＯＯ'],['8','她說這是ｘｘｘ我說這是ｘｘｘ'],
-          ['9','我開始過ｘＸ的生活了'],['10','你也遇過ｘｘ嗎？'],
-          ['11','心情很差的時候我都會來ｘｘ'],['12','朋友都已經ｘｘｘ 我卻ｘｘｘ'],
-          ['13','直到長大，我才明白ｘｘｘ'],['14','你有沒有想過為什麼ｘＸＸ']
-        ].map(([n,t])=>`<div class="cg-opener"><div class="cg-opener-num">${n}</div>${t}</div>`).join('')}
-      </div>`
-    },
-    {
-      id:'persona', emoji:'🙋', title:'剛開始可以怎麼做', sub:'依你的身份找切入方向',
-      html:`<div style="margin-top:10px;">
-        <div class="cg-persona"><div class="cg-persona-hd"><span class="cg-persona-name">👶 寶媽</span><div class="cg-persona-tags"><span class="cg-persona-tag">生活</span><span class="cg-persona-tag">夫妻</span><span class="cg-persona-tag">食譜</span></div></div><div class="cg-persona-body"><div class="cg-persona-item">生活：製作輔食、育兒好物、推薦好物、帶娃共鳴、育兒經驗</div><div class="cg-persona-item">夫妻：與另一半互動、老公帶娃</div><div class="cg-persona-item">食譜：家常菜、小孩吃什麼</div></div></div>
-        <div class="cg-persona"><div class="cg-persona-hd"><span class="cg-persona-name">💼 上班族</span><div class="cg-persona-tags"><span class="cg-persona-tag">生活</span><span class="cg-persona-tag">食譜</span><span class="cg-persona-tag">職場</span></div></div><div class="cg-persona-body"><div class="cg-persona-item">生活：租屋族推薦好物、吃什麼、煮什麼、開箱、好物推薦</div><div class="cg-persona-item">食譜：電鍋料理、一個鍋子煮什麼</div><div class="cg-persona-item">職場：職場心酸、跟工作相關推薦好物、職場人生</div></div></div>
-        <div class="cg-persona"><div class="cg-persona-hd"><span class="cg-persona-name">🎓 學生</span><div class="cg-persona-tags"><span class="cg-persona-tag">生活</span><span class="cg-persona-tag">宿舍</span><span class="cg-persona-tag">情侶</span></div></div><div class="cg-persona-body"><div class="cg-persona-item">生活：課業、好物推薦、打工日常、與同學的互動、星座</div><div class="cg-persona-item">宿舍：宿舍生活、好物推薦、宿舍必備、怎麼煮</div><div class="cg-persona-item">情侶：情侶日常、同居摩擦</div></div></div>
-        <div class="cg-persona"><div class="cg-persona-hd"><span class="cg-persona-name">💅 美業</span><div class="cg-persona-tags"><span class="cg-persona-tag">工作</span><span class="cg-persona-tag">技巧</span><span class="cg-persona-tag">迷思</span></div></div><div class="cg-persona-body"><div class="cg-persona-item">工作：痛點共鳴、都市傳說、技巧教學、小知識</div><div class="cg-persona-item">工作日常、與客人聊天話題、挑戰（幫職位客人做出不同風格的美甲）</div><div class="cg-persona-item">迷思破解</div></div></div>
-      </div>`
-    },
-    {
-      id:'mistakes', emoji:'⚠️', title:'避免地雷區', sub:'8個最常犯的錯誤',
-      html:`<div style="margin-top:10px;">
-        ${[
-          '完全照抄 GPT 的文案，不夠人性化、太天馬行空',
-          '開頭沒重點無法抓住觀眾注意力',
-          '內容空泛、沒重點、太長',
-          '沒有情緒與共鳴',
-          '開頭直接置入產品，無故事、痛點、太像廣告',
-          '缺少結尾與最後總結',
-          '缺少自己的故事、自己入鏡，無法讓觀眾信任你',
-          '避免文案太簡潔，缺少想像畫面與生動感'
-        ].map((t,i)=>`<div class="cg-mistake"><div class="cg-mistake-num">${i+1}</div><div class="cg-mistake-text">${t}</div></div>`).join('')}
       </div>`
     }
   ];
