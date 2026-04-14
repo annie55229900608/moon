@@ -1549,8 +1549,26 @@ async function generateNoteReply(note,charm,top1,mbtiType,rankedTopics,topicMeta
   const ct1Topics=CT[top1]?.topics?.slice(0,3).join('、')||'';
   const ct1Hook=CT[top1]?.hooks?.[charm]||'';
   const pastDetail=rankedTopics.map(k=>{const p=PAST_OPTIONS.find(x=>x.k===k);const meta=topicMeta[k]||{};return`「${p?.name||k}」：漲粉${meta.growth||'未知'}、互動${meta.engage||'未知'}`;}).join('；');
-  const prompt=`你是台灣IG社群顧問，看過她的測驗結果。她的魅力類型是${charmName}，主要內容方向是${ct1Name}，MBTI ${mbtiType}。過去數據：${pastDetail||'無'}。她補充說：「${note}」。請針對她說的內容給出深入具體可執行的回覆。三段，每段80-120字，繁體中文台灣口語，像朋友在認真跟你說話。不要用條列式。不要說「根據你的資料」「我建議」「很棒」開場。`;
-  try{const res=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:1000,messages:[{role:'user',content:prompt}]})});const data=await res.json();return data.content?.map(i=>i.text||'').join('')||'';}catch(e){return'';}
+  const prompt=`你是台灣IG社群顧問，剛幫一位創作者做完測驗。她的情況如下：
+
+魅力類型：${charmName}
+主要內容方向：${ct1Name}
+適合的主題範例：${ct1Topics}
+她的魅力鉤子：${ct1Hook}
+MBTI：${mbtiType}
+過去發文數據：${pastDetail||'尚無數據'}
+她的補充說明：「${note}」
+
+請根據她說的這句話，給出三段非常具體的回覆：
+
+第一段：直接回應她說的問題——她說「${note}」，這個情況代表什麼、背後可能的原因是什麼。要說出她可能沒想到的洞察。
+
+第二段：針對她的${ct1Name}方向，給出「明天就能拍的第一支影片」——開頭第一句話要怎麼說、主題是什麼、用什麼鉤子。要具體到她看完就知道怎麼拍。
+
+第三段：給她一個「下週的發文計畫」——3個具體的題目，每個附上開頭的第一句話，讓她這週就有材料可以用。
+
+繁體中文台灣口語，像認識她的朋友在給她真心建議。三段之間空一行，每段80–120字。不要用條列式。不要說「建議」「我認為」「根據資料」「很棒」開場，直接說重點。`;
+  try{const res=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:1200,messages:[{role:'user',content:prompt}]})});const data=await res.json();return data.content?.map(i=>i.text||'').join('')||'';}catch(e){return'';}
 }
 
 async function generateNameExamples(charm,top1,top2,mbtiType){
@@ -2031,6 +2049,7 @@ async function runAudienceAnalysis() {
   const btn = document.getElementById('ta-btn');
   btn.disabled = true; btn.textContent = '分析中…';
   saveAudienceState();
+  const ages = getAgeData();
   const femalePct = parseInt(document.getElementById('female-pct').value)||70;
   const followers = parseInt(document.getElementById('metric-followers').value)||0;
   const story     = parseInt(document.getElementById('metric-story').value)||0;
