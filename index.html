@@ -1177,9 +1177,9 @@ const AI_CACHE_KEY = 'dct_ai_cache_v2';
 // Safe storage wrapper - falls back to memory if localStorage blocked (Safari ITP)
 const _mem = {};
 const Store = {
-  get(k){ try{ return Store.get(k); }catch(e){ return _mem[k]||null; } },
-  set(k,v){ try{ Store.set(k, v); }catch(e){ _mem[k]=v; } },
-  remove(k){ try{ Store.remove(k); }catch(e){ delete _mem[k]; } }
+  get(k){ try{ return localStorage.getItem(k); }catch(e){ return _mem[k]||null; } },
+  set(k,v){ try{ localStorage.setItem(k,v); }catch(e){ _mem[k]=v; } },
+  remove(k){ try{ localStorage.removeItem(k); }catch(e){ delete _mem[k]; } }
 };
 
 // ══════════════ WELCOME SCREEN ══════════════
