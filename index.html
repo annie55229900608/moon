@@ -9,7 +9,19 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
-body{background:#fdf5fa;color:#2d1228;font-family:'Noto Sans TC',sans-serif;min-height:100vh;}
+body{background:#fce8f5;color:#2d1228;font-family:'Noto Sans TC',sans-serif;min-height:100vh;}
+
+/* ══ SETTINGS BTN ══ */
+#settings-btn{position:fixed;top:14px;right:16px;z-index:600;width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.9);border:1.5px solid #f0d0e8;display:none;align-items:center;justify-content:center;font-size:18px;cursor:pointer;box-shadow:0 2px 8px rgba(224,56,154,.15);transition:all .2s;}
+#settings-btn:hover{background:#e0389a;border-color:#e0389a;}
+#settings-btn.visible{display:flex;}
+
+/* ══ SETTINGS MODAL ══ */
+#settings-modal{position:fixed;inset:0;z-index:800;background:rgba(45,18,40,.4);display:none;align-items:center;justify-content:center;padding:20px;}
+#settings-modal.show{display:flex;}
+.settings-box{background:#fff;border-radius:24px;padding:30px 24px;max-width:320px;width:100%;text-align:center;animation:nmup .4s ease both;}
+.settings-title{font-size:16px;font-weight:900;color:#e0389a;margin-bottom:6px;}
+.settings-sub{font-size:12px;color:#a06080;margin-bottom:20px;}
 
 /* ══ WELCOME SCREEN ══ */
 #welcome-screen{position:fixed;inset:0;z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;overflow:hidden;transition:opacity .7s ease;}
@@ -706,6 +718,24 @@ h1 em{color:#e0389a;font-style:normal;}
   </div>
 </div>
 
+<!-- ══ SETTINGS BTN ══ -->
+
+<button id="settings-btn" onclick="openSettings()" title="設定">⚙️</button>
+
+<!-- ══ SETTINGS MODAL ══ -->
+
+<div id="settings-modal">
+  <div class="settings-box">
+    <div class="settings-title">⚙️ 設定</div>
+    <div class="settings-sub">你的名字顯示在首頁，方便辨識</div>
+    <input type="text" id="settings-name-input" placeholder="例：小婕、Kevin" maxlength="20"
+      style="width:100%;background:#fdf5fa;border:1.5px solid #f0d0e8;border-radius:12px;padding:12px 16px;font-family:'Noto Sans TC',sans-serif;font-size:15px;color:#2d1228;outline:none;text-align:center;margin-bottom:14px;"
+      onkeydown="if(event.key==='Enter')saveSettings()">
+    <button onclick="saveSettings()" style="width:100%;background:#e0389a;color:#fff;font-family:'Noto Sans TC',sans-serif;font-weight:900;font-size:14px;padding:13px;border-radius:999px;border:none;cursor:pointer;margin-bottom:10px;">✅ 儲存</button>
+    <button onclick="closeSettings()" style="background:none;border:none;color:#c090b0;font-size:12px;cursor:pointer;font-family:'Noto Sans TC',sans-serif;text-decoration:underline;">取消</button>
+  </div>
+</div>
+
 <!-- ══ NAME MODAL ══ -->
 
 <div id="name-modal">
@@ -715,6 +745,7 @@ h1 em{color:#e0389a;font-style:normal;}
     <div class="nm-sub">輸入你的名字<br>之後進來都會記住你 💖</div>
     <input type="text" id="nm-input" placeholder="例：小婕、Kevin" maxlength="20" onkeydown="if(event.key==='Enter')saveName()">
     <button class="nm-btn" onclick="saveName()">✅ 開始使用</button>
+    <div style="margin-top:10px;"><button onclick="skipName()" style="background:none;border:none;color:#c090b0;font-size:12px;cursor:pointer;font-family:'Noto Sans TC',sans-serif;text-decoration:underline;">稍後再設定</button></div>
   </div>
 </div>
 
@@ -727,21 +758,21 @@ h1 em{color:#e0389a;font-style:normal;}
     <div class="badge">✨ 定位測驗 × 增粉寶典</div>
     <h1>DCT <em>魅力</em><br>定位寶典</h1>
     <p class="intro-sub">測驗 ＋ 增粉策略全攻略</p>
-    <p class="intro-desc">17 道題，找出你的魅力定位、最適合的 Reels 與限動方向，並附上命名公式、漏斗策略、15則法則，讓你從「不知道發什麼」到「有方向、有系統」。</p>
+    <!-- Daily motivation -->
+    <div id="daily-motivation" style="width:100%;max-width:460px;background:linear-gradient(135deg,#fff4fb,#ffe8f5);border:1.5px solid #f0d0e8;border-radius:16px;padding:16px 18px;margin-bottom:14px;text-align:center;"></div>
     <div class="mindset-card">
       <div class="mindset-title">🌿 在開始之前，想先跟你說</div>
       <div class="mindset-row"><div class="mindset-icon">💛</div><div class="mindset-text">這個測驗只是<em>方向參考</em>，不是唯一答案。每個人都是不同且有多樣性的，不要被定義。</div></div>
-      <div class="mindset-row"><div class="mindset-icon">🎬</div><div class="mindset-text">分享的目的是為了<em>影響更多人</em>。就算觀看率低，也是有人在看——<em>重點在於持續、堅持</em>。</div></div>
+      <div class="mindset-row"><div class="mindset-icon">🎬</div><div class="mindset-text"><em>好的內容質量才是根本</em>——不管演算法怎麼變，持續優化影片就會有流量。</div></div>
       <div class="mindset-row"><div class="mindset-icon">🌱</div><div class="mindset-text">每一部影片都是練習。<em>去愛上剪輯跟分享的意義</em>。</div></div>
+    </div>
+    <!-- 1-on-1 reminder -->
+    <div style="width:100%;max-width:460px;background:linear-gradient(135deg,rgba(224,56,154,.08),rgba(255,180,220,.1));border:1.5px solid rgba(224,56,154,.25);border-radius:16px;padding:16px 18px;margin-bottom:16px;text-align:left;">
+      <div style="font-size:12px;font-weight:900;color:#e0389a;margin-bottom:8px;">🌸 最重要的提醒</div>
+      <div style="font-size:12px;color:#a06080;line-height:1.8;">此寶典是<strong style="color:#2d1228">輔助工具</strong>，幫你隨時複習方向。但最重要的還是<strong style="color:#e0389a">跟上家約一對一指導</strong>，讓她幫你調整影片、分析數據、給你最即時的建議。<br><br>建議<em style="color:#e0389a;font-style:normal;font-weight:700">平時反覆打開看</em>此寶典的內容，讓策略變成你的直覺。</div>
     </div>
     <!-- Saved result card injected here by JS -->
     <div id="saved-result-area" style="width:100%;max-width:460px;"></div>
-    <div class="intro-features">
-      <div class="feat-box"><div class="feat-icon">🎯</div><div class="feat-title">魅力定位測驗</div><div class="feat-desc">找出你最自然的拍攝風格與內容方向</div></div>
-      <div class="feat-box"><div class="feat-icon">📱</div><div class="feat-title">Reels ＋ 限動策略</div><div class="feat-desc">選題、開頭三秒、注意事項全附</div></div>
-      <div class="feat-box"><div class="feat-icon">📛</div><div class="feat-title">IG 命名公式</div><div class="feat-desc">好名字的三要素＋踩雷清單</div></div>
-      <div class="feat-box"><div class="feat-icon">📊</div><div class="feat-title">增粉寶典</div><div class="feat-desc">社群漏斗、粉絲三階段、15則法則</div></div>
-    </div>
     <button class="btn" id="start-btn" onclick="startQuiz()">開始測驗 →</button>
   </div>
 </div>
@@ -890,23 +921,26 @@ h1 em{color:#e0389a;font-style:normal;}
     <div class="gender-side gender-female">
       <div class="gender-icon">👩</div>
       <div class="gender-label">女性</div>
-      <input class="gender-input" id="female-pct" type="number" min="0" max="100" value="70" oninput="syncGenderSplit()">
-      <div class="gender-unit">%</div>
+      <div class="gender-val-big" id="female-pct-display" style="color:#e0389a;">70%</div>
       <div class="gender-status" id="female-status">⚠️ 未達標</div>
     </div>
     <div class="gender-divider">
-      <div class="gender-bar-wrap">
-        <div class="gender-bar-f" id="gender-bar-f" style="width:70%"></div>
-        <div class="gender-bar-m" id="gender-bar-m" style="width:30%"></div>
+      <div style="position:relative;height:24px;margin-bottom:4px;">
+        <div class="gender-bar-wrap" style="position:absolute;top:50%;transform:translateY(-50%);width:100%;">
+          <div class="gender-bar-f" id="gender-bar-f" style="width:70%"></div>
+          <div class="gender-bar-m" id="gender-bar-m" style="width:30%"></div>
+        </div>
+        <input type="range" id="female-pct" min="0" max="100" value="70"
+          style="position:absolute;top:0;left:0;width:100%;height:100%;opacity:0;cursor:pointer;z-index:2;"
+          oninput="syncGenderSplit()">
       </div>
-      <div style="font-size:10px;color:#c090b0;margin-top:4px;text-align:center;">拖拉或直接輸入數字</div>
+      <div style="font-size:10px;color:#c090b0;text-align:center;">← 左右滑動調整 →</div>
     </div>
     <div class="gender-side gender-male">
       <div class="gender-icon">👨</div>
       <div class="gender-label">男性</div>
       <div class="gender-val-big" id="male-pct-display">30%</div>
-      <div class="gender-unit" style="opacity:0">%</div>
-      <div class="gender-status" id="male-status" style="color:#6b9ab8;">自動計算</div>
+      <div class="gender-status" style="color:#6b9ab8;">自動計算</div>
     </div>
   </div>
 </div>
@@ -1031,10 +1065,10 @@ h1 em{color:#e0389a;font-style:normal;}
     <div class="cg-eval-item" id="se-1" onclick="toggleSE(1)"><div class="cg-eval-check" id="se-chk-1">✓</div><div class="cg-eval-text"><div class="cg-eval-label">你自己入鏡超過 30 秒</div><div class="cg-eval-hint">讓觀眾看到你的臉和表情，建立信任感，才能從陌生人變鐵粉</div></div></div>
     <div class="cg-eval-item" id="se-2" onclick="toggleSE(2)"><div class="cg-eval-check" id="se-chk-2">✓</div><div class="cg-eval-text"><div class="cg-eval-label">轉換至少三種角度拍攝</div><div class="cg-eval-hint">單一角度容易讓人視覺疲勞，多角度切換讓節奏更快、更好看</div></div></div>
     <div class="cg-eval-item" id="se-3" onclick="toggleSE(3)"><div class="cg-eval-check" id="se-chk-3">✓</div><div class="cg-eval-text"><div class="cg-eval-label">錄音有情緒、語氣有變化</div><div class="cg-eval-hint">平淡的語氣讓人分心，情緒起伏是讓觀眾看完的關鍵</div></div></div>
-    <div class="cg-eval-item" id="se-4" onclick="toggleSE(4)"><div class="cg-eval-check" id="se-chk-4">✓</div><div class="cg-eval-text"><div class="cg-eval-label">有使用花字、特效或動畫（至少一種）</div><div class="cg-eval-hint">視覺層次豐富讓影片更有設計感，吸引觀眾注意力停留更久</div></div></div>
+    <div class="cg-eval-item" id="se-4" onclick="toggleSE(4)"><div class="cg-eval-check" id="se-chk-4">✓</div><div class="cg-eval-text"><div class="cg-eval-label">花字、特效、動畫最多使用 1 種</div><div class="cg-eval-hint">只用1種讓重點突出；超過1種反而讓畫面複雜，觀眾不知道看哪裡</div></div></div>
     <div class="cg-eval-item" id="se-5" onclick="toggleSE(5)"><div class="cg-eval-check" id="se-chk-5">✓</div><div class="cg-eval-text"><div class="cg-eval-label">開頭前三秒有明確鉤子</div><div class="cg-eval-hint">數字法、問題式、相差法、借勢法、驚訝式擇一</div></div></div>
     <div class="cg-eval-item" id="se-6" onclick="toggleSE(6)"><div class="cg-eval-check" id="se-chk-6">✓</div><div class="cg-eval-text"><div class="cg-eval-label">有共鳴點及故事</div><div class="cg-eval-hint">讓觀眾覺得「這說的就是我」，才會停下來留言互動</div></div></div>
-    <div class="cg-eval-item" id="se-7" onclick="toggleSE(7)"><div class="cg-eval-check" id="se-chk-7">✓</div><div class="cg-eval-text"><div class="cg-eval-label">結尾有明確呼籲（收藏、追蹤、留言、分享）</div><div class="cg-eval-hint">沒有 CTA 就是在放棄演算法推送的機會</div></div></div>
+    <div class="cg-eval-item" id="se-7" onclick="toggleSE(7)"><div class="cg-eval-check" id="se-chk-7">✓</div><div class="cg-eval-text"><div class="cg-eval-label">結尾有明確呼籲（收藏、追蹤、留言、分享）</div><div class="cg-eval-hint">好的內容質量才是根本，CTA 讓質量被更多人看到</div></div></div>
   </div>
 
   <div class="cg-eval-score" style="margin-top:12px;">
@@ -1046,13 +1080,7 @@ h1 em{color:#e0389a;font-style:normal;}
 <!-- Static breakdown (populated by JS) -->
 <div id="se-breakdown-section" style="display:none;"></div>
 
-<!-- AI analysis -->
-<div class="ta-section" id="se-ai-section" style="display:none;">
-  <div class="ta-section-title">✦ AI 深度分析</div>
-  <div class="ta-ai-body" id="se-ai-body"><span class="ta-ai-loading">分析中…</span></div>
-</div>
-
-<button class="ta-analyze-btn" id="se-btn" onclick="runSelfEvalAnalysis()">✦ 分析我的影片，給出調整建議</button>
+<button class="ta-analyze-btn" id="se-btn" onclick="runSelfEvalAnalysis()">✦ 分析我的影片</button>
 ```
 
   </div>
@@ -1280,7 +1308,7 @@ const Qs = [
   {s:'⚡ 魅力天賦 1/5',q:'朋友最常說你是哪種人？',type:'single',opts:[{t:'有梗又好笑，跟你在一起超快樂',hint:'幽默感染型',k:'humor'},{t:'很懂某個東西，問你最準',hint:'知識專業型',k:'expert'},{t:'跟你說話感覺被理解、很療癒',hint:'溫柔共情型',k:'empath'},{t:'很有活力，讓人想跟著你衝',hint:'能量帶動型',k:'energy'}]},
   {s:'⚡ 魅力天賦 2/5',q:'你希望觀眾看完你的 Reels 覺得？',type:'single',opts:[{t:'哈哈哈笑死，心情超好',hint:'😂',k:'humor'},{t:'學到東西了！馬上去試',hint:'🧠',k:'expert'},{t:'好有共鳴，被理解了',hint:'💛',k:'empath'},{t:'熱血！好想衝去做',hint:'⚡',k:'energy'}]},
   {s:'⚡ 魅力天賦 3/5',q:'你說話的風格最接近？',type:'single',opts:[{t:'幽默觀察，什麼都能講得很好笑',k:'humor'},{t:'邏輯清楚，重點清晰讓人有收穫',k:'expert'},{t:'溫柔療癒，說話讓人很安心',k:'empath'},{t:'熱情感染，帶動整個氣氛',k:'energy'}]},
-  {s:'⚡ 魅力天賦 4/5',q:'你最不想拍的影片是？',type:'single',opts:[{t:'沒有笑點、一本正經的內容',k:'humor'},{t:'沒有實質資訊、純粹閒聊',k:'expert'},{t:'太高調炫耀、讓人覺得很假',k:'empath'},{t:'一直待在家裡拍同個地方',k:'energy'}]},
+  {s:'⚡ 魅力天賦 4/5',q:'你最想讓觀眾看完你的影片後有什麼感覺？',type:'single',opts:[{t:'哈哈笑出來、心情超好',hint:'😂 你很有幽默感',k:'humor'},{t:'學到東西了、馬上想去試試',hint:'🧠 你很有知識感',k:'expert'},{t:'好有共鳴、被理解了',hint:'💛 你很有療癒感',k:'empath'},{t:'好想動、立刻想出發去做',hint:'⚡ 你很有能量感',k:'energy'}]},
   {s:'⚡ 魅力天賦 5/5',q:'帳號爆紅，你第一個想到的是？',type:'single',opts:[{t:'這麼多人覺得我好笑！太爽了',k:'humor'},{t:'代表我的資訊真的有幫到人',k:'expert'},{t:'原來這麼多人有一樣的感受',k:'empath'},{t:'終於可以接業配去更多地方！',k:'energy'}]},
   {s:'🌸 內容偏好 1/3',q:'你日常最享受的事，跟哪個最像？',type:'single',opts:[{t:'研究保養彩妝、喜歡打扮自己',hint:'→ 美妝 / 穿搭',k:'beauty'},{t:'做菜、研究食譜、嘗試新料理',hint:'→ 食譜 / 美食',k:'food'},{t:'運動、健身、跳舞或跟操',hint:'→ 跳操 / 健身',k:'fitness'},{t:'逛街挖好物、喜歡開箱新東西',hint:'→ 開箱 / 好物',k:'unbox'}]},
   {s:'🌸 內容偏好 2/3',q:'你最常和別人一起做或聊的事？',type:'single',opts:[{t:'一起旅遊、探店、打卡新地方',hint:'→ 旅遊 / 探店',k:'travel'},{t:'一起拍搞笑影片或記錄日常',hint:'→ 情侶 / Vlog',k:'couple'},{t:'聊工作、分享職業有趣的事',hint:'→ 職業故事',k:'career'},{t:'一起做創意或 DIY 的東西',hint:'→ 創意 / DIY',k:'creative'}]},
@@ -1943,14 +1971,15 @@ function syncAge() {
 }
 
 function syncGenderSplit() {
-  let f = Math.max(0, Math.min(100, parseInt(document.getElementById('female-pct').value)||0));
+  const f = parseInt(document.getElementById('female-pct').value)||0;
   const m = 100 - f;
   document.getElementById('gender-bar-f').style.width = f + '%';
   document.getElementById('gender-bar-m').style.width = m + '%';
+  document.getElementById('female-pct-display').textContent = f + '%';
   document.getElementById('male-pct-display').textContent = m + '%';
   const st = document.getElementById('female-status');
   if (f >= 80) { st.style.color = '#7ab840'; st.textContent = '✅ 達標！'; }
-  else if (f >= 65) { st.style.color = '#e0a020'; st.textContent = '⚠️ 接近目標'; }
+  else if (f >= 70) { st.style.color = '#e0a020'; st.textContent = '⚠️ 接近目標'; }
   else { st.style.color = '#e0389a'; st.textContent = '❌ 未達標'; }
 }
 
@@ -2001,7 +2030,7 @@ function calcTAScore(ages, femalePct) {
 async function runAudienceAnalysis() {
   const btn = document.getElementById('ta-btn');
   btn.disabled = true; btn.textContent = '分析中…';
-  const ages = getAgeData();
+  saveAudienceState();
   const femalePct = parseInt(document.getElementById('female-pct').value)||70;
   const followers = parseInt(document.getElementById('metric-followers').value)||0;
   const story     = parseInt(document.getElementById('metric-story').value)||0;
@@ -2037,20 +2066,20 @@ async function runAudienceAnalysis() {
 
   // 年齡問題
   if (ages[0] > 10) diags.push(`<strong>🔴 13–17 歲佔 ${ages[0]}%（警告）：</strong>高中生族群幾乎沒有消費能力，且對 DCT 產品沒有任何購買動機。這個族群的存在會讓你的轉換率被嚴重稀釋。通常是因為搞笑、流行梗、或學生相關內容帶來的流量。`);
-  if (young > 50) diags.push(`<strong>🔴 24 歲以下超過一半（${young}%）：</strong>超過半數粉絲是學生或剛出社會，這是最難變現的受眾結構。你的內容在觸及年輕人，但DCT的核心客群是有穩定收入的25–40歲女性。`);
+  if (young > 50) diags.push(`<strong>🔴 24 歲以下超過一半（${young}%）：</strong>超過半數粉絲是學生或剛出社會，這是最難變現的受眾結構。你的內容在觸及年輕人，但婕樂纖的核心客群是有穩定收入的25–40歲女性。`);
   else if (young > 35) diags.push(`<strong>🟠 年輕受眾偏多（18–24 佔 ${ages[1]}%）：</strong>年輕受眾互動率高但消費意願低。這個族群會讓你的帳號看起來很活躍，但轉換率遠低於25歲以上的族群。`);
 
-  if (prime < 20) diags.push(`<strong>🔴 核心變現年齡（25–44 歲）嚴重不足（只有 ${prime}%）：</strong>這個年齡層有穩定收入、有購買決策權、對健康和生活品質有高度需求，是 DCT 客群的黃金區間。目前比例過低代表你的內容方向和這群人的需求完全對不上。`);
+  if (prime < 20) diags.push(`<strong>🔴 核心變現年齡（25–44 歲）嚴重不足（只有 ${prime}%）：</strong>這個年齡層有穩定收入、有購買決策權、對健康和生活品質有高度需求，是 婕樂纖客群的黃金區間。目前比例過低代表你的內容方向和這群人的需求完全對不上。`);
   else if (prime < 40) diags.push(`<strong>🟠 核心 TA（25–44 歲）比例待提升（目前 ${prime}%，目標 60%+）：</strong>你已經有部分對的受眾，但還不夠集中。每支影片都要問自己：「35歲的媽媽或上班族看到這支會有共鳴嗎？」這個問題的答案決定你的選題方向。`);
   else if (prime >= 60) diags.push(`<strong>✅ 核心 TA 比例優秀（${prime}%）：</strong>25–44 歲是你的主要受眾，這個受眾結構非常健康！變現潛力高，只需要繼續深化信任感和增加 CTA 引導。`);
 
   if (older > 25) diags.push(`<strong>🟡 45 歲以上佔 ${older}%：</strong>這個族群有消費力，但需要不同的溝通方式——更重視安全感、信任感、和具體效果。如果你有這個受眾，可以嘗試「分享使用心得」和「前後對比」類型的內容來強化信任。`);
 
   // 性別問題
-  if (femalePct < 60) diags.push(`<strong>🔴 女性比例嚴重不足（${femalePct}%，目標 80%+）：</strong>男性受眾欣賞你但幾乎不會購買美妝保養健康類產品，${malePct}% 的男性粉絲對 DCT 的轉換貢獻趨近於零。這通常是因為搞笑梗、運動、或偏中性的話題吸引了男性流量。`);
+  if (femalePct < 60) diags.push(`<strong>🔴 女性比例嚴重不足（${femalePct}%，目標 80%+）：</strong>男性受眾欣賞你但幾乎不會購買婕樂纖健康美妝產品，${malePct}% 的男性粉絲對婕樂纖的轉換貢獻趨近於零。這通常是因為搞笑梗、運動、或偏中性的話題吸引了男性流量。`);
   else if (femalePct < 70) diags.push(`<strong>🟠 女性比例不足（${femalePct}%）：</strong>還有 ${80-femalePct}% 的提升空間。建議在內容中加入更多女性視角的痛點——保養、情感、工作與生活平衡、育兒等話題，自然吸引目標女性受眾。`);
   else if (femalePct < 80) diags.push(`<strong>🟡 女性比例接近目標（${femalePct}%，還差 ${80-femalePct}%）：</strong>已經接近 80% 的目標，再調整一下內容選題方向就能達標。目前可以嘗試增加「女性共鳴型」話題：情感、美妝、職場心聲、育兒困境等。`);
-  else diags.push(`<strong>✅ 女性比例達標（${femalePct}%）：</strong>性別結構非常健康！女性主導的受眾對 DCT 類產品的轉換率是男性的 5–8 倍，這是你的變現基礎。`);
+  else diags.push(`<strong>✅ 女性比例達標（${femalePct}%）：</strong>性別結構非常健康！女性主導的受眾對婕樂纖產品的轉換率是男性的 5–8 倍，這是你的變現基礎。`);
 
   // 數據指標
   if (followers > 0) {
@@ -2098,53 +2127,11 @@ async function runAudienceAnalysis() {
       <div class="ta-insight-hd"><span class="ta-insight-icon">🔍</span><span class="ta-insight-name">完整診斷報告（${diags.length} 項）</span></div>
       <div class="ta-insight-body">${diags.map(l=>`<div style="margin-bottom:10px;padding:8px 10px 8px 12px;border-left:3px solid #f090c0;background:rgba(224,56,154,.03);border-radius:0 8px 8px 0;font-size:11px;line-height:1.7;">${l}</div>`).join('')}</div>
     </div>
-    <div class="ta-ai-block"><div class="ta-ai-label">✦ AI 深度分析與行動策略</div><div class="ta-ai-body" id="ta-ai-body"><span class="ta-ai-loading">正在生成你的專屬調整策略…</span></div></div>
     <button class="ta-analyze-btn" style="margin-top:4px;background:#fff;color:#e0389a;border:1.5px solid #f0d0e8;box-shadow:none;" onclick="document.getElementById('ta-result-wrap').innerHTML='';document.getElementById('ta-btn').disabled=false;document.getElementById('ta-btn').textContent='✦ 分析我的受眾';window.scrollTo({top:0,behavior:'smooth'})">← 重新填寫</button>
   </div>`;
 
   btn.textContent = '✦ 分析我的受眾'; btn.disabled = false;
   wrap.scrollIntoView({ behavior:'smooth', block:'start' });
-
-  const diagSummary = diags.map(d => d.replace(/<[^>]*>/g,'')).join('\n');
-  const prompt = `你是台灣 IG 社群變現顧問，專精 DCT 美妝健康品牌的社群策略。
-
-━━ 帳號完整數據 ━━
-粉絲數：${followers||'未填'} ／ 成長狀況：${growthState} ／ 變現狀況：${moneyState}
-年齡分佈：13–17: ${ages[0]}% ／ 18–24: ${ages[1]}% ／ 25–34: ${ages[2]}% ／ 35–44: ${ages[3]}% ／ 45–54: ${ages[4]}% ／ 55+: ${ages[5]}%
-女性比例：${femalePct}%（目標80%+） ／ 核心TA(25–44歲)：${prime}%（目標60%+）
-限動留人率：${storyRate||'未填'}%（目標30%+） ／ Reels推流比：${reelsRate||'未填'}%（目標300%+）
-主要內容方向：${contents}
-TA吻合度：${score}/100
-
-━━ 系統已診斷出的問題 ━━
-${diagSummary}
-
-━━ 請完整提供以下六段深度回覆 ━━
-
-第一段【受眾根本問題】：用生動的方式說清楚「她目前在用什麼內容吸引了什麼樣的人」，以及「這些人為什麼不會消費」。不要重複數字，而是描述受眾的生活樣貌和消費心理。告訴她：她帳號現在像一家什麼樣的店、吸引的是什麼樣的客人、為什麼這些客人不會買單。
-
-第二段【內容方向精準調整】：針對她的現有內容方向（${contents}），具體說明如何用同樣主題但不同「角度和說話方式」來吸引25–40歲有消費力的女性。給出3個「這週就能拍」的具體題目，每個題目附上開頭第一句話（要用到鉤子技巧：數字法/問題式/相差法/借勢法/驚訝式其中一種），並說明這個題目為什麼能吸引目標TA。
-
-第三段【限動7天節奏計畫】：她的限動留人率是${storyRate||'未填'}%。詳細說明接下來7天每天限動應該怎麼發——每天早中晚各發什麼主題、哪幾天要用哪種互動貼圖（投票/問答/倒數/滑桿）、如何讓新粉絲每天都有回來的理由。要像幫她排班表一樣具體，看完就知道今天限動要發什麼。
-
-第四段【Reels推流突破示範】：她的Reels推流比是${reelsRate||'未填'}%。先分析最可能卡在哪個環節（開頭/選題/帳號定位/完播率）。再給出3組「開頭對比示範」：爛開頭版 vs 能讓演算法推給陌生人的好版本，要有真實的對比，讓她一眼看出差別。最後再給3個「可以立刻執行的完播率提升技巧」。
-
-第五段【TA漸進調整策略】：在不完全放棄現有流量的前提下，告訴她如何用「混入法」把受眾結構慢慢移向25–40歲女性。給出具體比例（例如每5支影片中幾支維持現有風格、幾支轉換方向）。說明這樣操作後，大約幾週開始會看到受眾結構的改變，以及要觀察哪些數字來確認策略奏效。
-
-第六段【4週數字目標計畫】：給一個有具體數字目標的4週計畫——每週重點任務是什麼、每週結束時限動留人率/Reels推流比/女性比例各應該達到多少。讓她有清晰的里程碑可以追蹤，並說明如果某週沒達標要怎麼調整。
-
-繁體中文台灣口語，像一個陪她坐在咖啡廳分析帳號的顧問在跟她說話。六段之間空一行，每段120–180字。不要用條列式，不要說「建議」「我認為」「根據資料」「首先」開場，每段直接進入核心內容。`;
-
-  try {
-    const res = await fetch('https://api.anthropic.com/v1/messages', { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:3000,messages:[{role:'user',content:prompt}]}) });
-    const data = await res.json();
-    const reply = data.content?.map(i=>i.text||'').join('')||'';
-    const el = document.getElementById('ta-ai-body');
-    if(el) el.innerHTML = reply ? reply.split(/\n\n+/).map(p=>`<p>${p.replace(/\n/g,'<br>')}</p>`).join('') : '<p>根據你的受眾數據，建議優先調整內容選題讓 25–40 歲女性更容易找到共鳴。</p>';
-  } catch(e) {
-    const el=document.getElementById('ta-ai-body');
-    if(el) el.innerHTML='<p>根據你的數據，建議優先從提升限動頻率和調整 Reels 開頭鉤子開始。</p>';
-  }
 }
 
 // ══════════════ CONTENT GUIDE ══════════════
@@ -2344,6 +2331,7 @@ function toggleSE(i) {
   document.getElementById('se-score').textContent = total + ' / 8';
   const labels = ['勾選上方項目開始評分','繼續加油！','快到一半了','一半完成！','不錯！繼續','快完成了','再一個！','幾乎滿分！','完美！可以發佈 🌸'];
   document.getElementById('se-score-label').textContent = labels[total];
+  saveSEState();
 }
 
 async function runSelfEvalAnalysis() {
@@ -2357,8 +2345,8 @@ async function runSelfEvalAnalysis() {
     { label:'你自己入鏡超過 30 秒', why:'入鏡=建立信任。觀眾要先認識「你這個人」才會跟著你購買——看不到臉的帳號很難從陌生人變成鐵粉。', how:['每個段落的第一個畫面對著鏡頭說1–2句話，再切到其他畫面','加入「走路說話」「做事邊說」，比對鏡頭更自然也更有生活感','結尾一定要正面入鏡說最後一句CTA，讓觀眾記住你的臉'] },
     { label:'轉換至少三種角度拍攝', why:'單一角度讓節奏沉悶，觀眾眼睛疲勞後很快滑走。三種角度切換讓影片有節奏感，完播率可提升20–30%。', how:['至少用：正面（說話）、側面（動作）、特寫（細節）三種','每個鏡頭不超過4秒，快速切換讓節奏明快','沒有腳架也沒關係，靠牆固定或請人幫拿，重點是角度要不同'] },
     { label:'錄音有情緒、語氣有變化', why:'平淡的語氣是觀眾分心最快的原因。聲音本身在傳遞情緒——沒有起伏讓人昏昏欲睡，有情緒的聲音讓人停下來聽。', how:['重要的關鍵字要放慢、拉長，讓觀眾感受到你在強調','講到自己的感受時聲音要有真實情緒，不要演，就正常說','錄完後聽一遍，如果覺得自己在「唸稿」，重錄一次'] },
-    { label:'有使用花字、特效或動畫（至少一種）', why:'在探索頁觀眾判斷要不要點開只有0.5秒。有視覺設計的影片點擊率比純素影片高出40%以上。', how:['至少加入關鍵字的強調字幕（大字、顏色、位置要顯眼）','情緒高點加一個特效或轉場，讓那個瞬間更有衝擊感','用CapCut的「文字模板」或「特效」功能，不需要設計天分'] },
-    { label:'開頭三秒有明確鉤子', why:'沒有鉤子的開頭讓90%陌生人在3秒內滑走，完播率低演算法就不推，惡性循環——這是最重要的一項。', how:['數字法：「90%的人都不知道這件事…」讓人想知道自己是不是那10%','問題法：「你有沒有也這樣…」讓觀眾馬上對號入座','驚訝法：「我本來以為…結果…」製造反差感讓人想看結果'] },
+    { label:'花字、特效、動畫最多使用 1 種', why:'只用1種讓重點突出——超過1種反而讓畫面複雜，觀眾眼睛不知道看哪裡，反而更快滑走。', how:['選一種最適合你風格的：花字（突出重點字）、特效（情緒高點用）、動畫（轉場用）','不要同時用字幕動畫 + 貼圖特效 + 轉場——選一個，讓它最顯眼','一種用好比三種都沒用好更有設計感'] },
+    { label:'開頭三秒有明確鉤子', why:'沒有鉤子的開頭讓90%陌生人在3秒內滑走，完播率低你的好內容就更難被發現，惡性循環——這是最重要的一項。', how:['數字法：「90%的人都不知道這件事…」讓人想知道自己是不是那10%','問題法：「你有沒有也這樣…」讓觀眾馬上對號入座','驚訝法：「我本來以為…結果…」製造反差感讓人想看結果'] },
     { label:'有共鳴點及故事', why:'沒有共鳴就沒有留言，沒有留言演算法就不繼續推。「這說的就是我」的那個瞬間，是觀眾決定追蹤你的關鍵。', how:['找一個你的目標觀眾「一定有過」的經歷，從那裡開始說','用「你是不是也…」「我以前也…」把自己的故事跟觀眾連結','不需要大事件，生活中的小委屈、小驚喜、小發現都夠了'] },
     { label:'結尾有明確呼籲（CTA）', why:'沒有CTA等於把觀眾放走不管。加了CTA的影片平均收藏率提升30%、追蹤轉換率提升25%。', how:['收藏型：「收藏起來以免下次找不到」（最好用，讓演算法判斷有價值）','留言型：「你也有過這樣嗎？留言告訴我」（提升互動率讓演算法推）','追蹤型：「追蹤我，下支我會說…」（給觀眾下次回來的理由）'] }
   ];
@@ -2386,41 +2374,6 @@ async function runSelfEvalAnalysis() {
   breakdownEl.innerHTML = bhtml;
   breakdownEl.style.display = 'block';
   breakdownEl.scrollIntoView({ behavior:'smooth', block:'start' });
-
-  const section = document.getElementById('se-ai-section');
-  section.style.display = 'block';
-
-  const prompt = `你是資深IG短影音教練，幫一位創作者做Reels自評分析。
-
-自評結果：${total}/8 通過
-${freqWarning ? '⚠️ 發布頻率：'+freqWarning : ''}
-已達到：${passed.length ? passed.join('、') : '無'}
-未達到：${failed.length ? failed.join('、') : '全部通過'}
-
-請給五段深度回覆：
-
-第一段【整體判斷】：根據通過/未通過的組合，告訴她這支影片最可能遇到的「流量問題症狀」是什麼——完播率低？觸及不夠？留言少？說清楚症狀背後的原因鏈。
-
-第二段【最優先修正的1件事】：從未通過項目中挑出對演算法影響最大的那1項，深入說明它如何直接拖累影片成效，以及如何在下一支立刻修正。給具體操作，不是概念。
-
-第三段【漸進改善計畫】：一次全改會讓她很有壓力。給她一個「第一週先改哪1–2項、第二週再加哪1–2項」的漸進計畫，讓她無壓力進步。
-
-第四段【下次拍片清單】：拍攝前3件事、拍攝中3件事、剪輯時3件事，讓她像對照清單一樣操作，不用靠記憶。
-
-第五段【數據目標】：做完調整後要追蹤哪些IG洞察數字（完播率、非粉絲觸及、留言分享比），每個數字達到多少才算成功，讓她下次有目標地自評。
-
-繁體中文台灣口語，像站在她旁邊的教練。五段空一行，每段100–150字。不用條列式，開頭直接說重點，不要說「建議」「首先」。`;
-
-  try {
-    const res = await fetch('https://api.anthropic.com/v1/messages', { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:2000,messages:[{role:'user',content:prompt}]}) });
-    const data = await res.json();
-    const reply = data.content?.map(i=>i.text||'').join('')||'';
-    const el = document.getElementById('se-ai-body');
-    if(el) el.innerHTML = reply ? reply.split(/\n\n+/).map(p=>`<p>${p.replace(/\n/g,'<br>')}</p>`).join('') : '<p>根據你的自評結果，先從「開頭鉤子」和「入鏡時間」開始調整。</p>';
-  } catch(e) {
-    const el = document.getElementById('se-ai-body');
-    if(el) el.innerHTML = '<p>網路連線問題，請稍後再試。上方的改善清單可以先照著執行。</p>';
-  }
   btn.disabled = false; btn.textContent = '✦ 重新分析';
 }
 
@@ -2434,6 +2387,7 @@ let lastResultPage = 'p-result-a';
 
 function showTabBar() {
   document.getElementById('tab-bar').classList.add('visible');
+  document.getElementById('settings-btn').classList.add('visible');
   updateTabResultBadge();
 }
 
@@ -2450,14 +2404,131 @@ function switchMainTab(tab) {
     if(btn) btn.classList.toggle('active', t === tab);
   });
   if (tab === 'quiz') { show(lastQuizPage); }
-  else if (tab === 'audience') { show('p-audience'); }
+  else if (tab === 'audience') { show('p-audience'); setTimeout(restoreAudienceState, 50); }
   else if (tab === 'result') { show(!!Store.get(RESULT_KEY) ? lastResultPage : 'p-mypos-empty'); }
   else if (tab === 'guide') { show('p-guide'); renderGuide(); }
-  else if (tab === 'selfeval') { show('p-selfeval'); }
+  else if (tab === 'selfeval') { show('p-selfeval'); setTimeout(restoreSEState, 50); }
   else { show('p-videos'); renderVideos(); }
 }
 
+// ══════════════ SKIP NAME ══════════════
+function skipName() {
+  document.getElementById('name-modal').classList.remove('show');
+  checkSavedResult();
+}
+
+// ══════════════ SETTINGS ══════════════
+function openSettings() {
+  const cur = Store.get(USER_KEY) || '';
+  document.getElementById('settings-name-input').value = cur;
+  document.getElementById('settings-modal').classList.add('show');
+  setTimeout(() => document.getElementById('settings-name-input').focus(), 100);
+}
+function closeSettings() {
+  document.getElementById('settings-modal').classList.remove('show');
+}
+function saveSettings() {
+  const val = document.getElementById('settings-name-input').value.trim();
+  if (val) {
+    Store.set(USER_KEY, val);
+    renderNameChip(val);
+  }
+  closeSettings();
+}
+
+// ══════════════ DAILY MOTIVATION ══════════════
+const DAILY_QUOTES = [
+  { icon:'🔥', title:'今天的引流功課', text:'引流才是流量的根本！今天有沒有在限動留下「痕跡」讓新朋友找到你？每天至少一則有互動的限動。' },
+  { icon:'💪', title:'引流提醒', text:'主動出擊比等待更有力量。今天去留言5個同類型帳號的貼文，讓他們的粉絲也看到你。' },
+  { icon:'🌸', title:'今日行動', text:'記得讓每支 Reels 的結尾都有一個「下一步」——讓看到影片的人知道可以在哪裡繼續跟你互動。' },
+  { icon:'✨', title:'引流是基礎', text:'沒有引流就沒有人流。今天發一則限動問答或投票，讓更多人跟你產生互動。' },
+  { icon:'🎯', title:'今日焦點', text:'好內容是引流的磁鐵。今天的影片有沒有讓人看完之後想分享給朋友？分享才是最強的引流。' },
+  { icon:'🌟', title:'持續就是最好的引流', text:'不是每支影片都會爆，但每支影片都讓你離目標更近一步。今天繼續發，繼續優化。' },
+  { icon:'💡', title:'引流思維', text:'每次出現在別人面前都是一次引流機會。今天有沒有在限動裡說一件讓人想認識你的事？' },
+  { icon:'🌟', title:'堅持的力量', text:'連續發15支同方向的影片，演算法就會開始認識你。今天是第幾支了？每支都很重要。' },
+  { icon:'💛', title:'引流從真實開始', text:'讓人喜歡你，比讓人看到你更重要。今天分享一件你真實生活中發生的小事，讓人感覺親近。' },
+  { icon:'📱', title:'限動引流法', text:'每天10則限動是黃金標準。早晨2則 + 白天4則 + 晚上4則，讓粉絲習慣每天來看你。' },
+  { icon:'🎬', title:'影片是最強引流', text:'一支好的 Reels 能幫你24小時引流。今天拍的影片有沒有讓陌生人看完後想追蹤你？' },
+  { icon:'🌈', title:'今日提醒', text:'引流 + 互動 + 信任 = 變現。三者缺一不可。今天哪一環節做得最好？哪一環節還需要加強？' },
+  { icon:'⚡', title:'行動的力量', text:'今天有沒有主動私訊一個新認識的朋友？真實的連結才是最有溫度的引流方式。' },
+  { icon:'🍀', title:'持續就是最好的引流', text:'不是每支影片都會爆，但每支影片都讓你離目標更近一步。今天繼續發，繼續優化。' }
+];
+function renderDailyMotivation() {
+  const el = document.getElementById('daily-motivation');
+  if (!el) return;
+  const day = new Date().getDay();
+  const q = DAILY_QUOTES[Math.floor((Date.now()/86400000)) % DAILY_QUOTES.length];
+  el.innerHTML = `<div style="font-size:24px;margin-bottom:8px;">${q.icon}</div>
+    <div style="font-size:11px;font-weight:900;color:#e0389a;letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px;">${q.title}</div>
+    <div style="font-size:13px;color:#a06080;line-height:1.75;">${q.text}</div>`;
+}
+
+// ══════════════ SAVE / RESTORE AUDIENCE STATE ══════════════
+const AUDIENCE_KEY = 'dct_audience_v1';
+const SELFEVAL_KEY = 'dct_selfeval_v1';
+
+function saveAudienceState() {
+  const state = {
+    ages: AGE_KEYS.map(k => parseInt(document.getElementById('age-'+k).value)||0),
+    female: parseInt(document.getElementById('female-pct').value)||70,
+    followers: parseInt(document.getElementById('metric-followers').value)||0,
+    story: parseInt(document.getElementById('metric-story').value)||0,
+    reels: parseInt(document.getElementById('metric-reels').value)||0,
+    growth: growthState, money: moneyState,
+    contents: [...contentTags]
+  };
+  Store.set(AUDIENCE_KEY, JSON.stringify(state));
+}
+
+function restoreAudienceState() {
+  const raw = Store.get(AUDIENCE_KEY);
+  if (!raw) return;
+  try {
+    const s = JSON.parse(raw);
+    AGE_KEYS.forEach((k,i) => {
+      const el = document.getElementById('age-'+k);
+      if(el){ el.value = s.ages[i]||0; document.getElementById('bar-a'+k).style.width=(s.ages[i]||0)+'%'; }
+    });
+    document.getElementById('female-pct').value = s.female||70;
+    syncGenderSplit();
+    document.getElementById('metric-followers').value = s.followers||'';
+    document.getElementById('metric-story').value = s.story||'';
+    document.getElementById('metric-reels').value = s.reels||'';
+    if(s.growth){ growthState=s.growth; document.querySelectorAll('#growth-chips .ta-chip').forEach(c=>{c.classList.toggle('on',c.textContent.trim()===s.growth);}); }
+    if(s.money){ moneyState=s.money; document.querySelectorAll('#money-chips .ta-chip').forEach(c=>{c.classList.toggle('on',c.textContent.trim()===s.money);}); }
+    if(s.contents){ s.contents.forEach(v=>{ contentTags.add(v); document.querySelectorAll('#content-chips .ta-chip').forEach(c=>{ if(c.textContent.trim().includes(v)||c.getAttribute('onclick')?.includes(v)) c.classList.add('on'); }); }); }
+    syncAge(); syncMetrics();
+  } catch(e) {}
+}
+
+function saveSEState() {
+  Store.set(SELFEVAL_KEY, JSON.stringify({ state: seState, date: document.getElementById('se-last-date')?.value||'' }));
+}
+
+function restoreSEState() {
+  const raw = Store.get(SELFEVAL_KEY);
+  if (!raw) return;
+  try {
+    const s = JSON.parse(raw);
+    if (s.state) {
+      s.state.forEach((v, i) => {
+        seState[i] = v;
+        const item = document.getElementById('se-'+i);
+        if(item) item.classList.toggle('checked', v);
+      });
+      const total = seState.filter(Boolean).length;
+      const scoreEl = document.getElementById('se-score');
+      const labelEl = document.getElementById('se-score-label');
+      if(scoreEl) scoreEl.textContent = total + ' / 8';
+      const labels = ['勾選上方項目開始評分','繼續加油！','快到一半了','一半完成！','不錯！繼續','快完成了','再一個！','幾乎滿分！','完美！可以發佈 🌸'];
+      if(labelEl) labelEl.textContent = labels[total];
+    }
+    if (s.date) { const el=document.getElementById('se-last-date'); if(el){ el.value=s.date; checkDateFreq(); } }
+  } catch(e) {}
+}
+
 // ══════════════ BOOT ══════════════
+renderDailyMotivation();
 runWelcome();
 </script>
 
