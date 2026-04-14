@@ -24,75 +24,74 @@ body{background:#fce8f5;color:#2d1228;font-family:'Noto Sans TC',sans-serif;min-
 
 /* ══ WELCOME SCREEN ══ */
 #welcome-screen{position:fixed;inset:0;z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;overflow:hidden;transition:opacity .7s ease;}
-.wlc-bg{position:absolute;inset:0;background:linear-gradient(170deg,#ffe4f4 0%,#ffd0ee 25%,#ffb8e8 55%,#ffa0e0 100%);}
-.wlc-bg::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 50% at 50% 30%,rgba(255,255,255,.55) 0%,transparent 65%);}
-.wlc-bg::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 50% 60% at 80% 80%,rgba(255,130,200,.25) 0%,transparent 60%);}
+.wlc-bg{position:absolute;inset:0;background:linear-gradient(160deg,#fce4f5 0%,#f8cff0 30%,#f4b8e8 65%,#f0a8e2 100%);}
+.wlc-bg::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 55% at 45% 25%,rgba(255,255,255,.6) 0%,transparent 65%);}
+.wlc-bg::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 55% 50% at 75% 80%,rgba(224,56,154,.1) 0%,transparent 55%);}
 
 /* Floating blobs */
-.wlc-blob{position:absolute;border-radius:50%;pointer-events:none;filter:blur(50px);}
-.wlc-blob-1{width:300px;height:300px;background:rgba(255,100,180,.22);top:-60px;left:-60px;animation:wlblob1 8s ease-in-out infinite;}
-.wlc-blob-2{width:250px;height:250px;background:rgba(255,160,220,.28);bottom:-40px;right:-40px;animation:wlblob2 10s ease-in-out infinite;}
-.wlc-blob-3{width:160px;height:160px;background:rgba(255,200,240,.4);top:40%;right:5%;animation:wlblob3 7s ease-in-out infinite 1s;}
+.wlc-blob{position:absolute;border-radius:50%;pointer-events:none;filter:blur(60px);}
+.wlc-blob-1{width:320px;height:320px;background:rgba(224,56,154,.14);top:-80px;left:-80px;animation:wlblob1 8s ease-in-out infinite;}
+.wlc-blob-2{width:280px;height:280px;background:rgba(255,160,220,.18);bottom:-60px;right:-60px;animation:wlblob2 10s ease-in-out infinite;}
+.wlc-blob-3{width:180px;height:180px;background:rgba(255,200,240,.25);top:35%;right:0%;animation:wlblob3 7s ease-in-out infinite 1s;}
 @keyframes wlblob1{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(20px,15px) scale(1.08)}}
 @keyframes wlblob2{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-18px,-12px) scale(1.06)}}
 @keyframes wlblob3{0%,100%{transform:translate(0,0)}50%{transform:translate(-10px,10px)}}
 
-/* Sparkles */
+/* Stars */
 .wlc-sparkles{position:absolute;inset:0;pointer-events:none;}
 .wlc-sp{position:absolute;color:#e0389a;font-size:var(--sz,14px);opacity:0;animation:wlspkl var(--d,3s) ease-in-out infinite var(--dl,0s);}
-@keyframes wlspkl{0%,100%{opacity:0;transform:scale(.5) rotate(0deg)}30%,70%{opacity:.55;transform:scale(1) rotate(15deg)}50%{opacity:.8;transform:scale(1.2) rotate(-10deg)}}
-.wlc-sp:nth-child(1){top:12%;left:10%;--sz:18px;--d:3.5s;--dl:0s;}
-.wlc-sp:nth-child(2){top:20%;right:12%;--sz:12px;--d:4s;--dl:.7s;}
-.wlc-sp:nth-child(3){top:65%;left:8%;--sz:14px;--d:3s;--dl:1.2s;}
-.wlc-sp:nth-child(4){top:75%;right:10%;--sz:20px;--d:4.5s;--dl:.3s;}
-.wlc-sp:nth-child(5){top:40%;left:5%;--sz:10px;--d:3.2s;--dl:1.8s;}
-.wlc-sp:nth-child(6){top:30%;right:6%;--sz:16px;--d:5s;--dl:.5s;}
-.wlc-sp:nth-child(7){bottom:20%;left:20%;--sz:12px;--d:3.8s;--dl:2s;}
-.wlc-sp:nth-child(8){top:55%;right:20%;--sz:10px;--d:4.2s;--dl:1s;}
+@keyframes wlspkl{0%,100%{opacity:0;transform:scale(.5)}40%,60%{opacity:.6;transform:scale(1.1)}}
+.wlc-sp:nth-child(1){top:10%;left:8%;--sz:12px;--d:3.5s;--dl:0s;}
+.wlc-sp:nth-child(2){top:18%;right:10%;--sz:8px;--d:4s;--dl:.7s;}
+.wlc-sp:nth-child(3){top:68%;left:6%;--sz:10px;--d:3s;--dl:1.2s;}
+.wlc-sp:nth-child(4){top:78%;right:8%;--sz:14px;--d:4.5s;--dl:.3s;}
+.wlc-sp:nth-child(5){top:42%;left:4%;--sz:7px;--d:3.2s;--dl:1.8s;}
+.wlc-sp:nth-child(6){top:28%;right:5%;--sz:11px;--d:5s;--dl:.5s;}
+.wlc-sp:nth-child(7){bottom:22%;left:18%;--sz:9px;--d:3.8s;--dl:2s;}
+.wlc-sp:nth-child(8){top:52%;right:18%;--sz:7px;--d:4.2s;--dl:1s;}
 
-/* Petals falling */
+/* Petals */
 .wlc-petals{position:absolute;inset:0;pointer-events:none;overflow:hidden;}
 .wlc-pt{position:absolute;top:-30px;color:#f060a8;font-size:var(--sz,12px);opacity:0;animation:wlpt var(--d,9s) linear infinite var(--dl,0s);}
-@keyframes wlpt{0%{opacity:0;transform:translateY(0) rotate(0deg) translateX(0)}5%{opacity:.4}85%{opacity:.2}100%{opacity:0;transform:translateY(110vh) rotate(540deg) translateX(var(--dx,20px))}}
-.wlc-pt:nth-child(1){left:8%;--sz:16px;--d:8s;--dl:0s;--dx:30px;}
-.wlc-pt:nth-child(2){left:22%;--sz:12px;--d:11s;--dl:1.5s;--dx:-20px;}
-.wlc-pt:nth-child(3){left:40%;--sz:18px;--d:9s;--dl:3s;--dx:25px;}
-.wlc-pt:nth-child(4){left:60%;--sz:10px;--d:10s;--dl:.8s;--dx:-30px;}
-.wlc-pt:nth-child(5){left:78%;--sz:14px;--d:8.5s;--dl:2.2s;--dx:15px;}
-.wlc-pt:nth-child(6){left:90%;--sz:12px;--d:12s;--dl:4s;--dx:-25px;}
+@keyframes wlpt{0%{opacity:0;transform:translateY(0) rotate(0deg)}5%{opacity:.4}85%{opacity:.15}100%{opacity:0;transform:translateY(110vh) rotate(540deg) translateX(var(--dx,20px))}}
+.wlc-pt:nth-child(1){left:8%;--sz:14px;--d:8s;--dl:0s;--dx:30px;}
+.wlc-pt:nth-child(2){left:22%;--sz:10px;--d:11s;--dl:1.5s;--dx:-20px;}
+.wlc-pt:nth-child(3){left:40%;--sz:16px;--d:9s;--dl:3s;--dx:25px;}
+.wlc-pt:nth-child(4){left:60%;--sz:9px;--d:10s;--dl:.8s;--dx:-30px;}
+.wlc-pt:nth-child(5){left:78%;--sz:12px;--d:8.5s;--dl:2.2s;--dx:15px;}
+.wlc-pt:nth-child(6){left:90%;--sz:10px;--d:12s;--dl:4s;--dx:-25px;}
 
 /* Content */
 .wlc-content{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;width:100%;max-width:380px;padding:0 24px;}
 
 /* Logo area */
-.wlc-logo-wrap{position:relative;margin-bottom:22px;display:flex;align-items:center;justify-content:center;}
-.wlc-halo{position:absolute;width:90px;height:90px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.7) 0%,rgba(255,180,220,.3) 60%,transparent 75%);animation:wlhalo 3s ease-in-out infinite;}
-@keyframes wlhalo{0%,100%{transform:scale(1);opacity:.7}50%{transform:scale(1.15);opacity:1}}
-.wlc-logo{font-size:52px;line-height:1;filter:drop-shadow(0 4px 12px rgba(224,56,154,.4));animation:wllogo 4s ease-in-out infinite;}
-@keyframes wllogo{0%,100%{transform:translateY(0) rotate(-3deg)}50%{transform:translateY(-8px) rotate(3deg)}}
+.wlc-logo-wrap{position:relative;margin-bottom:18px;display:flex;align-items:center;justify-content:center;}
+.wlc-halo{position:absolute;width:100px;height:100px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.8) 0%,rgba(255,180,220,.3) 55%,transparent 75%);animation:wlhalo 3s ease-in-out infinite;}
+@keyframes wlhalo{0%,100%{transform:scale(1);opacity:.7}50%{transform:scale(1.18);opacity:1}}
+.wlc-logo{font-size:52px;line-height:1;filter:drop-shadow(0 4px 16px rgba(224,56,154,.35));animation:wllogo 4s ease-in-out infinite;}
+@keyframes wllogo{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-8px) rotate(2deg)}}
 
 /* Titles */
-.wlc-eyebrow{font-size:10px;letter-spacing:.3em;color:#d0388a;text-transform:uppercase;margin-bottom:8px;font-weight:700;}
-.wlc-title{font-size:26px;font-weight:900;color:#b01870;letter-spacing:1px;margin-bottom:4px;text-align:center;line-height:1.2;}
+.wlc-eyebrow{font-size:10px;letter-spacing:.3em;color:#c0408a;text-transform:uppercase;margin-bottom:10px;font-weight:600;}
+.wlc-title{font-size:30px;font-weight:900;color:#8a1055;letter-spacing:2px;margin-bottom:6px;text-align:center;line-height:1.2;text-shadow:0 2px 12px rgba(224,56,154,.2);}
 .wlc-title-em{color:#e0389a;}
-.wlc-sub{font-size:12px;color:#c060a0;letter-spacing:.08em;margin-bottom:24px;text-align:center;}
+.wlc-sub{font-size:12px;color:#c060a0;letter-spacing:.1em;margin-bottom:20px;text-align:center;}
 
-/* Mystery text */
-.wlc-mystery{text-align:center;margin-bottom:28px;}
-.wlc-mystery-line{font-size:14px;color:#a01860;font-weight:700;margin-bottom:12px;letter-spacing:.04em;}
-.wlc-mystery-dots{display:flex;gap:10px;justify-content:center;margin-bottom:10px;}
-.wlc-mystery-dots span{font-size:10px;color:#e0389a;opacity:.5;animation:wldot 2s ease-in-out infinite;}
+/* Mystery */
+.wlc-mystery{text-align:center;margin-bottom:24px;}
+.wlc-mystery-dots{display:flex;gap:10px;justify-content:center;margin-bottom:12px;}
+.wlc-mystery-dots span{font-size:10px;color:#e0389a;opacity:.4;animation:wldot 2s ease-in-out infinite;}
 .wlc-mystery-dots span:nth-child(2){animation-delay:.4s;}
 .wlc-mystery-dots span:nth-child(3){animation-delay:.8s;}
-@keyframes wldot{0%,100%{opacity:.3;transform:scale(1)}50%{opacity:1;transform:scale(1.4)}}
-.wlc-mystery-hint{font-size:11px;color:#c070a0;letter-spacing:.12em;}
+@keyframes wldot{0%,100%{opacity:.2;transform:scale(1)}50%{opacity:1;transform:scale(1.5)}}
+.wlc-mystery-hint{font-size:11px;color:#c070a0;letter-spacing:.08em;}
 
 /* Progress */
 .wlc-bar-area{display:flex;flex-direction:column;align-items:center;gap:8px;width:100%;}
-.wlc-bar-wrap{width:160px;height:4px;background:rgba(224,56,154,.15);border-radius:99px;overflow:hidden;position:relative;}
-.wlc-bar{height:100%;width:0%;background:linear-gradient(90deg,#f090c0,#e0389a,#f090c0);border-radius:99px;transition:width .05s linear;background-size:200% 100%;animation:wlbarshine 1.5s linear infinite;}
+.wlc-bar-wrap{width:160px;height:3px;background:rgba(224,56,154,.12);border-radius:99px;overflow:hidden;}
+.wlc-bar{height:100%;width:0%;background:linear-gradient(90deg,#f4a0c8,#e0389a,#f4a0c8);border-radius:99px;transition:width .05s linear;background-size:200% 100%;animation:wlbarshine 1.5s linear infinite;}
 @keyframes wlbarshine{0%{background-position:200% 0}100%{background-position:-200% 0}}
-.wlc-pct{font-size:11px;color:#c060a0;font-weight:700;letter-spacing:.08em;}
+.wlc-pct{font-size:10px;color:#c060a0;font-weight:600;letter-spacing:.1em;}
 
 /* ══ NAME MODAL ══ */
 #name-modal{position:fixed;inset:0;background:rgba(45,18,40,.5);z-index:9000;display:none;align-items:center;justify-content:center;padding:20px;}
@@ -707,13 +706,26 @@ h1 em{color:#e0389a;font-style:normal;}
       <div class="wlc-halo"></div>
       <div class="wlc-logo">🌸</div>
     </div>
-    <div class="wlc-eyebrow">定位測驗 × 增粉策略全攻略</div>
+    <div class="wlc-eyebrow">婕樂纖 DCT 團隊專用 APP</div>
     <div class="wlc-title">DCT <span class="wlc-title-em">魅力</span>定位寶典</div>
     <div class="wlc-sub">找到你的方向 ✦ 走出你的風格</div>
+    <div style="margin:18px 0 14px;display:flex;flex-direction:column;gap:8px;width:100%;max-width:300px;">
+      <div style="background:rgba(255,255,255,.55);border:1px solid rgba(224,56,154,.2);border-radius:12px;padding:10px 16px;text-align:left;box-shadow:0 2px 12px rgba(224,56,154,.08);">
+        <div style="font-size:13px;font-weight:600;color:#8a1055;letter-spacing:.03em;">✦ 找出你的引流密碼</div>
+        <div style="font-size:11px;color:#c060a0;margin-top:2px;">17 道題 × 4頁深度解析</div>
+      </div>
+      <div style="background:rgba(255,255,255,.55);border:1px solid rgba(224,56,154,.2);border-radius:12px;padding:10px 16px;text-align:left;box-shadow:0 2px 12px rgba(224,56,154,.08);">
+        <div style="font-size:13px;font-weight:600;color:#8a1055;letter-spacing:.03em;">✦ 診斷帳號 × 精準受眾</div>
+        <div style="font-size:11px;color:#c060a0;margin-top:2px;">讓流量精準轉換成收入</div>
+      </div>
+      <div style="background:rgba(255,255,255,.55);border:1px solid rgba(224,56,154,.2);border-radius:12px;padding:10px 16px;text-align:left;box-shadow:0 2px 12px rgba(224,56,154,.08);">
+        <div style="font-size:13px;font-weight:600;color:#8a1055;letter-spacing:.03em;">✦ 完整爆款策略手冊</div>
+        <div style="font-size:11px;color:#c060a0;margin-top:2px;">從拍片到變現，全都在這裡</div>
+      </div>
+    </div>
     <div class="wlc-mystery">
-      <div class="wlc-mystery-line">找出你的魅力，知道要發什麼</div>
       <div class="wlc-mystery-dots"><span>✦</span><span>✦</span><span>✦</span></div>
-      <div class="wlc-mystery-hint">17 題 · 4 頁結果 · 專屬策略</div>
+      <div class="wlc-mystery-hint"><span style="background:rgba(255,255,255,.6);border:1px solid rgba(224,56,154,.3);border-radius:99px;padding:4px 14px;color:#8a1055;font-size:10px;font-weight:600;letter-spacing:.04em;display:inline-block;">🔒 DCT 專用！外傳者這輩子肯定發不了財！</span></div>
     </div>
     <div class="wlc-bar-area">
       <div class="wlc-bar-wrap"><div class="wlc-bar" id="wlc-bar"></div></div>
@@ -757,7 +769,7 @@ h1 em{color:#e0389a;font-style:normal;}
     <div id="name-chip-area"></div>
     <div class="badge">✨ 定位測驗 × 增粉寶典</div>
     <h1>DCT <em>魅力</em><br>定位寶典</h1>
-    <p class="intro-sub">測驗 ＋ 增粉策略全攻略</p>
+    <p class="intro-sub">婕樂纖 DCT 團隊專用 APP</p>
     <!-- Daily motivation -->
     <div id="daily-motivation" style="width:100%;max-width:460px;background:linear-gradient(135deg,#fff4fb,#ffe8f5);border:1.5px solid #f0d0e8;border-radius:16px;padding:16px 18px;margin-bottom:14px;text-align:center;"></div>
     <div class="mindset-card">
@@ -773,6 +785,10 @@ h1 em{color:#e0389a;font-style:normal;}
     </div>
     <!-- Saved result card injected here by JS -->
     <div id="saved-result-area" style="width:100%;max-width:460px;"></div>
+    <!-- DCT Warning -->
+    <div style="width:100%;max-width:460px;background:linear-gradient(135deg,rgba(224,56,154,.1),rgba(255,100,130,.08));border:1.5px solid rgba(224,56,154,.35);border-radius:14px;padding:12px 16px;margin-bottom:14px;text-align:center;">
+      <div style="font-size:13px;font-weight:900;color:#e0389a;letter-spacing:.04em;">🔒 DCT 專用！外傳者這輩子肯定發不了財！</div>
+    </div>
     <button class="btn" id="start-btn" onclick="startQuiz()">開始測驗 →</button>
   </div>
 </div>
@@ -887,7 +903,8 @@ h1 em{color:#e0389a;font-style:normal;}
   <div class="inner">
     <div style="padding:20px 0 14px">
       <div style="font-size:20px;font-weight:900;color:#e0389a;margin-bottom:4px;">👥 受眾分析</div>
-      <div style="font-size:12px;color:#a06080;line-height:1.6;">把你的 IG 洞察數據填進來，分析你的粉絲是不是你的目標客群，找出為什麼有粉絲卻沒辦法變現。</div>
+      <div style="font-size:20px;font-weight:900;color:#e0389a;margin-bottom:4px;">🩺 帳號健檢</div>
+      <div style="font-size:12px;color:#a06080;line-height:1.6;">把你的 IG 洞察數據填進來，診斷你的粉絲是不是目標客群，找出為什麼有粉絲卻沒辦法變現。</div>
     </div>
 
     <!-- Age -->
@@ -1245,8 +1262,8 @@ h1 em{color:#e0389a;font-style:normal;}
     <span class="tab-label">測驗</span>
   </button>
   <button class="tab-item" id="tab-audience-btn" onclick="switchMainTab('audience')">
-    <span class="tab-icon">👥</span>
-    <span class="tab-label">受眾</span>
+    <span class="tab-icon">🩺</span>
+    <span class="tab-label">健檢</span>
   </button>
   <button class="tab-item" id="tab-result-btn" onclick="switchMainTab('result')" style="position:relative;">
     <span class="tab-icon">🌸</span>
@@ -1289,7 +1306,7 @@ const Store = {
 function runWelcome() {
   const bar = document.getElementById('wlc-bar');
   const pct = document.getElementById('wlc-pct');
-  const total = 800, step = 20;
+  const total = 1800, step = 20;
   let elapsed = 0;
   const iv = setInterval(() => {
     elapsed += step;
