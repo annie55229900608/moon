@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="zh-TW">
 <head>
 <meta charset="UTF-8">
@@ -26,8 +25,8 @@ body{background:#fce8f5;color:#2d1228;font-family:'Noto Sans TC',sans-serif;min-
 /* ══ WELCOME SCREEN ══ */
 #welcome-screen{position:fixed;inset:0;z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;overflow:hidden;transition:opacity .7s ease;}
 .wlc-bg{position:absolute;inset:0;background:linear-gradient(170deg,#ffe4f4 0%,#ffd0ee 25%,#ffb8e8 55%,#ffa0e0 100%);}
-.wlc-bg::before{content:’’;position:absolute;inset:0;background:radial-gradient(ellipse 70% 50% at 50% 30%,rgba(255,255,255,.55) 0%,transparent 65%);}
-.wlc-bg::after{content:’’;position:absolute;inset:0;background:radial-gradient(ellipse 50% 60% at 80% 80%,rgba(255,130,200,.25) 0%,transparent 60%);}
+.wlc-bg::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 50% at 50% 30%,rgba(255,255,255,.55) 0%,transparent 65%);}
+.wlc-bg::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 50% 60% at 80% 80%,rgba(255,130,200,.25) 0%,transparent 60%);}
 
 /* Floating blobs */
 .wlc-blob{position:absolute;border-radius:50%;pointer-events:none;filter:blur(50px);}
@@ -40,27 +39,27 @@ body{background:#fce8f5;color:#2d1228;font-family:'Noto Sans TC',sans-serif;min-
 
 /* Sparkles */
 .wlc-sparkles{position:absolute;inset:0;pointer-events:none;}
-.wlc-sp{position:absolute;color:#e0389a;font-size:var(–sz,14px);opacity:0;animation:wlspkl var(–d,3s) ease-in-out infinite var(–dl,0s);}
+.wlc-sp{position:absolute;color:#e0389a;font-size:var(--sz,14px);opacity:0;animation:wlspkl var(--d,3s) ease-in-out infinite var(--dl,0s);}
 @keyframes wlspkl{0%,100%{opacity:0;transform:scale(.5) rotate(0deg)}30%,70%{opacity:.55;transform:scale(1) rotate(15deg)}50%{opacity:.8;transform:scale(1.2) rotate(-10deg)}}
-.wlc-sp:nth-child(1){top:12%;left:10%;–sz:18px;–d:3.5s;–dl:0s;}
-.wlc-sp:nth-child(2){top:20%;right:12%;–sz:12px;–d:4s;–dl:.7s;}
-.wlc-sp:nth-child(3){top:65%;left:8%;–sz:14px;–d:3s;–dl:1.2s;}
-.wlc-sp:nth-child(4){top:75%;right:10%;–sz:20px;–d:4.5s;–dl:.3s;}
-.wlc-sp:nth-child(5){top:40%;left:5%;–sz:10px;–d:3.2s;–dl:1.8s;}
-.wlc-sp:nth-child(6){top:30%;right:6%;–sz:16px;–d:5s;–dl:.5s;}
-.wlc-sp:nth-child(7){bottom:20%;left:20%;–sz:12px;–d:3.8s;–dl:2s;}
-.wlc-sp:nth-child(8){top:55%;right:20%;–sz:10px;–d:4.2s;–dl:1s;}
+.wlc-sp:nth-child(1){top:12%;left:10%;--sz:18px;--d:3.5s;--dl:0s;}
+.wlc-sp:nth-child(2){top:20%;right:12%;--sz:12px;--d:4s;--dl:.7s;}
+.wlc-sp:nth-child(3){top:65%;left:8%;--sz:14px;--d:3s;--dl:1.2s;}
+.wlc-sp:nth-child(4){top:75%;right:10%;--sz:20px;--d:4.5s;--dl:.3s;}
+.wlc-sp:nth-child(5){top:40%;left:5%;--sz:10px;--d:3.2s;--dl:1.8s;}
+.wlc-sp:nth-child(6){top:30%;right:6%;--sz:16px;--d:5s;--dl:.5s;}
+.wlc-sp:nth-child(7){bottom:20%;left:20%;--sz:12px;--d:3.8s;--dl:2s;}
+.wlc-sp:nth-child(8){top:55%;right:20%;--sz:10px;--d:4.2s;--dl:1s;}
 
 /* Petals falling */
 .wlc-petals{position:absolute;inset:0;pointer-events:none;overflow:hidden;}
-.wlc-pt{position:absolute;top:-30px;color:#f060a8;font-size:var(–sz,12px);opacity:0;animation:wlpt var(–d,9s) linear infinite var(–dl,0s);}
-@keyframes wlpt{0%{opacity:0;transform:translateY(0) rotate(0deg) translateX(0)}5%{opacity:.4}85%{opacity:.2}100%{opacity:0;transform:translateY(110vh) rotate(540deg) translateX(var(–dx,20px))}}
-.wlc-pt:nth-child(1){left:8%;–sz:16px;–d:8s;–dl:0s;–dx:30px;}
-.wlc-pt:nth-child(2){left:22%;–sz:12px;–d:11s;–dl:1.5s;–dx:-20px;}
-.wlc-pt:nth-child(3){left:40%;–sz:18px;–d:9s;–dl:3s;–dx:25px;}
-.wlc-pt:nth-child(4){left:60%;–sz:10px;–d:10s;–dl:.8s;–dx:-30px;}
-.wlc-pt:nth-child(5){left:78%;–sz:14px;–d:8.5s;–dl:2.2s;–dx:15px;}
-.wlc-pt:nth-child(6){left:90%;–sz:12px;–d:12s;–dl:4s;–dx:-25px;}
+.wlc-pt{position:absolute;top:-30px;color:#f060a8;font-size:var(--sz,12px);opacity:0;animation:wlpt var(--d,9s) linear infinite var(--dl,0s);}
+@keyframes wlpt{0%{opacity:0;transform:translateY(0) rotate(0deg) translateX(0)}5%{opacity:.4}85%{opacity:.2}100%{opacity:0;transform:translateY(110vh) rotate(540deg) translateX(var(--dx,20px))}}
+.wlc-pt:nth-child(1){left:8%;--sz:16px;--d:8s;--dl:0s;--dx:30px;}
+.wlc-pt:nth-child(2){left:22%;--sz:12px;--d:11s;--dl:1.5s;--dx:-20px;}
+.wlc-pt:nth-child(3){left:40%;--sz:18px;--d:9s;--dl:3s;--dx:25px;}
+.wlc-pt:nth-child(4){left:60%;--sz:10px;--d:10s;--dl:.8s;--dx:-30px;}
+.wlc-pt:nth-child(5){left:78%;--sz:14px;--d:8.5s;--dl:2.2s;--dx:15px;}
+.wlc-pt:nth-child(6){left:90%;--sz:12px;--d:12s;--dl:4s;--dx:-25px;}
 
 /* Content */
 .wlc-content{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;width:100%;max-width:380px;padding:0 24px;}
@@ -103,9 +102,9 @@ body{background:#fce8f5;color:#2d1228;font-family:'Noto Sans TC',sans-serif;min-
 .nm-icon{font-size:44px;margin-bottom:12px;}
 .nm-title{font-size:18px;font-weight:900;color:#e0389a;margin-bottom:6px;}
 .nm-sub{font-size:13px;color:#a06080;line-height:1.7;margin-bottom:20px;}
-#nm-input{width:100%;background:#fdf5fa;border:1.5px solid #f0d0e8;border-radius:12px;padding:12px 16px;font-family:‘Noto Sans TC’,sans-serif;font-size:15px;color:#2d1228;outline:none;text-align:center;margin-bottom:14px;transition:border-color .2s;}
+#nm-input{width:100%;background:#fdf5fa;border:1.5px solid #f0d0e8;border-radius:12px;padding:12px 16px;font-family:'Noto Sans TC',sans-serif;font-size:15px;color:#2d1228;outline:none;text-align:center;margin-bottom:14px;transition:border-color .2s;}
 #nm-input:focus{border-color:#e0389a;box-shadow:0 0 0 3px rgba(224,56,154,.15);}
-.nm-btn{width:100%;background:#e0389a;color:#fff;font-family:‘Noto Sans TC’,sans-serif;font-weight:900;font-size:14px;padding:13px;border-radius:999px;border:none;cursor:pointer;box-shadow:0 4px 14px rgba(224,56,154,.3);transition:all .2s;}
+.nm-btn{width:100%;background:#e0389a;color:#fff;font-family:'Noto Sans TC',sans-serif;font-weight:900;font-size:14px;padding:13px;border-radius:999px;border:none;cursor:pointer;box-shadow:0 4px 14px rgba(224,56,154,.3);transition:all .2s;}
 .nm-btn:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(224,56,154,.4);}
 
 /* Gender split */
@@ -113,9 +112,9 @@ body{background:#fce8f5;color:#2d1228;font-family:'Noto Sans TC',sans-serif;min-
 .gender-side{display:flex;flex-direction:column;align-items:center;gap:3px;flex:0 0 80px;}
 .gender-icon{font-size:22px;}
 .gender-label{font-size:11px;font-weight:700;color:#a06080;}
-.gender-input{width:64px;background:#fdf5fa;border:1.5px solid #f0d0e8;border-radius:10px;padding:6px 8px;font-size:16px;font-weight:900;color:#e0389a;text-align:center;outline:none;font-family:‘DM Mono’,monospace;}
+.gender-input{width:64px;background:#fdf5fa;border:1.5px solid #f0d0e8;border-radius:10px;padding:6px 8px;font-size:16px;font-weight:900;color:#e0389a;text-align:center;outline:none;font-family:'DM Mono',monospace;}
 .gender-input:focus{border-color:#e0389a;}
-.gender-val-big{font-size:16px;font-weight:900;color:#6b9ab8;font-family:‘DM Mono’,monospace;}
+.gender-val-big{font-size:16px;font-weight:900;color:#6b9ab8;font-family:'DM Mono',monospace;}
 .gender-unit{font-size:12px;color:#c090b0;}
 .gender-status{font-size:10px;font-weight:700;text-align:center;}
 .gender-divider{flex:1;display:flex;flex-direction:column;gap:4px;}
@@ -125,7 +124,7 @@ body{background:#fce8f5;color:#2d1228;font-family:'Noto Sans TC',sans-serif;min-
 /* Metric cards */
 .ta-metric-card{background:#fdf5fa;border:1px solid #f0d0e8;border-radius:10px;padding:10px 12px;}
 .ta-mc-label{font-size:10px;color:#c090b0;margin-bottom:4px;}
-.ta-mc-val{font-size:18px;font-weight:900;font-family:‘DM Mono’,monospace;}
+.ta-mc-val{font-size:18px;font-weight:900;font-family:'DM Mono',monospace;}
 .ta-mc-val.good{color:#7ab840;}
 .ta-mc-val.mid{color:#e0a020;}
 .ta-mc-val.bad{color:#e0389a;}
@@ -152,7 +151,7 @@ body{background:#fce8f5;color:#2d1228;font-family:'Noto Sans TC',sans-serif;min-
 .metric-advice-hd.green{background:rgba(122,184,64,.08);}
 .metric-advice-icon{font-size:16px;}
 .metric-advice-title{font-size:12px;font-weight:900;color:#2d1228;}
-.metric-advice-val{font-size:11px;margin-left:auto;font-weight:700;font-family:‘DM Mono’,monospace;}
+.metric-advice-val{font-size:11px;margin-left:auto;font-weight:700;font-family:'DM Mono',monospace;}
 .metric-advice-hd.red .metric-advice-val{color:#e0389a;}
 .metric-advice-hd.orange .metric-advice-val{color:#e0a020;}
 .metric-advice-hd.green .metric-advice-val{color:#7ab840;}
@@ -217,7 +216,7 @@ body{background:#fce8f5;color:#2d1228;font-family:'Noto Sans TC',sans-serif;min-
 .cg-formula-card{background:#fdf5fa;border:1.5px solid #f0d0e8;border-radius:12px;padding:12px;}
 .cg-formula-title{font-size:13px;font-weight:900;color:#e0389a;margin-bottom:8px;}
 .cg-formula-item{font-size:11px;color:#a06080;margin-bottom:4px;display:flex;gap:5px;}
-.cg-formula-item::before{content:’·’;color:#e0389a;flex-shrink:0;}
+.cg-formula-item::before{content:'·';color:#e0389a;flex-shrink:0;}
 
 /* 4-step 高潮 */
 .cg-step-row{display:flex;gap:8px;margin-top:10px;overflow-x:auto;padding-bottom:4px;}
@@ -257,7 +256,7 @@ body{background:#fce8f5;color:#2d1228;font-family:'Noto Sans TC',sans-serif;min-
 .cg-cta-3 .cg-cta-title{color:#2980b9;}
 .cg-cta-4 .cg-cta-title{color:#d68910;}
 .cg-cta-item{font-size:10px;color:#a06080;margin-bottom:2px;padding-left:8px;position:relative;}
-.cg-cta-item::before{content:‘→’;position:absolute;left:0;color:#c090b0;}
+.cg-cta-item::before{content:'→';position:absolute;left:0;color:#c090b0;}
 
 /* Persona guide */
 .cg-persona{background:#fdf5fa;border:1px solid #f0d0e8;border-radius:11px;margin-bottom:8px;overflow:hidden;}
@@ -299,7 +298,7 @@ body{background:#fce8f5;color:#2d1228;font-family:'Noto Sans TC',sans-serif;min-
 /* ══ TAB BAR ══ */
 #tab-bar{position:fixed;bottom:0;left:0;right:0;z-index:500;background:rgba(255,245,252,.92);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-top:1px solid rgba(224,56,154,.15);display:none;height:56px;padding:0 4px;}
 #tab-bar.visible{display:flex;align-items:center;justify-content:center;gap:0;}
-.tab-item{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;padding:6px 2px;border:none;background:transparent;cursor:pointer;transition:background-color .15s;border-radius:8px;font-family:‘Noto Sans TC’,sans-serif;-webkit-tap-highlight-color:transparent;}
+.tab-item{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;padding:6px 2px;border:none;background:transparent;cursor:pointer;transition:background-color .15s;border-radius:8px;font-family:'Noto Sans TC',sans-serif;-webkit-tap-highlight-color:transparent;}
 .tab-icon{font-size:18px;line-height:1;}
 .tab-label{font-size:9px;font-weight:700;color:#c090b0;letter-spacing:.02em;}
 .tab-item.active .tab-label{color:#e0389a;}
@@ -317,8 +316,8 @@ body{background:#fce8f5;color:#2d1228;font-family:'Noto Sans TC',sans-serif;min-
 .ta-field{margin-bottom:14px;}
 .ta-field:last-child{margin-bottom:0;}
 .ta-label{display:flex;justify-content:space-between;align-items:center;font-size:12px;font-weight:700;color:#2d1228;margin-bottom:7px;}
-.ta-val{font-size:12px;font-weight:900;color:#e0389a;font-family:‘DM Mono’,monospace;}
-.ta-slider{width:100%;height:4px;-webkit-appearance:none;appearance:none;background:linear-gradient(90deg,#e0389a var(–pct,50%),#f0d0e8 var(–pct,50%));border-radius:99px;outline:none;cursor:pointer;}
+.ta-val{font-size:12px;font-weight:900;color:#e0389a;font-family:'DM Mono',monospace;}
+.ta-slider{width:100%;height:4px;-webkit-appearance:none;appearance:none;background:linear-gradient(90deg,#e0389a var(--pct,50%),#f0d0e8 var(--pct,50%));border-radius:99px;outline:none;cursor:pointer;}
 .ta-slider::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;border-radius:50%;background:#e0389a;box-shadow:0 2px 8px rgba(224,56,154,.4);cursor:pointer;}
 .ta-slider::-moz-range-thumb{width:18px;height:18px;border-radius:50%;background:#e0389a;border:none;cursor:pointer;}
 .age-row{display:flex;align-items:center;gap:10px;margin-bottom:10px;}
@@ -326,19 +325,19 @@ body{background:#fce8f5;color:#2d1228;font-family:'Noto Sans TC',sans-serif;min-
 .age-label{font-size:11px;font-weight:700;color:#a06080;width:50px;flex-shrink:0;}
 .age-bar-wrap{flex:1;height:8px;background:#f5e0f0;border-radius:99px;overflow:hidden;cursor:pointer;}
 .age-bar-fill{height:100%;background:linear-gradient(90deg,#f090c0,#e0389a);border-radius:99px;transition:width .2s;}
-.age-pct{font-size:11px;font-weight:900;color:#e0389a;width:34px;text-align:right;font-family:‘DM Mono’,monospace;flex-shrink:0;}
-.age-input{width:48px;background:#fdf5fa;border:1.5px solid #f0d0e8;border-radius:7px;padding:4px 6px;font-size:12px;font-family:‘DM Mono’,monospace;color:#2d1228;text-align:center;outline:none;}
+.age-pct{font-size:11px;font-weight:900;color:#e0389a;width:34px;text-align:right;font-family:'DM Mono',monospace;flex-shrink:0;}
+.age-input{width:48px;background:#fdf5fa;border:1.5px solid #f0d0e8;border-radius:7px;padding:4px 6px;font-size:12px;font-family:'DM Mono',monospace;color:#2d1228;text-align:center;outline:none;}
 .age-input:focus{border-color:#e0389a;}
 .ta-total{display:flex;justify-content:space-between;align-items:center;background:#fdf5fa;border:1px solid #f0d0e8;border-radius:8px;padding:7px 12px;margin-top:4px;}
 .ta-total-label{font-size:11px;color:#a06080;}
-.ta-total-val{font-size:13px;font-weight:900;font-family:‘DM Mono’,monospace;}
+.ta-total-val{font-size:13px;font-weight:900;font-family:'DM Mono',monospace;}
 .ta-total-val.ok{color:#7ab840;}
 .ta-total-val.warn{color:#e0389a;}
 .ta-chip-group{display:flex;flex-wrap:wrap;gap:7px;}
-.ta-chip{padding:7px 14px;border-radius:999px;border:1.5px solid #f0d0e8;background:#fdf5fa;font-size:12px;cursor:pointer;transition:background-color .1s,border-color .1s,color .1s;color:#2d1228;font-family:‘Noto Sans TC’,sans-serif;-webkit-tap-highlight-color:transparent;}
+.ta-chip{padding:7px 14px;border-radius:999px;border:1.5px solid #f0d0e8;background:#fdf5fa;font-size:12px;cursor:pointer;transition:background-color .1s,border-color .1s,color .1s;color:#2d1228;font-family:'Noto Sans TC',sans-serif;-webkit-tap-highlight-color:transparent;}
 .ta-chip:hover{border-color:#e0389a;}
 .ta-chip.on{background:#e0389a;border-color:#e0389a;color:#fff;font-weight:700;}
-.ta-analyze-btn{width:100%;background:#e0389a;color:#fff;font-family:‘Noto Sans TC’,sans-serif;font-weight:900;font-size:14px;padding:14px;border-radius:999px;border:none;cursor:pointer;box-shadow:0 4px 18px rgba(224,56,154,.3);transition:all .2s;margin-top:4px;}
+.ta-analyze-btn{width:100%;background:#e0389a;color:#fff;font-family:'Noto Sans TC',sans-serif;font-weight:900;font-size:14px;padding:14px;border-radius:999px;border:none;cursor:pointer;box-shadow:0 4px 18px rgba(224,56,154,.3);transition:all .2s;margin-top:4px;}
 .ta-analyze-btn:hover{transform:translateY(-1px);box-shadow:0 6px 24px rgba(224,56,154,.4);}
 .ta-analyze-btn:disabled{opacity:.5;cursor:default;transform:none;}
 /* Result */
@@ -395,9 +394,9 @@ body{background:#fce8f5;color:#2d1228;font-family:'Noto Sans TC',sans-serif;min-
 .scf-lbl{font-size:9px;color:#c090b0;}
 .scf-val{font-size:11px;font-weight:700;color:#e0389a;margin-top:1px;}
 .saved-card-btns{display:flex;gap:8px;flex-wrap:wrap;}
-.sc-btn-view{flex:1;background:#e0389a;color:#fff;font-family:‘Noto Sans TC’,sans-serif;font-weight:700;font-size:13px;padding:10px 16px;border-radius:999px;border:none;cursor:pointer;transition:all .2s;text-align:center;}
+.sc-btn-view{flex:1;background:#e0389a;color:#fff;font-family:'Noto Sans TC',sans-serif;font-weight:700;font-size:13px;padding:10px 16px;border-radius:999px;border:none;cursor:pointer;transition:all .2s;text-align:center;}
 .sc-btn-view:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(224,56,154,.35);}
-.sc-btn-restart{background:transparent;color:#c090b0;font-family:‘Noto Sans TC’,sans-serif;font-size:12px;padding:10px 16px;border-radius:999px;border:1.5px solid #f0d0e8;cursor:pointer;transition:all .2s;}
+.sc-btn-restart{background:transparent;color:#c090b0;font-family:'Noto Sans TC',sans-serif;font-size:12px;padding:10px 16px;border-radius:999px;border:1.5px solid #f0d0e8;cursor:pointer;transition:all .2s;}
 .sc-btn-restart:hover{border-color:#e0389a;color:#e0389a;}
 
 /* ══ ORIGINAL STYLES ══ */
@@ -425,12 +424,12 @@ h1 em{color:#e0389a;font-style:normal;}
 .feat-icon{font-size:18px;margin-bottom:4px;}
 .feat-title{font-size:12px;font-weight:900;color:#e0389a;margin-bottom:2px;}
 .feat-desc{font-size:11px;color:#a06080;line-height:1.45;}
-.btn{background:#e0389a;color:#fff;font-family:‘Noto Sans TC’,sans-serif;font-weight:900;font-size:14px;padding:14px 42px;border-radius:999px;border:none;cursor:pointer;box-shadow:0 4px 18px rgba(224,56,154,.3);transition:transform .2s,box-shadow .2s;}
+.btn{background:#e0389a;color:#fff;font-family:'Noto Sans TC',sans-serif;font-weight:900;font-size:14px;padding:14px 42px;border-radius:999px;border:none;cursor:pointer;box-shadow:0 4px 18px rgba(224,56,154,.3);transition:transform .2s,box-shadow .2s;}
 .btn:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(224,56,154,.45);}
-.btn-ghost{background:transparent;border:1.5px solid #e8c0d8;color:#c090b0;font-family:‘Noto Sans TC’,sans-serif;font-size:12px;padding:9px 20px;border-radius:999px;cursor:pointer;transition:all .2s;}
+.btn-ghost{background:transparent;border:1.5px solid #e8c0d8;color:#c090b0;font-family:'Noto Sans TC',sans-serif;font-size:12px;padding:9px 20px;border-radius:999px;cursor:pointer;transition:all .2s;}
 .btn-ghost:hover{border-color:#e0389a;color:#e0389a;}
 .btn-ghost:disabled{opacity:.3;cursor:default;pointer-events:none;}
-.btn-next{background:#e0389a;color:#fff;font-family:‘Noto Sans TC’,sans-serif;font-weight:700;font-size:13px;padding:11px 26px;border-radius:999px;border:none;cursor:pointer;transition:all .2s;opacity:.3;pointer-events:none;}
+.btn-next{background:#e0389a;color:#fff;font-family:'Noto Sans TC',sans-serif;font-weight:700;font-size:13px;padding:11px 26px;border-radius:999px;border:none;cursor:pointer;transition:all .2s;opacity:.3;pointer-events:none;}
 .btn-next.on{opacity:1;pointer-events:all;}
 .btn-next.on:hover{transform:translateY(-1px);box-shadow:0 5px 18px rgba(224,56,154,.4);}
 .prog-wrap{display:flex;align-items:center;gap:10px;margin-bottom:20px;}
@@ -452,7 +451,7 @@ h1 em{color:#e0389a;font-style:normal;}
 .multi-note{font-size:10px;color:#c090b0;margin-top:8px;}
 .opt-dot{width:18px;height:18px;border-radius:50%;border:1.5px solid #e8c0d8;flex-shrink:0;margin-top:2px;display:flex;align-items:center;justify-content:center;transition:all .15s;}
 .opt.sel .opt-dot{background:#e0389a;border-color:#e0389a;}
-.opt-dot::after{content:’’;width:6px;height:6px;border-radius:50%;background:#fff;opacity:0;transition:opacity .15s;}
+.opt-dot::after{content:'';width:6px;height:6px;border-radius:50%;background:#fff;opacity:0;transition:opacity .15s;}
 .opt.sel .opt-dot::after{opacity:1;}
 .opt-body{flex:1;}
 .opt-text{font-size:12px;line-height:1.55;color:#2d1228;}
@@ -495,7 +494,7 @@ h1 em{color:#e0389a;font-style:normal;}
 .sub-opt.on{background:#e0389a;border-color:#e0389a;color:#fff;font-weight:700;}
 .past-note{background:#fff;border:1.5px solid #f0d0e8;border-radius:14px;padding:16px;margin-bottom:16px;}
 .past-note label{display:block;font-size:12px;font-weight:700;color:#2d1228;margin-bottom:8px;}
-.past-note textarea{width:100%;border:1.5px solid #f0d0e8;border-radius:9px;padding:10px 12px;font-family:‘Noto Sans TC’,sans-serif;font-size:12px;color:#2d1228;resize:none;outline:none;line-height:1.6;background:#fdf5fa;}
+.past-note textarea{width:100%;border:1.5px solid #f0d0e8;border-radius:9px;padding:10px 12px;font-family:'Noto Sans TC',sans-serif;font-size:12px;color:#2d1228;resize:none;outline:none;line-height:1.6;background:#fdf5fa;}
 .past-note textarea:focus{border-color:#e0389a;}
 .past-note textarea::placeholder{color:#c090b0;}
 .result-page-nav{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;padding:10px 14px;background:#fff;border:1.5px solid #f0d0e8;border-radius:12px;}
@@ -681,16 +680,14 @@ h1 em{color:#e0389a;font-style:normal;}
 .ai-note-loading{font-size:11px;color:#c090b0;font-style:italic;}
 .tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px;}
 .tag{background:rgba(224,56,154,.08);border:1px solid rgba(224,56,154,.2);color:#e0389a;font-size:11px;padding:4px 11px;border-radius:999px;}
-.btn-retry{display:block;width:100%;background:#fff;border:1.5px solid #f0d0e8;color:#c090b0;font-family:‘Noto Sans TC’,sans-serif;font-size:13px;padding:12px;border-radius:11px;cursor:pointer;transition:all .2s;margin-top:10px;}
+.btn-retry{display:block;width:100%;background:#fff;border:1.5px solid #f0d0e8;color:#c090b0;font-family:'Noto Sans TC',sans-serif;font-size:13px;padding:12px;border-radius:11px;cursor:pointer;transition:all .2s;margin-top:10px;}
 .btn-retry:hover{border-color:#e0389a;color:#e0389a;}
 @media(max-width:480px){.formula-row{gap:3px;}.fb{min-width:58px;padding:7px 9px;}.name-ex-row{grid-template-columns:1fr;}}
 </style>
-
 </head>
 <body>
 
 <!-- ══ WELCOME SCREEN ══ -->
-
 <div id="welcome-screen">
   <div class="wlc-bg"></div>
   <div class="wlc-blob wlc-blob-1"></div>
@@ -726,11 +723,9 @@ h1 em{color:#e0389a;font-style:normal;}
 </div>
 
 <!-- ══ SETTINGS BTN ══ -->
-
 <button id="settings-btn" onclick="openSettings()" title="設定">⚙️</button>
 
 <!-- ══ SETTINGS MODAL ══ -->
-
 <div id="settings-modal">
   <div class="settings-box">
     <div class="settings-title">⚙️ 設定</div>
@@ -744,7 +739,6 @@ h1 em{color:#e0389a;font-style:normal;}
 </div>
 
 <!-- ══ NAME MODAL ══ -->
-
 <div id="name-modal">
   <div class="name-modal-box">
     <div class="nm-icon">✨</div>
@@ -757,7 +751,6 @@ h1 em{color:#e0389a;font-style:normal;}
 </div>
 
 <!-- INTRO -->
-
 <div id="p-intro" class="page on">
   <div class="inner">
     <span class="logo-star">✦</span>
@@ -785,7 +778,6 @@ h1 em{color:#e0389a;font-style:normal;}
 </div>
 
 <!-- QUIZ -->
-
 <div id="p-quiz" class="page">
   <div class="inner">
     <div class="prog-wrap">
@@ -801,7 +793,6 @@ h1 em{color:#e0389a;font-style:normal;}
 </div>
 
 <!-- PAST -->
-
 <div id="p-past" class="page">
   <div class="inner">
     <div style="margin-bottom:5px;font-size:10px;color:#c090b0;letter-spacing:.1em;text-transform:uppercase;">加分題</div>
@@ -829,7 +820,6 @@ h1 em{color:#e0389a;font-style:normal;}
 </div>
 
 <!-- RESULT PAGE A -->
-
 <div id="p-result-a" class="page">
   <div class="inner">
     <div class="result-page-nav">
@@ -843,7 +833,6 @@ h1 em{color:#e0389a;font-style:normal;}
 </div>
 
 <!-- RESULT PAGE B -->
-
 <div id="p-result-b" class="page">
   <div class="inner">
     <div class="result-page-nav">
@@ -857,7 +846,6 @@ h1 em{color:#e0389a;font-style:normal;}
 </div>
 
 <!-- RESULT PAGE C -->
-
 <div id="p-result-c" class="page">
   <div class="inner">
     <div class="result-page-nav">
@@ -871,7 +859,6 @@ h1 em{color:#e0389a;font-style:normal;}
 </div>
 
 <!-- RESULT PAGE D -->
-
 <div id="p-result-d" class="page">
   <div class="inner">
     <div class="result-page-nav">
@@ -885,7 +872,6 @@ h1 em{color:#e0389a;font-style:normal;}
 </div>
 
 <!-- ══ CONTENT GUIDE PAGE ══ -->
-
 <div id="p-guide" class="page">
   <div class="inner">
     <div style="padding:20px 0 14px">
@@ -897,7 +883,6 @@ h1 em{color:#e0389a;font-style:normal;}
 </div>
 
 <!-- ══ AUDIENCE ANALYSIS PAGE ══ -->
-
 <div id="p-audience" class="page">
   <div class="inner">
     <div style="padding:20px 0 14px">
@@ -905,122 +890,118 @@ h1 em{color:#e0389a;font-style:normal;}
       <div style="font-size:12px;color:#a06080;line-height:1.6;">把你的 IG 洞察數據填進來，分析你的粉絲是不是你的目標客群，找出為什麼有粉絲卻沒辦法變現。</div>
     </div>
 
-```
-<!-- Age -->
-<div class="ta-section">
-  <div class="ta-section-title">📊 年齡分佈（來自 IG 洞察）</div>
-  <div id="age-rows">
-    <div class="age-row"><span class="age-label">13–17</span><div class="age-bar-wrap"><div class="age-bar-fill" id="bar-a13" style="width:0%"></div></div><input class="age-input" id="age-13" type="number" min="0" max="100" value="0" oninput="syncAge()"></div>
-    <div class="age-row"><span class="age-label">18–24</span><div class="age-bar-wrap"><div class="age-bar-fill" id="bar-a18" style="width:0%"></div></div><input class="age-input" id="age-18" type="number" min="0" max="100" value="0" oninput="syncAge()"></div>
-    <div class="age-row"><span class="age-label">25–34</span><div class="age-bar-wrap"><div class="age-bar-fill" id="bar-a25" style="width:50%"></div></div><input class="age-input" id="age-25" type="number" min="0" max="100" value="50" oninput="syncAge()"></div>
-    <div class="age-row"><span class="age-label">35–44</span><div class="age-bar-wrap"><div class="age-bar-fill" id="bar-a35" style="width:30%"></div></div><input class="age-input" id="age-35" type="number" min="0" max="100" value="30" oninput="syncAge()"></div>
-    <div class="age-row"><span class="age-label">45–54</span><div class="age-bar-wrap"><div class="age-bar-fill" id="bar-a45" style="width:15%"></div></div><input class="age-input" id="age-45" type="number" min="0" max="100" value="15" oninput="syncAge()"></div>
-    <div class="age-row"><span class="age-label">55+</span><div class="age-bar-wrap"><div class="age-bar-fill" id="bar-a55" style="width:5%"></div></div><input class="age-input" id="age-55" type="number" min="0" max="100" value="5" oninput="syncAge()"></div>
-  </div>
-  <div class="ta-total"><span class="ta-total-label">合計</span><span class="ta-total-val ok" id="age-total">100%</span></div>
-</div>
-
-<!-- Gender side by side -->
-<div class="ta-section">
-  <div class="ta-section-title">⚧ 性別比例</div>
-  <div style="font-size:11px;color:#a06080;margin-bottom:12px;">目標：<strong style="color:#e0389a">女性 80% 以上</strong> 才是最佳變現受眾</div>
-  <div class="gender-split-wrap">
-    <div class="gender-side gender-female">
-      <div class="gender-icon">👩</div>
-      <div class="gender-label">女性</div>
-      <div class="gender-val-big" id="female-pct-display" style="color:#e0389a;">70%</div>
-      <div class="gender-status" id="female-status">⚠️ 未達標</div>
-    </div>
-    <div class="gender-divider">
-      <div style="position:relative;height:24px;margin-bottom:4px;">
-        <div class="gender-bar-wrap" style="position:absolute;top:50%;transform:translateY(-50%);width:100%;">
-          <div class="gender-bar-f" id="gender-bar-f" style="width:70%"></div>
-          <div class="gender-bar-m" id="gender-bar-m" style="width:30%"></div>
-        </div>
-        <input type="range" id="female-pct" min="0" max="100" value="70"
-          style="position:absolute;top:0;left:0;width:100%;height:100%;opacity:0;cursor:pointer;z-index:2;"
-          oninput="syncGenderSplit()">
+    <!-- Age -->
+    <div class="ta-section">
+      <div class="ta-section-title">📊 年齡分佈（來自 IG 洞察）</div>
+      <div id="age-rows">
+        <div class="age-row"><span class="age-label">13–17</span><div class="age-bar-wrap"><div class="age-bar-fill" id="bar-a13" style="width:0%"></div></div><input class="age-input" id="age-13" type="number" min="0" max="100" value="0" oninput="syncAge()"></div>
+        <div class="age-row"><span class="age-label">18–24</span><div class="age-bar-wrap"><div class="age-bar-fill" id="bar-a18" style="width:0%"></div></div><input class="age-input" id="age-18" type="number" min="0" max="100" value="0" oninput="syncAge()"></div>
+        <div class="age-row"><span class="age-label">25–34</span><div class="age-bar-wrap"><div class="age-bar-fill" id="bar-a25" style="width:50%"></div></div><input class="age-input" id="age-25" type="number" min="0" max="100" value="50" oninput="syncAge()"></div>
+        <div class="age-row"><span class="age-label">35–44</span><div class="age-bar-wrap"><div class="age-bar-fill" id="bar-a35" style="width:30%"></div></div><input class="age-input" id="age-35" type="number" min="0" max="100" value="30" oninput="syncAge()"></div>
+        <div class="age-row"><span class="age-label">45–54</span><div class="age-bar-wrap"><div class="age-bar-fill" id="bar-a45" style="width:15%"></div></div><input class="age-input" id="age-45" type="number" min="0" max="100" value="15" oninput="syncAge()"></div>
+        <div class="age-row"><span class="age-label">55+</span><div class="age-bar-wrap"><div class="age-bar-fill" id="bar-a55" style="width:5%"></div></div><input class="age-input" id="age-55" type="number" min="0" max="100" value="5" oninput="syncAge()"></div>
       </div>
-      <div style="font-size:10px;color:#c090b0;text-align:center;">← 左右滑動調整 →</div>
+      <div class="ta-total"><span class="ta-total-label">合計</span><span class="ta-total-val ok" id="age-total">100%</span></div>
     </div>
-    <div class="gender-side gender-male">
-      <div class="gender-icon">👨</div>
-      <div class="gender-label">男性</div>
-      <div class="gender-val-big" id="male-pct-display">30%</div>
-      <div class="gender-status" style="color:#6b9ab8;">自動計算</div>
-    </div>
-  </div>
-</div>
 
-<!-- Metrics -->
-<div class="ta-section">
-  <div class="ta-section-title">📊 帳號數據（來自 IG 洞察）</div>
-  <div style="font-size:11px;color:#a06080;margin-bottom:12px;">目標受眾年齡：<strong style="color:#e0389a">25–40 歲</strong> 為核心變現區間</div>
-  <div class="ta-field">
-    <div class="ta-label"><span>目前粉絲數</span></div>
-    <input type="number" id="metric-followers" class="age-input" style="width:100%;max-width:160px;" placeholder="例：5000" min="0" oninput="syncMetrics()">
-  </div>
-  <div class="ta-field" style="margin-top:10px;">
-    <div class="ta-label"><span>限動平均觀看人數</span><span style="font-size:10px;color:#c090b0;">(近7天平均)</span></div>
-    <input type="number" id="metric-story" class="age-input" style="width:100%;max-width:160px;" placeholder="例：300" min="0" oninput="syncMetrics()">
-  </div>
-  <div class="ta-field" style="margin-top:10px;">
-    <div class="ta-label"><span>平均 Reels 瀏覽數</span><span style="font-size:10px;color:#c090b0;">(近3支平均)</span></div>
-    <input type="number" id="metric-reels" class="age-input" style="width:100%;max-width:160px;" placeholder="例：2000" min="0" oninput="syncMetrics()">
-  </div>
-  <div id="metrics-preview" style="margin-top:14px;display:none;">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
-      <div class="ta-metric-card" id="mc-story"></div>
-      <div class="ta-metric-card" id="mc-reels"></div>
+    <!-- Gender side by side -->
+    <div class="ta-section">
+      <div class="ta-section-title">⚧ 性別比例</div>
+      <div style="font-size:11px;color:#a06080;margin-bottom:12px;">目標：<strong style="color:#e0389a">女性 80% 以上</strong> 才是最佳變現受眾</div>
+      <div class="gender-split-wrap">
+        <div class="gender-side gender-female">
+          <div class="gender-icon">👩</div>
+          <div class="gender-label">女性</div>
+          <div class="gender-val-big" id="female-pct-display" style="color:#e0389a;">70%</div>
+          <div class="gender-status" id="female-status">⚠️ 未達標</div>
+        </div>
+        <div class="gender-divider">
+          <div style="position:relative;height:24px;margin-bottom:4px;">
+            <div class="gender-bar-wrap" style="position:absolute;top:50%;transform:translateY(-50%);width:100%;">
+              <div class="gender-bar-f" id="gender-bar-f" style="width:70%"></div>
+              <div class="gender-bar-m" id="gender-bar-m" style="width:30%"></div>
+            </div>
+            <input type="range" id="female-pct" min="0" max="100" value="70"
+              style="position:absolute;top:0;left:0;width:100%;height:100%;opacity:0;cursor:pointer;z-index:2;"
+              oninput="syncGenderSplit()">
+          </div>
+          <div style="font-size:10px;color:#c090b0;text-align:center;">← 左右滑動調整 →</div>
+        </div>
+        <div class="gender-side gender-male">
+          <div class="gender-icon">👨</div>
+          <div class="gender-label">男性</div>
+          <div class="gender-val-big" id="male-pct-display">30%</div>
+          <div class="gender-status" style="color:#6b9ab8;">自動計算</div>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
-<div class="ta-section">
-  <div class="ta-section-title">📈 最近 3 個月狀況</div>
-  <div class="ta-field">
-    <div class="ta-label" style="margin-bottom:9px;">粉絲成長速度</div>
-    <div class="ta-chip-group" id="growth-chips">
-      <div class="ta-chip on" onclick="pickChip('growth',this,'負成長')">負成長</div>
-      <div class="ta-chip" onclick="pickChip('growth',this,'緩慢成長')">緩慢成長</div>
-      <div class="ta-chip" onclick="pickChip('growth',this,'穩定成長')">穩定成長</div>
-      <div class="ta-chip" onclick="pickChip('growth',this,'快速成長')">快速成長</div>
-    </div>
-  </div>
-  <div class="ta-field" style="margin-top:14px;">
-    <div class="ta-label" style="margin-bottom:9px;">變現狀況</div>
-    <div class="ta-chip-group" id="money-chips">
-      <div class="ta-chip on" onclick="pickChip('money',this,'完全沒有')">完全沒有</div>
-      <div class="ta-chip" onclick="pickChip('money',this,'偶爾有')">偶爾有</div>
-      <div class="ta-chip" onclick="pickChip('money',this,'穩定收入')">穩定收入</div>
-      <div class="ta-chip" onclick="pickChip('money',this,'高變現')">高變現</div>
-    </div>
-  </div>
-  <div class="ta-field" style="margin-top:14px;">
-    <div class="ta-label" style="margin-bottom:9px;">主要發文方向（可多選）</div>
-    <div class="ta-chip-group" id="content-chips">
-      <div class="ta-chip" onclick="toggleChip(this,'變美/美妝')">💄 變美/美妝</div>
-      <div class="ta-chip" onclick="toggleChip(this,'健身/跳操')">💪 健身/跳操</div>
-      <div class="ta-chip" onclick="toggleChip(this,'穿搭')">👗 穿搭</div>
-      <div class="ta-chip" onclick="toggleChip(this,'搞笑/口播')">😂 搞笑/口播</div>
-      <div class="ta-chip" onclick="toggleChip(this,'情侶日常')">💑 情侶日常</div>
-      <div class="ta-chip" onclick="toggleChip(this,'食譜/美食')">🍳 食譜</div>
-      <div class="ta-chip" onclick="toggleChip(this,'心靈成長')">🌿 心靈成長</div>
-      <div class="ta-chip" onclick="toggleChip(this,'好物開箱')">📦 好物開箱</div>
-      <div class="ta-chip" onclick="toggleChip(this,'Vlog')">📹 Vlog</div>
-      <div class="ta-chip" onclick="toggleChip(this,'星座')">⭐ 星座</div>
-    </div>
-  </div>
-</div>
 
-<button class="ta-analyze-btn" id="ta-btn" onclick="runAudienceAnalysis()">✦ 分析我的受眾</button>
-<div id="ta-result-wrap" style="margin-top:16px;"></div>
-```
+    <!-- Metrics -->
+    <div class="ta-section">
+      <div class="ta-section-title">📊 帳號數據（來自 IG 洞察）</div>
+      <div style="font-size:11px;color:#a06080;margin-bottom:12px;">目標受眾年齡：<strong style="color:#e0389a">25–40 歲</strong> 為核心變現區間</div>
+      <div class="ta-field">
+        <div class="ta-label"><span>目前粉絲數</span></div>
+        <input type="number" id="metric-followers" class="age-input" style="width:100%;max-width:160px;" placeholder="例：5000" min="0" oninput="syncMetrics()">
+      </div>
+      <div class="ta-field" style="margin-top:10px;">
+        <div class="ta-label"><span>限動平均觀看人數</span><span style="font-size:10px;color:#c090b0;">(近7天平均)</span></div>
+        <input type="number" id="metric-story" class="age-input" style="width:100%;max-width:160px;" placeholder="例：300" min="0" oninput="syncMetrics()">
+      </div>
+      <div class="ta-field" style="margin-top:10px;">
+        <div class="ta-label"><span>平均 Reels 瀏覽數</span><span style="font-size:10px;color:#c090b0;">(近3支平均)</span></div>
+        <input type="number" id="metric-reels" class="age-input" style="width:100%;max-width:160px;" placeholder="例：2000" min="0" oninput="syncMetrics()">
+      </div>
+      <div id="metrics-preview" style="margin-top:14px;display:none;">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+          <div class="ta-metric-card" id="mc-story"></div>
+          <div class="ta-metric-card" id="mc-reels"></div>
+        </div>
+      </div>
+    </div>
+    <div class="ta-section">
+      <div class="ta-section-title">📈 最近 3 個月狀況</div>
+      <div class="ta-field">
+        <div class="ta-label" style="margin-bottom:9px;">粉絲成長速度</div>
+        <div class="ta-chip-group" id="growth-chips">
+          <div class="ta-chip on" onclick="pickChip('growth',this,'負成長')">負成長</div>
+          <div class="ta-chip" onclick="pickChip('growth',this,'緩慢成長')">緩慢成長</div>
+          <div class="ta-chip" onclick="pickChip('growth',this,'穩定成長')">穩定成長</div>
+          <div class="ta-chip" onclick="pickChip('growth',this,'快速成長')">快速成長</div>
+        </div>
+      </div>
+      <div class="ta-field" style="margin-top:14px;">
+        <div class="ta-label" style="margin-bottom:9px;">變現狀況</div>
+        <div class="ta-chip-group" id="money-chips">
+          <div class="ta-chip on" onclick="pickChip('money',this,'完全沒有')">完全沒有</div>
+          <div class="ta-chip" onclick="pickChip('money',this,'偶爾有')">偶爾有</div>
+          <div class="ta-chip" onclick="pickChip('money',this,'穩定收入')">穩定收入</div>
+          <div class="ta-chip" onclick="pickChip('money',this,'高變現')">高變現</div>
+        </div>
+      </div>
+      <div class="ta-field" style="margin-top:14px;">
+        <div class="ta-label" style="margin-bottom:9px;">主要發文方向（可多選）</div>
+        <div class="ta-chip-group" id="content-chips">
+          <div class="ta-chip" onclick="toggleChip(this,'變美/美妝')">💄 變美/美妝</div>
+          <div class="ta-chip" onclick="toggleChip(this,'健身/跳操')">💪 健身/跳操</div>
+          <div class="ta-chip" onclick="toggleChip(this,'穿搭')">👗 穿搭</div>
+          <div class="ta-chip" onclick="toggleChip(this,'搞笑/口播')">😂 搞笑/口播</div>
+          <div class="ta-chip" onclick="toggleChip(this,'情侶日常')">💑 情侶日常</div>
+          <div class="ta-chip" onclick="toggleChip(this,'食譜/美食')">🍳 食譜</div>
+          <div class="ta-chip" onclick="toggleChip(this,'心靈成長')">🌿 心靈成長</div>
+          <div class="ta-chip" onclick="toggleChip(this,'好物開箱')">📦 好物開箱</div>
+          <div class="ta-chip" onclick="toggleChip(this,'Vlog')">📹 Vlog</div>
+          <div class="ta-chip" onclick="toggleChip(this,'星座')">⭐ 星座</div>
+        </div>
+      </div>
+    </div>
 
+    <button class="ta-analyze-btn" id="ta-btn" onclick="runAudienceAnalysis()">✦ 分析我的受眾</button>
+    <div id="ta-result-wrap" style="margin-top:16px;"></div>
   </div>
 </div>
 
 <!-- ══ VIDEO REFERENCE PAGE ══ -->
-
 <div id="p-videos" class="page">
   <div class="inner">
     <div class="vid-header">
@@ -1032,7 +1013,6 @@ h1 em{color:#e0389a;font-style:normal;}
 </div>
 
 <!-- ══ MY POSITIONING EMPTY PAGE ══ -->
-
 <div id="p-mypos-empty" class="page">
   <div class="inner">
     <div class="my-pos-empty">
@@ -1045,7 +1025,6 @@ h1 em{color:#e0389a;font-style:normal;}
 </div>
 
 <!-- ══ SELF EVAL PAGE ══ -->
-
 <div id="p-selfeval" class="page">
   <div class="inner">
     <div style="padding:20px 0 14px">
@@ -1053,93 +1032,89 @@ h1 em{color:#e0389a;font-style:normal;}
       <div style="font-size:12px;color:#a06080;line-height:1.6;">打造爆款流量池檢核表 + 每支影片發布前自評</div>
     </div>
 
-```
-<!-- 打造爆款流量池 檢核表 -->
-<div class="ta-section">
-  <div class="ta-section-title" style="font-size:14px;">🏆 打造爆款流量池 檢核表</div>
-  <div style="font-size:11px;color:#a06080;margin-bottom:14px;">逐項確認，勾選後查看每項的具體建議</div>
+    <!-- 打造爆款流量池 檢核表 -->
+    <div class="ta-section">
+      <div class="ta-section-title" style="font-size:14px;">🏆 打造爆款流量池 檢核表</div>
+      <div style="font-size:11px;color:#a06080;margin-bottom:14px;">逐項確認，勾選後查看每項的具體建議</div>
 
-  <div style="margin-bottom:14px;">
-    <div style="font-size:11px;font-weight:900;color:#e0389a;letter-spacing:.06em;margin-bottom:7px;">引流前準備</div>
-    <label class="hc-row"><input type="checkbox" class="hc-cb" id="hc-0" onchange="hcToggle(0)"><span>抖音 IG 雙平台經營</span></label>
-    <label class="hc-row"><input type="checkbox" class="hc-cb" id="hc-1" onchange="hcToggle(1)"><span>設定好引流目標族群</span></label>
-    <label class="hc-row"><input type="checkbox" class="hc-cb" id="hc-2" onchange="hcToggle(2)"><span>確立自己的帳號定位</span></label>
-    <label class="hc-row"><input type="checkbox" class="hc-cb" id="hc-3" onchange="hcToggle(3)"><span>每週擬定增粉目標 / 月目標</span></label>
-  </div>
+      <div style="margin-bottom:14px;">
+        <div style="font-size:11px;font-weight:900;color:#e0389a;letter-spacing:.06em;margin-bottom:7px;">引流前準備</div>
+        <label class="hc-row"><input type="checkbox" class="hc-cb" id="hc-0" onchange="hcToggle(0)"><span>抖音 IG 雙平台經營</span></label>
+        <label class="hc-row"><input type="checkbox" class="hc-cb" id="hc-1" onchange="hcToggle(1)"><span>設定好引流目標族群</span></label>
+        <label class="hc-row"><input type="checkbox" class="hc-cb" id="hc-2" onchange="hcToggle(2)"><span>確立自己的帳號定位</span></label>
+        <label class="hc-row"><input type="checkbox" class="hc-cb" id="hc-3" onchange="hcToggle(3)"><span>每週擬定增粉目標 / 月目標</span></label>
+      </div>
 
-  <div style="margin-bottom:14px;">
-    <div style="font-size:11px;font-weight:900;color:#2980b9;letter-spacing:.06em;margin-bottom:7px;">影片技巧 — 黃金三法則</div>
-    <label class="hc-row"><input type="checkbox" class="hc-cb" id="hc-4" onchange="hcToggle(4)"><span>掌握黃金前三秒</span></label>
-    <label class="hc-row"><input type="checkbox" class="hc-cb" id="hc-5" onchange="hcToggle(5)"><span>精準的主題定位</span></label>
-    <label class="hc-row"><input type="checkbox" class="hc-cb" id="hc-6" onchange="hcToggle(6)"><span>快節奏剪輯</span></label>
-  </div>
+      <div style="margin-bottom:14px;">
+        <div style="font-size:11px;font-weight:900;color:#2980b9;letter-spacing:.06em;margin-bottom:7px;">影片技巧 — 黃金三法則</div>
+        <label class="hc-row"><input type="checkbox" class="hc-cb" id="hc-4" onchange="hcToggle(4)"><span>掌握黃金前三秒</span></label>
+        <label class="hc-row"><input type="checkbox" class="hc-cb" id="hc-5" onchange="hcToggle(5)"><span>精準的主題定位</span></label>
+        <label class="hc-row"><input type="checkbox" class="hc-cb" id="hc-6" onchange="hcToggle(6)"><span>快節奏剪輯</span></label>
+      </div>
 
-  <div style="margin-bottom:14px;">
-    <div style="font-size:11px;font-weight:900;color:#c0392b;letter-spacing:.06em;margin-bottom:7px;">公域引流私域成交</div>
-    <label class="hc-row"><input type="checkbox" class="hc-cb" id="hc-7" onchange="hcToggle(7)"><span>利用起承轉合寫故事</span></label>
-    <label class="hc-row"><input type="checkbox" class="hc-cb" id="hc-8" onchange="hcToggle(8)"><span>版面打造做好做滿</span></label>
-    <label class="hc-row"><input type="checkbox" class="hc-cb" id="hc-9" onchange="hcToggle(9)"><span>限動每天曝光、提供有價值內容</span></label>
-    <label class="hc-row"><input type="checkbox" class="hc-cb" id="hc-10" onchange="hcToggle(10)"><span>限動輸出價值觀、跟粉絲互動</span></label>
-  </div>
+      <div style="margin-bottom:14px;">
+        <div style="font-size:11px;font-weight:900;color:#c0392b;letter-spacing:.06em;margin-bottom:7px;">公域引流私域成交</div>
+        <label class="hc-row"><input type="checkbox" class="hc-cb" id="hc-7" onchange="hcToggle(7)"><span>利用起承轉合寫故事</span></label>
+        <label class="hc-row"><input type="checkbox" class="hc-cb" id="hc-8" onchange="hcToggle(8)"><span>版面打造做好做滿</span></label>
+        <label class="hc-row"><input type="checkbox" class="hc-cb" id="hc-9" onchange="hcToggle(9)"><span>限動每天曝光、提供有價值內容</span></label>
+        <label class="hc-row"><input type="checkbox" class="hc-cb" id="hc-10" onchange="hcToggle(10)"><span>限動輸出價值觀、跟粉絲互動</span></label>
+      </div>
 
-  <div style="margin-bottom:14px;">
-    <div style="font-size:11px;font-weight:900;color:#7f8c8d;letter-spacing:.06em;margin-bottom:7px;">引流後覆盤</div>
-    <label class="hc-row"><input type="checkbox" class="hc-cb" id="hc-11" onchange="hcToggle(11)"><span>每個月底更新魔術曲線</span></label>
-    <label class="hc-row"><input type="checkbox" class="hc-cb" id="hc-12" onchange="hcToggle(12)"><span>週目標 / 月目標覆盤</span></label>
-    <label class="hc-row"><input type="checkbox" class="hc-cb" id="hc-13" onchange="hcToggle(13)"><span>挑戰日更（堅持最少兩個月）</span></label>
-  </div>
+      <div style="margin-bottom:14px;">
+        <div style="font-size:11px;font-weight:900;color:#7f8c8d;letter-spacing:.06em;margin-bottom:7px;">引流後覆盤</div>
+        <label class="hc-row"><input type="checkbox" class="hc-cb" id="hc-11" onchange="hcToggle(11)"><span>每個月底更新魔術曲線</span></label>
+        <label class="hc-row"><input type="checkbox" class="hc-cb" id="hc-12" onchange="hcToggle(12)"><span>週目標 / 月目標覆盤</span></label>
+        <label class="hc-row"><input type="checkbox" class="hc-cb" id="hc-13" onchange="hcToggle(13)"><span>挑戰日更（堅持最少兩個月）</span></label>
+      </div>
 
-  <!-- Score + buttons -->
-  <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px;flex-wrap:wrap;">
-    <div style="flex:1;"><span style="font-size:22px;font-weight:900;color:#e0389a;" id="hc-score">0</span><span style="font-size:13px;color:#a06080;"> / 14 已掌握</span></div>
-    <button onclick="clearHC()" style="background:#fff;color:#a06080;border:1.5px solid #f0d0e8;border-radius:999px;padding:7px 14px;font-size:11px;font-weight:700;font-family:'Noto Sans TC',sans-serif;cursor:pointer;">🗑 清除全部</button>
-    <button onclick="toggleHCBreakdown()" id="hc-toggle-btn" style="background:#e0389a;color:#fff;border:none;border-radius:999px;padding:9px 16px;font-size:12px;font-weight:900;font-family:'Noto Sans TC',sans-serif;cursor:pointer;">✦ 查看建議</button>
-  </div>
-  <div id="hc-breakdown" style="display:none;"></div>
-</div>
-<div class="ta-section">
-  <div class="ta-section-title">📅 發布頻率</div>
-  <div class="ta-field">
-    <div class="ta-label" style="margin-bottom:8px;">上一則 Reels 發布日期</div>
-    <input type="date" id="se-last-date" style="background:#fdf5fa;border:1.5px solid #f0d0e8;border-radius:10px;padding:8px 12px;font-family:'Noto Sans TC',sans-serif;font-size:14px;color:#2d1228;outline:none;width:100%;max-width:200px;" oninput="checkDateFreq()">
-    <div id="se-date-status" style="margin-top:8px;font-size:12px;color:#a06080;display:none;"></div>
-  </div>
-</div>
+      <!-- Score + buttons -->
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px;flex-wrap:wrap;">
+        <div style="flex:1;"><span style="font-size:22px;font-weight:900;color:#e0389a;" id="hc-score">0</span><span style="font-size:13px;color:#a06080;"> / 14 已掌握</span></div>
+        <button onclick="clearHC()" style="background:#fff;color:#a06080;border:1.5px solid #f0d0e8;border-radius:999px;padding:7px 14px;font-size:11px;font-weight:700;font-family:'Noto Sans TC',sans-serif;cursor:pointer;">🗑 清除全部</button>
+        <button onclick="toggleHCBreakdown()" id="hc-toggle-btn" style="background:#e0389a;color:#fff;border:none;border-radius:999px;padding:9px 16px;font-size:12px;font-weight:900;font-family:'Noto Sans TC',sans-serif;cursor:pointer;">✦ 查看建議</button>
+      </div>
+      <div id="hc-breakdown" style="display:none;"></div>
+    </div>
+    <div class="ta-section">
+      <div class="ta-section-title">📅 發布頻率</div>
+      <div class="ta-field">
+        <div class="ta-label" style="margin-bottom:8px;">上一則 Reels 發布日期</div>
+        <input type="date" id="se-last-date" style="background:#fdf5fa;border:1.5px solid #f0d0e8;border-radius:10px;padding:8px 12px;font-family:'Noto Sans TC',sans-serif;font-size:14px;color:#2d1228;outline:none;width:100%;max-width:200px;" oninput="checkDateFreq()">
+        <div id="se-date-status" style="margin-top:8px;font-size:12px;color:#a06080;display:none;"></div>
+      </div>
+    </div>
 
-<!-- Checklist -->
-<div class="ta-section">
-  <div class="ta-section-title">✅ 影片品質自評</div>
-  <div id="se-checklist">
-    <div class="cg-eval-item" id="se-0" onclick="toggleSE(0)"><div class="cg-eval-check" id="se-chk-0">✓</div><div class="cg-eval-text"><div class="cg-eval-label">影片 60 秒以內</div><div class="cg-eval-hint">超過60秒完播率會大幅下降，建議精剪至60秒內</div></div></div>
-    <div class="cg-eval-item" id="se-1" onclick="toggleSE(1)"><div class="cg-eval-check" id="se-chk-1">✓</div><div class="cg-eval-text"><div class="cg-eval-label">你自己入鏡超過 30 秒</div><div class="cg-eval-hint">讓觀眾看到你的臉和表情，建立信任感，才能從陌生人變鐵粉</div></div></div>
-    <div class="cg-eval-item" id="se-2" onclick="toggleSE(2)"><div class="cg-eval-check" id="se-chk-2">✓</div><div class="cg-eval-text"><div class="cg-eval-label">轉換至少三種角度拍攝</div><div class="cg-eval-hint">單一角度容易讓人視覺疲勞，多角度切換讓節奏更快、更好看</div></div></div>
-    <div class="cg-eval-item" id="se-3" onclick="toggleSE(3)"><div class="cg-eval-check" id="se-chk-3">✓</div><div class="cg-eval-text"><div class="cg-eval-label">錄音有情緒、語氣有變化</div><div class="cg-eval-hint">平淡的語氣讓人分心，情緒起伏是讓觀眾看完的關鍵</div></div></div>
-    <div class="cg-eval-item" id="se-4" onclick="toggleSE(4)"><div class="cg-eval-check" id="se-chk-4">✓</div><div class="cg-eval-text"><div class="cg-eval-label">花字、特效、動畫最多使用 1 種</div><div class="cg-eval-hint">只用1種讓重點突出；超過1種反而讓畫面複雜，觀眾不知道看哪裡</div></div></div>
-    <div class="cg-eval-item" id="se-5" onclick="toggleSE(5)"><div class="cg-eval-check" id="se-chk-5">✓</div><div class="cg-eval-text"><div class="cg-eval-label">開頭前三秒有明確鉤子</div><div class="cg-eval-hint">數字法、問題式、相差法、借勢法、驚訝式擇一</div></div></div>
-    <div class="cg-eval-item" id="se-6" onclick="toggleSE(6)"><div class="cg-eval-check" id="se-chk-6">✓</div><div class="cg-eval-text"><div class="cg-eval-label">有共鳴點及故事</div><div class="cg-eval-hint">讓觀眾覺得「這說的就是我」，才會停下來留言互動</div></div></div>
-    <div class="cg-eval-item" id="se-7" onclick="toggleSE(7)"><div class="cg-eval-check" id="se-chk-7">✓</div><div class="cg-eval-text"><div class="cg-eval-label">結尾有明確呼籲（收藏、追蹤、留言、分享）</div><div class="cg-eval-hint">好的內容質量才是根本，CTA 讓質量被更多人看到</div></div></div>
-  </div>
+    <!-- Checklist -->
+    <div class="ta-section">
+      <div class="ta-section-title">✅ 影片品質自評</div>
+      <div id="se-checklist">
+        <div class="cg-eval-item" id="se-0" onclick="toggleSE(0)"><div class="cg-eval-check" id="se-chk-0">✓</div><div class="cg-eval-text"><div class="cg-eval-label">影片 60 秒以內</div><div class="cg-eval-hint">超過60秒完播率會大幅下降，建議精剪至60秒內</div></div></div>
+        <div class="cg-eval-item" id="se-1" onclick="toggleSE(1)"><div class="cg-eval-check" id="se-chk-1">✓</div><div class="cg-eval-text"><div class="cg-eval-label">你自己入鏡超過 30 秒</div><div class="cg-eval-hint">讓觀眾看到你的臉和表情，建立信任感，才能從陌生人變鐵粉</div></div></div>
+        <div class="cg-eval-item" id="se-2" onclick="toggleSE(2)"><div class="cg-eval-check" id="se-chk-2">✓</div><div class="cg-eval-text"><div class="cg-eval-label">轉換至少三種角度拍攝</div><div class="cg-eval-hint">單一角度容易讓人視覺疲勞，多角度切換讓節奏更快、更好看</div></div></div>
+        <div class="cg-eval-item" id="se-3" onclick="toggleSE(3)"><div class="cg-eval-check" id="se-chk-3">✓</div><div class="cg-eval-text"><div class="cg-eval-label">錄音有情緒、語氣有變化</div><div class="cg-eval-hint">平淡的語氣讓人分心，情緒起伏是讓觀眾看完的關鍵</div></div></div>
+        <div class="cg-eval-item" id="se-4" onclick="toggleSE(4)"><div class="cg-eval-check" id="se-chk-4">✓</div><div class="cg-eval-text"><div class="cg-eval-label">花字、特效、動畫最多使用 1 種</div><div class="cg-eval-hint">只用1種讓重點突出；超過1種反而讓畫面複雜，觀眾不知道看哪裡</div></div></div>
+        <div class="cg-eval-item" id="se-5" onclick="toggleSE(5)"><div class="cg-eval-check" id="se-chk-5">✓</div><div class="cg-eval-text"><div class="cg-eval-label">開頭前三秒有明確鉤子</div><div class="cg-eval-hint">數字法、問題式、相差法、借勢法、驚訝式擇一</div></div></div>
+        <div class="cg-eval-item" id="se-6" onclick="toggleSE(6)"><div class="cg-eval-check" id="se-chk-6">✓</div><div class="cg-eval-text"><div class="cg-eval-label">有共鳴點及故事</div><div class="cg-eval-hint">讓觀眾覺得「這說的就是我」，才會停下來留言互動</div></div></div>
+        <div class="cg-eval-item" id="se-7" onclick="toggleSE(7)"><div class="cg-eval-check" id="se-chk-7">✓</div><div class="cg-eval-text"><div class="cg-eval-label">結尾有明確呼籲（收藏、追蹤、留言、分享）</div><div class="cg-eval-hint">好的內容質量才是根本，CTA 讓質量被更多人看到</div></div></div>
+      </div>
 
-  <div class="cg-eval-score" style="margin-top:12px;">
-    <div class="cg-eval-score-num" id="se-score">0 / 8</div>
-    <div class="cg-eval-score-label" id="se-score-label">勾選上方項目開始評分</div>
-  </div>
-</div>
+      <div class="cg-eval-score" style="margin-top:12px;">
+        <div class="cg-eval-score-num" id="se-score">0 / 8</div>
+        <div class="cg-eval-score-label" id="se-score-label">勾選上方項目開始評分</div>
+      </div>
+    </div>
 
-<!-- Static breakdown (collapsible) -->
-<div id="se-breakdown-section" style="display:none;"></div>
+    <!-- Static breakdown (collapsible) -->
+    <div id="se-breakdown-section" style="display:none;"></div>
 
-<div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:4px;">
-  <button onclick="clearSE()" style="flex:1;background:#fff;color:#a06080;border:1.5px solid #f0d0e8;border-radius:999px;padding:10px;font-size:12px;font-weight:700;font-family:'Noto Sans TC',sans-serif;cursor:pointer;">🗑 清除全部</button>
-  <button class="ta-analyze-btn" id="se-btn" onclick="runSelfEvalAnalysis()" style="flex:2;margin:0;">✦ 分析我的影片</button>
-</div>
-```
-
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:4px;">
+      <button onclick="clearSE()" style="flex:1;background:#fff;color:#a06080;border:1.5px solid #f0d0e8;border-radius:999px;padding:10px;font-size:12px;font-weight:700;font-family:'Noto Sans TC',sans-serif;cursor:pointer;">🗑 清除全部</button>
+      <button class="ta-analyze-btn" id="se-btn" onclick="runSelfEvalAnalysis()" style="flex:2;margin:0;">✦ 分析我的影片</button>
+    </div>
   </div>
 </div>
 
 <!-- ══ COURSES PAGE ══ -->
-
 <div id="p-courses" class="page">
   <div class="inner">
     <div style="padding:20px 0 14px">
@@ -1147,127 +1122,123 @@ h1 em{color:#e0389a;font-style:normal;}
       <div style="font-size:12px;color:#a06080;line-height:1.6;">根據你的現況選最適合的課程，點連結直接開啟 YouTube</div>
     </div>
 
-```
-<div id="courses-list">
-  <!-- Course 1 -->
-  <div style="background:#fff;border:1.5px solid #f0d0e8;border-radius:16px;padding:16px;margin-bottom:12px;">
-    <div style="display:flex;align-items:flex-start;gap:10px;margin-bottom:10px;">
-      <div style="width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,#e0389a,#f060b0);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;">▶️</div>
-      <div style="flex:1;">
-        <div style="font-size:13px;font-weight:900;color:#2d1228;line-height:1.4;margin-bottom:2px;">定位捉對流量加倍</div>
-        <div style="font-size:11px;color:#a06080;">@惠云</div>
+    <div id="courses-list">
+      <!-- Course 1 -->
+      <div style="background:#fff;border:1.5px solid #f0d0e8;border-radius:16px;padding:16px;margin-bottom:12px;">
+        <div style="display:flex;align-items:flex-start;gap:10px;margin-bottom:10px;">
+          <div style="width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,#e0389a,#f060b0);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;">▶️</div>
+          <div style="flex:1;">
+            <div style="font-size:13px;font-weight:900;color:#2d1228;line-height:1.4;margin-bottom:2px;">定位捉對流量加倍</div>
+            <div style="font-size:11px;color:#a06080;">@惠云</div>
+          </div>
+        </div>
+        <div style="background:#fdf5fa;border-radius:10px;padding:9px 12px;margin-bottom:10px;">
+          <div style="font-size:10px;font-weight:900;color:#e0389a;letter-spacing:.06em;margin-bottom:4px;">✨ 適合族群</div>
+          <div style="font-size:12px;color:#2d1228;line-height:1.6;">剛開始做、完全沒方向的人</div>
+        </div>
+        <a href="https://youtu.be/Wh-UTA_Z2wA?si=_l1prC2ipOmBGduv" target="_blank" style="display:block;text-align:center;background:#e0389a;color:#fff;text-decoration:none;border-radius:999px;padding:10px;font-size:13px;font-weight:900;font-family:'Noto Sans TC',sans-serif;">▶ 觀看課程</a>
+      </div>
+
+      <!-- Course 2 -->
+      <div style="background:#fff;border:1.5px solid #f0d0e8;border-radius:16px;padding:16px;margin-bottom:12px;">
+        <div style="display:flex;align-items:flex-start;gap:10px;margin-bottom:10px;">
+          <div style="width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,#9b59b6,#c080e0);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;">▶️</div>
+          <div style="flex:1;">
+            <div style="font-size:13px;font-weight:900;color:#2d1228;line-height:1.4;margin-bottom:2px;">3秒勾住觀眾！爆款影片文案拆解術</div>
+            <div style="font-size:11px;color:#a06080;">@瑜萍</div>
+          </div>
+        </div>
+        <div style="background:#fdf5fa;border-radius:10px;padding:9px 12px;margin-bottom:10px;">
+          <div style="font-size:10px;font-weight:900;color:#e0389a;letter-spacing:.06em;margin-bottom:4px;">✨ 適合族群</div>
+          <div style="font-size:12px;color:#2d1228;line-height:1.6;">已經在經營，但想同時做人設＋產品變現的人</div>
+        </div>
+        <a href="https://youtu.be/2hrUWP2UMdU?si=GSkw0uVJKt6zq32X" target="_blank" style="display:block;text-align:center;background:#9b59b6;color:#fff;text-decoration:none;border-radius:999px;padding:10px;font-size:13px;font-weight:900;font-family:'Noto Sans TC',sans-serif;">▶ 觀看課程</a>
+      </div>
+
+      <!-- Course 3 -->
+      <div style="background:#fff;border:1.5px solid #f0d0e8;border-radius:16px;padding:16px;margin-bottom:12px;">
+        <div style="display:flex;align-items:flex-start;gap:10px;margin-bottom:10px;">
+          <div style="width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,#2980b9,#5ba0d0);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;">▶️</div>
+          <div style="flex:1;">
+            <div style="font-size:13px;font-weight:900;color:#2d1228;line-height:1.4;margin-bottom:2px;">一堂課學會從0到爆款的剪輯技巧</div>
+            <div style="font-size:11px;color:#a06080;">@阿金</div>
+          </div>
+        </div>
+        <div style="background:#fdf5fa;border-radius:10px;padding:9px 12px;margin-bottom:10px;">
+          <div style="font-size:10px;font-weight:900;color:#e0389a;letter-spacing:.06em;margin-bottom:4px;">✨ 適合族群</div>
+          <div style="font-size:12px;color:#2d1228;line-height:1.6;">完全新手（連剪輯都不熟的人）、想提升影片質感的人<br>適合前3秒留不住人、不會寫開頭的人</div>
+        </div>
+        <a href="https://youtu.be/XHq0GSKJey8?si=Eosj6QDPIxMI3xMp" target="_blank" style="display:block;text-align:center;background:#2980b9;color:#fff;text-decoration:none;border-radius:999px;padding:10px;font-size:13px;font-weight:900;font-family:'Noto Sans TC',sans-serif;">▶ 觀看課程</a>
+      </div>
+
+      <!-- Course 4 -->
+      <div style="background:#fff;border:1.5px solid #f0d0e8;border-radius:16px;padding:16px;margin-bottom:12px;">
+        <div style="display:flex;align-items:flex-start;gap:10px;margin-bottom:10px;">
+          <div style="width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,#e67e22,#f0a060);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;">▶️</div>
+          <div style="flex:1;">
+            <div style="font-size:13px;font-weight:900;color:#2d1228;line-height:1.4;margin-bottom:2px;">講師從來沒說過的爆款剪輯方式</div>
+            <div style="font-size:11px;color:#a06080;">@仙女FAIRY 巧穎 × 妮芭 × 惠誼 × 惠☁️</div>
+          </div>
+        </div>
+        <div style="background:#fdf5fa;border-radius:10px;padding:9px 12px;margin-bottom:10px;">
+          <div style="font-size:10px;font-weight:900;color:#e0389a;letter-spacing:.06em;margin-bottom:4px;">✨ 適合族群</div>
+          <div style="font-size:12px;color:#2d1228;line-height:1.6;">已經有在拍，但就是不爆的人<br>覺得內容還可以，但觀看數卡住的人</div>
+        </div>
+        <a href="https://youtu.be/W7_mrT2Yxr8" target="_blank" style="display:block;text-align:center;background:#e67e22;color:#fff;text-decoration:none;border-radius:999px;padding:10px;font-size:13px;font-weight:900;font-family:'Noto Sans TC',sans-serif;">▶ 觀看課程</a>
+      </div>
+
+      <!-- Course 5 -->
+      <div style="background:#fff;border:1.5px solid #f0d0e8;border-radius:16px;padding:16px;margin-bottom:12px;">
+        <div style="display:flex;align-items:flex-start;gap:10px;margin-bottom:10px;">
+          <div style="width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,#27ae60,#50c878);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;">▶️</div>
+          <div style="flex:1;">
+            <div style="font-size:13px;font-weight:900;color:#2d1228;line-height:1.4;margin-bottom:2px;">精準雙軌定位力</div>
+            <div style="font-size:11px;color:#a06080;">@Ruby</div>
+          </div>
+        </div>
+        <div style="background:#fdf5fa;border-radius:10px;padding:9px 12px;margin-bottom:10px;">
+          <div style="font-size:10px;font-weight:900;color:#e0389a;letter-spacing:.06em;margin-bottom:4px;">✨ 適合族群</div>
+          <div style="font-size:12px;color:#2d1228;line-height:1.6;">已經在經營，但想同時做人設＋產品變現的人</div>
+        </div>
+        <a href="https://youtu.be/S4GfSuX72Lo?si=LVZ88-KxG_mla8y5" target="_blank" style="display:block;text-align:center;background:#27ae60;color:#fff;text-decoration:none;border-radius:999px;padding:10px;font-size:13px;font-weight:900;font-family:'Noto Sans TC',sans-serif;">▶ 觀看課程</a>
+      </div>
+
+      <!-- Course 6 -->
+      <div style="background:#fff;border:1.5px solid #f0d0e8;border-radius:16px;padding:16px;margin-bottom:12px;">
+        <div style="display:flex;align-items:flex-start;gap:10px;margin-bottom:10px;">
+          <div style="width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,#c0392b,#e05040);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;">▶️</div>
+          <div style="flex:1;">
+            <div style="font-size:13px;font-weight:900;color:#2d1228;line-height:1.4;margin-bottom:2px;">打造成長複利系統</div>
+            <div style="font-size:11px;color:#a06080;">@陳思諭</div>
+          </div>
+        </div>
+        <div style="background:#fdf5fa;border-radius:10px;padding:9px 12px;margin-bottom:10px;">
+          <div style="font-size:10px;font-weight:900;color:#e0389a;letter-spacing:.06em;margin-bottom:4px;">✨ 適合族群</div>
+          <div style="font-size:12px;color:#2d1228;line-height:1.6;">經營一段時間沒有結果的人</div>
+        </div>
+        <a href="https://youtu.be/Ktr91aGTuWw?si=ZTfArYzhCdjwXRPv" target="_blank" style="display:block;text-align:center;background:#c0392b;color:#fff;text-decoration:none;border-radius:999px;padding:10px;font-size:13px;font-weight:900;font-family:'Noto Sans TC',sans-serif;">▶ 觀看課程</a>
+      </div>
+
+      <!-- Course 7 -->
+      <div style="background:#fff;border:1.5px solid #f0d0e8;border-radius:16px;padding:16px;margin-bottom:12px;">
+        <div style="display:flex;align-items:flex-start;gap:10px;margin-bottom:10px;">
+          <div style="width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,#7f8c8d,#a0b0b0);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;">▶️</div>
+          <div style="flex:1;">
+            <div style="font-size:13px;font-weight:900;color:#2d1228;line-height:1.4;margin-bottom:2px;">全方位引流</div>
+            <div style="font-size:11px;color:#a06080;">@惠誼</div>
+          </div>
+        </div>
+        <div style="background:#fdf5fa;border-radius:10px;padding:9px 12px;margin-bottom:10px;">
+          <div style="font-size:10px;font-weight:900;color:#e0389a;letter-spacing:.06em;margin-bottom:4px;">✨ 適合族群</div>
+          <div style="font-size:12px;color:#2d1228;line-height:1.6;">不太想做引流、懶得剪片的人</div>
+        </div>
+        <a href="https://youtu.be/YczqRbFOF6o?si=CRg3wWc8ROWrfI4q" target="_blank" style="display:block;text-align:center;background:#7f8c8d;color:#fff;text-decoration:none;border-radius:999px;padding:10px;font-size:13px;font-weight:900;font-family:'Noto Sans TC',sans-serif;">▶ 觀看課程</a>
       </div>
     </div>
-    <div style="background:#fdf5fa;border-radius:10px;padding:9px 12px;margin-bottom:10px;">
-      <div style="font-size:10px;font-weight:900;color:#e0389a;letter-spacing:.06em;margin-bottom:4px;">✨ 適合族群</div>
-      <div style="font-size:12px;color:#2d1228;line-height:1.6;">剛開始做、完全沒方向的人</div>
-    </div>
-    <a href="https://youtu.be/Wh-UTA_Z2wA?si=_l1prC2ipOmBGduv" target="_blank" style="display:block;text-align:center;background:#e0389a;color:#fff;text-decoration:none;border-radius:999px;padding:10px;font-size:13px;font-weight:900;font-family:'Noto Sans TC',sans-serif;">▶ 觀看課程</a>
-  </div>
-
-  <!-- Course 2 -->
-  <div style="background:#fff;border:1.5px solid #f0d0e8;border-radius:16px;padding:16px;margin-bottom:12px;">
-    <div style="display:flex;align-items:flex-start;gap:10px;margin-bottom:10px;">
-      <div style="width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,#9b59b6,#c080e0);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;">▶️</div>
-      <div style="flex:1;">
-        <div style="font-size:13px;font-weight:900;color:#2d1228;line-height:1.4;margin-bottom:2px;">3秒勾住觀眾！爆款影片文案拆解術</div>
-        <div style="font-size:11px;color:#a06080;">@瑜萍</div>
-      </div>
-    </div>
-    <div style="background:#fdf5fa;border-radius:10px;padding:9px 12px;margin-bottom:10px;">
-      <div style="font-size:10px;font-weight:900;color:#e0389a;letter-spacing:.06em;margin-bottom:4px;">✨ 適合族群</div>
-      <div style="font-size:12px;color:#2d1228;line-height:1.6;">已經在經營，但想同時做人設＋產品變現的人</div>
-    </div>
-    <a href="https://youtu.be/2hrUWP2UMdU?si=GSkw0uVJKt6zq32X" target="_blank" style="display:block;text-align:center;background:#9b59b6;color:#fff;text-decoration:none;border-radius:999px;padding:10px;font-size:13px;font-weight:900;font-family:'Noto Sans TC',sans-serif;">▶ 觀看課程</a>
-  </div>
-
-  <!-- Course 3 -->
-  <div style="background:#fff;border:1.5px solid #f0d0e8;border-radius:16px;padding:16px;margin-bottom:12px;">
-    <div style="display:flex;align-items:flex-start;gap:10px;margin-bottom:10px;">
-      <div style="width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,#2980b9,#5ba0d0);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;">▶️</div>
-      <div style="flex:1;">
-        <div style="font-size:13px;font-weight:900;color:#2d1228;line-height:1.4;margin-bottom:2px;">一堂課學會從0到爆款的剪輯技巧</div>
-        <div style="font-size:11px;color:#a06080;">@阿金</div>
-      </div>
-    </div>
-    <div style="background:#fdf5fa;border-radius:10px;padding:9px 12px;margin-bottom:10px;">
-      <div style="font-size:10px;font-weight:900;color:#e0389a;letter-spacing:.06em;margin-bottom:4px;">✨ 適合族群</div>
-      <div style="font-size:12px;color:#2d1228;line-height:1.6;">完全新手（連剪輯都不熟的人）、想提升影片質感的人<br>適合前3秒留不住人、不會寫開頭的人</div>
-    </div>
-    <a href="https://youtu.be/XHq0GSKJey8?si=Eosj6QDPIxMI3xMp" target="_blank" style="display:block;text-align:center;background:#2980b9;color:#fff;text-decoration:none;border-radius:999px;padding:10px;font-size:13px;font-weight:900;font-family:'Noto Sans TC',sans-serif;">▶ 觀看課程</a>
-  </div>
-
-  <!-- Course 4 -->
-  <div style="background:#fff;border:1.5px solid #f0d0e8;border-radius:16px;padding:16px;margin-bottom:12px;">
-    <div style="display:flex;align-items:flex-start;gap:10px;margin-bottom:10px;">
-      <div style="width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,#e67e22,#f0a060);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;">▶️</div>
-      <div style="flex:1;">
-        <div style="font-size:13px;font-weight:900;color:#2d1228;line-height:1.4;margin-bottom:2px;">講師從來沒說過的爆款剪輯方式</div>
-        <div style="font-size:11px;color:#a06080;">@仙女FAIRY 巧穎 × 妮芭 × 惠誼 × 惠☁️</div>
-      </div>
-    </div>
-    <div style="background:#fdf5fa;border-radius:10px;padding:9px 12px;margin-bottom:10px;">
-      <div style="font-size:10px;font-weight:900;color:#e0389a;letter-spacing:.06em;margin-bottom:4px;">✨ 適合族群</div>
-      <div style="font-size:12px;color:#2d1228;line-height:1.6;">已經有在拍，但就是不爆的人<br>覺得內容還可以，但觀看數卡住的人</div>
-    </div>
-    <a href="https://youtu.be/W7_mrT2Yxr8" target="_blank" style="display:block;text-align:center;background:#e67e22;color:#fff;text-decoration:none;border-radius:999px;padding:10px;font-size:13px;font-weight:900;font-family:'Noto Sans TC',sans-serif;">▶ 觀看課程</a>
-  </div>
-
-  <!-- Course 5 -->
-  <div style="background:#fff;border:1.5px solid #f0d0e8;border-radius:16px;padding:16px;margin-bottom:12px;">
-    <div style="display:flex;align-items:flex-start;gap:10px;margin-bottom:10px;">
-      <div style="width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,#27ae60,#50c878);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;">▶️</div>
-      <div style="flex:1;">
-        <div style="font-size:13px;font-weight:900;color:#2d1228;line-height:1.4;margin-bottom:2px;">精準雙軌定位力</div>
-        <div style="font-size:11px;color:#a06080;">@Ruby</div>
-      </div>
-    </div>
-    <div style="background:#fdf5fa;border-radius:10px;padding:9px 12px;margin-bottom:10px;">
-      <div style="font-size:10px;font-weight:900;color:#e0389a;letter-spacing:.06em;margin-bottom:4px;">✨ 適合族群</div>
-      <div style="font-size:12px;color:#2d1228;line-height:1.6;">已經在經營，但想同時做人設＋產品變現的人</div>
-    </div>
-    <a href="https://youtu.be/S4GfSuX72Lo?si=LVZ88-KxG_mla8y5" target="_blank" style="display:block;text-align:center;background:#27ae60;color:#fff;text-decoration:none;border-radius:999px;padding:10px;font-size:13px;font-weight:900;font-family:'Noto Sans TC',sans-serif;">▶ 觀看課程</a>
-  </div>
-
-  <!-- Course 6 -->
-  <div style="background:#fff;border:1.5px solid #f0d0e8;border-radius:16px;padding:16px;margin-bottom:12px;">
-    <div style="display:flex;align-items:flex-start;gap:10px;margin-bottom:10px;">
-      <div style="width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,#c0392b,#e05040);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;">▶️</div>
-      <div style="flex:1;">
-        <div style="font-size:13px;font-weight:900;color:#2d1228;line-height:1.4;margin-bottom:2px;">打造成長複利系統</div>
-        <div style="font-size:11px;color:#a06080;">@陳思諭</div>
-      </div>
-    </div>
-    <div style="background:#fdf5fa;border-radius:10px;padding:9px 12px;margin-bottom:10px;">
-      <div style="font-size:10px;font-weight:900;color:#e0389a;letter-spacing:.06em;margin-bottom:4px;">✨ 適合族群</div>
-      <div style="font-size:12px;color:#2d1228;line-height:1.6;">經營一段時間沒有結果的人</div>
-    </div>
-    <a href="https://youtu.be/Ktr91aGTuWw?si=ZTfArYzhCdjwXRPv" target="_blank" style="display:block;text-align:center;background:#c0392b;color:#fff;text-decoration:none;border-radius:999px;padding:10px;font-size:13px;font-weight:900;font-family:'Noto Sans TC',sans-serif;">▶ 觀看課程</a>
-  </div>
-
-  <!-- Course 7 -->
-  <div style="background:#fff;border:1.5px solid #f0d0e8;border-radius:16px;padding:16px;margin-bottom:12px;">
-    <div style="display:flex;align-items:flex-start;gap:10px;margin-bottom:10px;">
-      <div style="width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,#7f8c8d,#a0b0b0);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;">▶️</div>
-      <div style="flex:1;">
-        <div style="font-size:13px;font-weight:900;color:#2d1228;line-height:1.4;margin-bottom:2px;">全方位引流</div>
-        <div style="font-size:11px;color:#a06080;">@惠誼</div>
-      </div>
-    </div>
-    <div style="background:#fdf5fa;border-radius:10px;padding:9px 12px;margin-bottom:10px;">
-      <div style="font-size:10px;font-weight:900;color:#e0389a;letter-spacing:.06em;margin-bottom:4px;">✨ 適合族群</div>
-      <div style="font-size:12px;color:#2d1228;line-height:1.6;">不太想做引流、懶得剪片的人</div>
-    </div>
-    <a href="https://youtu.be/YczqRbFOF6o?si=CRg3wWc8ROWrfI4q" target="_blank" style="display:block;text-align:center;background:#7f8c8d;color:#fff;text-decoration:none;border-radius:999px;padding:10px;font-size:13px;font-weight:900;font-family:'Noto Sans TC',sans-serif;">▶ 觀看課程</a>
-  </div>
-</div>
-```
-
   </div>
 </div>
 
 <!-- ══ TAB BAR ══ -->
-
 <div id="tab-bar">
   <button class="tab-item active" id="tab-quiz-btn" onclick="switchMainTab('quiz')">
     <span class="tab-icon">📝</span>
@@ -1567,19 +1538,20 @@ function show(id){
   window.scrollTo({top:0,behavior:'smooth'});
   if(QUIZ_PAGES.includes(id)) lastQuizPage=id;
   if(RESULT_PAGES.includes(id)) lastResultPage=id;
-  // Keep tab buttons in sync
   const isResult = RESULT_PAGES.includes(id) || id==='p-mypos-empty';
   const isVideos = id === 'p-videos';
   const isAudience = id === 'p-audience';
   const isGuide = id === 'p-guide';
   const isSelfEval = id === 'p-selfeval';
+  const isCourses = id === 'p-courses';
   if(document.getElementById('tab-quiz-btn')){
-    document.getElementById('tab-quiz-btn').classList.toggle('active', !isResult && !isVideos && !isAudience && !isGuide && !isSelfEval);
+    document.getElementById('tab-quiz-btn').classList.toggle('active', !isResult && !isVideos && !isAudience && !isGuide && !isSelfEval && !isCourses);
     document.getElementById('tab-result-btn').classList.toggle('active', isResult);
     document.getElementById('tab-guide-btn')?.classList.toggle('active', isGuide);
     document.getElementById('tab-audience-btn').classList.toggle('active', isAudience);
     document.getElementById('tab-selfeval-btn')?.classList.toggle('active', isSelfEval);
     document.getElementById('tab-videos-btn').classList.toggle('active', isVideos);
+    document.getElementById('tab-courses-btn')?.classList.toggle('active', isCourses);
   }
 }
 function goPage(id){show(id);}
@@ -2972,6 +2944,5 @@ function restoreSEState() {
 renderDailyMotivation();
 runWelcome();
 </script>
-
 </body>
 </html>
